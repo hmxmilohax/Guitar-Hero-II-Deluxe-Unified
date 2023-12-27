@@ -1,6 +1,0 @@
-#include macros.dta
-#ifdef HX_EE
-(objects
-   #merge ../m2/m2_objects.dta)
-#endif
-#merge default.dta
