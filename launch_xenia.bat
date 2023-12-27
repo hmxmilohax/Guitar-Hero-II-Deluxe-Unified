@@ -1,0 +1,1 @@
+START "" "%~dp0_xenia\xenia_canary.exe" "%~dp0_build\xbox\default.xex"

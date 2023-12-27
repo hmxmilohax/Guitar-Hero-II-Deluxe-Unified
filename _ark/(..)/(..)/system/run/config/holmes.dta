@@ -1,0 +1,17 @@
+#include macros.dta
+(mem
+   (heaps
+      (main
+         #ifdef HX_XBOX
+         (size 5500000)
+         #else
+         (size 4500000)
+         #endif)
+      (synth
+         #ifdef HX_XBOX
+         (size 1024)
+         #else
+         (size 0)
+         #endif)))
+(disable_cheats TRUE)
+#merge default.dta

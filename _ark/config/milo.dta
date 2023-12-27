@@ -1,0 +1,19 @@
+#include macros.dta
+(objects
+   #ifdef HX_XBOX
+   #include objects.dta
+   #else
+   #merge objects.dta
+   #endif
+)
+(locale ../ui/eng/locale_milo.dta ../ui/eng/locale.dta)
+(ui
+   #include ../ui/defaults.dta)
+(milo
+   (title
+      "GH2"))
+#ifdef HX_XBOX
+(system
+   (ng TRUE))
+#endif
+#merge ../../../system/run/config/milo.dta

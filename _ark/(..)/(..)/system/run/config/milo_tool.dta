@@ -1,0 +1,75 @@
+#include macros.dta
+#ifdef HX_XBOX
+(system
+   (xbox_map_file
+      "milo_tool_%s.map"))
+#endif
+(spew)
+(ui
+   #include milo_ui.dta)
+(timer
+   anim
+   draw
+   'anim+draw'
+   (budget 4.5)
+   cpu
+   gs
+   (budget 7.5))
+(rnd
+   (timer_script
+      {set_timer_ms
+         'anim+draw'
+         {'+'
+            {timer_ms anim}
+            {timer_ms draw}}}))
+(mem
+   (heaps
+      #ifdef HX_EE
+      (main
+         (size 40000000))
+      (rnd
+         (size 8000000)
+         (handle TRUE))
+      #endif
+      #ifdef HX_XBOX
+      (main
+         (size 50000000))
+      #endif)
+   (pool
+      (big_hunk 3100000)
+      (small_hunk 50000))
+   #ifdef HX_EE
+   (ps2_clamp_32 FALSE)
+   (track_stl TRUE)
+   (enable_tracking FALSE)
+   #else
+   (track_stl TRUE)
+   (enable_tracking TRUE)
+   #endif)
+(milo_tool
+   (memtrack
+      #ifdef HX_EE
+      (mesh_rnd mFacePacket mEdgePacket)
+      #endif
+      (mesh
+         '*Mesh'
+         Vert
+         RndBones
+         TransListNode
+         #ifdef HX_XBOX
+         "D3D(phys):Mesh"
+         #endif)
+      (bsp BSPNode)
+      (tex_mov
+         Resource
+         Bitmap_buf
+         PsMat
+         PsTex
+         #ifdef HX_XBOX
+         "D3D(phys):Tex"
+         #endif)
+      (part Particle ParticleSys)
+      (keys '*Key')
+      (presets '*LightPreset')
+      (other '*Rnd' '*Anim' View Cam Light Environ)))
+#merge default.dta

@@ -1,0 +1,10 @@
+#ifdef HX_XBOX
+#include macros.dta
+#endif
+(ark_build
+   (main
+      (dirs SYSTEM_DIRS)
+      (file_exts)
+      (skip_files)
+      (skip_dirs STD_SKIP_DIRS)))
+#merge default.dta
