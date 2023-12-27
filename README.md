@@ -1,7 +1,13 @@
 # Guitar Hero II Deluxe: Unified
 
-## This is currently in *pre-alpha*, but you can download the latest nightly builds here.
+## This is currently in *pre-alpha*.
 
-### 📥 [Guitar Hero II Deluxe for PS2](https://nightly.link/hmxmilohax/Guitar-Hero-II-Deluxe-Unified/workflows/build/main/GH2DX-PS2.zip)
+# Prerequisites
+You will need NTSC copies of Guitar Hero 2 on both Xbox 360 and PS2.
+Copy extracted PS2 contents to `_vanilla/vanilla_ps2`.
+Copy extracted Xbox 360 contents to `_vanilla/vanilla_xbox`.
+Run `_01_extract_vanilla_games.bat`.
 
-### 📥 [Guitar Hero II Deluxe for Xbox 360](https://nightly.link/hmxmilohax/Guitar-Hero-II-Deluxe-Unified/workflows/build/main/GH2DX-Xbox.zip)
+# Building
+Run `build_xbox.bat` to build Xbox.
+Run `build_ps2.bat` to build PS2.
