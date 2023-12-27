@@ -41,7 +41,10 @@
                {!=
                   $new_venue
                   ""}
-               {gamecfg set continue_screen career_screen}}
+               {gamecfg set continue_screen career_screen}
+               #ifdef HX_XBOX
+               {achievements submit_venue $new_venue}
+               #endif}
             {if
                {get_highscore_index $score}
                {highscores
@@ -49,7 +52,37 @@
                   {campaign
                      profile_name
                      {campaign profile_slot}}
-                  $score}}}}
+                  $score}}
+            #ifdef HX_XBOX
+            {if
+               {campaign won_campaign}
+               {do
+                  ($diff
+                     {gamecfg get_difficulty 0})
+                  ($five
+                     {campaign is_max_status})
+                  {achievements submit_tour $diff $five}}}
+            #endif}}
+      #ifdef HX_XBOX
+      {if
+         {!
+            {gamecfg multiplayer}}
+         {if
+            {&&
+               {campaign is_song_passed trogdor}
+               {campaign is_song_passed thunderhorse}}
+            {achievements submit troghorse}}
+         {if
+            {campaign store_songs_passed}
+            {achievements submit beat_unlocks}}}
+      {if
+         {!
+            {gamecfg multiplayer}}
+         {leaderboards
+            submit_score
+            {gamecfg get_song}
+            {player0 score}}}
+      #endif
       {do
          ($win_screen $freebird)
          {set
@@ -73,7 +106,12 @@
          {if
             {== $win_screen endgame_encore_screen}
             {endgame_encore_panel set freebird $freebird}}
-         {ui goto_screen $win_screen}})}
+         {ui goto_screen $win_screen}})
+   #ifdef HX_XBOX
+   (exit
+      {rnd unset_depth_of_field}
+      {world_panel set_paused TRUE})
+   #endif}
 {func
    goto_endgame_complete
    {ui
@@ -632,6 +670,9 @@
                   {$this set_focus yes_freebird1.btn}}
                {do START_ENCORE}})
          ((no.btn no_freebird1.btn no_freebird2.btn no_freebird3.btn)
+            #ifdef HX_XBOX
+            {achievements submit encoreno}
+            #endif
             {world play_meta_sfx encore_no}
             {encore_stream stop}
             {ui goto_screen endgame_screen})
@@ -1277,7 +1318,14 @@
    (enter
       {set
          [okay_to_add_score]
-         TRUE})
+         TRUE}
+      #ifdef HX_XBOX
+      {set_key_cheats_enabled FALSE}
+      #endif)
+   #ifdef HX_XBOX
+   (exit
+      {set_key_cheats_enabled TRUE})
+   #endif
    (update_help_bar
       {do
          ($ten
@@ -1289,14 +1337,28 @@
                   {!= $ten NULL}
                   {!
                      {$ten is_done}}}
+               #ifdef HX_XBOX
+               {get_text_entry_help_text $ten FALSE}
+               #else
                {get_text_entry_help_text
                   ()
                   $ten
                   FALSE}
+               #endif
                {if_else
                   {highscore_panel get flushed}
                   ()
                   ((fret1 help_continue))}}}})
+   #ifdef HX_XBOX
+   (CHAR_REMOVED_MSG
+      {synth play_sequence button_back.cue}
+      {$this update_help_bar}
+      kDataUnhandled)
+   (CHAR_ADDED_MSG
+      {synth play_sequence button_select}
+      {$this update_help_bar}
+      kDataUnhandled)
+   #else
    (SELECT_START_MSG
       {$this update_help_bar}
       kDataUnhandled)
@@ -1304,6 +1366,7 @@
       {synth play_sequence button_back.cue}
       {$this update_help_bar}
       kDataUnhandled)
+   #endif
    (TEXT_ENTRY_MSG
       {do
          ($ten
