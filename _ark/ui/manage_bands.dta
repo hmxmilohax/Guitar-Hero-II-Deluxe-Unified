@@ -152,9 +152,36 @@
          set_frame
          {[prof_ten]
             length}}
-      {set_key_cheats_enabled FALSE})
+      #ifdef HX_XBOX
+      {set_key_cheats_enabled FALSE}
+      #endif)
+   #ifdef HX_XBOX
    (exit
       {set_key_cheats_enabled TRUE})
+   #endif
+   #ifdef HX_EE
+   (update_nameprof
+      ($new_length)
+      {if
+         {!=
+            $new_length
+            {[prof_ten]
+               length}}
+         {[zoom_tnm]
+            animate
+            (range
+               {[prof_ten]
+                  length}
+               $new_length)
+            (units kTaskUISeconds)
+            (period 0.1)}})
+   (get_help_text
+      ($array)
+      {get_text_entry_help_text
+         $array
+         {nameprof_panel find profile.ten}
+         TRUE})
+   #endif
    (TEXT_ENTRY_MSG
       {do
          ($profile
@@ -179,6 +206,7 @@
                {autosave_goto
                   {$this get next_screen}})}}
       kDataUnhandled)
+   #ifdef HX_XBOX
    (CHAR_ADDED_MSG
       {$this text_changed})
    (CHAR_REMOVED_MSG
@@ -203,6 +231,8 @@
             {get_text_entry_help_text
                [prof_ten]
                TRUE}}})
+   #endif
+   #ifdef HX_XBOX
    (BUTTON_DOWN_MSG
       {switch
          $button
@@ -217,6 +247,40 @@
                   goto_screen
                   {$this get back_screen}}})}
       kDataUnhandled)
+   #else
+   (BUTTON_DOWN_MSG
+      {if
+         {&&
+            {== $button kPad_Tri}
+            {[prof_ten]
+               no_text_entered}}
+         {$this set profile_slot -1}
+         {$this backwards_anim}
+         {synth play_sequence button_back.cue}
+         {ui
+            goto_screen
+            {$this get back_screen}}}
+      {if
+         {'||'
+            {== $button kPad_Tri}
+            {== $button kPad_X}}
+         {do
+            ($length
+               {[prof_ten]
+                  length})
+            {$this
+               update_nameprof
+               {if_else
+                  {== $button kPad_X}
+                  {min
+                     {'+' $length 1}
+                     20}
+                  {max
+                     {- $length 1}
+                     0}}}}}
+      kDataUnhandled)
+   #endif
+   #ifdef HX_XBOX
    (TRANSITION_COMPLETE_MSG
       {do
          ($ten
@@ -225,8 +289,34 @@
          {helpbar
             set_display
             {get_text_entry_help_text $ten TRUE}}})
+   #else
+   (TRANSITION_COMPLETE_MSG
+      {{nameprof_panel find profile.ten}
+         resume_input}
+      {helpbar
+         set_display
+         {$this
+            get_help_text
+            ()}})
+   (SELECT_START_MSG
+      {helpbar
+         set_display
+         {$this
+            get_help_text
+            ()}}
+      kDataUnhandled)
+   #endif
    (SELECT_MSG
-      {synth play_sequence button_select})}
+      {synth play_sequence button_select})
+   #ifdef HX_EE
+   (SCREEN_BACK_MSG
+      {helpbar
+         set_display
+         {$this
+            get_help_text
+            ()}}
+      kDataUnhandled)
+   #endif}
 {new
    UIPanel
    manage_band_panel
@@ -268,7 +358,15 @@
             {nameprof_screen set is_editing TRUE}
             {ui goto_screen nameprof_screen})
          (delete_band.btn
-            {ui goto_screen delete_band_confirmation_screen})}
+            #ifdef HX_XBOX
+            {ui goto_screen delete_band_confirmation_screen}
+            #else
+            {delete_confirm
+               set
+               selected_slot
+               [profile_slot]}
+            {ui goto_screen delete_confirm}
+            #endif)}
       kDataUnhandled)
    (BUTTON_DOWN_MSG
       {if
