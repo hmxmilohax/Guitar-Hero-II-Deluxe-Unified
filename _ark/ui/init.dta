@@ -1,7 +1,7 @@
 ; TODO MERGE THESE ONES
 #ifdef HX_XBOX
 #include splash_xbox.dta
-#include manage_bands_xbox.dta
+#include manage_bands.dta
 #include mem_card_xbox.dta
 #include error.dta
 #include loading.dta
@@ -20,7 +20,7 @@
 #include leaderboards.dta
 #else
 #include splash_ps2.dta
-#include manage_bands_ps2.dta
+#include manage_bands.dta
 #include mem_card_ps2.dta
 #include error.dta
 #include loading.dta
