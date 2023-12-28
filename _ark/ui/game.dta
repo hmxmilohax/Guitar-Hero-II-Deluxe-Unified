@@ -94,7 +94,11 @@
          {&&
             {==
                {game get_venue}
-               small1}
+               #ifdef HX_XBOX
+               small1
+               #else
+               battle
+               #endif}
             {&&
                {==
                   {game want_encore_fx}
@@ -201,7 +205,11 @@
                {&&
                   {==
                      {game get_venue}
-                     small1}
+                     #ifdef HX_XBOX
+                     small1
+                     #else
+                     battle
+                     #endif}
                   {&&
                      {==
                         {game want_encore_fx}
@@ -223,6 +231,7 @@
                                  guitarist0}
                               game_won_msg
                               $encore)})}}}
+            #ifdef HX_XBOX
             {if
                {!
                   {gamecfg multiplayer}}
@@ -258,6 +267,7 @@
                {achievements
                   submit_coop_points
                   {band score}}}
+            #endif
             {track_panel explode}
             {play_game_sfx TRACK_EXPLODE_SFX}
             {game set_realtime TRUE}
@@ -271,6 +281,7 @@
       {track_panel set_showing FALSE}
       {game set_realtime TRUE}
       {$this slow_music}
+      #ifdef HX_XBOX
       {if
          {&&
             {==
@@ -279,6 +290,7 @@
             {!
                {gamecfg multiplayer}}}
          {achievements submit faileasy}}
+      #endif
       kDataUnhandled)
    (game_outro_complete
       {synth stop_all_sfx}
@@ -297,7 +309,9 @@
                goto_screen
                {if_else $auto_restart loading_screen post_show_screen}}}
          {do
+            #ifdef HX_XBOX
             {world_panel set_paused TRUE}
+            #endif
             {ui
                goto_screen
                {gamecfg get lose_screen}}}}
@@ -402,7 +416,9 @@
          set_name
          world
          main}
-      {world set echo_msgs $echo_world_events})
+      #ifdef HX_XBOX
+      {world set echo_msgs $echo_world_events}
+      #endif)
    (enter
       {if_else
          {game multiplayer}
@@ -425,15 +441,28 @@
    fade_panel
    (file fade.milo)
    (enter
+      #ifdef HX_XBOX
       {do
          ($attract
             {==
                {gamecfg get mode}
                attract})
          {press_any_button.lbl set_showing $attract}
-         {logo.mesh set_showing $attract}})}
+         {logo.mesh set_showing $attract}}
+      #else
+      {press_any_button.lbl
+         set_showing
+         {game_screen get attract_mode}}
+      #endif)}
+#ifdef HX_XBOX
+#define TRACK_MASK
+(track_mask)
+#else
+#define TRACK_MASK
+()
+#endif
 #define GAME_PANELS
-(midi_loader_panel game track_mask world_panel track_panel hud mtv_overlay_panel)
+(midi_loader_panel game TRACK_MASK world_panel track_panel hud mtv_overlay_panel)
 {new
    GHScreen
    game_screen
@@ -497,6 +526,7 @@
                {game multiplayer}
                {ui goto_screen multi_pause_controller_screen}
                {ui goto_screen pause_controller_screen}}}}
+      #ifdef HX_XBOX
       {if
          {&&
             {profilemgr guide_showing}
@@ -508,7 +538,8 @@
                {ui in_transition}}
             {!
                [attract_mode]}}
-         {$this pause_game}})
+         {$this pause_game}}
+     #endif)
    (TRANSITION_COMPLETE_MSG
       {if
          $game_unpause_on_enter
@@ -534,10 +565,14 @@
             $attract_length_sec
             {min ATTRACT_LENGTH_SEC $song_dur}}
          {track_panel set_showing FALSE}}
+      #ifdef HX_XBOX
       {track_mask
          set_showing
          {!
-            [attract_mode]}})}
+            [attract_mode]}}
+      #else
+      {track_panel set_showing FALSE}
+      #endif)}
 {new
    GHScreen
    finish_fade
@@ -556,6 +591,7 @@
          show
          "Reloading track..."}
       {game_restart_fast})}
+#ifdef HX_XBOX
 {new
    GHScreen
    glitch_screen
@@ -563,4 +599,5 @@
    (enter
       {print
          "entered glitch screen"})}
+#endif
 #include hud_budget.dta
