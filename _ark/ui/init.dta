@@ -22,6 +22,7 @@
 #ifdef HX_XBOX
 #include leaderboards.dta
 #endif
+#include ../dx/funcs/dx_funcs.dta
 {foreach
    $p
    #ifdef HX_XBOX
