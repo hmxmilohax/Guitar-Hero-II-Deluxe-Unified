@@ -16,7 +16,7 @@
 #include options_xbox.dta
 #include practice.dta
 #include training.dta
-#include pause_xbox.dta
+#include pause.dta
 #include leaderboards.dta
 #else
 #include splash_ps2.dta
@@ -35,7 +35,7 @@
 #include options_ps2.dta
 #include practice.dta
 #include training.dta
-#include pause_ps2.dta
+#include pause.dta
 #endif
 {foreach
    $p

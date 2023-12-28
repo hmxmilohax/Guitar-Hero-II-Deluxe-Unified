@@ -35,11 +35,24 @@
          (resume.btn
             {$this resume})
          (restart.btn
-            {$this restart})
+            #ifdef HX_XBOX
+            {pause_confirm_restart_screen set pause_screen $this}
+            {ui goto_screen pause_confirm_restart_screen}
+            #else
+            {$this restart}
+            #endif)
          (audio_options.btn
             {ui goto_screen pause_audio_settings_screen})
          (video_options.btn
+            #ifdef HX_XBOX
+            {pause_video_settings_screen set stash_lefty_settings TRUE}
+            #endif
             {ui goto_screen pause_video_settings_screen})
+         #ifdef HX_XBOX
+         (quit.btn
+            {pause_confirm_quit_screen set pause_screen $this}
+            {ui goto_screen pause_confirm_quit_screen})
+         #else
          (quit.btn
             {if
                {==
@@ -74,7 +87,8 @@
                      1
                      {!
                         {options get_lefty 1}}})}
-            {ui goto_screen pause_video_settings_screen})}))
+            {ui goto_screen pause_video_settings_screen})
+   #endif}))
 {new
    GHScreen
    pause_screen
@@ -175,7 +189,9 @@
       {{game get_bank_loader}
          reset}
       {if_else
-         [autosave]
+         {&&
+            [autosave]
+            {! $signin_changed_notification}}
          {autosave_goto
             [next_screen]}
          {do
@@ -197,11 +213,21 @@
             {game multiplayer}
             controller_loss_msg_multi
             controller_loss_msg}})
+   #ifdef HX_XBOX
+   (poll
+      {if_else
+         {game is_missing_controller}
+         {$this disable resume.btn}
+         {do
+            {$this enable resume.btn}
+            {$this set_focus resume.btn}}})
+   #else
    (poll
       {if_else
          {game is_missing_controller}
          {resume.btn set_state kDisabled}
-         {resume.btn set_state kFocused}})}
+         {resume.btn set_state kFocused}})
+   #endif}
 {new
    GHScreen
    pause_controller_screen
@@ -242,6 +268,20 @@
             {game multiplayer}
             controller_loss_msg_multi
             controller_loss_msg}})
+   #ifdef HX_XBOX
+   (poll
+      {if_else
+         {game is_multiple_controllers}
+         {if
+            {==
+               {resume.btn get_state}
+               kDisabled}
+            {$this enable resume.btn}
+            {$this set_focus resume.btn}}
+         {do
+            {$this disable resume.btn}
+            {$this set_focus quit.btn}}})
+   #else
    (poll
       {if_else
          {game is_missing_multi_controller}
@@ -252,7 +292,8 @@
             {==
                {resume.btn get_state}
                kDisabled}
-            {$this set_focus resume.btn}}})}
+            {$this set_focus resume.btn}}})
+   #endif}
 {new
    GHScreen
    multi_pause_controller_screen
@@ -275,7 +316,106 @@
    (in_game TRUE)
    (lefty_switch 0)
    PAUSE_SCREEN_HANDLERS
+   #ifdef HX_EE
    PAUSE_SELECT_START_HANDLER
+   #endif
    (helpbar
       (default
-         ((fret1 help_continue))))}
+         ((fret1 help_continue))))
+   #ifdef HX_XBOX
+   (SELECT_START_MSG
+      {switch
+         $component
+         (restart.btn
+            {lefty_restart_screen restart})
+         (reset.btn
+            {switch
+               [lefty_switch]
+               (0
+                  {options
+                     set_lefty
+                     0
+                     {!
+                        {options get_lefty 0}}})
+               (1
+                  {options
+                     set_lefty
+                     1
+                     {!
+                        {options get_lefty 1}}})
+               (2
+                  {options
+                     set_lefty
+                     0
+                     {!
+                        {options get_lefty 0}}}
+                  {options
+                     set_lefty
+                     1
+                     {!
+                        {options get_lefty 1}}})}
+            {ui goto_screen pause_video_settings_screen})})
+   #endif}
+#ifdef HX_XBOX
+{new
+   GHPanel
+   pause_confirm_quit_panel
+   (file pause_quit.milo)
+   (focus quit.btn)
+   (enter
+      {$this set_focus quit.btn})}
+{new
+   GHScreen
+   pause_confirm_quit_screen
+   (panels GAME_PANELS pause_confirm_quit_panel)
+   (focus pause_confirm_quit_panel)
+   (in_game TRUE)
+   (allow_back FALSE)
+   (animate_transition FALSE)
+   (pause_screen pause_screen)
+   (SELECT_START_MSG
+      {switch
+         $component
+         (quit.btn
+            {if
+               {==
+                  career
+                  {gamecfg get mode}}
+               {gamecfg set continue_screen sel_song_screen}
+               {print
+                  "quit career\n"}}
+            {meta_loading_goto
+               {gamecfg get continue_screen}})
+         (cancel.btn
+            {ui
+               goto_screen
+               [pause_screen]})
+         kDataUnhandled})}
+{new
+   GHPanel
+   pause_confirm_restart_panel
+   (file pause_restart.milo)
+   (focus restart.btn)
+   (enter
+      {$this set_focus restart.btn})}
+{new
+   GHScreen
+   pause_confirm_restart_screen
+   (panels GAME_PANELS pause_confirm_restart_panel)
+   (focus pause_confirm_restart_panel)
+   (in_game TRUE)
+   (allow_back FALSE)
+   (animate_transition FALSE)
+   (pause_screen pause_screen)
+   (SELECT_START_MSG
+      {switch
+         $component
+         (restart.btn
+            {[pause_screen]
+               restart})
+         (cancel.btn
+            {ui
+               goto_screen
+               [pause_screen]})
+         kDataUnhandled})}
+#endif
