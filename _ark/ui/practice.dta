@@ -32,7 +32,7 @@
 {new
    GHScreen
    practice_selpart_screen
-   (panels meta selpart_bg_panel practice_selpart_panel helpbar)
+   (panels meta #ifdef HX_EE selpart_bg_panel #endif practice_selpart_panel helpbar)
    (focus practice_selpart_panel)
    (helpbar
       (default
@@ -84,11 +84,17 @@
          [section]
          0}
       {meta_music stop}
+      #ifdef HX_XBOX
+      {profilemgr disable_xmp}
+      #endif
       {gamecfg set practice_speed 0}
       {$this play_preview})
    (exit
       {song_preview ''}
-      {meta_music start})
+      {meta_music start}
+      #ifdef HX_XBOX
+      {profilemgr enable_xmp}
+      #endif)
    (SELECT_START_MSG
       {do
          ($idx
@@ -244,10 +250,21 @@
    (update
       {click_parser remove_sink $this}
       {if
+         #ifdef HX_XBOX
+         {&&
+            {!=
+               {gamecfg get practice_speed}
+               0}
+            {! $stretch_bg}}
+         #else
          {!=
             {gamecfg get practice_speed}
             0}
+         #endif
          {click_parser add_sink $this}}
+      #ifdef HX_XBOX
+      {beatmatch update_practice_speed}
+      #endif
       {if
          {!
             [keep_section_text]}
@@ -295,8 +312,10 @@
             {== $button kPad_Start}
             {!
                {game get game_over}}}
-         {game set_paused TRUE}
-         {ui goto_screen pract_pause_screen}})
+         {$this pause_practice}})
+   (pause_practice
+      {game set_paused TRUE}
+      {ui goto_screen pract_pause_screen})
    (enter
       {practice_panel update})
    (TRANSITION_COMPLETE_MSG
@@ -308,7 +327,19 @@
       {if
          {game is_missing_controller}
          {game set_paused TRUE}
-         {ui goto_screen practice_pause_controller_screen}})}
+         {ui goto_screen practice_pause_controller_screen}}
+      #ifdef HX_XBOX
+      {if
+         {&&
+            {profilemgr guide_showing}
+            {!
+               {game paused}}
+            {!
+               {game get game_over}}
+            {!
+               {ui in_transition}}}
+         {$this pause_practice}}
+      #endif)}
 {new
    GHPanel
    practice_end_panel
@@ -341,7 +372,16 @@
             {! $career}}
          {$this
             set_focus
-            {if_else $career restart_career.btn restart.btn}}})
+            {if_else $career restart_career.btn restart.btn}}}
+      #ifdef HX_XBOX
+      {if
+         {campaign
+            check_practice_achievement
+            {gamecfg get_song}}
+         {gamecfg set allow_achievements TRUE}
+         {achievements submit practice}
+         {gamecfg set allow_achievements FALSE}}
+      #endif)
    (SELECT_START_MSG
       {switch
          $component
@@ -393,6 +433,8 @@
          ((fret1 help_continue)
             (fret2 help_back)
             (strum help_updown))))
+   (enter
+      {mtv_overlay_panel set_showing FALSE})
    (SELECT_START_MSG
       {game_restart}
       kDataUnhandled)

@@ -14,7 +14,7 @@
 #include main.dta
 #include tutorials.dta
 #include options_xbox.dta
-#include practice_xbox.dta
+#include practice.dta
 #include training.dta
 #include pause_xbox.dta
 #include leaderboards.dta
@@ -33,7 +33,7 @@
 #include main.dta
 #include tutorials.dta
 #include options_ps2.dta
-#include practice_ps2.dta
+#include practice.dta
 #include training.dta
 #include pause_ps2.dta
 #endif
