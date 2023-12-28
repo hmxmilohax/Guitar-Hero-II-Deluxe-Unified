@@ -1,0 +1,33 @@
+(base_dir
+   #ifdef _SHIP
+   "GH2DX-00300"
+   #else
+   "GH2DX-00301"
+   #endif
+)
+(elf_name
+   #ifdef _SHIP
+   "GH2DX_03.00"
+   #else
+   "GH2DX_03.01"
+   #endif
+)
+(ps2_icon
+   (file
+      "gh.icn")
+   (bg_transparency 128)
+   (bg_colors
+      (0 0 0)
+      (0 0 0)
+      (192 0 0)
+      (80 0 0))
+   (lit_dirs
+      (0.2 1 0)
+      (1 0 1)
+      (1 -1 0))
+   (lit_colors
+      (1 1 1)
+      (1 0.75 0)
+      (1 0.75 0))
+   (ambient 0.5 0.8 0.5))
+(testing FALSE)
