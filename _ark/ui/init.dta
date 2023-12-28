@@ -11,7 +11,7 @@
 #include lose.dta
 #include quickplay.dta
 #include multiplayer.dta
-#include main_xbox.dta
+#include main.dta
 #include tutorials.dta
 #include options_xbox.dta
 #include practice_xbox.dta
@@ -30,7 +30,7 @@
 #include lose.dta
 #include quickplay.dta
 #include multiplayer.dta
-#include main_ps2.dta
+#include main.dta
 #include tutorials.dta
 #include options_ps2.dta
 #include practice_ps2.dta
