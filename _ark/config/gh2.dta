@@ -147,11 +147,7 @@
 (venues battle small1 small2 big theatre fest arena stone)
 (default_band metal_singer metal_bass metal_drummer)
 (quick_cheats
-   #ifdef HX_XBOX
-   #include cheats_xbox.dta
-   #else
-   #include cheats_ps2.dta
-   #endif)
+   #include cheats.dta)
 (long_cheats
    #include long_cheats.dta)
 (beatmatcher
