@@ -7,7 +7,7 @@
 #include loading.dta
 #include game.dta
 #include career.dta
-#include endgame_xbox.dta
+#include endgame.dta
 #include lose.dta
 #include quickplay.dta
 #include multiplayer.dta
@@ -26,7 +26,7 @@
 #include loading.dta
 #include game.dta
 #include career.dta
-#include endgame_ps2.dta
+#include endgame.dta
 #include lose.dta
 #include quickplay.dta
 #include multiplayer.dta
