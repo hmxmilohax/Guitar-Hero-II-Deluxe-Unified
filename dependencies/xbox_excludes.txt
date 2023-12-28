@@ -2,3 +2,5 @@
 .ipu
 .vgs
 .icn
+.bmp_ps2
+.png_ps2
