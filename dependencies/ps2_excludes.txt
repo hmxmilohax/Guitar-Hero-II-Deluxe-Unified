@@ -1,0 +1,7 @@
+.milo_xbox
+.bmp_xbox
+.png_xbox
+.xbv
+.mogg
+.fx
+.fx_xbox

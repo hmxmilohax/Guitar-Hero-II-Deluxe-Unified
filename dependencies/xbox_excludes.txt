@@ -1,0 +1,6 @@
+.milo_ps2
+.ipu
+.vgs
+.icn
+.bmp_ps2
+.png_ps2

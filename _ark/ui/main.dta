@@ -10,6 +10,7 @@
    #endif
    (retain_last_focus FALSE)
    (enter
+      {dx_set_main_menu}
       {set $main_entered TRUE}
       #ifdef HX_XBOX
       {set $leaderboards_mode FALSE}

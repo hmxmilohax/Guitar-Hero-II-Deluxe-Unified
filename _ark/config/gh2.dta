@@ -165,11 +165,7 @@
 (track_graphics
    #include track_graphics.dta)
 (songs
-   #ifdef HX_XBOX
-   #include songs_xbox.dta
-   #else
-   #include songs_ps2.dta
-   #endif)
+   #include songs.dta)
 (sound
    #include sound.dta)
 (hud
@@ -216,11 +212,7 @@
 (store
    #include store.dta)
 (campaign
-   #ifdef HX_XBOX
-   #include campaign_xbox.dta
-   #else
-   #include campaign_ps2.dta
-   #endif)
+   #include campaign.dta)
 #ifdef HX_XBOX
 (downloads)
 #endif
