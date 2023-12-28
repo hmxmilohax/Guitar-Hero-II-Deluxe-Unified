@@ -18,11 +18,7 @@
 #include multiplayer.dta
 #include main.dta
 #include tutorials.dta
-#ifdef HX_XBOX
-#include options_xbox.dta
-#else
-#include options_ps2.dta
-#endif
+#include options.dta
 #include practice.dta
 #include training.dta
 #include pause.dta

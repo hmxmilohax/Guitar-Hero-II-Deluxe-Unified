@@ -3,6 +3,7 @@
    options_panel
    (file options.milo)
    (focus op_audio.btn)
+   #ifdef HX_XBOX
    (enter
       {if_else
          $disable_save
@@ -12,6 +13,13 @@
          {do
             {$this enable op_data.btn}
             {$this enable memory_card.btn}}})
+   #else
+   (poll
+      {if
+         $disable_save
+         {op_data.btn set_state kDisabled}
+         {memory_card.btn set_state kDisabled}})
+   #endif
    (SELECT_START_MSG
       {switch
          $component
@@ -70,7 +78,12 @@
          {options get guitar_volume_idx}}
       {gs_sfx.sld
          set_current
-         {options get fx_volume_idx}})
+         {options get fx_volume_idx}}
+      #ifdef HX_EE
+      {stereo.chk
+         set_check
+         {options get_stereo}}
+      #endif)
    (set_volumes
       {if
          {$this slider_changed}
@@ -118,11 +131,29 @@
             ((fret1 help_confirm)
                (fret2 help_cancel)
                (strum help_adjvol))}
+         #ifdef HX_XBOX
          {helpbar
             set_display
             ((fret1 help_select)
                (fret2 help_back)
-               (strum help_updown))}})
+               (strum help_updown))}
+         #else
+         {do
+            {if_else
+               {==
+                  [focus_component]
+                  "gs_stereo.btn"}
+               {helpbar
+                  set_display
+                  ((fret1 help_onoff)
+                     (fret2 help_back)
+                     (strum help_updown))}
+               {helpbar
+                  set_display
+                  ((fret1 help_select)
+                     (fret2 help_back)
+                     (strum help_updown))}}}
+         #endif})
    (slider_start_msg
       ($component)
       {do
@@ -165,6 +196,13 @@
                set
                orig_vol
                {gs_sfx.sld current}})
+         #ifdef HX_EE
+         (gs_stereo.btn
+            {stereo.chk toggle}
+            {options
+               set_stereo
+               {stereo.chk get_check}})
+         #endif
          kDataUnhandled}
       {$this update_help_display}))
 {new
@@ -244,16 +282,29 @@
                $autosave
                {{mem_card_panel find autosave.chk}
                   get_check}}
+            #ifdef HX_XBOX
             {if
                $autosave
                {set $mc_return_screen $this}
-               {ui goto_screen enable_autosave_screen}})
+               {ui goto_screen enable_autosave_screen}}
+            #endif)
+         #ifdef HX_XBOX
          (save_bands.btn
             {set $mc_return_screen $this}
             {ui goto_screen normal_save_screen})
          (load_bands.btn
             {set $mc_return_screen $this}
-            {goto_load})}
+            {goto_load})
+         #else
+         (save_bands.btn
+            {set $mc_save_success_screen $this}
+            {set $mc_save_failed_screen $this}
+            {ui goto_screen memcard_save_confirm})
+         (load_bands.btn
+            {set $mc_post_load_screen $this}
+            {set $mc_load_failed_screen $this}
+            {ui goto_screen memcard_load_confirm})
+         #endif}
       kDataUnhandled)}
 {new
    GHPanel
@@ -346,10 +397,14 @@
    (file credits.milo)
    (enter
       {meta_music stop}
-      {profilemgr disable_xmp})
+      #ifdef HX_XBOX
+      {profilemgr disable_xmp}
+      #endif)
    (exit
       {meta_music start}
-      {profilemgr enable_xmp})}
+      #ifdef HX_XBOX
+      {profilemgr enable_xmp}
+      #endif)}
 {new
    GHScreen
    credits_screen
@@ -367,7 +422,9 @@
             {==
                {'+' 1 $new_scroll_pos}
                {$this num_lines}}
+            #ifdef HX_XBOX
             {achievements submit credits}
+            #endif
             {$this go_back}}}
       kDataUnhandled)
    (go_back
@@ -700,6 +757,14 @@
       {lefty2.chk
          set_check
          {options get_lefty 1}}
+      #ifdef HX_EE
+      {widescreen.chk
+         set_check
+         {options get_widescreen}}
+      {p_scan.chk
+         set_check
+         {options get_pscan}}
+      #endif
       {$this update_help_display}
       {if
          {==
@@ -739,6 +804,26 @@
    (SELECT_START_MSG
       {switch
          $component
+         (p_scan.btn
+            {if_else
+               {p_scan.chk get_check}
+               {do
+                  {p_scan.chk toggle}
+                  {options
+                     set_pscan
+                     {p_scan.chk get_check}}}
+               {do
+                  {if
+                     {== $this pause_video_settings_panel}
+                     {pause_video_settings_screen set stash_lefty_settings FALSE}}
+                  {ui
+                     goto_screen
+                     [pscan_warning]}}})
+         (widescreen.btn
+            {widescreen.chk toggle}
+            {options
+               set_widescreen
+               {widescreen.chk get_check}})
          (gs_left_p1.btn
             {lefty1.chk toggle}
             {options
@@ -763,7 +848,10 @@
    SliderPanel
    video_settings_panel
    (file video_settings.milo)
-   VIDEO_SETTINGS_PANEL_HANDLERS}
+   VIDEO_SETTINGS_PANEL_HANDLERS
+   #ifdef HX_EE
+   (pscan_warning pscan_warning_screen)
+   #endif}
 {new
    GHScreen
    video_settings_screen
@@ -781,11 +869,129 @@
          {synth play_sequence button_back.cue}
          {autosave_goto options_screen}}
       kDataUnhandled)}
+#ifdef HX_EE
+{new
+   GHPanel
+   pscan_warning_panel
+   (file pscan_warning.milo)
+   (focus pscan_ok.btn)}
+#define PSCAN_WARNING_SCREEN_HANDLERS
+((allow_back FALSE)
+   (helpbar
+      (default
+         ((fret1 help_continue)
+            (strum help_updown))))
+   (SELECT_START_MSG
+      {switch
+         $component
+         (pscan_ok.btn
+            {pscan_switch_screen
+               set
+               done_screen
+               [done_screen]}
+            {ui
+               goto_screen
+               [switch_screen]})
+         (pscan_cancel.btn
+            {ui
+               goto_screen
+               [done_screen]})}))
+{new
+   GHScreen
+   pscan_warning_screen
+   (panels meta pscan_warning_panel helpbar)
+   (focus pscan_warning_panel)
+   PSCAN_WARNING_SCREEN_HANDLERS
+   (done_screen video_settings_screen)
+   (switch_screen pscan_switch_screen)}
+{new
+   GHPanel
+   pscan_warning_game_panel
+   (file pscan_warning_game.milo)
+   (focus pscan_ok.btn)}
+{new
+   GHScreen
+   pause_pscan_warning_screen
+   (panels GAME_PANELS pscan_warning_game_panel helpbar)
+   (focus pscan_warning_game_panel)
+   PSCAN_WARNING_SCREEN_HANDLERS
+   (animate_transition FALSE)
+   (done_screen pause_video_settings_screen)
+   (switch_screen pause_pscan_switch_screen)}
+{new
+   GHPanel
+   pscan_switching_panel
+   (file pscan_switching.milo)
+   (focus pscan_yes.btn)}
+#define PSCAN_SWITCH_SCREEN_HANDLERS
+((allow_back FALSE)
+   (test_time 0)
+   (helpbar
+      (default
+         ((fret1 help_continue)
+            (strum help_updown))))
+   (TRANSITION_COMPLETE_MSG
+      {options set_pscan TRUE}
+      {$this
+         set
+         test_time
+         {'+'
+            {taskmgr ui_seconds}
+            15}})
+   (reset_pscan_time
+      {>
+         {taskmgr ui_seconds}
+         [test_time]})
+   (poll
+      {if
+         {&&
+            {$this reset_pscan_time}
+            {options get_pscan}}
+         {options set_pscan FALSE}
+         {ui
+            goto_screen
+            [done_screen]}})
+   (SELECT_START_MSG
+      {switch
+         $component
+         (pscan_yes.btn
+            {ui
+               goto_screen
+               [done_screen]})
+         (pscan_no.btn
+            {options set_pscan FALSE}
+            {ui
+               goto_screen
+               [done_screen]})}))
+{new
+   GHScreen
+   pscan_switch_screen
+   (panels meta pscan_switching_panel helpbar)
+   (focus pscan_switching_panel)
+   PSCAN_SWITCH_SCREEN_HANDLERS
+   (done_screen video_settings_screen)}
+{new
+   GHPanel
+   pscan_switching_game_panel
+   (file pscan_switching_game.milo)
+   (focus pscan_yes.btn)}
+{new
+   GHScreen
+   pause_pscan_switch_screen
+   (panels GAME_PANELS pscan_switching_game_panel helpbar)
+   (focus pscan_switching_game_panel)
+   PSCAN_SWITCH_SCREEN_HANDLERS
+   (animate_transition FALSE)
+   (done_screen pause_video_settings_screen)}
+#endif
 {new
    SliderPanel
    pause_video_settings_panel
    (file pause_video_settings.milo)
-   VIDEO_SETTINGS_PANEL_HANDLERS}
+   VIDEO_SETTINGS_PANEL_HANDLERS
+   #ifdef HX_EE
+   (pscan_warning pause_pscan_warning_screen)
+   #endif}
 {new
    GHScreen
    pause_video_settings_screen
@@ -796,8 +1002,13 @@
    (animate_transition FALSE)
    (old_lefty_0 0)
    (old_lefty_1 0)
+   #ifdef HX_XBOX
    (stash_lefty_settings FALSE)
+   #else
+   (stash_lefty_settings TRUE)
+   #endif
    (enter
+      #ifdef HX_XBOX
       {if
          [stash_lefty_settings]
          {set
@@ -809,6 +1020,20 @@
       {set
          [stash_lefty_settings]
          FALSE}
+      #else
+      {if_else
+         [stash_lefty_settings]
+         {do
+            {set
+               [old_lefty_0]
+               {options get_lefty 0}}
+            {set
+               [old_lefty_1]
+               {options get_lefty 1}}}
+         {set
+            [stash_lefty_settings]
+            TRUE}}
+      #endif
       {if_else
          {>
             {game num_players}
@@ -851,3 +1076,14 @@
                {ui goto_screen lefty_restart_screen}}
             {ui goto_screen pause_screen}}}
       kDataUnhandled)}
+#ifdef HX_EE
+{new
+   GHScreen
+   boot_pscan_warning_screen
+   (panels meta pscan_warning_panel helpbar)
+   (focus pscan_warning_panel)
+   PSCAN_WARNING_SCREEN_HANDLERS
+   (animate_transition FALSE)
+   (done_screen bootup_load)
+   (switch_screen pscan_switch_screen)}
+#endif
