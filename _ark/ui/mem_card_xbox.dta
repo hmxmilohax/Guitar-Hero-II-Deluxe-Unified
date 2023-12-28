@@ -106,7 +106,7 @@
          {campaign num_profiles}
          0}
       {ui goto_screen main_screen}
-      {ui goto_screen guitar_help_screen}}}
+      {ui goto_screen main_screen}}}
 {new
    GHScreen
    startup_signin_screen
