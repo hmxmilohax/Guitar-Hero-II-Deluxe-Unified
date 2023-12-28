@@ -207,6 +207,7 @@
          (continue.btn
             {ui pop_screen})})}
 #endif
+#ifdef HX_EE
 {func
    get_text_entry_help_text
    ($array $ten $back)
@@ -237,3 +238,4 @@
          $array
          (strum help_updown)}}
    {eval $array}}
+#endif
