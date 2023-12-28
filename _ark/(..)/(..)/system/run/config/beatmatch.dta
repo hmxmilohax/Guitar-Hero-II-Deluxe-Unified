@@ -5,6 +5,7 @@
       (RHYTHM rhythm)
       (BASS bass)
       (KEYS keys)
+      (DRUM drum)
       (DRUMS drum)
       (VOCALS vocals)
       (SINGER vocals)

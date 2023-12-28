@@ -138,6 +138,12 @@
    (win_screen multi_compete_fo_screen)
    (win_preload_panel multi_compete_fo_panel)
    (separate_parts FALSE)
+   ; Normally, Pro Face-Off doesn't use a custom song_block, but after
+   ; discovering a bug with using our fake track (which is a nonexistent
+   ; audio channel to keep the game from crashing on non-drum songs),
+   ; we set it to use song_vs (normal Face-Off's), and gave every song
+   ; two song definitions. Check in songs.dta for that mess.
+   (song_block song_vs)
    (hud_file hud_vs.milo))
 (multi_coop
    (num_players 2)

@@ -109,10 +109,8 @@
       (price 550))
    (collide
       (price 550))
-   #ifdef HX_XBOX
    (drinkup
       (price 550))
-   #endif
    (elephantbones
       (price 550))
    (fallofpangea
@@ -121,10 +119,8 @@
       (price 550))
    (gemini
       (price 550))
-   #ifdef HX_XBOX
    (kicked
       (price 550))
-   #endif
    (ladylightning
       (price 550))
    (laughtrack
