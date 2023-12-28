@@ -5,7 +5,7 @@
 #include mem_card_xbox.dta
 #include error.dta
 #include loading.dta
-#include game_xbox.dta
+#include game.dta
 #include career.dta
 #include endgame_xbox.dta
 #include lose.dta
@@ -24,7 +24,7 @@
 #include mem_card_ps2.dta
 #include error.dta
 #include loading.dta
-#include game_ps2.dta
+#include game.dta
 #include career.dta
 #include endgame_ps2.dta
 #include lose.dta
