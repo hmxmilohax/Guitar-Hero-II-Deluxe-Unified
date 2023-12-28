@@ -47,8 +47,8 @@
    #include synth.dta)
 (joypad
    (ignore)
-   (hold_ms 1000)
-   (repeat_ms 80))
+   (hold_ms 300) ; dx - default 1000
+   (repeat_ms 50)) ; dx - default 80
 (spew
    #include spew.dta)
 #ifdef HX_XBOX
