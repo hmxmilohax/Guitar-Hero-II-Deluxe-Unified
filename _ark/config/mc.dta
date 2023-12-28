@@ -7,9 +7,9 @@
 )
 (elf_name
    #ifdef _SHIP
-   "GH2DX_03.00"
+   "GHDX_003.00"
    #else
-   "GH2DX_03.01"
+   "GHDX_003.01"
    #endif
 )
 (ps2_icon
