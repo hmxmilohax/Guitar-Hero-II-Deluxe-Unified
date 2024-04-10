@@ -1,6 +1,6 @@
 {func
    dx_set_main_menu
-   {mainmenu.tex set_bitmap "dx/custom_textures/mainmenu_nohand_keep.png"}
+   {mainmenu.tex set_bitmap "dx/custom_textures/main/mainmenu_nohand.png"}
    {main set normal_color {pack_color 0.16 0.30 0.38}}
    {main set focus_color {pack_color 1 1 1}}
    {main set selecting_color {pack_color 0.5 0.5 0.5}}

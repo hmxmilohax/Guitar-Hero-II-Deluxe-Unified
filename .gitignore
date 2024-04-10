@@ -5,47 +5,31 @@
 *.hdr
 *.iso
 
-project_files
-magick
-_xenia/cache_host
-_xenia/content
-_xenia/patches
-_xenia/recent.toml
-_xenia/xenia.log
-_xenia/xenia-canary.config.toml
+#funny files that should never be committed
+.DS_Store
+*.pyc
+*.tmp
+*.ninja
+.ninja_log
 
-_vanilla/vanilla_ps2/_ark
-_vanilla/vanilla_ps2/GEN
-_vanilla/vanilla_ps2/IOP
-_vanilla/vanilla_ps2/VIDEOS
-_vanilla/vanilla_ps2/SLUS_214.47
-_vanilla/vanilla_ps2/SYSTEM.CNF
+#input for wii files for build
+platform/wii
 
-_vanilla/vanilla_xbox/_ark
-_vanilla/vanilla_xbox/gen
-_vanilla/vanilla_xbox/videos
-_vanilla/vanilla_xbox/default.xex
+#ninja build dirs
+obj
+out
 
-_obj
+#reference script unused by dx
+_ark/dx/reference
 
-_build/ps2/VIDEOS
-_build/ps2/IOP/CDVDSTM.IRX
-_build/ps2/IOP/IOPRP300.IMG
-_build/ps2/IOP/LGAUD.IRX
-_build/ps2/IOP/LIBSD.IRX
-_build/ps2/IOP/MCMAN.IRX
-_build/ps2/IOP/MCSERV.IRX
-_build/ps2/IOP/MSIFRPC.IRX
-_build/ps2/IOP/PADMAN.IRX
-_build/ps2/IOP/SCRTCHPD.IRX
-_build/ps2/IOP/SDRDRV.IRX
-_build/ps2/IOP/SIO2MAN.IRX
-_build/ps2/IOP/SYNTH_S.IRX
-_build/ps2/GEN/MAIN.HDR
-_build/ps2/GEN/MAIN_0.ARK
+vanilla/ps2/ark
+vanilla/ps2/GEN
+vanilla/ps2/IOP
+vanilla/ps2/VIDEOS
+vanilla/ps2/SLUS_214.47
+vanilla/ps2/SYSTEM.CNF
 
-_build/xbox/videos
-_build/xbox/GEN/main.hdr
-_build/xbox/GEN/main_0.ark
-
-user_scripts/rpcs3_directory.txt
+vanilla/xbox/ark
+vanilla/xbox/gen
+vanilla/xbox/videos
+vanilla/xbox/default.xex
