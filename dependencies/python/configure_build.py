@@ -16,10 +16,6 @@ ninja = ninja_syntax.Writer(open("build.ninja", "w+"))
 #rb3, dc, blitz - "-v 6"
 ninja.variable("ark_version", " ")
 
-#require user provided vanilla ark extract in "vanilla/platform" folder
-#tbh you should probably just use patchcreator
-vanilla_files = False
-
 #copy back dx files and vanilla hdr to platform folder before building
 rebuild_files = True
 
@@ -52,6 +48,10 @@ parser.add_argument(
 )
 
 args = parser.parse_args()
+
+#Wii should always use patchcreator
+if args.platform == "wii":
+    patchcreator = True
 
 #THIS IS TEMPLATE YOU CAN REMOVE IF YOU DONT NEED IT
 if args.platform == "ps2":
@@ -118,24 +118,24 @@ match args.platform:
     case "xbox":
         out_dir = Path("out", args.platform, gen_folder)
     case "wii":
-        out_dir = Path("out", args.platform, "files")
+        out_dir = Path("out", args.platform, "files", gen_folder)
     case "ps2":
         out_dir = Path("out", args.platform, gen_folder)
 
-#patchcreator forces into a gen folder itself it sucks
-if patchcreator == True and args.platform != "wii":
-    out_dir = out_dir.parent
-
 #building an ark
-if args.platform in ["ps3", "xbox", "ps2"] and patchcreator == False:
+if patchcreator == False:
     ninja.rule(
         "ark",
         f"$arkhelper dir2ark -n {hdr_name} $ark_version $ark_encrypt -s 4073741823 --logLevel error {ark_dir} {out_dir}",
         description="Building ark",
     )
+
 #patchcreating an ark
-if args.platform == "wii" or patchcreator == True:
-    #patch creator time! force using main as the root name
+if patchcreator == True:
+    #patch creator time!
+    #patchcreator forces into a gen folder itself it sucks
+    out_dir = out_dir.parent
+    #force using main as the root name
     hdr_name = "main"
     #append platform if this is new style ark
     if new_gen == True:
@@ -179,15 +179,14 @@ if rebuild_files == True:
 
 if copy_vanilla_arks_to_out == True:
     #copies each ark part from the platform folder to output
-    #we are about to overwrite the hdr anyway so it doesnt matter if we copy it now
-    for f in filter(lambda x: x.is_file(), Path("platform", args.platform, gen_folder).rglob("*")):
+    for f in filter(lambda x: x.is_file() and "hdr" not in x.name.lower(), Path("platform", args.platform, gen_folder).rglob("*")):
         index = f.parts.index(args.platform)
         out_path = Path("out", args.platform).joinpath(*f.parts[index + 1 :])
         ninja.build(str(out_path), "copy", str(f))
         build_files.append(str(out_path))
 
 # copy platform files
-if args.platform != "wii" and patchcreator == False:
+if patchcreator == False:
     for f in filter(lambda x: x.is_file(), Path("platform", args.platform).rglob("*")):
         index = f.parts.index(args.platform)
         out_path = Path("out", args.platform).joinpath(*f.parts[index + 1 :])
@@ -298,12 +297,6 @@ ninja.build(str(dtb), "dtab_serialize", str(dta))
 ninja.build(str(enc), "dtab_encrypt", str(dtb))
 
 ark_files.append(str(enc))
-
-#THIS IS TEMPLATE YOU CAN REMOVE IF YOU DONT NEED IT
-#copy vanilla files to obj if required
-if vanilla_files == True and patchcreator == False:
-    from vanilla_files import vanilla
-    ark_files, vanilla_files = vanilla(ark_files, args.platform, ninja, Path)
 
 def generate_texture_list(input_path: Path):
     base = input_path.parts[1:]
