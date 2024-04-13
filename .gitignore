@@ -39,3 +39,4 @@ platform/ps2/IOP/*
 platform/ps2/SLUS_214.47
 platform/ps2/SYSTEM.CNF
 platform/xbox/default.xex
+platform/xbox/$SystemUpdate/su20076000_00000000
