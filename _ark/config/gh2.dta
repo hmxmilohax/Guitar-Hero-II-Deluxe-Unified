@@ -165,7 +165,8 @@
 (track_graphics
    #include track_graphics.dta)
 (songs
-   #include songs.dta)
+   #include songs.dta
+   #ifdef HX_EE #include songs_xbox.dta #endif)
 (sound
    #include sound.dta)
 (hud
