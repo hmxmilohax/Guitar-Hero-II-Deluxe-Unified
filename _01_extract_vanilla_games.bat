@@ -1,2 +1,0 @@
-"%~dp0dependencies\windows\arkhelper.exe" ark2dir "%~dp0vanilla/ps2/GEN/MAIN.HDR" "%~dp0vanilla/ps2/ark" -a
-"%~dp0dependencies\windows\arkhelper.exe" ark2dir "%~dp0vanilla/xbox/GEN/main.hdr" "%~dp0vanilla/xbox/ark" -a

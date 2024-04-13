@@ -33,3 +33,9 @@ vanilla/xbox/ark
 vanilla/xbox/gen
 vanilla/xbox/videos
 vanilla/xbox/default.xex
+platform/xbox/videos/*
+platform/ps2/VIDEOS/*
+platform/ps2/IOP/*
+platform/ps2/SLUS_214.47
+platform/ps2/SYSTEM.CNF
+platform/xbox/default.xex

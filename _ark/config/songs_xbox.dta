@@ -101,21 +101,6 @@
          (-1 -1 1 1 -1 -1))
       (midi_file songs/dead/dead.mid)
       (hopo_threshold 250))
-   (song_vs
-      (name songs/dead/dead)
-      (tracks
-         ((guitar
-               (2 3))
-            (rhythm
-               (4 5))))
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0))
-      (vols
-         (-1.5 -1.5 -4.0 -4.0 -3.5 -3.5))
-      (cores
-         (-1 -1 1 1 -1 -1))
-      (midi_file songs/dead/dead.mid)
-      (hopo_threshold 250))
    (anim_tempo kTempoFast)
    (preview 41300 63600)
    (quickplay
