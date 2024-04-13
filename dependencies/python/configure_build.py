@@ -5,30 +5,32 @@ import sys
 import argparse
 import os
 
-game_name = "Guitar Hero II Deluxe"
+game_name = "Guitar Hero II Deluxe Unified"
+
+ninja = ninja_syntax.Writer(open("build.ninja", "w+"))
 
 #versions
 #gh1, gh2 - " "
 #rb1, track packs - "-v 4"
 #rb2, tbrb, gdrb - "-v 5"
 #rb3, dc, blitz - "-v 6"
-ark_version = " "
+ninja.variable("ark_version", " ")
 
 #require user provided vanilla ark extract in "vanilla/platform" folder
-vanilla_files = True
+#tbh you should probably just use patchcreator
+vanilla_files = False
+
+#copy back dx files and vanilla hdr to platform folder before building
+rebuild_files = True
 
 #set True for rb1 and newer 
 new_gen = False
-#rock band 1 has quirks that mix old_gen and new_gen
-rb1 = False
 
 #patch for patch arks, main for patchcreator, old gen, and rb1
 hdr_name = "main"
 
 dtb_encrypt = "-e"
-#versions
-# gh1, gh2 - "--miloVersion 25"
-# rb1 onward - "--miloVersion 26"
+ark_encrypt = "-e"
 miloVersion = "--miloVersion 25"
 
 #paths in _ark/dx/custom_textures that should generate list dtbs
@@ -37,12 +39,10 @@ custom_texture_paths = [
 ]
 
 #patchcreator options
-patchcreator = False
-new_ark_part = "10"
-dol_name = "main.dol"
-elf_name = " "
-bin_name = " "
-xex_name = " "
+patchcreator = True
+new_ark_part = "1"
+#deliver vanilla arks to out folder
+copy_vanilla_arks_to_out = True
 
 parser = argparse.ArgumentParser(prog="configure")
 parser.add_argument("platform")
@@ -52,24 +52,27 @@ parser.add_argument(
 
 args = parser.parse_args()
 
-#new gen games (rb2 onward) add platform suffix to ark name
-if new_gen == True:
-    hdr_name = hdr_name + "_" + args.platform
-
+#THIS IS TEMPLATE YOU CAN REMOVE IF YOU DONT NEED IT
 if args.platform == "ps2":
     #all milo ps2 games from gh to rb use MAIN_0.ARK
     hdr_name = "MAIN"
     if new_gen == False:
         #pre rb2 does not use miloVersion for superfreq image generation on ps2
         miloVersion = " "
-        if rb1 == False:
-            #pre rb1 uses -E for dtb encryption on ps2
-            dtb_encrypt = dtb_encrypt.upper()
+        #remove these two if rock band 1
+        ark_encrypt = " "
+        dtb_encrypt = "-E"
+
+ninja.variable("dtb_encrypt", dtb_encrypt)
+ninja.variable("ark_encrypt", ark_encrypt)
+ninja.variable("miloVersion", miloVersion)
+
+#new gen games (rb2 onward) add platform suffix to ark name
+if new_gen == True:
+    hdr_name = hdr_name + "_" + args.platform
 
 print(f"Configuring {game_name}...")
 print(f"Platform: {args.platform}")
-
-ninja = ninja_syntax.Writer(open("build.ninja", "w+"))
 
 # configure tools
 ark_dir = Path("obj", args.platform, "ark")
@@ -117,15 +120,15 @@ match args.platform:
     case "ps2":
         out_dir = Path("out", args.platform, "GEN")
 
+#patchcreator forces into a gen folder itself it sucks
+if patchcreator == True and args.platform != "wii":
+    out_dir = out_dir.parent
+
 #building an ark
 if args.platform in ["ps3", "xbox", "ps2"] and patchcreator == False:
-    ark_encrypt = "-e"
-    #ps2 pre rb1 does not encrypt the ark
-    if args.platform == "ps2" and new_gen == False and rb1 == False:
-        ark_encrypt = " "
     ninja.rule(
         "ark",
-        f"$arkhelper dir2ark -n {hdr_name} {ark_version} {ark_encrypt} -s 4073741823 --logLevel error {ark_dir} {out_dir}",
+        f"$arkhelper dir2ark -n {hdr_name} $ark_version $ark_encrypt -s 4073741823 --logLevel error {ark_dir} {out_dir}",
         description="Building ark",
     )
 #patchcreating an ark
@@ -135,19 +138,17 @@ if args.platform == "wii" or patchcreator == True:
     #append platform if this is new style ark
     if new_gen == True:
         hdr_name = hdr_name + "_" + args.platform
+    #this is fucking hilarious
+    exec_path = "README.md"
     match args.platform:
         case "wii":
             hdr_path = "platform/" + args.platform + "/files/gen/" + hdr_name + ".hdr"
-            exec_path = "platform/" + args.platform + "/sys/" + dol_name
         case "ps2":
             hdr_path = "platform/" + args.platform + "/GEN/" + hdr_name.upper() + ".HDR"
-            exec_path = "platform/" + args.platform + "/" + elf_name
         case "ps3":
             hdr_path = "platform/" + args.platform + "/USRDIR/gen/" + hdr_name + ".hdr"
-            exec_path = "platform/" + args.platform + "/USRDIR/" + bin_name
         case "xbox":
             hdr_path = "platform/" + args.platform + "/gen/" + hdr_name + ".hdr"
-            exec_path = "platform/" + args.platform + "/" + xex_name
     ninja.rule(
         "ark",
         f"$arkhelper patchcreator -a {ark_dir} -o {out_dir} {hdr_path} {exec_path} --logLevel error",
@@ -156,15 +157,32 @@ if args.platform == "wii" or patchcreator == True:
 
 ninja.rule(
     "sfreq",
-    f"$superfreq png2tex -l error {miloVersion} --platform $platform $in $out",
+    f"$superfreq png2tex -l error $miloVersion --platform $platform $in $out",
     description="SFREQ $in"
     )
 ninja.rule("dtacheck", "$dtacheck $in .dtacheckfns", description="DTACHECK $in")
 ninja.rule("dtab_serialize", "$dtab -b $in $out", description="DTAB SER $in")
-ninja.rule("dtab_encrypt", f"$dtab {dtb_encrypt} $in $out", description="DTAB ENC $in")
+ninja.rule("dtab_encrypt", f"$dtab $dtb_encrypt $in $out", description="DTAB ENC $in")
 ninja.build("_always", "phony")
 
 build_files = []
+
+# copy whatever arbitrary files you need to output
+if rebuild_files == True:
+    for f in filter(lambda x: x.is_file(), Path("dependencies", "rebuild_files", args.platform).rglob("*")):
+        index = f.parts.index(args.platform)
+        out_path = Path("out", args.platform).joinpath(*f.parts[index + 1 :])
+        ninja.build(str(out_path), "copy", str(f))
+        build_files.append(str(out_path))
+
+if copy_vanilla_arks_to_out == True:
+    #copies each ark part from the platform folder to output
+    #we are about to overwrite the hdr anyway so it doesnt matter if we copy it now
+    for f in filter(lambda x: x.is_file(), Path("platform", args.platform, "gen").rglob("*")):
+        index = f.parts.index(args.platform)
+        out_path = Path("out", args.platform).joinpath(*f.parts[index + 1 :])
+        ninja.build(str(out_path), "copy", str(f))
+        build_files.append(str(out_path))
 
 # copy platform files
 if args.platform != "wii" and patchcreator == False:
@@ -279,6 +297,7 @@ ninja.build(str(enc), "dtab_encrypt", str(dtb))
 
 ark_files.append(str(enc))
 
+#THIS IS TEMPLATE YOU CAN REMOVE IF YOU DONT NEED IT
 #copy vanilla files to obj if required
 if vanilla_files == True and patchcreator == False:
     from vanilla_files import vanilla
@@ -309,8 +328,8 @@ match args.platform:
         hdr = str(Path("out", args.platform, hdr_name + ".hdr"))
         ark = str(Path("out", args.platform, hdr_name + "_" + ark_part + ".ark"))
     case "wii":
-        hdr = str(Path("out", args.platform, "files", hdr_name + "_" + args.platform + ".hdr"))
-        ark = str(Path("out", args.platform, "files", hdr_name + "_" + args.platform + "_" + ark_part + ".ark"))
+        hdr = str(Path("out", args.platform, "files", hdr_name + ".hdr"))
+        ark = str(Path("out", args.platform, "files", hdr_name + "_" + ark_part + ".ark"))
     case "ps2":
         hdr = str(Path("out", args.platform, hdr_name + ".HDR"))
         ark = str(Path("out", args.platform, hdr_name + "_" + ark_part + ".ARK"))
