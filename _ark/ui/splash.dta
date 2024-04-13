@@ -65,18 +65,7 @@
       ;skip movie
       ;{meta play_movie CUT_SCENE_VIDEO}
       ;skip splash screen
-      {synth play_sequence meta_lick}
-      #ifdef HX_XBOX
-      {profilemgr set_active_pad_from_player $player_num}
-      {gamecfg
-         set_player
-         0
-         {profilemgr active_padnum}}
-      {ui set_virtual_dpad TRUE}
-      {goto_startup_load}
-      #else
-      {ui goto_screen main_screen}
-      #endif)}
+      {ui goto_screen splash_screen})}
 #define DELAY_BEFORE_ATTRACT_SEC
 (60)
 {new
