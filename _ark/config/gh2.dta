@@ -143,7 +143,7 @@
    #include ../ui/ui.dta)
 (objects
    #include objects.dta)
-(locale ../ui/eng/locale_milo.dta ../ui/eng/locale.dta)
+(locale ../ui/eng/locale_milo.dta ../ui/eng/locale.dta ../dx/locale/dx_locale.dta)
 (venues battle small1 small2 big theatre fest arena stone)
 (default_band metal_singer metal_bass metal_drummer)
 (quick_cheats
