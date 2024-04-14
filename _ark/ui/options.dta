@@ -1,7 +1,10 @@
+#include ../dx/ui/options/dx_options_handles.dta
+
 {new
    UIPanel
    options_panel
    (file options.milo)
+   DX_OPTIONS_HANDLES
    (focus op_audio.btn)
    #ifdef HX_XBOX
    (enter
@@ -12,7 +15,8 @@
             {$this disable memory_card.btn}}
          {do
             {$this enable op_data.btn}
-            {$this enable memory_card.btn}}})
+            {$this enable memory_card.btn}}}
+      {$this dx_set_options})
    #else
    (poll
       {if
