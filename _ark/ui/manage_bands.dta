@@ -46,6 +46,7 @@
 {new
    GHScreen
    chooseprof_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta chooseprof_panel helpbar)
    (focus chooseprof_panel)
    (allow_back FALSE)
@@ -82,6 +83,7 @@
 {new
    GHScreen
    options_chooseprof_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta chooseprof_panel helpbar)
    (focus chooseprof_panel)
    (helpbar
@@ -117,6 +119,7 @@
 {new
    GHScreen
    nameprof_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta nameprof_panel helpbar)
    (focus nameprof_panel)
    (allow_back FALSE)
@@ -325,6 +328,7 @@
 {new
    GHScreen
    manage_band_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta manage_band_panel helpbar)
    (focus manage_band_panel)
    (profile_slot -1)

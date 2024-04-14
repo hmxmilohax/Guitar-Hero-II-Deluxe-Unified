@@ -39,6 +39,7 @@
 {new
    GHScreen
    options_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta options_panel helpbar)
    (focus options_panel)
    (helpbar
@@ -213,6 +214,7 @@
 {new
    GHScreen
    audio_settings_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta audio_settings_panel helpbar)
    (focus audio_settings_panel)
    (allow_back FALSE)
@@ -257,6 +259,7 @@
 {new
    GHScreen
    mem_card_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta mem_card_panel helpbar)
    (focus mem_card_panel)
    (helpbar
@@ -314,6 +317,7 @@
 {new
    GHScreen
    bonus_material_screen
+   (animate_transition {! $dx_fast_menus})
    (item_locked FALSE)
    (panels meta bonus_material_panel helpbar)
    (focus bonus_material_panel)
@@ -408,6 +412,7 @@
 {new
    GHScreen
    credits_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta credits_panel helpbar)
    (focus credits_panel)
    (helpbar
@@ -733,11 +738,13 @@
 {new
    GHScreen
    lag_screen
+   (animate_transition {! $dx_fast_menus})
    (panels lag_panel helpbar)
    (focus lag_panel)}
 {new
    GHScreen
    pause_lag_screen
+   (animate_transition {! $dx_fast_menus})
    (panels GAME_PANELS lag_panel helpbar)
    (focus lag_panel)
    (clear_vram TRUE)
@@ -855,6 +862,7 @@
 {new
    GHScreen
    video_settings_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta video_settings_panel helpbar)
    (focus video_settings_panel)
    (allow_back FALSE)
@@ -899,6 +907,7 @@
 {new
    GHScreen
    pscan_warning_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta pscan_warning_panel helpbar)
    (focus pscan_warning_panel)
    PSCAN_WARNING_SCREEN_HANDLERS
@@ -966,6 +975,7 @@
 {new
    GHScreen
    pscan_switch_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta pscan_switching_panel helpbar)
    (focus pscan_switching_panel)
    PSCAN_SWITCH_SCREEN_HANDLERS

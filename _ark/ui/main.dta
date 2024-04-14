@@ -141,6 +141,7 @@
 {new
    GHScreen
    main_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta main_panel helpbar)
    (focus main_panel)
    (helpbar
