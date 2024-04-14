@@ -40,18 +40,21 @@
 {new
    GHScreen
    error_duplicate_profile_screen
+   (animate_transition {! $dx_fast_menus})
    ERROR_SCREEN_HANDLERS
    (title duplicate_profile)
    (message duplicate_profile_msg)}
 {new
    GHScreen
    error_no_profile_screen
+   (animate_transition {! $dx_fast_menus})
    ERROR_SCREEN_HANDLERS
    (title no_profile)
    (message no_profile_msg)}
 {new
    GHScreen
    error_max_profile_screen
+   (animate_transition {! $dx_fast_menus})
    ERROR_SCREEN_HANDLERS
    (title max_profile)
    (message max_profile_msg)}

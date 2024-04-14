@@ -81,6 +81,7 @@
 {new
    GHScreen
    sel_difficulty_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta sel_diff_career_panel helpbar char_single)
    (focus sel_diff_career_panel)
    (helpbar
@@ -129,6 +130,7 @@
 {new
    GHScreen
    tour_start_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta tour_start_panel helpbar char_single)
    (focus tour_start_panel)
    (allow_back FALSE)
@@ -218,6 +220,7 @@
 {new
    GHScreen
    career_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta career_panel helpbar char_single)
    (focus career_panel)
    (allow_back FALSE)
@@ -537,6 +540,7 @@
 {new
    GHScreen
    sel_character_new_screen
+   (animate_transition {! $dx_fast_menus})
    (done_screen sel_guitar_new_screen)
    (back_screen sel_difficulty_screen)
    SEL_CHARACTER_COMMON
@@ -544,6 +548,7 @@
 {new
    GHScreen
    sel_character_edit_screen
+   (animate_transition {! $dx_fast_menus})
    (done_screen career_screen)
    (back_screen career_screen)
    SEL_CHARACTER_COMMON
@@ -674,6 +679,7 @@
 {new
    GHScreen
    sel_guitar_new_screen
+   (animate_transition {! $dx_fast_menus})
    SEL_GUITAR_COMMON
    (go_back
       {$this backwards_anim}
@@ -682,6 +688,7 @@
 {new
    GHScreen
    sel_guitar_edit_screen
+   (animate_transition {! $dx_fast_menus})
    SEL_GUITAR_COMMON
    (go_back
       {$this backwards_anim}
@@ -1193,6 +1200,7 @@
 {new
    GHScreen
    store_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta store_back_panel store_guitar_display_panel store_video_panel char_store store_panel helpbar)
    (focus store_panel)
    (BUTTON_DOWN_MSG
@@ -1383,6 +1391,7 @@
 {new
    GHScreen
    sel_venue_screen
+   (animate_transition {! $dx_fast_menus})
    (allow_back FALSE)
    (next_screen sel_song_screen)
    SEL_VENUE_SCREEN_HANDLERS
@@ -1397,6 +1406,7 @@
 {new
    GHScreen
    storage_changed_screen
+   (animate_transition {! $dx_fast_menus})
    DIALOG_SCREEN
    (enter
       {dialog setup mc_continue '' button1 mc_storage_changed mc_title_error})
@@ -1600,6 +1610,7 @@
 {new
    GHScreen
    sel_song_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta sel_song_panel helpbar)
    (focus sel_song_panel)
    (helpbar

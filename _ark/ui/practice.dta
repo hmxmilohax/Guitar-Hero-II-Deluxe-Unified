@@ -1,6 +1,7 @@
 {new
    GHScreen
    practice_selsong_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta sel_song_panel helpbar)
    (focus sel_song_panel)
    (helpbar
@@ -32,6 +33,7 @@
 {new
    GHScreen
    practice_selpart_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta #ifdef HX_EE selpart_bg_panel #endif practice_selpart_panel helpbar)
    (focus practice_selpart_panel)
    (helpbar
@@ -52,6 +54,7 @@
 {new
    GHScreen
    practice_diff_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta sel_diff_practice_panel helpbar)
    (focus sel_diff_practice_panel)
    (helpbar
@@ -189,6 +192,7 @@
 {new
    GHScreen
    practice_sel_section_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta midi_loader_panel practice_sel_section_panel helpbar)
    (focus practice_sel_section_panel)
    (career_mode FALSE)
@@ -216,6 +220,7 @@
 {new
    GHScreen
    practice_sel_speed_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta sel_speed_panel helpbar)
    (focus sel_speed_panel)
    (SELECT_START_MSG
