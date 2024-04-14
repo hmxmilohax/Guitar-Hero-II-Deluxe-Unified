@@ -1,4 +1,10 @@
 {func
+   dx_set_splash
+   {splash_poster.tex set_bitmap "dx/custom_textures/splash/splash_poster.png"}
+   ;{main_buttons.view set_local_pos 0 0 -100}
+}
+
+{func
    dx_set_main_menu
    {mainmenu.tex set_bitmap "dx/custom_textures/main/mainmenu_nohand.png"}
    {main set normal_color {pack_color 0.16 0.30 0.38}}
