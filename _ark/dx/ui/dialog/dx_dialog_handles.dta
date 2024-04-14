@@ -1,0 +1,6 @@
+#define DX_DIALOG_HANDLES
+(
+   (dx_set_dialog
+      {dl_poster.tex set_bitmap "dx/custom_textures/dialog/dl_poster.png"}
+   )
+)

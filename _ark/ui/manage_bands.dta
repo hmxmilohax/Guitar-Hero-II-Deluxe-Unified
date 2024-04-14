@@ -1,3 +1,5 @@
+#include ../dx/ui/manage_band/dx_manage_band_handles.dta
+
 #define MAX_NUM_PROFILES
 (8)
 #define PROFILE_PANEL_COMMON
@@ -37,12 +39,14 @@
    GHPanel
    chooseprof_panel
    (file chooseprof.milo)
+   DX_MANAGE_BAND_HANDLES
    PROFILE_PANEL_COMMON
    (set_up_new_profile
       ($btn)
       {$btn set_text new_band})
    (enter
-      {$this set_up_bands})}
+      {$this set_up_bands}
+      {$this dx_set_chooseprof})}
 {new
    GHScreen
    chooseprof_screen

@@ -1,3 +1,5 @@
+#include ../dx/ui/dialog/dx_dialog_handles.dta
+
 #define MEMCARD_RESULT_MSG
 (memcard_result
    ($result))
@@ -11,6 +13,7 @@
    UIPanel
    dialog
    (file dialog.milo)
+   DX_DIALOG_HANDLES
    (force_exit TRUE)
    (enable_buttons
       {$this enable dl_button1.btn}
@@ -22,7 +25,8 @@
    (enter
       {{ui current_screen}
          reset_ambient}
-      {$this enable_buttons})
+      {$this enable_buttons}
+      {$this dx_set_dialog})
    (get_button
       ($button_name)
       {sprintf 'dl_%s.btn' $button_name})
