@@ -111,7 +111,7 @@
    (reset_player_settings
       {{game get_player_config 0}
          set_difficulty
-         kDifficultyMedium}
+         kDifficultyExpert}
       #ifdef HX_XBOX
       {song_provider set_mode kSongsCareer}
       {song_provider init_data}
@@ -126,7 +126,7 @@
             {game get_player_config 1})
          {$player2_config set_character rockabill1 TRUE}
          {$player2_config set_guitar_index 0}
-         {$player2_config set_difficulty kDifficultyMedium}})
+         {$player2_config set_difficulty kDifficultyExpert}})
    (display_cheat_msg
       ($cheat $enable)
       {mm_msg.lbl
