@@ -1,3 +1,5 @@
+#include ../dx/ui/dialog/dx_dialog_handles.dta
+
 #define kMCNoError
 (0)
 #define kMCNoCard
@@ -30,10 +32,12 @@
    UIPanel
    dialog
    (file dialog.milo)
+   DX_DIALOG_HANDLES
    (force_exit TRUE)
    (enter
       {{ui current_screen}
-         reset_ambient})
+         reset_ambient}
+      {$this dx_set_dialog})
    (get_button
       ($button_name)
       {sprintf 'dl_%s.btn' $button_name})

@@ -1,3 +1,5 @@
+#include ../dx/ui/splash/dx_splash_handles.dta
+
 {new
    HelpBarPanel
    helpbar
@@ -72,12 +74,13 @@
    UIPanel
    splash_panel
    (file splash.milo)
+   DX_SPLASH_HANDLES
    (player_num 0)
    (finish_load
       {splash.view set_frame 0}
       {splash_legal.view set_showing TRUE})
    (enter
-      {dx_set_splash}
+      {$this dx_set_splash}
       #ifdef HX_XBOX
       {campaign clear}
       {reset_all_cheats}

@@ -1,7 +1,10 @@
+#include ../dx/ui/main/dx_main_handles.dta
+
 {new
    GHPanel
    main_panel
    (file main.milo)
+   DX_MAIN_HANDLES
    (focus main_quickspin.btn)
    (msg_last_frame 0)
    (already_entered FALSE)
@@ -10,7 +13,7 @@
    #endif
    (retain_last_focus FALSE)
    (enter
-      {dx_set_main_menu}
+      {$this dx_set_main_menu}
       {set $main_entered TRUE}
       #ifdef HX_XBOX
       {set $leaderboards_mode FALSE}

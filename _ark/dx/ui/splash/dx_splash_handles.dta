@@ -1,0 +1,6 @@
+#define DX_SPLASH_HANDLES
+(
+   (dx_set_splash
+      {splash_poster.tex set_bitmap "dx/custom_textures/splash/splash_poster.png"}
+   )
+)
