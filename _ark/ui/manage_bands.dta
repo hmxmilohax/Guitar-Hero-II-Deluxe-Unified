@@ -42,6 +42,7 @@
       ($btn)
       {$btn set_text new_band})
    (enter
+      {dx_set_chooseprof}
       {$this set_up_bands})}
 {new
    GHScreen

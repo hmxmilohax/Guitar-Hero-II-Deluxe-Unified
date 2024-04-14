@@ -22,7 +22,8 @@
    (enter
       {{ui current_screen}
          reset_ambient}
-      {$this enable_buttons})
+      {$this enable_buttons}
+      {dx_set_dialog})
    (get_button
       ($button_name)
       {sprintf 'dl_%s.btn' $button_name})

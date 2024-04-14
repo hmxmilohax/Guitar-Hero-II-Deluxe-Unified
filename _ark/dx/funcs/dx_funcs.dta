@@ -1,8 +1,13 @@
 {func
    dx_set_splash
    {splash_poster.tex set_bitmap "dx/custom_textures/splash/splash_poster.png"}
-   ;{main_buttons.view set_local_pos 0 0 -100}
 }
+
+{func
+   dx_set_dialog
+   {dl_poster.tex set_bitmap "dx/custom_textures/dialog/dl_poster.png"}
+}
+
 
 {func
    dx_set_main_menu
@@ -11,4 +16,10 @@
    {main set focus_color {pack_color 1 1 1}}
    {main set selecting_color {pack_color 0.5 0.5 0.5}}
    ;{main_buttons.view set_local_pos 0 0 -100}
+}
+
+{func
+   dx_set_chooseprof
+   {pencil.tex set_bitmap "dx/custom_textures/chooseprof/pencil.png"}
+   {notebook_cover.tex set_bitmap "dx/custom_textures/chooseprof/notebook_cover.png"}
 }
