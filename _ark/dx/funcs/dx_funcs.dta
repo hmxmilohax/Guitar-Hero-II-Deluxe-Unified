@@ -8,7 +8,6 @@
    {dl_poster.tex set_bitmap "dx/custom_textures/dialog/dl_poster.png"}
 }
 
-
 {func
    dx_set_main_menu
    {mainmenu.tex set_bitmap "dx/custom_textures/main/mainmenu_nohand.png"}
