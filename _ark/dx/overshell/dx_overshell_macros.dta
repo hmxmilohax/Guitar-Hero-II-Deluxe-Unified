@@ -1,0 +1,73 @@
+#define DX_OPEN_OVERSHELL
+(
+   ; uncomment when ready :)
+
+   ;{if {== $button kPad_Start}
+   ;   {set $modifier_exit {ui current_screen}}
+   ;   {synth play_sequence button_select}
+   ;   {ui push_screen dxState_DeluxeSettings_screen}
+   ;}
+)
+
+#define DX_CLOSE_OVERSHELL
+(
+   (BUTTON_DOWN_MSG
+      {if {== $button kPad_Tri}
+         {if_else {exists $modifier_exit}
+            {ui goto_screen $modifier_exit}
+            {ui goto_screen main_screen}
+         }
+         {ui pop_screen}
+         {synth play_sequence button_toggle}
+      }
+      kDataUnhandled 
+   )
+)
+
+#define DX_OVERSHELL_BACK
+(
+   (BUTTON_DOWN_MSG
+      {if
+         {&& {! {$this slider_selected}} {== $button kPad_Tri}}
+            {ui pop_screen}
+            {synth play_sequence button_toggle}
+      }
+      kDataUnhandled
+   )
+)
+
+#define DX_OS_SCREEN_COMMON
+(
+   (allow_back FALSE)
+   (animate_transition FALSE)
+)
+
+#define DX_OS_BTN_PANEL_COMMON
+(
+   (file dx_overshell_btn.milo)
+   (focus diff.btn)
+)
+
+#define DX_OS_LST_PANEL_COMMON
+(
+   (file dx_overshell_lst.milo)
+   (focus sel_section.lst)
+)
+
+#define DX_OS_LST_ENTER_COMMON
+(
+   {gs_tile5.mesh set_showing FALSE}
+   {sel_section.lst set_local_pos -140 0 60}
+   {sel_section.lst set alignment kTopCenter}
+)
+
+#define DX_OS_LST_RESET
+(
+   {set $lstpos {sel_section.lst selected_pos}}
+   {unless {$this slider_selected}
+      {do
+         {sel_section.lst set_selected $lstpos}
+         {$this reset}
+      }
+   }
+)

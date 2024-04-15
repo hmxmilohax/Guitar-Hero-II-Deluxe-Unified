@@ -83,11 +83,16 @@
          {$this backwards_anim}
          {synth play_sequence button_back.cue}
          {ui goto_screen main_screen}}
+      DX_OPEN_OVERSHELL
       kDataUnhandled)}
 {new
    GHScreen
    options_chooseprof_screen
    (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels meta chooseprof_panel helpbar)
    (focus chooseprof_panel)
    (helpbar
@@ -381,4 +386,5 @@
          {== $button kPad_Tri}
          {$this backwards_anim}
          {ui goto_screen options_chooseprof_screen}}
+      DX_OPEN_OVERSHELL
       kDataUnhandled)}

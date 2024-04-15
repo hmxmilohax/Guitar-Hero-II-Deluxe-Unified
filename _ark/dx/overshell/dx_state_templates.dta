@@ -1,0 +1,106 @@
+{new GHPanel
+   dxState_NewBTN_panel
+   DX_OS_BTN_PANEL_COMMON
+   (enter
+
+      ; vv Uncomment these for smaller btn lists vv
+      {pause_title.lbl set_local_pos 0 0 105}
+      {pause_buttons.view set_local_pos 0 0 37}
+
+      {pause_title.lbl set_localized_text {localize os_button_panel}}
+
+      {diff.btn set_localized_text {localize os_btn}}
+      {resume.btn set_localized_text {localize os_btn}}
+      {restart.btn set_localized_text {localize os_btn}}
+      {change_speed.btn set_localized_text {localize os_btn}}
+      {section.btn set_localized_text {localize os_btn}}
+      {newsong.btn set_localized_text {localize os_btn}}
+      {quit.btn set_localized_text {localize os_btn}}
+      {extra1.btn set_localized_text {localize os_btn}}
+      {extra2.btn set_localized_text {localize os_btn}}
+
+      {dx_disable_button diff.btn}
+      {dx_disable_button extra1.btn}
+      {dx_disable_button extra2.btn}
+
+   )
+}
+{new GHScreen
+   dxState_NewBTN_screen
+   (panels dxState_NewBTN_panel) ; Must change for new states
+   DX_OS_SCREEN_COMMON
+   (SELECT_START_MSG
+      {switch $component
+
+         (diff.btn ; 1
+            kDataUnhandled
+         )
+         (resume.btn ; 2
+            kDataUnhandled
+         )
+         (restart.btn ; 3
+            kDataUnhandled
+         )
+         (change_speed.btn ; 4
+            kDataUnhandled
+         )
+         (section.btn ; 5
+            kDataUnhandled
+         )
+         (newsong.btn ; 6
+            kDataUnhandled
+         )
+         (quit.btn ; 7
+            kDataUnhandled
+         )
+         (extra1.btn ; 8
+            kDataUnhandled
+         )
+         (extra2.btn ; 9
+            kDataUnhandled
+         )
+
+      }
+   )
+   DX_OVERSHELL_BACK
+}
+
+
+
+
+
+
+
+
+
+
+
+{new MultiSelectListPanel
+   dxState_NewLST_panel ; this dont works :(
+   DX_OS_LST_PANEL_COMMON
+   (enter
+      DX_OS_LST_ENTER_COMMON
+
+      {gs_title.lbl set_localized_text {localize os_newlst}}
+
+      {sel_section.lst set_data
+         (
+            "aaaa"
+         )
+      }
+   )
+   (SELECT_START_MSG
+      {switch {$component selected_sym}
+         ("aaaa"
+            kDataUnhandled
+         )
+      }
+      DX_OS_LST_RESET
+   )
+}
+{new GHScreen
+   dxState_NewLST_screen
+   (panels dxState_NewLST_panel) ; Must change for new states
+   DX_OS_SCREEN_COMMON
+   DX_OVERSHELL_BACK
+}

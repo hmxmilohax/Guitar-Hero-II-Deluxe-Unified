@@ -44,6 +44,10 @@
    GHScreen
    options_screen
    (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels meta options_panel helpbar)
    (focus options_panel)
    (helpbar
@@ -232,6 +236,7 @@
          {synth play_sequence button_back.cue}
          {$this set_volumes}
          {autosave_goto options_screen}}
+      DX_OPEN_OVERSHELL
       kDataUnhandled)}
 {new
    SliderPanel
@@ -264,6 +269,10 @@
    GHScreen
    mem_card_screen
    (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels meta mem_card_panel helpbar)
    (focus mem_card_panel)
    (helpbar
@@ -322,6 +331,10 @@
    GHScreen
    bonus_material_screen
    (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (item_locked FALSE)
    (panels meta bonus_material_panel helpbar)
    (focus bonus_material_panel)
@@ -743,12 +756,20 @@
    GHScreen
    lag_screen
    (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels lag_panel helpbar)
    (focus lag_panel)}
 {new
    GHScreen
    pause_lag_screen
    (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels GAME_PANELS lag_panel helpbar)
    (focus lag_panel)
    (clear_vram TRUE)
@@ -880,6 +901,7 @@
          {$this backwards_anim}
          {synth play_sequence button_back.cue}
          {autosave_goto options_screen}}
+      DX_OPEN_OVERSHELL
       kDataUnhandled)}
 #ifdef HX_EE
 {new
@@ -912,6 +934,10 @@
    GHScreen
    pscan_warning_screen
    (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels meta pscan_warning_panel helpbar)
    (focus pscan_warning_panel)
    PSCAN_WARNING_SCREEN_HANDLERS
@@ -980,6 +1006,10 @@
    GHScreen
    pscan_switch_screen
    (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels meta pscan_switching_panel helpbar)
    (focus pscan_switching_panel)
    PSCAN_SWITCH_SCREEN_HANDLERS

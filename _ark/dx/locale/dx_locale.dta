@@ -1,1 +1,12 @@
 (splash_legal "Guitar Hero II Deluxe © 2006 RedOctane, Inc.\nModifications © 2021-2024 MiloHax. See credits for all contributors.\nOriginal game code © 2005-2006 Harmonix Music Systems, Inc. Developed by Harmonix Music Systems.")
+
+; Overshell
+(os_deluxe_settings "DELUXE SETTINGS")
+
+(os_nothing "NOTHING YET")
+(os_blnk " ")
+
+(os_button_panel "BUTTON PANEL")
+(os_btn "BUTTON")
+
+(os_newlst "LIST PANEL")

@@ -25,6 +25,10 @@
    GHScreen
    training_screen
    (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels meta training_panel helpbar)
    (focus training_panel)
    (helpbar

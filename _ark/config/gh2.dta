@@ -1,4 +1,6 @@
 #include macros.dta
+#include ../dx/macros/dx_macros.dta
+#include ../dx/overshell/dx_overshell_macros.dta
 (mem
    #include mem.dta)
 (system

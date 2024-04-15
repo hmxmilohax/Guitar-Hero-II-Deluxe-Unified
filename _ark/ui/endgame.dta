@@ -407,6 +407,10 @@
 {new
    GHScreen
    endgame_screen
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels GAME_PANELS endgame_panel helpbar)
    (focus endgame_panel)
    (clear_vram TRUE)
@@ -697,6 +701,10 @@
 {new
    GHScreen
    endgame_encore_screen
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels GAME_PANELS endgame_encore_panel helpbar)
    (focus endgame_panel)
    (clear_vram TRUE)
@@ -1064,6 +1072,10 @@
 {new
    GHScreen
    unlock_venue_screen
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels GAME_PANELS unlock_venue_panel helpbar)
    (focus unlock_venue_panel)
    (in_game TRUE)

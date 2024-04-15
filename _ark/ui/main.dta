@@ -145,6 +145,10 @@
    GHScreen
    main_screen
    (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels meta main_panel helpbar)
    (focus main_panel)
    (helpbar

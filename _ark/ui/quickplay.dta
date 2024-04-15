@@ -12,7 +12,12 @@
    (sel_song_career FALSE)
    (SELECT_START_MSG
       {ui goto_screen qp_diff_screen}
-      kDataUnhandled)}
+      kDataUnhandled)
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
+}
 {new
    GHScreen
    qp_diff_screen
@@ -27,4 +32,9 @@
    (SELECT_START_MSG
       {game set_quickplay}
       {ui goto_screen loading_screen}
-      kDataUnhandled)}
+      kDataUnhandled)
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
+}

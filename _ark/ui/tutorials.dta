@@ -528,6 +528,10 @@
    GHScreen
    tutorials_screen
    (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels tutorials_panel meta helpbar)
    (focus tutorials_panel)
    (helpbar

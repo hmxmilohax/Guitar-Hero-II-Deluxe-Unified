@@ -104,6 +104,7 @@
          {$this backwards_anim}
          {synth play_sequence button_back.cue}
          {ui goto_screen chooseprof_screen}}
+      DX_OPEN_OVERSHELL
       kDataUnhandled)}
 {new
    GHPanel
@@ -142,6 +143,7 @@
          {== $button kPad_X}
          {synth play_sequence button_select}
          {autosave_goto career_screen}}
+      DX_OPEN_OVERSHELL
       TRUE)}
 {new
    GHPanel
@@ -244,6 +246,7 @@
          {$this backwards_anim}
          {synth play_sequence button_back.cue}
          {autosave_goto sel_difficulty_screen}}
+      DX_OPEN_OVERSHELL
       kDataUnhandled)}
 {new
    GHPanel
@@ -504,6 +507,7 @@
                {ui
                   goto_screen
                   [back_screen]}}}}
+      DX_OPEN_OVERSHELL
       kDataUnhandled))
 #define SEL_CHARACTER_SELECT_HANDLER
 ({if_else
@@ -654,7 +658,10 @@
                {sel_guitar_panel is_skin_select 0}
                {$this unchoose_skins}
                {$this go_back}})
-         kDataUnhandled})
+         kDataUnhandled}
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (guitar_selected
       ($player_num)
       {synth play_sequence button_select}
@@ -1204,6 +1211,7 @@
    (panels meta store_back_panel store_guitar_display_panel store_video_panel char_store store_panel helpbar)
    (focus store_panel)
    (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
       {cond
          ({&&
                {is_updown_button $button}
@@ -1401,6 +1409,7 @@
             {$this backwards_anim}
             {synth play_sequence button_back.cue}
             {ui goto_screen career_screen})}
+      DX_OPEN_OVERSHELL
       kDataUnhandled)}
 #ifdef HX_XBOX
 {new
@@ -1625,6 +1634,7 @@
          {$this backwards_anim}
          {synth play_sequence button_back.cue}
          {ui goto_screen sel_venue_screen}}
+      DX_OPEN_OVERSHELL
       kDataUnhandled)
    (SELECT_START_MSG
       {sel_song_panel set metamusic_on_exit FALSE}

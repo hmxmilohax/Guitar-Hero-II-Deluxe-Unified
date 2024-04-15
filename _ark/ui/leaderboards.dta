@@ -2,6 +2,10 @@
    GHScreen
    leaderboards_song_screen
    (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels meta sel_song_panel helpbar)
    (focus sel_song_panel)
    (helpbar

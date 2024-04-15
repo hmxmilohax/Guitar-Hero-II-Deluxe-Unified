@@ -1,0 +1,5 @@
+{func
+   dx_disable_button
+   ($dx_button)
+   {$this disable $dx_button} {$dx_button set_showing FALSE}
+}
