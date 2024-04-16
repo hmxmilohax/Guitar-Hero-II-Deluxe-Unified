@@ -16,6 +16,7 @@
 (pause_practice "practice")
 (prac_dxsetti "DELUXE SETTINGS")
 
+(dx_os_helpbar "OVERSHELL")
 ; Overshell
 (os_deluxe_settings "DELUXE SETTINGS")
 

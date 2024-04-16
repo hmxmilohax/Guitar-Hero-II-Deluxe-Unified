@@ -74,4 +74,5 @@
    (helpbar
       (default
          ((fret1 help_continue)
+            (start dx_os_helpbar)
             (strum help_updown))))}
