@@ -50,7 +50,8 @@
    overshell_audio_settings_screen
    (panels pause_audio_settings_panel helpbar)
    (focus pause_audio_settings_panel)
-   DX_SETUP_OVERSHELL_SCREEN
+   (allow_back FALSE)
+   (animate_transition FALSE)
    (BUTTON_DOWN_MSG
       {if
          {&&
