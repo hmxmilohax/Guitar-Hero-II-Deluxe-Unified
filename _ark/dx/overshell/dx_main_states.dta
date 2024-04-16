@@ -1,68 +1,43 @@
-{new GHPanel
+{new GHPanel ; btn: GHPanel, lst: MultiSelectListPanel
    dxState_DeluxeSettings_panel
-   DX_OS_BTN_PANEL_COMMON
+   DX_SETUP_OVERSHELL_PANEL_BTN
+
    (enter
 
-      ; vv Uncomment these for smaller btn lists vv
-      {pause_title.lbl set_local_pos 0 0 105}
-      {pause_buttons.view set_local_pos 0 0 37}
+      ; Size (options: small, large)
+      {dx_btn_state_size small}
 
-      {pause_title.lbl set_localized_text {localize os_deluxe_settings}}
+      ; Header text
+      {dx_state_header_text os_deluxe_settings}
 
-      ;{diff.btn set_localized_text {localize os_nothing}}
+      ; Buttons to disable
+      {dx_disable_obj diff.btn} ; Always disabled on small panels
+      ;{dx_disable_obj resume.btn}
+      {dx_disable_obj restart.btn}
+      {dx_disable_obj change_speed.btn}
+      {dx_disable_obj section.btn}
+      {dx_disable_obj newsong.btn}
+      {dx_disable_obj quit.btn}
+      {dx_disable_obj extra1.btn}
+      {dx_disable_obj extra2.btn} ; Always disabled on small panels
+
+      ; Button text
       {resume.btn set_localized_text {localize os_nothing}}
-      {restart.btn set_localized_text {localize os_nothing}}
-      {change_speed.btn set_localized_text {localize os_nothing}}
-      {section.btn set_localized_text {localize os_nothing}}
-      {newsong.btn set_localized_text {localize os_nothing}}
-      {quit.btn set_localized_text {localize os_nothing}}
-      ;{extra1.btn set_localized_text {localize os_nothing}}
-      ;{extra2.btn set_localized_text {localize os_nothing}}
-
-      {dx_disable_button diff.btn}
-
-      {dx_disable_button extra1.btn}
-      {dx_disable_button extra2.btn}
 
    )
-}
-{new GHScreen
-   dxState_DeluxeSettings_screen
-   (panels dxState_DeluxeSettings_panel) ; Must change for new states
-   DX_OS_SCREEN_COMMON
    (SELECT_START_MSG
       {switch $component
 
-         (diff.btn ; 1
+         ; Button actions
+         (resume.btn
             kDataUnhandled
          )
-         ;(resume.btn ; 2
-         ;   kDataUnhandled
-         ;)
-         ;(restart.btn ; 3
-         ;   kDataUnhandled
-         ;)
-         ;(change_speed.btn ; 4
-         ;   kDataUnhandled
-         ;)
-         ;(section.btn ; 5
-         ;   kDataUnhandled
-         ;)
-         ;(newsong.btn ; 6
-         ;   kDataUnhandled
-         ;)
-         ;(quit.btn ; 7
-         ;   kDataUnhandled
-         ;)
-         ;(extra1.btn ; 8
-         ;   kDataUnhandled
-         ;)
-         ;(extra2.btn ; 9
-         ;   kDataUnhandled
-         ;)
 
       }
    )
-   ; Only use this macro for this state, for others use DX_OVERSHELL_BACK
-   DX_CLOSE_OVERSHELL
+}{new GHScreen
+   dxState_DeluxeSettings_screen
+   (panels dxState_DeluxeSettings_panel) ; Must change for new states
+   DX_SETUP_OVERSHELL_SCREEN
+   DX_OVERSHELL_BACK
 }

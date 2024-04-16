@@ -1,15 +1,28 @@
-{new GHPanel
+{new GHPanel ; btn: GHPanel, lst: MultiSelectListPanel
    dxState_NewBTN_panel
-   DX_OS_BTN_PANEL_COMMON
+   DX_SETUP_OVERSHELL_PANEL_BTN
+
    (enter
 
-      ; vv Uncomment these for smaller btn lists vv
-      {pause_title.lbl set_local_pos 0 0 105}
-      {pause_buttons.view set_local_pos 0 0 37}
+      ; Size (options: small, large)
+      {dx_btn_state_size small}
 
-      {pause_title.lbl set_localized_text {localize os_button_panel}}
+      ; Header text
+      {dx_state_header_text os_button_panel}
 
-      {diff.btn set_localized_text {localize os_btn}}
+      ; Buttons to disable
+      ;{dx_disable_obj diff.btn} ; Always disabled on small panels
+      ;{dx_disable_obj resume.btn}
+      ;{dx_disable_obj restart.btn}
+      ;{dx_disable_obj change_speed.btn}
+      ;{dx_disable_obj section.btn}
+      ;{dx_disable_obj newsong.btn}
+      ;{dx_disable_obj quit.btn}
+      ;{dx_disable_obj extra1.btn}
+      ;{dx_disable_obj extra2.btn} ; Always disabled on small panels
+
+      ; Button text
+      {diff.btn set_localized_text {localize os_btn}} ; Disabled on small panels
       {resume.btn set_localized_text {localize os_btn}}
       {restart.btn set_localized_text {localize os_btn}}
       {change_speed.btn set_localized_text {localize os_btn}}
@@ -17,51 +30,47 @@
       {newsong.btn set_localized_text {localize os_btn}}
       {quit.btn set_localized_text {localize os_btn}}
       {extra1.btn set_localized_text {localize os_btn}}
-      {extra2.btn set_localized_text {localize os_btn}}
-
-      {dx_disable_button diff.btn}
-      {dx_disable_button extra1.btn}
-      {dx_disable_button extra2.btn}
+      {extra2.btn set_localized_text {localize os_btn}} ; Disabled on small panels
 
    )
-}
-{new GHScreen
-   dxState_NewBTN_screen
-   (panels dxState_NewBTN_panel) ; Must change for new states
-   DX_OS_SCREEN_COMMON
    (SELECT_START_MSG
       {switch $component
 
-         (diff.btn ; 1
+         ; Button actions
+         (diff.btn ; Disabled on small panels
             kDataUnhandled
          )
-         (resume.btn ; 2
+         (resume.btn
             kDataUnhandled
          )
-         (restart.btn ; 3
+         (restart.btn
             kDataUnhandled
          )
-         (change_speed.btn ; 4
+         (change_speed.btn
             kDataUnhandled
          )
-         (section.btn ; 5
+         (section.btn
             kDataUnhandled
          )
-         (newsong.btn ; 6
+         (newsong.btn
             kDataUnhandled
          )
-         (quit.btn ; 7
+         (quit.btn
             kDataUnhandled
          )
-         (extra1.btn ; 8
+         (extra1.btn
             kDataUnhandled
          )
-         (extra2.btn ; 9
+         (extra2.btn ; Disabled on small panels
             kDataUnhandled
          )
 
       }
    )
+}{new GHScreen
+   dxState_NewBTN_screen
+   (panels dxState_NewBTN_panel) ; Must change for new states
+   DX_SETUP_OVERSHELL_SCREEN
    DX_OVERSHELL_BACK
 }
 
@@ -74,28 +83,34 @@
 
 
 
-
-{new MultiSelectListPanel
-   dxState_NewLST_panel ; this dont works :(
-   DX_OS_LST_PANEL_COMMON
+{new MultiSelectListPanel ; btn: GHPanel, lst: MultiSelectListPanel
+   dxState_NewLST_panel
+   DX_SETUP_OVERSHELL_PANEL_LST
    (enter
-      DX_OS_LST_ENTER_COMMON
+      {dx_os_lst_setup}
 
-      {gs_title.lbl set_localized_text {localize os_newlst}}
+      ; Header text
+      {dx_state_header_text os_newlst}
 
       {sel_section.lst set_data
          (
+
+            ; Data for the list
             "aaaa"
+
          )
       }
    )
    (SELECT_START_MSG
       {switch {$component selected_sym}
+
+         ; Button actions
          ("aaaa"
             kDataUnhandled
          )
+
       }
-      DX_OS_LST_RESET
+      {dx_os_lst_reset}
    )
 }
 {new GHScreen
