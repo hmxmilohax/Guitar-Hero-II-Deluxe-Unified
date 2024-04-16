@@ -14,9 +14,15 @@
    dx_btn_state_size
    ($size)
    {if {== $size small}
+      {pause_title.lbl set_local_pos 0 0 112}
+      {pause_buttons.view set_local_pos 0 0 19}
+      {dx_disable_obj extra1.btn}
+      {dx_disable_obj extra2.btn}
+   }
+   {if {== $size small_big_header}
       {pause_title.lbl set_local_pos 0 0 100}
-      {pause_buttons.view set_local_pos 0 0 37}
-      {dx_disable_obj diff.btn}
+      {pause_buttons.view set_local_pos 0 0 7}
+      {dx_disable_obj extra1.btn}
       {dx_disable_obj extra2.btn}
    }
 }

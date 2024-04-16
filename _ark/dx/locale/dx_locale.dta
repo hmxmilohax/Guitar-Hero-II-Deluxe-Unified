@@ -13,11 +13,22 @@
 
 ; Pause menu
 (pause_dxsettin "DELUXE SETTINGS")
-(pause_practice "practice")
+(pause_practice "PRACTICE")
 (prac_dxsetti "DELUXE SETTINGS")
 
 ; Overshell
 (os_deluxe_settings "DELUXE SETTINGS")
+
+(os_cheats "CHEATS")
+
+(os_hyperspeed "HYPER SPEED")
+(os_performance "PERFORMANCE MODE")
+(os_airgtr "AIR GUITAR")
+(os_flaming "FLAMING HEAD")
+(os_eyeball "EYEBALL HEAD CROWD")
+(os_monkey "MONKEY HEAD CROWD")
+(os_unlock "UNLOCK ALL")
+(os_nosave "(SAVING DISABLED)")
 
 (os_system_settings "SYSTEM SETTINGS")
 (os_audio_options "AUDIO SETTINGS")

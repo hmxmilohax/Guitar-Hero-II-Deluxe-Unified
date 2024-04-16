@@ -4,36 +4,36 @@
 
    (enter
 
-      ; Size (options: small, large)
-      {dx_btn_state_size small}
+      ; Size (options: small, small_big_header, large)
+      {dx_btn_state_size small_big_header}
 
       ; Header text
       {dx_state_header_text os_system_settings}
 
       ; Buttons to disable
-      {dx_disable_obj diff.btn} ; Always disabled on small panels
+      ;{dx_disable_obj diff.btn}
       ;{dx_disable_obj resume.btn}
-      ;{dx_disable_obj restart.btn}
+      {dx_disable_obj restart.btn}
       {dx_disable_obj change_speed.btn}
       {dx_disable_obj section.btn}
       {dx_disable_obj newsong.btn}
       {dx_disable_obj quit.btn}
-      {dx_disable_obj extra1.btn}
+      {dx_disable_obj extra1.btn} ; Always disabled on small panels
       {dx_disable_obj extra2.btn} ; Always disabled on small panels
 
       ; Button text
-      {resume.btn set_localized_text {localize os_audio_options}}
-      {restart.btn set_localized_text {localize os_video_options}}
+      {diff.btn set_localized_text {localize os_audio_options}}
+      {resume.btn set_localized_text {localize os_video_options}}
 
    )
    (SELECT_START_MSG
       {switch $component
 
          ; Button actions
-         (resume.btn
+         (diff.btn
             {ui push_screen overshell_audio_settings_screen}
          )
-         (restart.btn
+         (resume.btn
             {ui push_screen overshell_video_settings_screen}
          )
 
