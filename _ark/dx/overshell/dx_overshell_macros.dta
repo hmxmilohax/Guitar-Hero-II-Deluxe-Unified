@@ -1,15 +1,26 @@
 #define DX_OPEN_OVERSHELL
 (
-   ;{if {== $button kPad_Start}
-   ;   {synth play_sequence button_select}
-   ;   {ui push_screen dxState_DeluxeSettings_screen}
-   ;}
+   {if {== $button kPad_Start}
+      {synth play_sequence button_select}
+      {ui push_screen dxState_DeluxeSettings_screen}
+   }
 )
 
 #define DX_SETUP_OVERSHELL_SCREEN
 (
    (allow_back FALSE)
    (animate_transition FALSE)
+   (BUTTON_DOWN_MSG
+      {if {&& {! {$this slider_selected}} {== $button kPad_Tri}}
+         {ui pop_screen}
+         {synth play_sequence button_toggle}
+      }
+      {if {&& {! {$this slider_selected}} {== $button kPad_Start}}
+         {ui pop_screen}
+         {synth play_sequence button_toggle}
+      }
+      kDataUnhandled
+   )
 )
 
 #define DX_SETUP_OVERSHELL_PANEL_BTN
@@ -22,19 +33,4 @@
 (
    (file dx_overshell_lst.milo)
    (focus sel_section.lst)
-)
-
-#define DX_OVERSHELL_BACK
-(
-   (BUTTON_DOWN_MSG
-      {if {&& {! {$this slider_selected}} {== $button kPad_Tri}}
-         {ui pop_screen}
-         {synth play_sequence button_toggle}
-      }
-      {if {&& {! {$this slider_selected}} {== $button kPad_Start}}
-         {ui pop_screen}
-         {synth play_sequence button_toggle}
-      }
-      kDataUnhandled
-   )
 )

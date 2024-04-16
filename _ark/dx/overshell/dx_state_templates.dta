@@ -71,7 +71,6 @@
    dxState_NewBTN_screen
    (panels dxState_NewBTN_panel) ; Must change for new states
    DX_SETUP_OVERSHELL_SCREEN
-   DX_OVERSHELL_BACK
 }
 
 
@@ -117,5 +116,4 @@
    dxState_NewLST_screen
    (panels dxState_NewLST_panel) ; Must change for new states
    DX_OS_SCREEN_COMMON
-   DX_OVERSHELL_BACK
 }

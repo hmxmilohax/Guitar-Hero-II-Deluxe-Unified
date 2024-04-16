@@ -1,9 +1,18 @@
+; Splash screen
 (splash_legal "Guitar Hero II Deluxe © 2006 RedOctane, Inc.\nModifications © 2021-2024 MiloHax. See credits for all contributors.\nOriginal game code © 2005-2006 Harmonix Music Systems, Inc. Developed by Harmonix Music Systems.")
+
+; Pause menu
+(pause_dxsettin "DELUXE SETTINGS")
+(pause_practice "practice")
+(prac_dxsetti "DELUXE SETTINGS")
 
 ; Overshell
 (os_deluxe_settings "DELUXE SETTINGS")
 
-(os_nothing "COMING SOON")
+(os_system_settings "SYSTEM SETTINGS")
+(os_audio_options "AUDIO SETTINGS")
+(os_video_options "VIDEO SETTINGS")
+
 (os_blnk " ")
 
 (os_button_panel "BUTTON PANEL")

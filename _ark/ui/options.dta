@@ -596,7 +596,7 @@
                      [from_panel]
                      video_settings_panel}
                   {ui goto_screen video_settings_screen}
-                  {ui goto_screen pause_video_settings_screen}})
+                  {ui pop_screen}})
             kDataUnhandled}})
    (SELECT_START_MSG
       {switch
@@ -765,18 +765,19 @@
 {new
    GHScreen
    pause_lag_screen
-   (animate_transition {! $dx_fast_menus})
-   (BUTTON_DOWN_MSG
-      DX_OPEN_OVERSHELL
-      kDataUnhandled
-   )
-   (panels GAME_PANELS lag_panel helpbar)
+   (animate_transition FALSE)
+   ;(BUTTON_DOWN_MSG
+   ;   DX_OPEN_OVERSHELL
+   ;   kDataUnhandled
+   ;)
+   (panels lag_panel helpbar)
    (focus lag_panel)
    (clear_vram TRUE)
-   (enter
-      {hud set_showing FALSE}
-      {track_panel set_showing FALSE}
-      {world_panel set_showing FALSE})}
+   ;(enter
+   ;   {hud set_showing FALSE}
+   ;   {track_panel set_showing FALSE}
+   ;   {world_panel set_showing FALSE})
+}
 #define VIDEO_SETTINGS_PANEL_HANDLERS
 ((focus gs_left_p1.btn)
    (focus_component
@@ -873,7 +874,7 @@
             {if_else
                {== $this video_settings_panel}
                {ui goto_screen lag_screen}
-               {ui goto_screen pause_lag_screen}})
+               {ui push_screen pause_lag_screen}})
          kDataUnhandled}
       {$this update_help_display}))
 {new

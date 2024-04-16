@@ -22,7 +22,7 @@
       {dx_disable_obj extra2.btn} ; Always disabled on small panels
 
       ; Button text
-      {resume.btn set_localized_text {localize os_nothing}}
+      {resume.btn set_localized_text {localize os_system_settings}}
 
    )
    (SELECT_START_MSG
@@ -30,7 +30,7 @@
 
          ; Button actions
          (resume.btn
-            kDataUnhandled
+            {ui push_screen dxState_SystemSettings_screen}
          )
 
       }
@@ -39,5 +39,4 @@
    dxState_DeluxeSettings_screen
    (panels dxState_DeluxeSettings_panel) ; Must change for new states
    DX_SETUP_OVERSHELL_SCREEN
-   DX_OVERSHELL_BACK
 }
