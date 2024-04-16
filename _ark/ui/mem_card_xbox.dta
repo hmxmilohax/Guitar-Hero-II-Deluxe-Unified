@@ -194,6 +194,7 @@
    startup_create_save_screen
    DIALOG_SCREEN
    (enter
+      {set $dx_new_save TRUE}
       {dialog setup mc_choose_device mc_no_save button1 mc_create_file mc_title_warning})
    (SELECT_START_MSG
       {switch

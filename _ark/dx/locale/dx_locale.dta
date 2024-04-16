@@ -1,6 +1,16 @@
 ; Splash screen
 (splash_legal "Guitar Hero II Deluxe © 2006 RedOctane, Inc.\nModifications © 2021-2024 MiloHax. See credits for all contributors.\nOriginal game code © 2005-2006 Harmonix Music Systems, Inc. Developed by Harmonix Music Systems.")
 
+; Welcome screen
+
+(DX_LETHEAD1 "MiloHax Records")
+(DX_LETHEAD2 "GH2DXu v0 (Pre-Alpha)")
+(DX_LETHEAD3 " ")
+(dx_welcome_screen1 "Dear valued GH2DX player,")
+(dx_welcome_screen2 "WELCOME TO OUR PRE-ALPHA!")
+(dx_welcome_screen3 "Thank you for playing Guitar Hero II Deluxe!")
+(dx_welcome_screen4 "This is expected to be a highly ambitious project combining what made the PS2 and Xbox 360 versions of GH2DX great, into one EVEN BIGGER and BETTER mod for BOTH platforms!\n\nAs mentioned, we are currently in the PRE-ALPHA stage, so the mod thus far is very incomplete, but stay tuned for the future!\n\nGH2DX is a free modification by MiloHax; if you paid for this mod in any way shape or form, you have been scammed and should demand your money back immediately!")
+
 ; Pause menu
 (pause_dxsettin "DELUXE SETTINGS")
 (pause_practice "practice")

@@ -180,6 +180,7 @@
    bootup_create_save
    DIALOG_SCREEN
    (enter
+      {set $dx_new_save TRUE}
       {dialog message mc_checking mc_title_saving}
       {script_task
          (delay 1)
