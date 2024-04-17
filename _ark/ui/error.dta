@@ -5,7 +5,8 @@
    (animate_transition FALSE)
    (helpbar
       (default
-         ((fret1 help_continue))))
+         ((fret1 help_continue)
+          (start dx_os_helpbar))))
    (enter
       {$this
          set_focus

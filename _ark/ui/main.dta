@@ -154,7 +154,8 @@
    (helpbar
       (default
          ((fret1 help_continue)
-            (strum help_updown))))
+          (start dx_os_helpbar)            
+          (strum help_updown))))
    (access_all
       {main_panel reset_player_settings})
    (enter

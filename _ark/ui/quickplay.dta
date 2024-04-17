@@ -8,6 +8,7 @@
       (default
          ((fret1 help_continue)
             (fret2 help_back)
+            (start dx_os_helpbar) 
             (strum help_updown))))
    (sel_song_career FALSE)
    (SELECT_START_MSG
@@ -28,6 +29,7 @@
       (default
          ((fret1 help_continue)
             (fret2 help_back)
+            (start dx_os_helpbar) 
             (strum help_updown))))
    (SELECT_START_MSG
       {game set_quickplay}

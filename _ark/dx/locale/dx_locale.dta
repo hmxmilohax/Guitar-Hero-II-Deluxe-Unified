@@ -1,6 +1,24 @@
 ; Splash screen
 (splash_legal "Guitar Hero II Deluxe © 2006 RedOctane, Inc.\nModifications © 2021-2024 MiloHax. See credits for all contributors.\nOriginal game code © 2005-2006 Harmonix Music Systems, Inc. Developed by Harmonix Music Systems.")
 
+; Save related locale
+(bootup_caution_ps2 "Caution! Guitar Hero II Deluxe uses an Autosave feature. Insertion of a memory card (8MB)(for PlayStation®2) beyond this point may cause data to be overwritten. Continue without saving?")
+(bootup_create_save_ps2 "Creating Guitar Hero II Deluxe save file. Do not remove memory card (8MB)(for PlayStation®2) in MEMORY CARD slot {SLOT}, reset, or switch off console.")
+(bootup_create_save_check_ps2 "No Guitar Hero II Deluxe save data present on memory card (8MB)(for PlayStation®2) in MEMORY CARD slot {SLOT}. Guitar Hero II Deluxe uses an Autosave feature. 175KB of free space is required to save game data. Do you want to create a save file now?")
+(bootup_create_success_ps2 "Guitar Hero II Deluxe data created successfully.")
+(bootup_nocard_ps2 "No memory card (8MB)(for PlayStation®2) detected in MEMORY CARD slot {SLOT}. Guitar Hero II Deluxe uses an Autosave feature. 175KB of space is required to save game data. Do you want to start the game without saving?")
+(bootup_nospace_ps2  "Insufficient space on the memory card (8MB)(for PlayStation®2) in MEMORY CARD slot {SLOT}. Insert a memory card with at least 175KB of free space, or create some space using the console browser. Continue without saving?")
+(bootup_replace_save_check_ps2 "SAVE ERROR: A Guitar Hero II Deluxe save file already exists on the memory card (8MB)(for PlayStation®2) in MEMORY CARD slot {SLOT}. Select REPLACE to create a brand new save file, or LOAD to use that save data.")
+(bootup_save_card_removed_ps2 "No memory card (8MB)(for PlayStation®2) inserted in MEMORY CARD slot {SLOT}. Guitar Hero II Deluxe uses an Autosave feature. 175KB of space is required to save game data. Do you want to start the game without saving?")
+(file_exists_error_ps2 "SAVE ERROR: Guitar Hero II Deluxe data already exists on the memory card (8MB)(for PlayStation®2) in MEMORY CARD slot {SLOT}. Overwrite previous data?")
+(load_loading_ps2 "Loading Guitar Hero II Deluxe data. Do not remove memory card (8MB)(for PlayStation®2) in MEMORY CARD slot {SLOT}, reset, or switch off the console.")
+(load_success_ps2 "Guitar Hero II Deluxe data loaded successfully.")
+(mc_card_removed_error_ps2 "LOAD FAILED: No memory card (8MB)(for PlayStation®2) detected in MEMORY CARD slot {SLOT}. Do you wish to insert a memory card containing Guitar Hero II Deluxe data and reattempt load?")
+(mc_nocard_error_ps2 "No memory card (8MB)(for PlayStation®2) inserted in MEMORY CARD slot {SLOT}. Do you wish to insert a memory card (8MB)(for PlayStation®2) containing Guitar Hero II Deluxe data and try loading again?")
+(mc_save_confirm_ps2 "WARNING: Saving will overwrite any existing Guitar Hero II Deluxe data on the memory card (8MB)(for PlayStation®2) in MEMORY CARD slot {SLOT}. Are you sure you want to save?")
+(pre_delete_confirm_ps2 "Before deleting a band, your current progress must be saved to a memory card (8MB)(for PlayStation®2). Any existing Guitar Hero II Deluxe data may be overwritten.")
+(save_saving_ps2 "Saving Guitar Hero II Deluxe data. Do not remove memory card (8MB)(for PlayStation®2) in MEMORY CARD slot {SLOT}, reset, or switch off console.")
+
 ; Welcome screen
 
 (DX_LETHEAD1 "MiloHax Records")
@@ -16,6 +34,7 @@
 (pause_practice "PRACTICE")
 (prac_dxsetti "DELUXE SETTINGS")
 
+(dx_os_helpbar "OVERSHELL")
 ; Overshell
 (os_deluxe_settings "DELUXE SETTINGS")
 

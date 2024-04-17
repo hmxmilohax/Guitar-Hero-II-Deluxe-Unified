@@ -422,7 +422,8 @@
    (helpbar
       (default
          ((fret1 help_continue)
-            (strum help_updown))))}
+          (start dx_os_helpbar)
+          (strum help_updown))))}
 {new
    GHPanel
    endgame_stats_panel
@@ -713,7 +714,8 @@
    (helpbar
       (default
          ((fret1 help_continue)
-            (strum help_updown))))
+          (start dx_os_helpbar)
+          (strum help_updown))))
    (enter
       {world_panel set_showing FALSE}
       {$this set_focus_panel endgame_encore_panel})}
@@ -1083,7 +1085,8 @@
    (animate_transition FALSE)
    (helpbar
       (default
-         ((fret1 help_continue))))
+         ((fret1 help_continue)
+          (start dx_os_helpbar))))
    (enter
       {world play_sfx vroom.cue})}
 {new
