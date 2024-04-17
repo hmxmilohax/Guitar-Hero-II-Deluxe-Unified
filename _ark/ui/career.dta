@@ -1312,7 +1312,6 @@
       (default
          ((fret1 help_continue)
             (fret2 help_back)
-            SEL_VENUE_SCREEN_HANDLERS
             (strum help_updown))))
    (venue_button_name
       ($venue)
