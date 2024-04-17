@@ -11,11 +11,11 @@
    (allow_back FALSE)
    (animate_transition FALSE)
    (BUTTON_DOWN_MSG
-      {if {&& {! {$this slider_selected}} {== $button kPad_Tri}}
+      {if {== $button kPad_Tri}
          {ui pop_screen}
          {synth play_sequence button_toggle}
       }
-      {if {&& {! {$this slider_selected}} {== $button kPad_Start}}
+      {if {== $button kPad_Start}
          {ui pop_screen}
          {synth play_sequence button_toggle}
       }
