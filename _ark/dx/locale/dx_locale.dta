@@ -20,7 +20,6 @@
 (save_saving_ps2 "Saving Guitar Hero II Deluxe data. Do not remove memory card (8MB)(for PlayStation®2) in MEMORY CARD slot {SLOT}, reset, or switch off console.")
 
 ; Welcome screen
-
 (DX_LETHEAD1 "MiloHax Records")
 (DX_LETHEAD2 "GH2DXu v0 (Pre-Alpha)")
 (DX_LETHEAD3 " ")
@@ -28,6 +27,9 @@
 (dx_welcome_screen2 "WELCOME TO OUR PRE-ALPHA!")
 (dx_welcome_screen3 "Thank you for playing Guitar Hero II Deluxe!")
 (dx_welcome_screen4 "This is expected to be a highly ambitious project combining what made the PS2 and Xbox 360 versions of GH2DX great, into one EVEN BIGGER and BETTER mod for BOTH platforms!\n\nAs mentioned, we are currently in the PRE-ALPHA stage, so the mod thus far is very incomplete, but stay tuned for the future!\n\nGH2DX is a free modification by MiloHax; if you paid for this mod in any way shape or form, you have been scammed and should demand your money back immediately!")
+
+; Main menu
+(DX_FREEPLA "FREE PLAY")
 
 ; Pause menu
 (pause_dxsettin "DELUXE SETTINGS")

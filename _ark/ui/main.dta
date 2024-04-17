@@ -3,7 +3,11 @@
 {new
    GHPanel
    main_panel
+   #ifdef HX_XBOX
+   (file {if_else {profilemgr is_active_pad_signed_in_live} main_live.milo main.milo})
+   #else
    (file main.milo)
+   #endif
    DX_MAIN_HANDLES
    (focus main_quickspin.btn)
    (msg_last_frame 0)
