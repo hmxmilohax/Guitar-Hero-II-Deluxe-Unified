@@ -5,6 +5,8 @@ import sys
 import argparse
 import os
 
+from PIL import Image, ImageFilter
+
 game_name = "Guitar Hero II Deluxe Unified"
 
 ninja = ninja_syntax.Writer(open("build.ninja", "w+"))
@@ -16,15 +18,11 @@ ninja = ninja_syntax.Writer(open("build.ninja", "w+"))
 #rb3, dc, blitz - "-v 6"
 ninja.variable("ark_version", " ")
 
-#copy back dx files and vanilla hdr to platform folder before building
-rebuild_files = True
-
 #set True for rb1 and newer 
 new_gen = False
 
 #patch for patch arks, main for patchcreator, old gen, and rb1
 hdr_name = "main"
-gen_folder = "gen"
 
 dtb_encrypt = "-e"
 ark_encrypt = "-e"
@@ -38,8 +36,8 @@ custom_texture_paths = [
 #patchcreator options
 patchcreator = True
 new_ark_part = "1"
-#deliver vanilla arks to out folder
-copy_vanilla_arks_to_out = True
+
+#end of options
 
 parser = argparse.ArgumentParser(prog="configure")
 parser.add_argument("platform")
@@ -49,6 +47,8 @@ parser.add_argument(
 
 args = parser.parse_args()
 
+gen_folder = "gen"
+
 #Wii should always use patchcreator
 if args.platform == "wii":
     patchcreator = True
@@ -57,7 +57,6 @@ if args.platform == "wii":
 if args.platform == "ps2":
     #all milo ps2 games from gh to rb use MAIN_0.ARK
     hdr_name = "MAIN"
-    gen_folder = "GEN"
     if new_gen == False:
         #pre rb2 does not use miloVersion for superfreq image generation on ps2
         miloVersion = " "
@@ -120,7 +119,7 @@ match args.platform:
     case "wii":
         out_dir = Path("out", args.platform, "files", gen_folder)
     case "ps2":
-        out_dir = Path("out", args.platform, gen_folder)
+        out_dir = Path("out", args.platform, gen_folder.upper())
 
 #building an ark
 if patchcreator == False:
@@ -146,7 +145,7 @@ if patchcreator == True:
         case "wii":
             hdr_path = "platform/" + args.platform + "/files/" + gen_folder + "/" + hdr_name + ".hdr"
         case "ps2":
-            hdr_path = "platform/" + args.platform + "/" + gen_folder + "/" + hdr_name.upper() + ".HDR"
+            hdr_path = "platform/" + args.platform + "/" + gen_folder.upper() + "/" + hdr_name.upper() + ".HDR"
         case "ps3":
             hdr_path = "platform/" + args.platform + "/USRDIR/" + gen_folder + "/" + hdr_name + ".hdr"
         case "xbox":
@@ -170,28 +169,11 @@ ninja.build("_always", "phony")
 build_files = []
 
 # copy whatever arbitrary files you need to output
-if rebuild_files == True:
-    for f in filter(lambda x: x.is_file(), Path("dependencies", "rebuild_files", args.platform).rglob("*")):
-        index = f.parts.index(args.platform)
-        out_path = Path("out", args.platform).joinpath(*f.parts[index + 1 :])
-        ninja.build(str(out_path), "copy", str(f))
-        build_files.append(str(out_path))
-
-if copy_vanilla_arks_to_out == True:
-    #copies each ark part from the platform folder to output
-    for f in filter(lambda x: x.is_file() and "hdr" not in x.name.lower(), Path("platform", args.platform, gen_folder).rglob("*")):
-        index = f.parts.index(args.platform)
-        out_path = Path("out", args.platform).joinpath(*f.parts[index + 1 :])
-        ninja.build(str(out_path), "copy", str(f))
-        build_files.append(str(out_path))
-
-# copy platform files
-if patchcreator == False:
-    for f in filter(lambda x: x.is_file(), Path("platform", args.platform).rglob("*")):
-        index = f.parts.index(args.platform)
-        out_path = Path("out", args.platform).joinpath(*f.parts[index + 1 :])
-        ninja.build(str(out_path), "copy", str(f))
-        build_files.append(str(out_path))
+for f in filter(lambda x: x.is_file(), Path("dependencies", "platform_files", args.platform).rglob("*")):
+    index = f.parts.index(args.platform)
+    out_path = Path("out", args.platform).joinpath(*f.parts[index + 1 :])
+    ninja.build(str(out_path), "copy", str(f))
+    build_files.append(str(out_path))
 
 def ark_file_filter(file: Path):
     if file.is_dir():
@@ -248,16 +230,24 @@ for f in filter(ark_file_filter, Path("_ark").rglob("*")):
                     wii_output = wii_directory.joinpath(target_filename)
                     ninja.build(str(wii_output), "sfreq", str(f), variables={"platform": "wii"})
                     ark_files.append(str(wii_output))
-                #disabled as we need resizing
-                #case "ps2":
-                #    target_filename = Path(gen_folder, f.stem + ".png_ps2")
-                #    ps2_directory = Path("obj", args.platform, "ark").joinpath(
-                #        *f.parent.parts[1:]
-                #    )
-                #    ps2_output = ps2_directory.joinpath(target_filename)
-                #    ninja.build(str(ps2_output), "sfreq", str(f), variables={"platform": "ps2"})
-                #    ark_files.append(str(ps2_output))
-
+                case "ps2":
+                    target_image = Path(gen_folder, f.stem + ".png")
+                    img_directory = Path("obj", args.platform, "ark").joinpath(
+                        *f.parent.parts[1:]
+                    )
+                    img_output = img_directory.joinpath(target_image)
+                    img_output.parent.mkdir(parents=True, exist_ok=True)
+                    with Image.open(f) as img:
+                        resized_img = img.resize((int(img.width * 0.5), int(img.height * 0.5)), resample=Image.BOX)
+                        resized_img = resized_img.convert("P", dither=Image.NONE, palette=Image.ADAPTIVE)
+                        resized_img.save(img_output)
+                    target_filename = Path(gen_folder, f.stem + ".png_ps2")
+                    ps2_directory = Path("obj", args.platform, "ark").joinpath(
+                        *f.parent.parts[1:]
+                    )
+                    ps2_output = ps2_directory.joinpath(target_filename)
+                    ninja.build(str(ps2_output), "sfreq", str(img_output), variables={"platform": "ps2"})
+                    ark_files.append(str(ps2_output))
         case [".dta"]:
             target_filename = Path(gen_folder, f.stem + ".dtb")
             stamp_filename = Path(gen_folder, f.stem + ".dtb.checked")

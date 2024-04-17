@@ -4,32 +4,32 @@
 
    (enter
 
-      ; Size (options: small, large)
-      {dx_btn_state_size small}
+      ; Size (options: small, small_big_header, large)
+      {dx_btn_state_size small_big_header}
 
       ; Header text
       {dx_state_header_text os_button_panel}
 
       ; Buttons to disable
-      ;{dx_disable_obj diff.btn} ; Always disabled on small panels
+      ;{dx_disable_obj diff.btn}
       ;{dx_disable_obj resume.btn}
       ;{dx_disable_obj restart.btn}
       ;{dx_disable_obj change_speed.btn}
       ;{dx_disable_obj section.btn}
       ;{dx_disable_obj newsong.btn}
       ;{dx_disable_obj quit.btn}
-      ;{dx_disable_obj extra1.btn}
+      ;{dx_disable_obj extra1.btn} ; Always disabled on small panels
       ;{dx_disable_obj extra2.btn} ; Always disabled on small panels
 
       ; Button text
-      {diff.btn set_localized_text {localize os_btn}} ; Disabled on small panels
+      {diff.btn set_localized_text {localize os_btn}}
       {resume.btn set_localized_text {localize os_btn}}
       {restart.btn set_localized_text {localize os_btn}}
       {change_speed.btn set_localized_text {localize os_btn}}
       {section.btn set_localized_text {localize os_btn}}
       {newsong.btn set_localized_text {localize os_btn}}
       {quit.btn set_localized_text {localize os_btn}}
-      {extra1.btn set_localized_text {localize os_btn}}
+      {extra1.btn set_localized_text {localize os_btn}} ; Disabled on small panels
       {extra2.btn set_localized_text {localize os_btn}} ; Disabled on small panels
 
    )
@@ -37,7 +37,7 @@
       {switch $component
 
          ; Button actions
-         (diff.btn ; Disabled on small panels
+         (diff.btn
             kDataUnhandled
          )
          (resume.btn
@@ -58,7 +58,7 @@
          (quit.btn
             kDataUnhandled
          )
-         (extra1.btn
+         (extra1.btn ; Disabled on small panels
             kDataUnhandled
          )
          (extra2.btn ; Disabled on small panels
