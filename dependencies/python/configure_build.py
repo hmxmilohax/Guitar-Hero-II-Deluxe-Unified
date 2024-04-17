@@ -5,6 +5,8 @@ import sys
 import argparse
 import os
 
+from PIL import Image, ImageFilter
+
 game_name = "Guitar Hero II Deluxe Unified"
 
 ninja = ninja_syntax.Writer(open("build.ninja", "w+"))
@@ -228,16 +230,24 @@ for f in filter(ark_file_filter, Path("_ark").rglob("*")):
                     wii_output = wii_directory.joinpath(target_filename)
                     ninja.build(str(wii_output), "sfreq", str(f), variables={"platform": "wii"})
                     ark_files.append(str(wii_output))
-                #disabled as we need resizing
-                #case "ps2":
-                #    target_filename = Path(gen_folder, f.stem + ".png_ps2")
-                #    ps2_directory = Path("obj", args.platform, "ark").joinpath(
-                #        *f.parent.parts[1:]
-                #    )
-                #    ps2_output = ps2_directory.joinpath(target_filename)
-                #    ninja.build(str(ps2_output), "sfreq", str(f), variables={"platform": "ps2"})
-                #    ark_files.append(str(ps2_output))
-
+                case "ps2":
+                    target_image = Path(gen_folder, f.stem + ".png")
+                    img_directory = Path("obj", args.platform, "ark").joinpath(
+                        *f.parent.parts[1:]
+                    )
+                    img_output = img_directory.joinpath(target_image)
+                    img_output.parent.mkdir(parents=True, exist_ok=True)
+                    with Image.open(f) as img:
+                        resized_img = img.resize((int(img.width * 0.5), int(img.height * 0.5)), resample=Image.BOX)
+                        resized_img = resized_img.convert("P", dither=Image.NONE, palette=Image.ADAPTIVE)
+                        resized_img.save(img_output)
+                    target_filename = Path(gen_folder, f.stem + ".png_ps2")
+                    ps2_directory = Path("obj", args.platform, "ark").joinpath(
+                        *f.parent.parts[1:]
+                    )
+                    ps2_output = ps2_directory.joinpath(target_filename)
+                    ninja.build(str(ps2_output), "sfreq", str(img_output), variables={"platform": "ps2"})
+                    ark_files.append(str(ps2_output))
         case [".dta"]:
             target_filename = Path(gen_folder, f.stem + ".dtb")
             stamp_filename = Path(gen_folder, f.stem + ".dtb.checked")
