@@ -22,7 +22,8 @@
       {if
          $disable_save
          {op_data.btn set_state kDisabled}
-         {memory_card.btn set_state kDisabled}})
+         {memory_card.btn set_state kDisabled}}
+      {$this dx_set_options})
    #endif
    (SELECT_START_MSG
       {switch

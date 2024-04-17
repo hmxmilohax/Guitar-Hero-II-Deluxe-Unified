@@ -101,7 +101,6 @@
          ((fret1 help_select)
             (fret2 help_back)
             (start dx_os_helpbar) 
-            DX_MANAGE_BAND_HANDLES
             (strum help_updown))))
    (SELECT_START_MSG
       {do
