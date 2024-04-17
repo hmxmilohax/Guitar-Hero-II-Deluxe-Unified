@@ -21,6 +21,15 @@
       }
       kDataUnhandled
    )
+   (helpbar
+      (default
+         (
+            (fret1 help_continue)
+            (fret2 help_back)
+            (strum help_updown)
+         )
+      )
+   )
 )
 
 #define DX_SETUP_OVERSHELL_PANEL_BTN

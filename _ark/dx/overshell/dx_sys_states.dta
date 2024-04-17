@@ -48,7 +48,7 @@
 {new
    GHScreen
    overshell_audio_settings_screen
-   (panels pause_audio_settings_panel helpbar)
+   (panels pause_audio_settings_panel)
    (focus pause_audio_settings_panel)
    (allow_back FALSE)
    (animate_transition FALSE)
@@ -66,7 +66,7 @@
 {new
    GHScreen
    overshell_video_settings_screen
-   (panels pause_video_settings_panel helpbar)
+   (panels pause_video_settings_panel)
    (focus pause_video_settings_panel)
    DX_SETUP_OVERSHELL_SCREEN
    (old_lefty_0 0)
