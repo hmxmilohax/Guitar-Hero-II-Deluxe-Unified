@@ -62,10 +62,6 @@
 {new
    GHScreen
    lose_screen
-   (BUTTON_DOWN_MSG
-      DX_OPEN_OVERSHELL
-      kDataUnhandled
-   )
    (panels GAME_PANELS lose_panel helpbar)
    (focus lose_panel)
    (clear_vram TRUE)
@@ -74,5 +70,4 @@
    (helpbar
       (default
          ((fret1 help_continue)
-            (start dx_os_helpbar)
             (strum help_updown))))}

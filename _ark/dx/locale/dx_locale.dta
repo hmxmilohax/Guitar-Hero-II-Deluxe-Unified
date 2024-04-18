@@ -54,6 +54,12 @@
 
 (os_modifiers "MODIFIERS")
 
+(mod_nofail {sprint {if_else $dx_nofail OS_ONOFF}
+   "No Fail"})
+(mod_song_title_always {sprint {if_else $dx_song_title_always OS_ONOFF}
+   "Song Title Always"})
+(mod_black_background {sprint {if_else $dx_black_background OS_ONOFF}
+   "Black Background"})
 (mod_fast_menus {sprint {if_else $dx_fast_menus OS_ONOFF}
    "Fast Menus"})
 (mod_auto_play {sprint {if_else $dx_auto_play OS_ONOFF}

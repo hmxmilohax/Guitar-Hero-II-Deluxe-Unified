@@ -10,7 +10,9 @@
       {if_else
          {game is_tutorial_running}
          {$this show_overlay FALSE}
-         {$this setup_text}})
+         {$this setup_text}}
+      {if $dx_black_background
+         {$this show_overlay $dx_song_title_always}})
    (setup_text
       {do
          ($song_text
@@ -123,7 +125,7 @@
          (delay 6)
          (units kTaskSeconds)
          (script
-            {mtv_overlay_panel show_overlay FALSE})}
+            {mtv_overlay_panel show_overlay $dx_song_title_always})}
       {set
          [intro_complete]
          FALSE}
@@ -434,7 +436,7 @@
             ($this multi_player)}
          {handle
             ($this single_player)}}
-      {$this set_showing TRUE}
+      {$this set_showing {! $dx_black_background}}
       {$this set_paused FALSE})
    #ifdef HX_XBOX
    (unload
