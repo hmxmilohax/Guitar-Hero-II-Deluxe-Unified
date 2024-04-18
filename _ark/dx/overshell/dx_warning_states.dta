@@ -1,0 +1,35 @@
+{new
+   GHPanel ; btn: GHPanel, lst: MultiSelectListPanel
+   dxState_AutoplayWarn_panel
+   DX_SETUP_OVERSHELL_PANEL_DIALOG
+   (enter
+
+      ; Header locale string
+      {pause_controller_title.lbl set_localized_text {localize os_warning}}
+
+      ; Message locale string
+      {pause_controller_msg.lbl set_localized_text {localize os_autoplay_warn_msg}}
+
+   )
+   (SELECT_START_MSG
+      {switch $component
+
+         ; Button actions
+         (quit.btn ; Cancel
+            {ui pop_screen}
+         )
+         (cancel.btn ; Confirm
+            {set $dx_auto_play TRUE}
+            {set $disable_save TRUE}
+            {set $disable_career TRUE}
+            {ui pop_screen}
+         )
+
+      }
+   )
+}{new
+   GHScreen
+   dxState_AutoplayWarn_screen
+   (panels dxState_AutoplayWarn_panel) ; Must change for new states
+   DX_SETUP_OVERSHELL_SCREEN
+}

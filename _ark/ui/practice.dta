@@ -134,7 +134,7 @@
                      set
                      (practice_sections 1)
                      $idx}
-                  {ui goto_screen practice_sel_speed_screen}
+                  {ui goto_screen practice_loading_screen} ; dx - skip the speed screen
                   kDataUnhandled}}
             {if_else
                {== $idx -1}
@@ -147,7 +147,7 @@
                      set
                      (practice_sections 1)
                      -1}
-                  {ui goto_screen practice_sel_speed_screen}
+                  {ui goto_screen practice_loading_screen} ; dx - skip the speed screen
                   kDataUnhandled}
                {do
                   {gamecfg
@@ -276,7 +276,11 @@
             {mtv_overlay_panel show_overlay FALSE})}
       {set
          [ignore_section]
-         {section_provider section_after_last}})
+         {section_provider section_after_last}}
+      {if {== {gamecfg get practice_speed} 0} ;if practice speed is set to full speed
+         {beatmatch set_music_speed $speedmod} ;set the beatmatcher speed to the song speed modifier
+      }
+   )
    (update
       {click_parser remove_sink $this}
       {if
@@ -419,11 +423,13 @@
          (restart_career.btn
             {game_restart})
          (change_speed.btn
-            {practice_change_speed_screen set back_screen practice_end_screen}
-            {ui goto_screen practice_change_speed_screen})
+            ; dx - use this button for deluxe settings instead
+            {set $dx_in_game TRUE}
+            {ui push_screen dxState_DeluxeSettings_screen})
          (change_speed_career.btn
-            {practice_change_speed_screen set back_screen practice_end_screen}
-            {ui goto_screen practice_change_speed_screen})
+            ; dx - use this button for deluxe settings instead
+            {set $dx_in_game TRUE}
+            {ui push_screen dxState_DeluxeSettings_screen})
          (new_sec.btn
             {meta_loading_nosave_goto practice_sel_section_screen})
          (new_sec_career.btn
