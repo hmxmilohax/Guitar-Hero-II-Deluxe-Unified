@@ -117,3 +117,45 @@
    (panels dxState_NewLST_panel) ; Must change for new states
    DX_SETUP_OVERSHELL_SCREEN
 }
+
+
+
+
+
+
+
+
+
+
+{new
+   GHPanel ; btn: GHPanel, lst: MultiSelectListPanel
+   dxState_NewDialog_panel
+   DX_SETUP_OVERSHELL_PANEL_DIALOG
+   (enter
+
+      ; Header locale string
+      {pause_controller_title.lbl set_localized_text {localize os_dialog_header}}
+
+      ; Message locale string
+      {pause_controller_msg.lbl set_localized_text {localize os_dialog}}
+
+   )
+   (SELECT_START_MSG
+      {switch $component
+
+         ; Button actions
+         (quit.btn ; Cancel
+            {ui pop_screen}
+         )
+         (cancel.btn ; Confirm
+            {ui pop_screen}
+         )
+
+      }
+   )
+}{new
+   GHScreen
+   dxState_NewDialog_screen
+   (panels dxState_NewDialog_panel) ; Must change for new states
+   DX_SETUP_OVERSHELL_SCREEN
+}

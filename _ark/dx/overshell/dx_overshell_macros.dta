@@ -44,6 +44,13 @@
    (focus sel_section.lst)
 )
 
+#define DX_SETUP_OVERSHELL_PANEL_DIALOG
+(
+   (file dx_overshell_dialog.milo)
+   (focus quit.btn)
+   (reset_focus TRUE)
+)
+
 #define DX_OVERSHELL_LST_RESET
 (
    {set $dx_tracked_list_pos {sel_section.lst selected_pos}}

@@ -46,6 +46,7 @@
 )
 (os_on "ON: ")
 (os_off "OFF: ")
+(os_blnk " ")
 
 (os_deluxe_settings "DELUXE SETTINGS")
 
@@ -68,14 +69,21 @@
 (os_nosave "(SAVING DISABLED)")
 
 (os_system_settings "SYSTEM SETTINGS")
+
 (os_audio_options "AUDIO SETTINGS")
 (os_video_options "VIDEO SETTINGS")
 
-(os_debug_menu "DEBUG MENU")
+(os_warning "WARNING")
+(os_autoplay_warn_msg "Enabling this modifier will disable saving for the remainder of this session. Are you sure?")
 
-(os_blnk " ")
+(os_debug_menu "DEBUG MENU")
 
 (os_button_panel "BUTTON PANEL")
 (os_btn "BUTTON")
 
 (os_newlst "LIST PANEL")
+
+(os_dialog_header "DIALOG PANEL")
+(os_dialog "This is an overshell dialog.")
+(DXDI_2 "CANCEL")
+(DXDI "CONFIRM")

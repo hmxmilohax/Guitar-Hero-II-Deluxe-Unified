@@ -70,7 +70,7 @@
 
             ; Data for the list
             mod_fast_menus
-            ;mod_auto_play
+            #ifdef HX_XBOX mod_auto_play #endif
 
          )
       }
@@ -84,7 +84,10 @@
             {set $dx_fast_menus {! $dx_fast_menus}}
          )
          (mod_auto_play
-            {set $dx_auto_play {! $dx_auto_play}}
+            {if_else $dx_auto_play
+               {set $dx_auto_play FALSE}
+               {ui push_screen dxState_AutoplayWarn_screen}
+            }
          )
 
       }

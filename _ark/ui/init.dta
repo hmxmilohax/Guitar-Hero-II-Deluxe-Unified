@@ -27,6 +27,7 @@
 #include ../dx/ui/dx_ui_screens.dta
 #include ../dx/overshell/dx_main_states.dta
 #include ../dx/overshell/dx_sys_states.dta
+#include ../dx/overshell/dx_warning_states.dta
 #include ../dx/overshell/dx_debug_states.dta
 #include ../dx/overshell/dx_state_templates.dta
 {foreach
