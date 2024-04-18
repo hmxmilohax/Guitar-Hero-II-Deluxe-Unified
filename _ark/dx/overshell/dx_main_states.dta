@@ -72,6 +72,9 @@
          (
 
             ; Data for the list
+            mod_nofail
+            mod_song_title_always
+            mod_black_background
             mod_fast_menus
             #ifdef HX_XBOX mod_auto_play #endif
 
@@ -83,6 +86,15 @@
       {switch {$component selected_sym}
 
          ; Button actions
+         (mod_nofail
+            {set $dx_nofail {! $dx_nofail}}
+         )
+         (mod_song_title_always
+            {set $dx_song_title_always {! $dx_song_title_always}}
+         )
+         (mod_black_background
+            {set $dx_black_background {! $dx_black_background}}
+         )
          (mod_fast_menus
             {set $dx_fast_menus {! $dx_fast_menus}}
          )
