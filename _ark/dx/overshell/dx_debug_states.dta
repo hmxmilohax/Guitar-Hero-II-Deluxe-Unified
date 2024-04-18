@@ -1,0 +1,169 @@
+{new MultiSelectListPanel ; btn: GHPanel, lst: MultiSelectListPanel
+   dxState_Debug_panel
+   DX_SETUP_OVERSHELL_PANEL_LST
+   (enter
+      {dx_lst_state_setup}
+
+      ; Header text
+      {dx_state_header_text os_debug_menu}
+
+      {sel_section.lst set_data
+         (
+
+            ; Data for the list
+            "Display Current Lighting State"
+            "Empty Star Power"
+            "Hide Gems"
+            "Hide Track Surface"
+            "Hide Nowbar"
+            "Toggle Mask"
+            "Toggle Scoring Debug"
+            "Test Screen Transitions"
+            "Show World Events"
+            "Pause Time"
+            "Fake Player 1 using Joypad 1"
+            "Fake Player 2 using Joypad 1"
+            "Display Character LOD"
+            "Beat Song with High Score"
+            "Beat Song with Best Score"
+            "Cycle Character Drivers"
+            "From Game, Win with 3 Stars"
+            "(META) Add $100 (GAME) Win with 4 Stars"
+            "From Game, Win with 5 Stars"
+            "unlock all achievements"
+            "Force Encore"
+            "Stretch Background"
+            "Use Older (Red) Guitar Prototype"
+            "(META) Audio Mode (GAME) Show/Hide Arena"
+            "(META) Access All (GAME) Toggle Crowd Audio"
+            "(META) Beat Song (GAME) Toggle Click Track"
+            "Barf Cheat"
+            "Camera Overlay"
+            "Next Alphabetical Camera"
+            "Hold Camera on Current Shot"
+            "Toggle Dual Perspective"
+            "Lower Excitement Level"
+            "Raise Excitement Level"
+            "Hide the Fretboard"
+            "Toggle Free Camera"
+            "Display Walkspots"
+            "Display Mercury Switch Status"
+            "Hide HUD & Fretboard"
+            "Hide HUD Only"
+            "Display Lighting Info"
+            "Enable/Disable Lighting Presets"
+            "Guitarist Walk to Random Spot"
+            "Teleport Guitarist to Next Walkspot"
+            "Show 3 Most Recent Guitarist Animations"
+            "Automatically Lose"
+            "toggle limiter"
+            "Disable Crowd Meter"
+            "Mute Global"
+            "Toggle Normalization"
+            "Toggle Auto-Solo"
+            "Save Objects"
+            "Toggle Autoplay"
+            "Cycle Track Speed"
+            "Toggle Solo Quantize"
+            "(Meta) Print Current Screen"
+            "Reload Song"
+            "Reload Track"
+            "Display Score Info"
+            "Fill StarPower Meter"
+            "Show Song Time"
+            "Show Timers"
+            "Next Tutorial Lesson"
+            "Previous Tutorial Lesson"
+            "Show Current Version"
+            "Automatically Win"
+            "Toggle Walking On/Off"
+            "Toggle Cam"
+            "Toggle Shuttle - Left Analog Scrolls Time"
+            "Skip Tutorial VoiceOver"
+
+         )
+      }
+
+   )
+   (SELECT_START_MSG
+      {switch {$component selected_sym}
+
+         ; Button actions
+         ("Display Current Lighting State" {toggle_lights_debug})
+         ("Empty Star Power" {cheat_empty_star_power})
+         ("Hide Gems" {track_panel toggle_gems})
+         ("Hide Track Surface" {track_panel toggle_surface})
+         ("Hide Nowbar" {track_panel toggle_nowbar})
+         ("Toggle Mask" {track_panel toggle_mask})
+         ("Toggle Scoring Debug" {toggle_scoring_debug})
+         ("Test Screen Transitions" {test_screen_transitions})
+         ("Show World Events" {set $echo_world_events {! $echo_world_events}})
+         ("Pause Time" {toggle_time_paused})
+         ("Fake Player 1 using Joypad 1" {fake_player1_cheat 0})
+         ("Fake Player 2 using Joypad 1" {fake_player1_cheat 1})
+         ("Display Character LOD" {toggle_char_lod})
+         ("Beat Song with High Score" {if {meta is_up} {sel_song_panel beat_song 1000000}})
+         ("Beat Song with Best Score" {if {meta is_up} {sel_song_panel gold_song}})
+         ("Cycle Character Drivers" {next_character_driver})
+         ("From Game, Win with 3 Stars" {if {game is_up} {player0 win 3}})
+         ("(META) Add $100 (GAME) Win with 4 Stars" {if_else {game is_up} {player0 win 4} {cheat_add_cash}})
+         ("From Game, Win with 5 Stars" {if {game is_up} {player0 win 5}})
+         ("unlock all achievements" {achievements submit_all})
+         ("Force Encore" {game cheat_force_encore})
+         ("Stretch Background" {toggle_stretch_bg})
+         ("Use Older (Red) Guitar Prototype" {toggle_guitar_type})
+         ("(META) Audio Mode (GAME) Show/Hide Arena" {a_cheat})
+         ("(META) Access All (GAME) Toggle Crowd Audio" {A_cheat})
+         ("(META) Beat Song (GAME) Toggle Click Track" {b_cheat})
+         ("Barf Cheat" {set $barf_cheat {! $barf_cheat}})
+         ("Camera Overlay" {rnd toggle_overlay camera})
+         ("Next Alphabetical Camera" {if {game is_up} {world cycle_shot}})
+         ("Hold Camera on Current Shot" {world toggle_pick_shot})
+         ("Toggle Dual Perspective" {toggle_dual_perspective})
+         ("Lower Excitement Level" {adjust_crowd_rating -0.1})
+         ("Raise Excitement Level" {adjust_crowd_rating 0.1})
+         ("Hide the Fretboard" {toggle_fretboard})
+         ("Toggle Free Camera" {cycle_free_camera})
+         ("Display Walkspots" {waypoint_toggle_show})
+         ("Display Mercury Switch Status" {rnd toggle_overlay guitar})
+         ("Hide HUD & Fretboard" {toggle_fretboard} {handle (hud set_showing {! {hud showing}})})
+         ("Hide HUD Only" {handle (hud set_showing {! {hud showing}})})
+         ("Display Lighting Info" {rnd toggle_overlay light_preset})
+         ("Enable/Disable Lighting Presets" {handle (world toggle_lighting_events)})
+         ("Guitarist Walk to Random Spot" {handle ({find_obj world guitarist0} start_walk)})
+         ("Teleport Guitarist to Next Walkspot" {handle ({find_obj world guitarist0} teleport_next)})
+         ("Show 3 Most Recent Guitarist Animations" {set $guitarist_debug {mod {'+' $guitarist_debug 1} 3}} {if_else {> $guitarist_debug 0} {cheat_display show {sprint "Player " $guitarist_debug " debug"}} {cheat_display show "Player debug off"}} {rnd show_overlay char_status $guitarist_debug} {rnd show_overlay char_history $guitarist_debug})
+         ("Automatically Lose" {handle (player0 lose)})
+         ("toggle limiter" {synth toggle_limiter})
+         ("Disable Crowd Meter" {toggle_crowd_meter})
+         ("Mute Global" {toggle_mute_global})
+         ("Toggle Normalization" {toggle_normalization})
+         ("Toggle Auto-Solo" {toggle_auto_solo})
+         ("Save Objects" {rnd save_objects dump.rnd ui})
+         ("Toggle Autoplay" {toggle_auto_play})
+         ("Cycle Track Speed" {cycle_music_speed})
+         ("Toggle Solo Quantize" {toggle_solo_quantize})
+         ("(Meta) Print Current Screen" {meta print_current_screen})
+         ("Reload Song" {reload_song})
+         ("Reload Track" {reload_track})
+         ("Display Score Info" {if {game is_up} {rnd toggle_overlay score}})
+         ("Fill StarPower Meter" {fill_star_meter})
+         ("Show Song Time" {rnd toggle_overlay time})
+         ("Show Timers" {rnd toggle_timers} {rnd toggle_overlay rate})
+         ("Next Tutorial Lesson" {next_tutorial_lesson})
+         ("Previous Tutorial Lesson" {prev_tutorial_lesson})
+         ("Show Current Version" {show_version})
+         ("Automatically Win" {handle (player0 win 3)})
+         ("Toggle Walking On/Off" {toggle_walks})
+         ("Toggle Cam" {toggle_cam})
+         ("Toggle Shuttle - Left Analog Scrolls Time" {toggle_shuttle})
+         ("Skip Tutorial VoiceOver" {tutorial reset_vo})
+
+      }
+      DX_OVERSHELL_LST_RESET
+   )
+}{new GHScreen
+   dxState_Debug_screen
+   (panels dxState_Debug_panel) ; Must change for new states
+   DX_SETUP_OVERSHELL_SCREEN
+}

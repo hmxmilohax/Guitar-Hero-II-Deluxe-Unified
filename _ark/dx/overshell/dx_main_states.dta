@@ -15,7 +15,7 @@
       ;{dx_disable_obj resume.btn}
       ;{dx_disable_obj restart.btn}
       {dx_disable_obj change_speed.btn}
-      {dx_disable_obj section.btn}
+      #ifdef _SHIP {if {! $dx_debug} {dx_disable_obj section.btn}} #endif
       {dx_disable_obj newsong.btn}
       {dx_disable_obj quit.btn}
       {dx_disable_obj extra1.btn} ; Always disabled on small panels
@@ -25,6 +25,8 @@
       {diff.btn set_localized_text {localize os_modifiers}}
       {resume.btn set_localized_text {localize os_cheats}}
       {restart.btn set_localized_text {localize os_system_settings}}
+
+      {section.btn set_localized_text {localize os_debug_menu}}
 
    )
    (SELECT_START_MSG
@@ -39,6 +41,10 @@
          )
          (restart.btn
             {ui push_screen dxState_SystemSettings_screen}
+         )
+
+         (section.btn
+            {ui push_screen dxState_Debug_screen}
          )
 
       }

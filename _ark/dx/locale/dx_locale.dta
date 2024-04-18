@@ -71,6 +71,8 @@
 (os_audio_options "AUDIO SETTINGS")
 (os_video_options "VIDEO SETTINGS")
 
+(os_debug_menu "DEBUG MENU")
+
 (os_blnk " ")
 
 (os_button_panel "BUTTON PANEL")
