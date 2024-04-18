@@ -33,11 +33,13 @@
 
 ; Helpbar
 (dx_os_helpbar "OVERSHELL")
+(dx_help_speed "CHANGE SPEED")
 
 ; Pause menu
 (pause_dxsettin "DELUXE SETTINGS")
 (pause_practice "PRACTICE")
 (prac_dxsetti "DELUXE SETTINGS")
+(GH2DX_PRACTI "GH2DX PRACTICE")
 
 ; Overshell
 #define OS_ONOFF
@@ -56,6 +58,9 @@
    "Fast Menus"})
 (mod_auto_play {sprint {if_else $dx_auto_play OS_ONOFF}
    "Autoplay"})
+
+(os_set_speeds "SET SPEEDS")
+(speed_msg "NOTES: %d%%  SONG: %d%%")
 
 (os_cheats "CHEATS")
 

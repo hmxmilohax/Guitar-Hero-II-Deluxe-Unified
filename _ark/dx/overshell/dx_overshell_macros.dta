@@ -1,6 +1,7 @@
 #define DX_OPEN_OVERSHELL
 (
    {if {== $button kPad_Start}
+      {set $dx_in_game FALSE}
       {synth play_sequence button_select}
       {ui push_screen dxState_DeluxeSettings_screen}
    }

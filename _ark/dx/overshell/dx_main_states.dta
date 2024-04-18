@@ -14,19 +14,20 @@
       ;{dx_disable_obj diff.btn}
       ;{dx_disable_obj resume.btn}
       ;{dx_disable_obj restart.btn}
-      {dx_disable_obj change_speed.btn}
-      #ifdef _SHIP {if {! $dx_debug} {dx_disable_obj section.btn}} #endif
+      ;{dx_disable_obj change_speed.btn}
+      {dx_disable_obj section.btn}
       {dx_disable_obj newsong.btn}
-      {dx_disable_obj quit.btn}
+      #ifdef _SHIP {if {! $dx_debug} {dx_disable_obj quit.btn}} #endif
       {dx_disable_obj extra1.btn} ; Always disabled on small panels
       {dx_disable_obj extra2.btn} ; Always disabled on small panels
 
       ; Button text
       {diff.btn set_localized_text {localize os_modifiers}}
-      {resume.btn set_localized_text {localize os_cheats}}
-      {restart.btn set_localized_text {localize os_system_settings}}
+      {resume.btn set_localized_text {localize os_set_speeds}}
+      {restart.btn set_localized_text {localize os_cheats}}
+      {change_speed.btn set_localized_text {localize os_system_settings}}
 
-      {section.btn set_localized_text {localize os_debug_menu}}
+      {quit.btn set_localized_text {localize os_debug_menu}}
 
    )
    (SELECT_START_MSG
@@ -37,13 +38,16 @@
             {ui push_screen dxState_Modifiers_screen}
          )
          (resume.btn
-            {ui push_screen dxState_Cheats_screen}
+            {ui push_screen dxState_SetSpeeds_screen}
          )
          (restart.btn
+            {ui push_screen dxState_Cheats_screen}
+         )
+         (change_speed.btn
             {ui push_screen dxState_SystemSettings_screen}
          )
 
-         (section.btn
+         (quit.btn
             {ui push_screen dxState_Debug_screen}
          )
 
@@ -54,7 +58,6 @@
    (panels dxState_DeluxeSettings_panel) ; Must change for new states
    DX_SETUP_OVERSHELL_SCREEN
 }
-
 
 {new MultiSelectListPanel ; btn: GHPanel, lst: MultiSelectListPanel
    dxState_Modifiers_panel

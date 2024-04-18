@@ -43,6 +43,7 @@
             #endif)
          (audio_options.btn
             ; dx - use this button for deluxe settings instead
+            {set $dx_in_game TRUE}
             {ui push_screen dxState_DeluxeSettings_screen})
          (video_options.btn
             ; dx - use this button for practice mode instead
@@ -156,8 +157,10 @@
             {meta_loading_goto practice_sel_section_screen})
          ; dx - use these buttons for dx settings
          (change_speed.btn
+            {set $dx_in_game TRUE}
             {ui push_screen dxState_DeluxeSettings_screen})
          (change_speed_career.btn
+            {set $dx_in_game TRUE}
             {ui push_screen dxState_DeluxeSettings_screen})
          (newsong.btn
             {meta_loading_nosave_goto practice_selsong_screen})
