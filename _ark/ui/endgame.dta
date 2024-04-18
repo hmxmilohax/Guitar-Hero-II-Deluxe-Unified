@@ -75,13 +75,13 @@
          {if
             {campaign store_songs_passed}
             {achievements submit beat_unlocks}}}
-      {if
-         {!
-            {gamecfg multiplayer}}
-         {leaderboards
-            submit_score
-            {gamecfg get_song}
-            {player0 score}}}
+      ;{if
+      ;   {!
+      ;      {gamecfg multiplayer}}
+      ;   {leaderboards
+      ;      submit_score
+      ;      {gamecfg get_song}
+      ;      {player0 score}}}
       #endif
       {do
          ($win_screen $freebird)
