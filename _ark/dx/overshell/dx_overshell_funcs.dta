@@ -28,10 +28,11 @@
 }
 
 {func
-   dx_os_lst_setup
+   dx_lst_state_setup
    {gs_tile5.mesh set_showing FALSE}
    {sel_section.lst set_local_pos -140 0 60}
    {sel_section.lst set alignment kTopCenter}
+   {gs_title.lbl set_local_pos 0 0 100}
 }
 
 {func

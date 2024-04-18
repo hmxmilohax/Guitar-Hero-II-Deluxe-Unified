@@ -109,11 +109,11 @@
          )
 
       }
-      {dx_os_lst_reset}
+      DX_OVERSHELL_LST_RESET
    )
 }
 {new GHScreen
    dxState_NewLST_screen
    (panels dxState_NewLST_panel) ; Must change for new states
-   DX_OS_SCREEN_COMMON
+   DX_SETUP_OVERSHELL_SCREEN
 }

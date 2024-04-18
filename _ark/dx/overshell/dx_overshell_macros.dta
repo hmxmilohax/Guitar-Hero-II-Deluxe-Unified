@@ -43,3 +43,10 @@
    (file dx_overshell_lst.milo)
    (focus sel_section.lst)
 )
+
+#define DX_OVERSHELL_LST_RESET
+(
+   {set $dx_tracked_list_pos {sel_section.lst selected_pos}}
+   {sel_section.lst set_selected $dx_tracked_list_pos}
+   {$this reset}
+)

@@ -13,7 +13,7 @@
       ; Buttons to disable
       ;{dx_disable_obj diff.btn}
       ;{dx_disable_obj resume.btn}
-      {dx_disable_obj restart.btn}
+      ;{dx_disable_obj restart.btn}
       {dx_disable_obj change_speed.btn}
       {dx_disable_obj section.btn}
       {dx_disable_obj newsong.btn}
@@ -22,8 +22,9 @@
       {dx_disable_obj extra2.btn} ; Always disabled on small panels
 
       ; Button text
-      {diff.btn set_localized_text {localize os_cheats}}
-      {resume.btn set_localized_text {localize os_system_settings}}
+      {diff.btn set_localized_text {localize os_modifiers}}
+      {resume.btn set_localized_text {localize os_cheats}}
+      {restart.btn set_localized_text {localize os_system_settings}}
 
    )
    (SELECT_START_MSG
@@ -31,9 +32,12 @@
 
          ; Button actions
          (diff.btn
-            {ui push_screen dxState_Cheats_screen}
+            {ui push_screen dxState_Modifiers_screen}
          )
          (resume.btn
+            {ui push_screen dxState_Cheats_screen}
+         )
+         (restart.btn
             {ui push_screen dxState_SystemSettings_screen}
          )
 
@@ -42,6 +46,47 @@
 }{new GHScreen
    dxState_DeluxeSettings_screen
    (panels dxState_DeluxeSettings_panel) ; Must change for new states
+   DX_SETUP_OVERSHELL_SCREEN
+}
+
+
+{new MultiSelectListPanel ; btn: GHPanel, lst: MultiSelectListPanel
+   dxState_Modifiers_panel
+   DX_SETUP_OVERSHELL_PANEL_LST
+   (enter
+      {dx_lst_state_setup}
+
+      ; Header text
+      {dx_state_header_text os_modifiers}
+
+      {sel_section.lst set_data
+         (
+
+            ; Data for the list
+            mod_fast_menus
+            ;mod_auto_play
+
+         )
+      }
+
+   )
+   (SELECT_START_MSG
+      {switch {$component selected_sym}
+
+         ; Button actions
+         (mod_fast_menus
+            {set $dx_fast_menus {! $dx_fast_menus}}
+         )
+         (mod_auto_play
+            {set $dx_auto_play {! $dx_auto_play}}
+         )
+
+      }
+      DX_OVERSHELL_LST_RESET
+   )
+}{new GHScreen
+   dxState_Modifiers_screen
+   (panels dxState_Modifiers_panel) ; Must change for new states
    DX_SETUP_OVERSHELL_SCREEN
 }
 

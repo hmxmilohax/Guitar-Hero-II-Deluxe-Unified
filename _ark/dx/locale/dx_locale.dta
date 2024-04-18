@@ -31,14 +31,30 @@
 ; Main menu
 (DX_FREEPLA "FREE PLAY")
 
+; Helpbar
+(dx_os_helpbar "OVERSHELL")
+
 ; Pause menu
 (pause_dxsettin "DELUXE SETTINGS")
 (pause_practice "PRACTICE")
 (prac_dxsetti "DELUXE SETTINGS")
 
-(dx_os_helpbar "OVERSHELL")
 ; Overshell
+#define OS_ONOFF
+(
+   {localize os_on} {localize os_off}
+)
+(os_on "ON: ")
+(os_off "OFF: ")
+
 (os_deluxe_settings "DELUXE SETTINGS")
+
+(os_modifiers "MODIFIERS")
+
+(mod_fast_menus {sprint {if_else $dx_fast_menus OS_ONOFF}
+   "Fast Menus"})
+(mod_auto_play {sprint {if_else $dx_auto_play OS_ONOFF}
+   "Autoplay"})
 
 (os_cheats "CHEATS")
 
