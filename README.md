@@ -17,7 +17,7 @@ GH2DXu for Xbox-360 WILL require the following:
 - Access to a CMD prompt
 - A copy of stock GH2 for the Xbox-360 (MUST BE RAWFILES).
 
-1. ENSURE YOUR COPY OF GH2 IS IN A RAW-FILE FORMAT (Refer to the picture below)
+1. ENSURE YOUR COPY OF GH2 IS IN A RAWFILE FORMAT (Refer to the picture below)
 ![STOCK GH2 360 FOLDER 1.png](dependencies/media/STOCKGH2360FOLDER.png)
 2. Take your GH2 Raw Files and Place them within `Guitar-Hero-II-Deluxe-Unified\platform\xbox` (it should look like the picture below, DO NOT DELETE ANYTHING ALREADY IN THE FOLDER)
 ![STOCKGH2PS2EXTRACT 1.png](dependencies/media/360STEP2.png)
