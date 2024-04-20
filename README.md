@@ -1,5 +1,5 @@
 # Guitar Hero II Deluxe: Unified
-![header.png](/dependencies/media/header.png)
+![header.png](dependencies/media/1header.png)
 ## Welcome to the Future of GH2DX!!!
 
 ## GH2DXu IS *IN PRE-ALPHA*, EXPECT BUGS
