@@ -2,7 +2,7 @@
 ![GH2 HEADER](dependencies/media/header.png)
 ## Welcome to the Future of GH2DX!!!
 
-## THIS MOD IS *IN PRE-ALPHA*, EXPECT BUGS
+## GH2DXu IS *IN PRE-ALPHA*, EXPECT BUGS
 
 ## BACKGROUND:
 For a good amount of time, GH2DX360 was far too unstable, notable issues were that of the score meter having the score be out of alignment,
