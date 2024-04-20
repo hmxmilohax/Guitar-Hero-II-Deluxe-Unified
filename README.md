@@ -57,7 +57,7 @@ your very own patch of GH2DXu for the Playstation 2! Congrats!
 8. Click on the `Create image from files/folders` option, here you are then going to click on the little folder icon in the middle of the large blank box.
 Then in the new window, select the folder where you have copied your GH2DXu patch into your Stock GH2 folder.
 9. Click on the folder icon below the previous one, now you just select where the ISO will output, all in all, your ImgBurn window will look like this:
-![ImgBurn Window.png](/dependencies/media/1imgburnwindow.png)
+![ImgBurnWindow.png](/dependencies/media/1imgburnwindow.png)
 10. Click the `Folder->Img button`.... That's all.... your freshly baked GH2DXu ISO is now ready to play! You survived ImgBurn!
 11. Now for the real fun, GH2DXu works wherever PS2 games do!
 
