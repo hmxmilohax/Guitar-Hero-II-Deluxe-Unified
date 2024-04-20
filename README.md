@@ -18,9 +18,9 @@ GH2DXu for Xbox-360 WILL require the following:
 - A copy of stock GH2 for the Xbox-360 (MUST BE RAWFILES).
 
 1. ENSURE YOUR COPY OF GH2 IS IN A RAWFILE FORMAT (Refer to the picture below)
-![STOCKGH2360FOLDER1.png](Guitar-Hero-II-Deluxe-Unified/dependencies/media/STOCKGH2360FOLDER.png)
+![STOCKGH2360FOLDER1.png](/dependencies/media/1360step1.png)
 2. Take your GH2 Raw Files and Place them within `Guitar-Hero-II-Deluxe-Unified\platform\xbox` (it should look like the picture below, DO NOT DELETE ANYTHING ALREADY IN THE FOLDER)
-![STOCKGH2PS2EXTRACT 1.png](Guitar-Hero-II-Deluxe-Unified/dependencies/media/360STEP2.png)
+![STOCKGH2PS2EXTRACT 1.png](/dependencies/media/1360step2.png)
 3. Now this is the CMD prompt bit comes in: Open a CMD prompt (does not matter where the prompt is pointed, just run it as admin)
 ENSURE YOU RUN THIS COMMAND LETTER FOR LETTER: `pip install pillow` 
 4. Once it is installed, locate the `scripts` folder in the root of the Repository, in this folder run `build_xbox.bat`. A CMD prompt will now open.
@@ -44,9 +44,9 @@ GH2DXu for PS2 WILL require the following:
 - ImgBurn (any other tool that lets you make a ISO from a folder will work, but will not apply to the following instructions)
 
 1. Extract your copy of GH2 from its ISO (Disc Image file) container. The files should be in a folder that looks like this:
-![STOCKGH2PS2EXTRACT.png](Guitar-Hero-II-Deluxe-Unified/dependencies/media/STOCKGH2PS2EXTRACT.png)
+![STOCKGH2PS2EXTRACT.png](/dependencies/media/1ps2step1.png)
 2. Place your newly extracted copy of GH2 PS2 into `Guitar-Hero-II-Deluxe-Unified\platform\ps2` (it should look like the picture below, DO NOT DELETE ANYTHING ALREADY IN THE FOLDER)
-![GH2PS2STEP2.png](Guitar-Hero-II-Deluxe-Unified/dependencies/media/GH2PS2STEP2.png) 
+![GH2PS2STEP2.png](/dependencies/media/1ps2step2.png) 
 3. Now this is the part where the CMD prompt bit comes in: Open a CMD prompt (does not matter where the prompt is pointed, just run it as admin)
 ENSURE YOU RUN THIS COMMAND LETTER FOR LETTER: `pip install pillow` 
 4. Once it is installed, locate the `scripts` folder in the root of the Repository, in this folder run `build_xbox.bat`. A CMD prompt will now open.
@@ -57,7 +57,7 @@ your very own patch of GH2DXu for the Playstation 2! Congrats!
 8. Click on the `Create image from files/folders` option, here you are then going to click on the little folder icon in the middle of the large blank box.
 Then in the new window, select the folder where you have copied your GH2DXu patch into your Stock GH2 folder.
 9. Click on the folder icon below the previous one, now you just select where the ISO will output, all in all, your ImgBurn window will look like this:
-![ImgBurn Window.png](Guitar-Hero-II-Deluxe-Unified/dependencies/media/ImgBurnWindow.png)
+![ImgBurn Window.png](/dependencies/media/1imgburnwindow.png)
 10. Click the `Folder->Img button`.... That's all.... your freshly baked GH2DXu ISO is now ready to play! You survived ImgBurn!
 11. Now for the real fun, GH2DXu works wherever PS2 games do!
 
