@@ -53,7 +53,7 @@ ENSURE YOU RUN THIS COMMAND LETTER FOR LETTER: `pip install pillow`
 5. Upon completion of the creation of the DX patch, a new folder called `out` should have opened, you now have officially survived the process of creating
 your very own patch of GH2DXu for the Playstation 2! Congrats!
 6. Now just copy the contents of the `out` folder into your stock GH2 copy... BOOM GH2DXu PS2 Has now been born.
-7. Now here is the annoying part... you have to create your own ISO for the game... now this is going to be really annoying, but I REALLY do recommend getting familiar with this for later down the line when GH2DXu gets far enough in dev to allow for customs (if your from the future where this happens, ignore that last bit). now time to familiarize your self with ImgBurn... I know it looks intimating but just follow and do as I say.
+7. Now here is the ISO Creating part. I REALLY do recommend getting familiar with this for later down the line when GH2DXu gets far enough in dev to allow for customs (if your from the future where this happens, ignore that last bit). now time to familiarize your self with ImgBurn.
 8. Click on the `Create image from files/folders` option, here you are then going to click on the little folder icon in the middle of the large blank box.
 Then in the new window, select the folder where you have copied your GH2DXu patch into your Stock GH2 folder.
 9. Click on the folder icon below the previous one, now you just select where the ISO will output, all in all, your ImgBurn window will look like this:
