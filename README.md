@@ -9,13 +9,13 @@ For a good amount of time, GH2DX360 was far too unstable, notable issues were th
 
 
 ## INSTALLATION:
-- GH2DXu is in PRE-ALPHA, so the install process is *subject to change*. Currently there is 2 flavors of GH2DXu, PS2 and Xbox-360.
+GH2DXu is in PRE-ALPHA, so the install process is *subject to change*. Currently there is 2 flavors of GH2DXu, PS2 and Xbox-360.
 
 ### XBOX 360
-- GH2DXu for Xbox-360 WILL require the following:
-	- Python
-	- Access to a CMD prompt
-	- A "legally" acquired copy of stock GH2 for the Xbox-360.
+GH2DXu for Xbox-360 WILL require the following:
+- Python
+- Access to a CMD prompt
+- A "legally" acquired copy of stock GH2 for the Xbox-360.
 
 1. ENSURE YOUR COPY OF GH2 IS IN A RAW-FILE FORMAT (Refer to the picture below)
 ![STOCK GH2 360 FOLDER 1.png](dependencies/media/STOCKGH2360FOLDER.png)
@@ -25,7 +25,7 @@ For a good amount of time, GH2DX360 was far too unstable, notable issues were th
 ENSURE YOU RUN THIS COMMAND LETTER FOR LETTER: `pip install pillow` 
 4. Once it is installed, locate the `scripts` folder in the root of the Repository, in this folder run `build_xbox.bat`. A CMD prompt will now open.
 5. Upon completion of the creation of the DX patch, a new folder called `out` should have opened, you now have officially survived the process of creating
-your very own copy of GH2DXu for the Xbox-360! Congrats!
+your very own patch of GH2DXu for the Xbox-360! Congrats!
 6. Now here is the easy part, you remember that copy of stock GH2 you legally acquired, well make a copy of those files, and in this new copy of GH2
 simply drag the newly created `GEN` and `default.xex` files/folders (for those who prefer their GH2 with overscan you can rename `default no overscan.xex` to 
 default.xex after getting rid of the OG default.xex) over to your copy of stock GH2.
@@ -37,11 +37,11 @@ default.xex after getting rid of the OG default.xex) over to your copy of stock 
 ## THIS MOD IS *IN PRE-ALPHA*, EXPECT BUGS
 
 ### Playstation 2
-- GH2DXu for PS2 WILL require the following:
-	- Python
-	- Access to a CMD prompt
-	- A "Legally" aquired copy of stock GH2 for the Playstation 2
-	-ImgBurn (any other tool that lets you make a ISO from a folder will work, but will not apply to the following instructions)
+GH2DXu for PS2 WILL require the following:
+- Python
+- Access to a CMD prompt
+- A "Legally" aquired copy of stock GH2 for the Playstation 2
+-ImgBurn (any other tool that lets you make a ISO from a folder will work, but will not apply to the following instructions)
 
 1. Extract your copy of GH2 from its ISO (Disc Image file) container. The files should be in a folder that looks like this:
 ![STOCKGH2PS2EXTRACT.png](dependencies/media/STOCKGH2PS2EXTRACT.png)
@@ -51,7 +51,7 @@ default.xex after getting rid of the OG default.xex) over to your copy of stock 
 ENSURE YOU RUN THIS COMMAND LETTER FOR LETTER: `pip install pillow` 
 4. Once it is installed, locate the `scripts` folder in the root of the Repository, in this folder run `build_xbox.bat`. A CMD prompt will now open.
 5. Upon completion of the creation of the DX patch, a new folder called `out` should have opened, you now have officially survived the process of creating
-your very own copy of GH2DXu for the Playstation 2! Congrats!
+your very own patch of GH2DXu for the Playstation 2! Congrats!
 6. Now just copy the contents of the `out` folder into your stock GH2 copy... BOOM GH2DXu PS2 Has now been born.
 7. Now here is the annoying part... you have to create your own ISO for the game... now this is going to be really annoying, but I REALLY do recommend getting familiar with this for later down the line when GH2DXu gets far enough in dev to allow for customs (if your from the future where this happens, ignore that last bit). now time to familiarize your self with ImgBurn... I know it looks intimating but just follow and do as I say.
 8. Click on the `Create image from files/folders` option, here you are then going to click on the little folder icon in the middle of the large blank box.
