@@ -1,5 +1,5 @@
 # Guitar Hero II Deluxe: Unified
-![GH2 HEADER](Guitar-Hero-II-Deluxe-Unified/dependencies/media/header.png)
+![header.png](Guitar-Hero-II-Deluxe-Unified/dependencies/media/header.png)
 ## Welcome to the Future of GH2DX!!!
 
 ## GH2DXu IS *IN PRE-ALPHA*, EXPECT BUGS
@@ -18,7 +18,7 @@ GH2DXu for Xbox-360 WILL require the following:
 - A copy of stock GH2 for the Xbox-360 (MUST BE RAWFILES).
 
 1. ENSURE YOUR COPY OF GH2 IS IN A RAWFILE FORMAT (Refer to the picture below)
-![STOCK GH2 360 FOLDER 1.png](Guitar-Hero-II-Deluxe-Unified/dependencies/media/STOCKGH2360FOLDER.png)
+![STOCKGH2360FOLDER1.png](Guitar-Hero-II-Deluxe-Unified/dependencies/media/STOCKGH2360FOLDER.png)
 2. Take your GH2 Raw Files and Place them within `Guitar-Hero-II-Deluxe-Unified\platform\xbox` (it should look like the picture below, DO NOT DELETE ANYTHING ALREADY IN THE FOLDER)
 ![STOCKGH2PS2EXTRACT 1.png](Guitar-Hero-II-Deluxe-Unified/dependencies/media/360STEP2.png)
 3. Now this is the CMD prompt bit comes in: Open a CMD prompt (does not matter where the prompt is pointed, just run it as admin)
