@@ -15,7 +15,7 @@ GH2DXu is in PRE-ALPHA, so the install process is *subject to change*. Currently
 GH2DXu for Xbox-360 WILL require the following:
 - Python
 - Access to a CMD prompt
-- A "legally" acquired copy of stock GH2 for the Xbox-360.
+- A copy of stock GH2 for the Xbox-360 (MUST BE RAWFILES).
 
 1. ENSURE YOUR COPY OF GH2 IS IN A RAW-FILE FORMAT (Refer to the picture below)
 ![STOCK GH2 360 FOLDER 1.png](dependencies/media/STOCKGH2360FOLDER.png)
@@ -40,7 +40,7 @@ default.xex after getting rid of the OG default.xex) over to your copy of stock 
 GH2DXu for PS2 WILL require the following:
 - Python
 - Access to a CMD prompt
-- A "Legally" aquired copy of stock GH2 for the Playstation 2
+- A copy of stock GH2 for the Playstation 2 (ISO)
 -ImgBurn (any other tool that lets you make a ISO from a folder will work, but will not apply to the following instructions)
 
 1. Extract your copy of GH2 from its ISO (Disc Image file) container. The files should be in a folder that looks like this:
