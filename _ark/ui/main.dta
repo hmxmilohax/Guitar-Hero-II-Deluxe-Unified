@@ -1,7 +1,14 @@
+#include ../dx/ui/main/dx_main_handles.dta
+
 {new
    GHPanel
    main_panel
+   #ifdef HX_XBOX
+   (file {if_else {profilemgr is_active_pad_signed_in_live} main_live.milo main.milo})
+   #else
    (file main.milo)
+   #endif
+   DX_MAIN_HANDLES
    (focus main_quickspin.btn)
    (msg_last_frame 0)
    (already_entered FALSE)
@@ -10,7 +17,7 @@
    #endif
    (retain_last_focus FALSE)
    (enter
-      {dx_set_main_menu}
+      {$this dx_set_main_menu}
       {set $main_entered TRUE}
       #ifdef HX_XBOX
       {set $leaderboards_mode FALSE}
@@ -20,15 +27,15 @@
          {!
             [already_entered]}
          {synth play_sequence meta_lick}
-         {if
-            {&&
-               {==
-                  {game get_controller 0}
-                  guitar}
-               {==
-                  {campaign tutorials_done}
-                  0}}
-            {$this set_focus main_tutorial.btn}}
+      ;   {if
+      ;      {&&
+      ;         {==
+      ;            {game get_controller 0}
+      ;            guitar}
+      ;         {==
+      ;            {campaign tutorials_done}
+      ;            0}}
+      ;      {$this set_focus main_tutorial.btn}}
          {$this set already_entered TRUE}}
       {game set_tutorial_running FALSE}
       {main_msg.view set_showing FALSE}
@@ -108,7 +115,7 @@
    (reset_player_settings
       {{game get_player_config 0}
          set_difficulty
-         kDifficultyMedium}
+         kDifficultyExpert}
       #ifdef HX_XBOX
       {song_provider set_mode kSongsCareer}
       {song_provider init_data}
@@ -123,7 +130,7 @@
             {game get_player_config 1})
          {$player2_config set_character rockabill1 TRUE}
          {$player2_config set_guitar_index 0}
-         {$player2_config set_difficulty kDifficultyMedium}})
+         {$player2_config set_difficulty kDifficultyExpert}})
    (display_cheat_msg
       ($cheat $enable)
       {mm_msg.lbl
@@ -141,12 +148,18 @@
 {new
    GHScreen
    main_screen
+   (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels meta main_panel helpbar)
    (focus main_panel)
    (helpbar
       (default
          ((fret1 help_continue)
-            (strum help_updown))))
+          (start dx_os_helpbar)            
+          (strum help_updown))))
    (access_all
       {main_panel reset_player_settings})
    (enter

@@ -1,4 +1,6 @@
 #include macros.dta
+#include ../dx/macros/dx_macros.dta
+#include ../dx/overshell/dx_overshell_macros.dta
 (mem
    #include mem.dta)
 (system
@@ -47,8 +49,8 @@
    #include synth.dta)
 (joypad
    (ignore)
-   (hold_ms 1000)
-   (repeat_ms 80))
+   (hold_ms 300) ; dx - default 1000
+   (repeat_ms 50)) ; dx - default 80
 (spew
    #include spew.dta)
 #ifdef HX_XBOX
@@ -143,7 +145,7 @@
    #include ../ui/ui.dta)
 (objects
    #include objects.dta)
-(locale ../ui/eng/locale_milo.dta ../ui/eng/locale.dta)
+(locale ../ui/eng/locale_milo.dta ../ui/eng/locale.dta ../dx/locale/dx_locale.dta)
 (venues battle small1 small2 big theatre fest arena stone)
 (default_band metal_singer metal_bass metal_drummer)
 (quick_cheats
@@ -165,7 +167,8 @@
 (track_graphics
    #include track_graphics.dta)
 (songs
-   #include songs.dta)
+   #include songs.dta
+   #ifdef HX_EE #include songs_xbox.dta #endif)
 (sound
    #include sound.dta)
 (hud

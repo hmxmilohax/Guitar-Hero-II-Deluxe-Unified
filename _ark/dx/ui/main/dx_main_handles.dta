@@ -1,0 +1,13 @@
+#define DX_MAIN_HANDLES
+(
+   (dx_set_main_menu
+      {mainmenu.tex set_bitmap "dx/custom_textures/main/mainmenu_nohand.png"}
+      {main set normal_color {pack_color 0.16 0.30 0.38}}
+      {main set focus_color {pack_color 1 1 1}}
+      {main set selecting_color {pack_color 0.5 0.5 0.5}}
+      {if $dx_new_save
+         {set $dx_new_save FALSE}
+         {ui goto_screen dx_welcome_screen}
+      }
+   )
+)

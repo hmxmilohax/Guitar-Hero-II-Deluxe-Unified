@@ -1,0 +1,10 @@
+; Song Speed - Each .1 is 10% 
+{set $speedmod 1.0}
+
+; Track/Highway/Note Speed - Each .1 is 10%
+{set $trackspeed 1.0}
+
+; Allow access to the debug menu in overshell
+{set $dx_debug FALSE}
+
+{set $emulatefps 60}

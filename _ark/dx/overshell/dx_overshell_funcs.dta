@@ -1,0 +1,47 @@
+{func
+   dx_disable_obj
+   ($object)
+   {$this disable $object} {$object set_showing FALSE}
+}
+
+{func
+   dx_state_header_text
+   ($locale)
+   {$this iterate UILabel $l {$l set_localized_text {localize $locale}}}
+}
+
+{func
+   dx_btn_state_size
+   ($size)
+   {if {== $size small}
+      {pause_title.lbl set_local_pos 0 0 107}
+      {pause_buttons.view set_local_pos 0 0 19}
+      {dx_disable_obj extra1.btn}
+      {dx_disable_obj extra2.btn}
+   }
+   {if {== $size small_big_header}
+      {pause_title.lbl set_local_pos 0 0 100}
+      {pause_buttons.view set_local_pos 0 0 7}
+      {dx_disable_obj extra1.btn}
+      {dx_disable_obj extra2.btn}
+   }
+}
+
+{func
+   dx_lst_state_setup
+   {gs_tile5.mesh set_showing FALSE}
+   {sel_section.lst set_local_pos -140 0 60}
+   {sel_section.lst set alignment kTopCenter}
+   {gs_title.lbl set_local_pos 0 0 100}
+}
+
+{func
+   dx_os_lst_reset
+   {set $lstpos {sel_section.lst selected_pos}}
+   {unless {$this slider_selected}
+      {do
+         {sel_section.lst set_selected $lstpos}
+         {$this reset}
+      }
+   }
+}

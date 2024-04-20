@@ -61,10 +61,10 @@
 #endif
 (remove_y -15)
 (track_speed
-   (kDifficultyEasy 1)
-   (kDifficultyMedium 1)
-   (kDifficultyHard 1.4)
-   (kDifficultyExpert 1.4))
+   (kDifficultyEasy {/ {'*' $trackspeed 1} $speedmod})
+   (kDifficultyMedium {/ {'*' $trackspeed 1} $speedmod})
+   (kDifficultyHard {/ {'*' $trackspeed 1.4} $speedmod})
+   (kDifficultyExpert {/ {'*' $trackspeed 1.4} $speedmod}))
 (alpha_dist 40)
 (horizon_tail_clip 7)
 (nowbar_tail_clip 1.5)

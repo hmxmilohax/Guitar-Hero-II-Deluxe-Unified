@@ -10,7 +10,9 @@
       {if_else
          {game is_tutorial_running}
          {$this show_overlay FALSE}
-         {$this setup_text}})
+         {$this setup_text}}
+      {if $dx_black_background
+         {$this show_overlay $dx_song_title_always}})
    (setup_text
       {do
          ($song_text
@@ -123,16 +125,24 @@
          (delay 6)
          (units kTaskSeconds)
          (script
-            {mtv_overlay_panel show_overlay FALSE})}
+            {mtv_overlay_panel show_overlay $dx_song_title_always})}
       {set
          [intro_complete]
          FALSE}
       kDataUnhandled)
    (intro_skip
       {track_panel intro_skip}
+      {if_else {> $speedmod 1} ;if towel is disabled, check if song speed is greater than 100%
+         {beatmatch set_music_speed $speedmod} ;if music speed is set to greater than 100%, set the beatmatcher speed to that value
+         {beatmatch set_music_speed 1.0} ;if music speed is set to 100%, set beatmatcher speed to 100%
+      }
       kDataUnhandled)
    (extend_track
       {track_panel do_extend_sequence}
+      {if_else {> $speedmod 1} ;if towel is disabled, check if song speed is greater than 100%
+         {beatmatch set_music_speed $speedmod} ;if music speed is set to greater than 100%, set the beatmatcher speed to that value
+         {beatmatch set_music_speed 1.0} ;if music speed is set to 100%, set beatmatcher speed to 100%
+      }
       {script_task
          (delay 1.8)
          (units kTaskSeconds)
@@ -426,7 +436,7 @@
             ($this multi_player)}
          {handle
             ($this single_player)}}
-      {$this set_showing TRUE}
+      {$this set_showing {! $dx_black_background}}
       {$this set_paused FALSE})
    #ifdef HX_XBOX
    (unload

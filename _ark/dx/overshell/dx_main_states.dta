@@ -1,0 +1,250 @@
+{new GHPanel ; btn: GHPanel, lst: MultiSelectListPanel
+   dxState_DeluxeSettings_panel
+   DX_SETUP_OVERSHELL_PANEL_BTN
+
+   (enter
+
+      ; Size (options: small, small_big_header, large)
+      {dx_btn_state_size small_big_header}
+
+      ; Header text
+      {dx_state_header_text os_deluxe_settings}
+
+      ; Buttons to disable
+      ;{dx_disable_obj diff.btn}
+      ;{dx_disable_obj resume.btn}
+      ;{dx_disable_obj restart.btn}
+      ;{dx_disable_obj change_speed.btn}
+      {dx_disable_obj section.btn}
+      {dx_disable_obj newsong.btn}
+      #ifdef _SHIP {if {! $dx_debug} {dx_disable_obj quit.btn}} #endif
+      {dx_disable_obj extra1.btn} ; Always disabled on small panels
+      {dx_disable_obj extra2.btn} ; Always disabled on small panels
+
+      ; Button text
+      {diff.btn set_localized_text {localize os_modifiers}}
+      {resume.btn set_localized_text {localize os_set_speeds}}
+      {restart.btn set_localized_text {localize os_cheats}}
+      {change_speed.btn set_localized_text {localize os_system_settings}}
+
+      {quit.btn set_localized_text {localize os_debug_menu}}
+
+   )
+   (SELECT_START_MSG
+      {switch $component
+
+         ; Button actions
+         (diff.btn
+            {ui push_screen dxState_Modifiers_screen}
+         )
+         (resume.btn
+            {ui push_screen dxState_SetSpeeds_screen}
+         )
+         (restart.btn
+            {ui push_screen dxState_Cheats_screen}
+         )
+         (change_speed.btn
+            {ui push_screen dxState_SystemSettings_screen}
+         )
+
+         (quit.btn
+            {ui push_screen dxState_Debug_screen}
+         )
+
+      }
+   )
+}{new GHScreen
+   dxState_DeluxeSettings_screen
+   (panels dxState_DeluxeSettings_panel) ; Must change for new states
+   DX_SETUP_OVERSHELL_SCREEN
+}
+
+{new MultiSelectListPanel ; btn: GHPanel, lst: MultiSelectListPanel
+   dxState_Modifiers_panel
+   DX_SETUP_OVERSHELL_PANEL_LST
+   (enter
+      {dx_lst_state_setup}
+
+      ; Header text
+      {dx_state_header_text os_modifiers}
+
+      {sel_section.lst set_data
+         (
+
+            ; Data for the list
+            mod_nofail
+            mod_song_title_always
+            mod_black_background
+            mod_fast_menus
+            #ifdef HX_XBOX mod_auto_play #endif
+
+         )
+      }
+
+   )
+   (SELECT_START_MSG
+      {switch {$component selected_sym}
+
+         ; Button actions
+         (mod_nofail
+            {set $dx_nofail {! $dx_nofail}}
+         )
+         (mod_song_title_always
+            {set $dx_song_title_always {! $dx_song_title_always}}
+         )
+         (mod_black_background
+            {set $dx_black_background {! $dx_black_background}}
+         )
+         (mod_fast_menus
+            {set $dx_fast_menus {! $dx_fast_menus}}
+         )
+         (mod_auto_play
+            {if_else $dx_auto_play
+               {set $dx_auto_play FALSE}
+               {ui push_screen dxState_AutoplayWarn_screen}
+            }
+         )
+
+      }
+      DX_OVERSHELL_LST_RESET
+   )
+}{new GHScreen
+   dxState_Modifiers_screen
+   (panels dxState_Modifiers_panel) ; Must change for new states
+   DX_SETUP_OVERSHELL_SCREEN
+}
+
+{new GHPanel ; btn: GHPanel, lst: MultiSelectListPanel
+   dxState_Cheats_panel
+   DX_SETUP_OVERSHELL_PANEL_BTN
+
+   (enter
+
+      ; Size (options: small, small_big_header, large)
+      {dx_btn_state_size small}
+
+      ; Header text
+      {dx_state_header_text os_cheats}
+
+      ; Buttons to disable
+      ;{dx_disable_obj diff.btn}
+      ;{dx_disable_obj resume.btn}
+      ;{dx_disable_obj restart.btn}
+      ;{dx_disable_obj change_speed.btn}
+      ;{dx_disable_obj section.btn}
+      ;{dx_disable_obj newsong.btn}
+      ;{dx_disable_obj quit.btn}
+      ;{dx_disable_obj extra1.btn} ; Always disabled on small panels
+      ;{dx_disable_obj extra2.btn} ; Always disabled on small panels
+
+      {if $cheat_enabled_unlock_all
+         {$this disable quit.btn}}
+
+      ; Button text
+      {diff.btn set_localized_text {localize os_hyperspeed}}
+      {resume.btn set_localized_text {localize os_performance}}
+      {restart.btn set_localized_text {localize os_airgtr}}
+      {change_speed.btn set_localized_text {localize os_flaming}}
+      {section.btn set_localized_text {localize os_eyeball}}
+      {newsong.btn set_localized_text {localize os_monkey}}
+      {quit.btn set_localized_text {localize {if_else $cheat_enabled_unlock_all os_nosave os_unlock}}}
+      ;{extra1.btn set_localized_text {localize os_btn}} ; Disabled on small panels
+      ;{extra2.btn set_localized_text {localize os_btn}} ; Disabled on small panels
+
+   )
+   (SELECT_START_MSG
+      {switch $component
+
+         ; Button actions
+         (diff.btn
+            {if_else
+               $cheat_enabled_hyper_speed_mode
+               {do
+                  {set $cheat_enabled_hyper_speed_mode FALSE}
+                  {main_screen display_cheat_msg cheat_hyper_speed_mode FALSE}
+                  {play_sfx cheat_off}}
+               {do
+                  {set $cheat_enabled_hyper_speed_mode TRUE}
+                  {main_screen display_cheat_msg cheat_hyper_speed_mode TRUE}
+                  {play_sfx cheat}}}
+         )
+         (resume.btn
+            {if_else
+               $cheat_enabled_performance_mode
+               {do
+                  {set $cheat_enabled_performance_mode FALSE}
+                  {main_screen display_cheat_msg cheat_performance_mode FALSE}
+                  {play_sfx cheat_off}}
+               {do
+                  {set $cheat_enabled_performance_mode TRUE}
+                  {main_screen display_cheat_msg cheat_performance_mode TRUE}
+                  {play_sfx cheat}}}
+         )
+         (restart.btn
+            {if_else
+               {== $cheat_guitar air_guitar}
+               {do
+                  {set $cheat_guitar 0}
+                  {main_screen display_cheat_msg cheat_air_guitar FALSE}
+                  {play_sfx cheat_off}}
+               {do
+                  {set $cheat_guitar air_guitar}
+                  {main_screen display_cheat_msg cheat_air_guitar TRUE}
+                  {play_sfx cheat}}}
+         )
+         (change_speed.btn
+            {if_else
+               $cheat_enabled_flaming_head
+               {do
+                  {set $cheat_enabled_flaming_head FALSE}
+                  {main_screen display_cheat_msg cheat_flaming_head FALSE}
+                  {play_sfx cheat_off}}
+               {do
+                  {set $cheat_enabled_flaming_head TRUE}
+                  {main_screen display_cheat_msg cheat_flaming_head TRUE}
+                  {play_sfx cheat}}}
+         )
+         (section.btn
+            {if_else
+               {'||'
+                  {== $cheat_crowd_heads 0}
+                  {== $cheat_crowd_heads monkey_crowd_heads}}
+               {do
+                  {set $cheat_crowd_heads eyeball_crowd_heads}
+                  {main_screen display_cheat_msg cheat_eyeball_head_crowd TRUE}
+                  {play_sfx cheat}}
+               {do
+                  {set $cheat_crowd_heads 0}
+                  {main_screen display_cheat_msg cheat_eyeball_head_crowd FALSE}
+                  {play_sfx cheat_off}}}
+         )
+         (newsong.btn
+            {if_else
+               {'||'
+                  {== $cheat_crowd_heads 0}
+                  {== $cheat_crowd_heads eyeball_crowd_heads}}
+               {do
+                  {set $cheat_crowd_heads monkey_crowd_heads}
+                  {main_screen display_cheat_msg cheat_monkey_head_crowd TRUE}
+                  {play_sfx cheat}}
+               {do
+                  {set $cheat_crowd_heads 0}
+                  {main_screen display_cheat_msg cheat_monkey_head_crowd FALSE}
+                  {play_sfx cheat_off}}}
+         )
+         (quit.btn
+            {set $cheat_enabled_unlock_all 1}
+            {campaign set_all_access 1}
+            {set $disable_save 1}
+            {set $disable_career 1}
+            {main_screen display_cheat_msg cheat_unlock_all TRUE}
+            {play_sfx cheat}
+         )
+
+      }
+   )
+}{new GHScreen
+   dxState_Cheats_screen
+   (panels dxState_Cheats_panel) ; Must change for new states
+   DX_SETUP_OVERSHELL_SCREEN
+}

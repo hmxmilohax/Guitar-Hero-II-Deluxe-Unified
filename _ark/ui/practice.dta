@@ -1,12 +1,18 @@
 {new
    GHScreen
    practice_selsong_screen
+   (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels meta sel_song_panel helpbar)
    (focus sel_song_panel)
    (helpbar
       (default
          ((fret1 help_continue)
             (fret2 help_back)
+            (start dx_os_helpbar)
             (strum help_updown))))
    (sel_song_career FALSE)
    (enter
@@ -32,12 +38,18 @@
 {new
    GHScreen
    practice_selpart_screen
+   (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels meta #ifdef HX_EE selpart_bg_panel #endif practice_selpart_panel helpbar)
    (focus practice_selpart_panel)
    (helpbar
       (default
          ((fret1 help_continue)
             (fret2 help_back)
+            (start dx_os_helpbar)
             (strum help_updown))))}
 {new
    GHPanel
@@ -52,12 +64,18 @@
 {new
    GHScreen
    practice_diff_screen
+   (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels meta sel_diff_practice_panel helpbar)
    (focus sel_diff_practice_panel)
    (helpbar
       (default
          ((fret1 help_continue)
             (fret2 help_back)
+            (start dx_os_helpbar)
             (strum help_updown))))
    (SELECT_START_MSG
       {ui goto_screen practice_sel_section_screen}
@@ -116,7 +134,7 @@
                      set
                      (practice_sections 1)
                      $idx}
-                  {ui goto_screen practice_sel_speed_screen}
+                  {ui goto_screen practice_loading_screen} ; dx - skip the speed screen
                   kDataUnhandled}}
             {if_else
                {== $idx -1}
@@ -129,7 +147,7 @@
                      set
                      (practice_sections 1)
                      -1}
-                  {ui goto_screen practice_sel_speed_screen}
+                  {ui goto_screen practice_loading_screen} ; dx - skip the speed screen
                   kDataUnhandled}
                {do
                   {gamecfg
@@ -189,6 +207,11 @@
 {new
    GHScreen
    practice_sel_section_screen
+   (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels meta midi_loader_panel practice_sel_section_panel helpbar)
    (focus practice_sel_section_panel)
    (career_mode FALSE)
@@ -196,6 +219,7 @@
       (default
          ((fret1 help_continue)
             (fret2 help_back)
+            (start dx_os_helpbar)
             (strum help_updown))))}
 {new
    GHPanel
@@ -216,6 +240,11 @@
 {new
    GHScreen
    practice_sel_speed_screen
+   (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels meta sel_speed_panel helpbar)
    (focus sel_speed_panel)
    (SELECT_START_MSG
@@ -225,6 +254,7 @@
       (default
          ((fret1 help_continue)
             (fret2 help_back)
+            (start dx_os_helpbar)
             (strum help_updown))))}
 {new
    GHPanel
@@ -246,7 +276,11 @@
             {mtv_overlay_panel show_overlay FALSE})}
       {set
          [ignore_section]
-         {section_provider section_after_last}})
+         {section_provider section_after_last}}
+      {if {== {gamecfg get practice_speed} 0} ;if practice speed is set to full speed
+         {beatmatch set_music_speed $speedmod} ;set the beatmatcher speed to the song speed modifier
+      }
+   )
    (update
       {click_parser remove_sink $this}
       {if
@@ -307,15 +341,14 @@
    (animate_transition FALSE)
    (in_game TRUE)
    (BUTTON_DOWN_MSG
-      {if
-         {&&
-            {== $button kPad_Start}
-            {!
-               {game get game_over}}}
-         {$this pause_practice}})
-   (pause_practice
-      {game set_paused TRUE}
-      {ui goto_screen pract_pause_screen})
+      {switch
+         $button
+         (kPad_Select
+            {game_restart_fast})
+         (kPad_Start
+            {if {! {game get game_over}}
+               {game set_paused TRUE}
+               {ui goto_screen pract_pause_screen}})})
    (enter
       {practice_panel update})
    (TRANSITION_COMPLETE_MSG
@@ -390,11 +423,13 @@
          (restart_career.btn
             {game_restart})
          (change_speed.btn
-            {practice_change_speed_screen set back_screen practice_end_screen}
-            {ui goto_screen practice_change_speed_screen})
+            ; dx - use this button for deluxe settings instead
+            {set $dx_in_game TRUE}
+            {ui push_screen dxState_DeluxeSettings_screen})
          (change_speed_career.btn
-            {practice_change_speed_screen set back_screen practice_end_screen}
-            {ui goto_screen practice_change_speed_screen})
+            ; dx - use this button for deluxe settings instead
+            {set $dx_in_game TRUE}
+            {ui push_screen dxState_DeluxeSettings_screen})
          (new_sec.btn
             {meta_loading_nosave_goto practice_sel_section_screen})
          (new_sec_career.btn

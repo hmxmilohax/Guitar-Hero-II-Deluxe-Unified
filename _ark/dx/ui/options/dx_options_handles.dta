@@ -1,0 +1,11 @@
+#define DX_OPTIONS_HANDLES
+(
+   (dx_set_options
+      {op_poster.tex set_bitmap "dx/custom_textures/options/op_poster.png"}
+      {options set normal_color {pack_color 0 0.46 0.56}}
+      {options set focus_color {pack_color 0.63 0.61 0.60}}
+      {options set selecting_color {pack_color 0.89 0.89 0.89}}
+      {options set disabled_color {pack_color 0 0.16 0.20}} 
+      {op_title.lbl set color {pack_color 0 0.69 0.75}}
+   )
+)

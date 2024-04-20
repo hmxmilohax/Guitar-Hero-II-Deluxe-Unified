@@ -75,13 +75,13 @@
          {if
             {campaign store_songs_passed}
             {achievements submit beat_unlocks}}}
-      {if
-         {!
-            {gamecfg multiplayer}}
-         {leaderboards
-            submit_score
-            {gamecfg get_song}
-            {player0 score}}}
+      ;{if
+      ;   {!
+      ;      {gamecfg multiplayer}}
+      ;   {leaderboards
+      ;      submit_score
+      ;      {gamecfg get_song}
+      ;      {player0 score}}}
       #endif
       {do
          ($win_screen $freebird)
@@ -407,6 +407,10 @@
 {new
    GHScreen
    endgame_screen
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels GAME_PANELS endgame_panel helpbar)
    (focus endgame_panel)
    (clear_vram TRUE)
@@ -418,7 +422,8 @@
    (helpbar
       (default
          ((fret1 help_continue)
-            (strum help_updown))))}
+          (start dx_os_helpbar)
+          (strum help_updown))))}
 {new
    GHPanel
    endgame_stats_panel
@@ -697,6 +702,10 @@
 {new
    GHScreen
    endgame_encore_screen
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels GAME_PANELS endgame_encore_panel helpbar)
    (focus endgame_panel)
    (clear_vram TRUE)
@@ -705,7 +714,8 @@
    (helpbar
       (default
          ((fret1 help_continue)
-            (strum help_updown))))
+          (start dx_os_helpbar)
+          (strum help_updown))))
    (enter
       {world_panel set_showing FALSE}
       {$this set_focus_panel endgame_encore_panel})}
@@ -1064,6 +1074,10 @@
 {new
    GHScreen
    unlock_venue_screen
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels GAME_PANELS unlock_venue_panel helpbar)
    (focus unlock_venue_panel)
    (in_game TRUE)
@@ -1071,7 +1085,8 @@
    (animate_transition FALSE)
    (helpbar
       (default
-         ((fret1 help_continue))))
+         ((fret1 help_continue)
+          (start dx_os_helpbar))))
    (enter
       {world play_sfx vroom.cue})}
 {new

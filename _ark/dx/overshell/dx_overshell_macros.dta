@@ -1,0 +1,60 @@
+#define DX_OPEN_OVERSHELL
+(
+   {if {== $button kPad_Start}
+      {set $dx_in_game FALSE}
+      {synth play_sequence button_select}
+      {ui push_screen dxState_DeluxeSettings_screen}
+   }
+)
+
+#define DX_SETUP_OVERSHELL_SCREEN
+(
+   (allow_back FALSE)
+   (animate_transition FALSE)
+   (BUTTON_DOWN_MSG
+      {if {== $button kPad_Tri}
+         {ui pop_screen}
+         {synth play_sequence button_toggle}
+      }
+      {if {== $button kPad_Start}
+         {ui pop_screen}
+         {synth play_sequence button_toggle}
+      }
+      kDataUnhandled
+   )
+   (helpbar
+      (default
+         (
+            (fret1 help_continue)
+            (fret2 help_back)
+            (strum help_updown)
+         )
+      )
+   )
+)
+
+#define DX_SETUP_OVERSHELL_PANEL_BTN
+(
+   (file dx_overshell_btn.milo)
+   (focus diff.btn)
+)
+
+#define DX_SETUP_OVERSHELL_PANEL_LST
+(
+   (file dx_overshell_lst.milo)
+   (focus sel_section.lst)
+)
+
+#define DX_SETUP_OVERSHELL_PANEL_DIALOG
+(
+   (file dx_overshell_dialog.milo)
+   (focus quit.btn)
+   (reset_focus TRUE)
+)
+
+#define DX_OVERSHELL_LST_RESET
+(
+   {set $dx_tracked_list_pos {sel_section.lst selected_pos}}
+   {sel_section.lst set_selected $dx_tracked_list_pos}
+   {$this reset}
+)

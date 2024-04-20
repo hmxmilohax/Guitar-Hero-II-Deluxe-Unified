@@ -81,12 +81,14 @@
 {new
    GHScreen
    sel_difficulty_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta sel_diff_career_panel helpbar char_single)
    (focus sel_diff_career_panel)
    (helpbar
       (default
          ((fret1 help_continue)
             (fret2 help_back)
+            (start dx_os_helpbar)
             (strum help_updown))))
    (SELECT_START_MSG
       {sel_diff_career_panel set_difficulty $component 0}
@@ -103,6 +105,7 @@
          {$this backwards_anim}
          {synth play_sequence button_back.cue}
          {ui goto_screen chooseprof_screen}}
+      DX_OPEN_OVERSHELL
       kDataUnhandled)}
 {new
    GHPanel
@@ -129,17 +132,20 @@
 {new
    GHScreen
    tour_start_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta tour_start_panel helpbar char_single)
    (focus tour_start_panel)
    (allow_back FALSE)
    (helpbar
       (default
-         ((fret1 help_continue))))
+         ((fret1 help_continue)
+          (start dx_os_helpbar))))
    (BUTTON_DOWN_MSG
       {if
          {== $button kPad_X}
          {synth play_sequence button_select}
          {autosave_goto career_screen}}
+      DX_OPEN_OVERSHELL
       TRUE)}
 {new
    GHPanel
@@ -218,6 +224,7 @@
 {new
    GHScreen
    career_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta career_panel helpbar char_single)
    (focus career_panel)
    (allow_back FALSE)
@@ -225,6 +232,7 @@
       (default
          ((fret1 help_continue)
             (fret2 help_back)
+            (start dx_os_helpbar)
             (strum help_updown))))
    (enter
       {$this turn_off_ambient}
@@ -241,6 +249,7 @@
          {$this backwards_anim}
          {synth play_sequence button_back.cue}
          {autosave_goto sel_difficulty_screen}}
+      DX_OPEN_OVERSHELL
       kDataUnhandled)}
 {new
    GHPanel
@@ -471,6 +480,7 @@
       (default
          ((fret1 help_continue)
             (fret2 help_back)
+            (start dx_os_helpbar)
             (strum help_updown))))
    (TRANSITION_COMPLETE_MSG
       {char_single
@@ -501,6 +511,7 @@
                {ui
                   goto_screen
                   [back_screen]}}}}
+      DX_OPEN_OVERSHELL
       kDataUnhandled))
 #define SEL_CHARACTER_SELECT_HANDLER
 ({if_else
@@ -537,6 +548,7 @@
 {new
    GHScreen
    sel_character_new_screen
+   (animate_transition {! $dx_fast_menus})
    (done_screen sel_guitar_new_screen)
    (back_screen sel_difficulty_screen)
    SEL_CHARACTER_COMMON
@@ -544,6 +556,7 @@
 {new
    GHScreen
    sel_character_edit_screen
+   (animate_transition {! $dx_fast_menus})
    (done_screen career_screen)
    (back_screen career_screen)
    SEL_CHARACTER_COMMON
@@ -621,6 +634,7 @@
       (default
          ((fret1 help_continue)
             (fret2 help_back)
+            (start dx_os_helpbar)
             (strum help_updown))))
    (enter
       {sel_guitar_panel set_skin_select 0 FALSE}
@@ -649,7 +663,10 @@
                {sel_guitar_panel is_skin_select 0}
                {$this unchoose_skins}
                {$this go_back}})
-         kDataUnhandled})
+         kDataUnhandled}
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (guitar_selected
       ($player_num)
       {synth play_sequence button_select}
@@ -674,6 +691,7 @@
 {new
    GHScreen
    sel_guitar_new_screen
+   (animate_transition {! $dx_fast_menus})
    SEL_GUITAR_COMMON
    (go_back
       {$this backwards_anim}
@@ -682,6 +700,7 @@
 {new
    GHScreen
    sel_guitar_edit_screen
+   (animate_transition {! $dx_fast_menus})
    SEL_GUITAR_COMMON
    (go_back
       {$this backwards_anim}
@@ -1193,9 +1212,11 @@
 {new
    GHScreen
    store_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta store_back_panel store_guitar_display_panel store_video_panel char_store store_panel helpbar)
    (focus store_panel)
    (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
       {cond
          ({&&
                {is_updown_button $button}
@@ -1291,6 +1312,7 @@
       (default
          ((fret1 help_continue)
             (fret2 help_back)
+            (start dx_os_helpbar) 
             (strum help_updown))))
    (venue_button_name
       ($venue)
@@ -1383,6 +1405,7 @@
 {new
    GHScreen
    sel_venue_screen
+   (animate_transition {! $dx_fast_menus})
    (allow_back FALSE)
    (next_screen sel_song_screen)
    SEL_VENUE_SCREEN_HANDLERS
@@ -1392,11 +1415,13 @@
             {$this backwards_anim}
             {synth play_sequence button_back.cue}
             {ui goto_screen career_screen})}
+      DX_OPEN_OVERSHELL
       kDataUnhandled)}
 #ifdef HX_XBOX
 {new
    GHScreen
    storage_changed_screen
+   (animate_transition {! $dx_fast_menus})
    DIALOG_SCREEN
    (enter
       {dialog setup mc_continue '' button1 mc_storage_changed mc_title_error})
@@ -1600,12 +1625,14 @@
 {new
    GHScreen
    sel_song_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta sel_song_panel helpbar)
    (focus sel_song_panel)
    (helpbar
       (default
          ((fret1 help_continue)
             (fret2 help_back)
+            (start dx_os_helpbar)
             (strum help_updown))))
    (sel_song_career TRUE)
    (BUTTON_DOWN_MSG
@@ -1614,6 +1641,7 @@
          {$this backwards_anim}
          {synth play_sequence button_back.cue}
          {ui goto_screen sel_venue_screen}}
+      DX_OPEN_OVERSHELL
       kDataUnhandled)
    (SELECT_START_MSG
       {sel_song_panel set metamusic_on_exit FALSE}

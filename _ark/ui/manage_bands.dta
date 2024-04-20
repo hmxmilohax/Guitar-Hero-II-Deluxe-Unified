@@ -1,3 +1,5 @@
+#include ../dx/ui/manage_band/dx_manage_band_handles.dta
+
 #define MAX_NUM_PROFILES
 (8)
 #define PROFILE_PANEL_COMMON
@@ -37,15 +39,18 @@
    GHPanel
    chooseprof_panel
    (file chooseprof.milo)
+   DX_MANAGE_BAND_HANDLES
    PROFILE_PANEL_COMMON
    (set_up_new_profile
       ($btn)
       {$btn set_text new_band})
    (enter
-      {$this set_up_bands})}
+      {$this set_up_bands}
+      {$this dx_set_chooseprof})}
 {new
    GHScreen
    chooseprof_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta chooseprof_panel helpbar)
    (focus chooseprof_panel)
    (allow_back FALSE)
@@ -53,6 +58,7 @@
       (default
          ((fret1 help_select)
             (fret2 help_back)
+            (start dx_os_helpbar) 
             (strum help_updown))))
    (SELECT_START_MSG
       {do
@@ -78,16 +84,23 @@
          {$this backwards_anim}
          {synth play_sequence button_back.cue}
          {ui goto_screen main_screen}}
+      DX_OPEN_OVERSHELL
       kDataUnhandled)}
 {new
    GHScreen
    options_chooseprof_screen
+   (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels meta chooseprof_panel helpbar)
    (focus chooseprof_panel)
    (helpbar
       (default
          ((fret1 help_select)
             (fret2 help_back)
+            (start dx_os_helpbar) 
             (strum help_updown))))
    (SELECT_START_MSG
       {do
@@ -117,6 +130,7 @@
 {new
    GHScreen
    nameprof_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta nameprof_panel helpbar)
    (focus nameprof_panel)
    (allow_back FALSE)
@@ -325,6 +339,7 @@
 {new
    GHScreen
    manage_band_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta manage_band_panel helpbar)
    (focus manage_band_panel)
    (profile_slot -1)
@@ -332,6 +347,7 @@
       (default
          ((fret1 help_continue)
             (fret2 help_back)
+            (start dx_os_helpbar) 
             (strum help_updown))))
    (enter
       {{manage_band_panel find manage_band.lbl}
@@ -373,4 +389,5 @@
          {== $button kPad_Tri}
          {$this backwards_anim}
          {ui goto_screen options_chooseprof_screen}}
+      DX_OPEN_OVERSHELL
       kDataUnhandled)}

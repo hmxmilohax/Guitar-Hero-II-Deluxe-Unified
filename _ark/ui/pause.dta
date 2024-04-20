@@ -42,12 +42,21 @@
             {$this restart}
             #endif)
          (audio_options.btn
-            {ui goto_screen pause_audio_settings_screen})
+            ; dx - use this button for deluxe settings instead
+            {set $dx_in_game TRUE}
+            {ui push_screen dxState_DeluxeSettings_screen})
          (video_options.btn
+            ; dx - use this button for practice mode instead
             #ifdef HX_XBOX
-            {pause_video_settings_screen set stash_lefty_settings TRUE}
+            {pause_confirm_practice_screen set pause_screen $this}
+            {ui goto_screen pause_confirm_practice_screen}
+            #else
+            {gamecfg set mode practice}
+            {gamecfg set_track 0 0}
+            {practice_selpart_screen set career_mode FALSE}
+            {meta_loading_goto practice_selpart_screen}
             #endif
-            {ui goto_screen pause_video_settings_screen})
+         )
          #ifdef HX_XBOX
          (quit.btn
             {pause_confirm_quit_screen set pause_screen $this}
@@ -146,12 +155,13 @@
             {meta_loading_nosave_goto practice_sel_section_screen})
          (section_career.btn
             {meta_loading_goto practice_sel_section_screen})
+         ; dx - use these buttons for dx settings
          (change_speed.btn
-            {practice_change_speed_screen set back_screen pract_pause_screen}
-            {ui goto_screen practice_change_speed_screen})
+            {set $dx_in_game TRUE}
+            {ui push_screen dxState_DeluxeSettings_screen})
          (change_speed_career.btn
-            {practice_change_speed_screen set back_screen pract_pause_screen}
-            {ui goto_screen practice_change_speed_screen})
+            {set $dx_in_game TRUE}
+            {ui push_screen dxState_DeluxeSettings_screen})
          (newsong.btn
             {meta_loading_nosave_goto practice_selsong_screen})
          (quit_career.btn
@@ -413,6 +423,38 @@
          (restart.btn
             {[pause_screen]
                restart})
+         (cancel.btn
+            {ui
+               goto_screen
+               [pause_screen]})
+         kDataUnhandled})}
+
+; dx - exit to practice confirm screen
+{new
+   GHPanel
+   pause_confirm_practice_panel
+   (file pause_quit.milo)
+   (focus quit.btn)
+   (enter
+      {$this set_focus quit.btn})}
+{new
+   GHScreen
+   pause_confirm_practice_screen
+   (panels GAME_PANELS pause_confirm_quit_panel)
+   (focus pause_confirm_quit_panel)
+   (in_game TRUE)
+   (allow_back FALSE)
+   (animate_transition FALSE)
+   (pause_screen pause_screen)
+   (SELECT_START_MSG
+      {switch
+         $component
+         (quit.btn
+            {gamecfg set mode practice}
+            {gamecfg set_track 0 0}
+            {practice_selpart_screen set career_mode FALSE}
+            {meta_loading_goto practice_selpart_screen}
+         )
          (cancel.btn
             {ui
                goto_screen

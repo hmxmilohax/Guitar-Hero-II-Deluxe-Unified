@@ -1,7 +1,10 @@
+#include ../dx/ui/options/dx_options_handles.dta
+
 {new
    UIPanel
    options_panel
    (file options.milo)
+   DX_OPTIONS_HANDLES
    (focus op_audio.btn)
    #ifdef HX_XBOX
    (enter
@@ -12,13 +15,15 @@
             {$this disable memory_card.btn}}
          {do
             {$this enable op_data.btn}
-            {$this enable memory_card.btn}}})
+            {$this enable memory_card.btn}}}
+      {$this dx_set_options})
    #else
    (poll
       {if
          $disable_save
          {op_data.btn set_state kDisabled}
-         {memory_card.btn set_state kDisabled}})
+         {memory_card.btn set_state kDisabled}}
+      {$this dx_set_options})
    #endif
    (SELECT_START_MSG
       {switch
@@ -39,12 +44,18 @@
 {new
    GHScreen
    options_screen
+   (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels meta options_panel helpbar)
    (focus options_panel)
    (helpbar
       (default
          ((fret1 help_continue)
             (fret2 help_back)
+            (start dx_os_helpbar)
             (strum help_updown))))}
 #define SLIDER_LEVELS
 (12)
@@ -213,6 +224,7 @@
 {new
    GHScreen
    audio_settings_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta audio_settings_panel helpbar)
    (focus audio_settings_panel)
    (allow_back FALSE)
@@ -226,6 +238,7 @@
          {synth play_sequence button_back.cue}
          {$this set_volumes}
          {autosave_goto options_screen}}
+      DX_OPEN_OVERSHELL
       kDataUnhandled)}
 {new
    SliderPanel
@@ -257,16 +270,23 @@
 {new
    GHScreen
    mem_card_screen
+   (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels meta mem_card_panel helpbar)
    (focus mem_card_panel)
    (helpbar
       (default
          ((fret1 help_continue)
             (fret2 help_back)
+            (start dx_os_helpbar)
             (strum help_updown)))
       (autosave.btn
          ((fret1 help_onoff)
             (fret2 help_back)
+            (start dx_os_helpbar)
             (strum help_updown))))
    (enter
       {{mem_card_panel find autosave.chk}
@@ -314,6 +334,11 @@
 {new
    GHScreen
    bonus_material_screen
+   (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (item_locked FALSE)
    (panels meta bonus_material_panel helpbar)
    (focus bonus_material_panel)
@@ -321,6 +346,7 @@
       (default
          ((fret1 help_select)
             (fret2 help_back)
+            (start dx_os_helpbar)
             (strum help_updown)))
       (bm_hidden.btn
          ((fret2 help_back))))
@@ -408,6 +434,7 @@
 {new
    GHScreen
    credits_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta credits_panel helpbar)
    (focus credits_panel)
    (helpbar
@@ -574,7 +601,7 @@
                      [from_panel]
                      video_settings_panel}
                   {ui goto_screen video_settings_screen}
-                  {ui goto_screen pause_video_settings_screen}})
+                  {ui pop_screen}})
             kDataUnhandled}})
    (SELECT_START_MSG
       {switch
@@ -733,18 +760,29 @@
 {new
    GHScreen
    lag_screen
+   (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels lag_panel helpbar)
    (focus lag_panel)}
 {new
    GHScreen
    pause_lag_screen
-   (panels GAME_PANELS lag_panel helpbar)
+   (animate_transition FALSE)
+   ;(BUTTON_DOWN_MSG
+   ;   DX_OPEN_OVERSHELL
+   ;   kDataUnhandled
+   ;)
+   (panels lag_panel helpbar)
    (focus lag_panel)
    (clear_vram TRUE)
-   (enter
-      {hud set_showing FALSE}
-      {track_panel set_showing FALSE}
-      {world_panel set_showing FALSE})}
+   ;(enter
+   ;   {hud set_showing FALSE}
+   ;   {track_panel set_showing FALSE}
+   ;   {world_panel set_showing FALSE})
+}
 #define VIDEO_SETTINGS_PANEL_HANDLERS
 ((focus gs_left_p1.btn)
    (focus_component
@@ -841,7 +879,7 @@
             {if_else
                {== $this video_settings_panel}
                {ui goto_screen lag_screen}
-               {ui goto_screen pause_lag_screen}})
+               {ui push_screen pause_lag_screen}})
          kDataUnhandled}
       {$this update_help_display}))
 {new
@@ -855,6 +893,7 @@
 {new
    GHScreen
    video_settings_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta video_settings_panel helpbar)
    (focus video_settings_panel)
    (allow_back FALSE)
@@ -868,6 +907,7 @@
          {$this backwards_anim}
          {synth play_sequence button_back.cue}
          {autosave_goto options_screen}}
+      DX_OPEN_OVERSHELL
       kDataUnhandled)}
 #ifdef HX_EE
 {new
@@ -899,6 +939,11 @@
 {new
    GHScreen
    pscan_warning_screen
+   (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels meta pscan_warning_panel helpbar)
    (focus pscan_warning_panel)
    PSCAN_WARNING_SCREEN_HANDLERS
@@ -966,6 +1011,11 @@
 {new
    GHScreen
    pscan_switch_screen
+   (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels meta pscan_switching_panel helpbar)
    (focus pscan_switching_panel)
    PSCAN_SWITCH_SCREEN_HANDLERS

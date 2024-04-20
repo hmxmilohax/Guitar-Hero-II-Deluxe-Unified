@@ -1,0 +1,124 @@
+{new GHPanel ; btn: GHPanel, lst: MultiSelectListPanel
+   dxState_SystemSettings_panel
+   DX_SETUP_OVERSHELL_PANEL_BTN
+
+   (enter
+
+      ; Size (options: small, small_big_header, large)
+      {dx_btn_state_size small_big_header}
+
+      ; Header text
+      {dx_state_header_text os_system_settings}
+
+      ; Buttons to disable
+      ;{dx_disable_obj diff.btn}
+      ;{dx_disable_obj resume.btn}
+      {dx_disable_obj restart.btn}
+      {dx_disable_obj change_speed.btn}
+      {dx_disable_obj section.btn}
+      {dx_disable_obj newsong.btn}
+      {dx_disable_obj quit.btn}
+      {dx_disable_obj extra1.btn} ; Always disabled on small panels
+      {dx_disable_obj extra2.btn} ; Always disabled on small panels
+
+      ; Button text
+      {diff.btn set_localized_text {localize os_audio_options}}
+      {resume.btn set_localized_text {localize os_video_options}}
+
+   )
+   (SELECT_START_MSG
+      {switch $component
+
+         ; Button actions
+         (diff.btn
+            {ui push_screen overshell_audio_settings_screen}
+         )
+         (resume.btn
+            {ui push_screen overshell_video_settings_screen}
+         )
+
+      }
+   )
+}{new GHScreen
+   dxState_SystemSettings_screen
+   (panels dxState_SystemSettings_panel) ; Must change for new states
+   DX_SETUP_OVERSHELL_SCREEN
+}
+
+{new
+   GHScreen
+   overshell_audio_settings_screen
+   (panels pause_audio_settings_panel)
+   (focus pause_audio_settings_panel)
+   (allow_back FALSE)
+   (animate_transition FALSE)
+   (BUTTON_DOWN_MSG
+      {if
+         {&&
+            {!
+               {pause_audio_settings_panel slider_selected}}
+            {== $button kPad_Tri}}
+         {$this set_volumes}
+         {ui pop_screen}
+         {synth play_sequence button_toggle}}
+      kDataUnhandled)}
+
+{new
+   GHScreen
+   overshell_video_settings_screen
+   (panels pause_video_settings_panel)
+   (focus pause_video_settings_panel)
+   DX_SETUP_OVERSHELL_SCREEN
+   (old_lefty_0 0)
+   (old_lefty_1 0)
+   #ifdef HX_XBOX
+   (stash_lefty_settings FALSE)
+   #else
+   (stash_lefty_settings TRUE)
+   #endif
+   (enter
+      #ifdef HX_XBOX
+      {if
+         [stash_lefty_settings]
+         {set
+            [old_lefty_0]
+            {options get_lefty 0}}
+         {set
+            [old_lefty_1]
+            {options get_lefty 1}}}
+      {set
+         [stash_lefty_settings]
+         FALSE}
+      #else
+      {if_else
+         [stash_lefty_settings]
+         {do
+            {set
+               [old_lefty_0]
+               {options get_lefty 0}}
+            {set
+               [old_lefty_1]
+               {options get_lefty 1}}}
+         {set
+            [stash_lefty_settings]
+            TRUE}}
+      #endif
+      {if_else
+         {>
+            {game num_players}
+            1}
+         {$this
+            enable
+            {pause_video_settings_panel find gs_left_p2.btn}}
+         {$this
+            disable
+            {pause_video_settings_panel find gs_left_p2.btn}}})
+   (lefty_changed
+      {'||'
+         {!=
+            [old_lefty_0]
+            {options get_lefty 0}}
+         {!=
+            [old_lefty_1]
+            {options get_lefty 1}}})
+}

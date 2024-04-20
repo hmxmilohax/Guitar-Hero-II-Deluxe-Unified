@@ -27,6 +27,11 @@
 {new
    GHScreen
    multi_screen
+   (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels meta multi_panel helpbar)
    (focus multi_panel)
    (helpbar
@@ -523,6 +528,7 @@
 {new
    GHScreen
    multi_sel_guitar_screen
+   (animate_transition {! $dx_fast_menus})
    (panels meta multi_sel_guitar_panel multi_guitar_display_panel helpbar)
    (helpbar
       (default
@@ -665,6 +671,11 @@
 {new
    GHScreen
    multi_fo_seldiff_screen
+   (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels meta sel_difficulty_panel helpbar)
    (focus sel_difficulty_panel)
    MULTI_SELDIFF_SCREEN_HANDLERS
@@ -810,16 +821,31 @@
 {new
    GHScreen
    multi_vs_venue_screen
+   (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (next_screen multi_vs_selsong_screen)
    SEL_VENUE_SCREEN_HANDLERS}
 {new
    GHScreen
    multi_coop_venue_screen
+   (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (next_screen multi_coop_selsong_screen)
    SEL_VENUE_SCREEN_HANDLERS}
 {new
    GHScreen
    multi_fo_venue_screen
+   (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (next_screen multi_fo_selsong_screen)
    SEL_VENUE_SCREEN_HANDLERS}
 #define MULTI_SELSONG_SCREEN_HANDLERS
@@ -834,6 +860,11 @@
 {new
    GHScreen
    multi_coop_selsong_screen
+   (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    MULTI_SELSONG_SCREEN_HANDLERS
    (SELECT_START_MSG
       {gamecfg set_track 0 0}
@@ -854,6 +885,11 @@
 {new
    GHScreen
    multi_vs_selsong_screen
+   (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    MULTI_SELSONG_SCREEN_HANDLERS
    (SELECT_START_MSG
       {ui goto_screen multi_vs_seldiff_screen}
@@ -861,6 +897,11 @@
 {new
    GHScreen
    multi_fo_selsong_screen
+   (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    MULTI_SELSONG_SCREEN_HANDLERS
    (SELECT_START_MSG
       {ui goto_screen multi_fo_seldiff_screen}
@@ -1025,6 +1066,10 @@
 {new
    GHScreen
    multi_compete_screen
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels GAME_PANELS multi_compete_panel helpbar)
    (focus multi_compete_panel)
    (clear_vram TRUE)
@@ -1097,6 +1142,10 @@
 {new
    GHScreen
    multi_compete_coop_screen
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels GAME_PANELS multi_compete_coop_panel helpbar)
    (focus multi_compete_coop_panel)
    (clear_vram TRUE)
@@ -1133,6 +1182,10 @@
 {new
    GHScreen
    multi_unlock_bass_screen
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels GAME_PANELS unlock_guitar_display_panel multi_unlock_bass_panel helpbar)
    (focus multi_unlock_bass_panel)
    (clear_vram TRUE)
@@ -1189,6 +1242,10 @@
 {new
    GHScreen
    multi_compete_fo_screen
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels GAME_PANELS multi_compete_fo_panel helpbar)
    (focus multi_compete_fo_panel)
    (clear_vram TRUE)
@@ -1512,6 +1569,11 @@
 {new
    GHScreen
    multi_controller_select_screen
+   (animate_transition {! $dx_fast_menus})
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      kDataUnhandled
+   )
    (panels meta multi_controller_select_panel helpbar)
    (focus multi_controller_select_panel)
    (allow_all_controllers TRUE)

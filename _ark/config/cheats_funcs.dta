@@ -201,25 +201,25 @@
          {cheat_display
             show
             "Mute all: FALSE"}}}}
-{func
-   next_tutorial_lesson
-   {if_else
-      {&&
-         {exists tutorial}
-         {tutorial is_up}}
-      {tutorial tutorial_inc 1}
-      {do
-         {if_else $win_campaign}
-         {do
-            {set $win_campaign FALSE}
-            {cheat_display
-               show
-               "Final Win Sequence (UFO in stone): FALSE"}}
-         {do
-            {set $win_campaign TRUE}
-            {cheat_display
-               show
-               "Final Win Sequence (UFO in stone): TRUE"}}}}}
+;{func
+;   next_tutorial_lesson
+;   {if_else
+;      {&&
+;         {exists tutorial}
+;         {tutorial is_up}}
+;      {tutorial tutorial_inc 1}
+;      {do
+;         {if_else $win_campaign}
+;         {do
+;            {set $win_campaign FALSE}
+;            {cheat_display
+;               show
+;               "Final Win Sequence (UFO in stone): FALSE"}}
+;         {do
+;            {set $win_campaign TRUE}
+;            {cheat_display
+;               show
+;               "Final Win Sequence (UFO in stone): TRUE"}}}}}
 {func
    prev_tutorial_lesson
    {if
