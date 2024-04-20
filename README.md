@@ -41,7 +41,7 @@ GH2DXu for PS2 WILL require the following:
 - Python
 - Access to a CMD prompt
 - A copy of stock GH2 for the Playstation 2 (ISO)
--ImgBurn (any other tool that lets you make a ISO from a folder will work, but will not apply to the following instructions)
+- ImgBurn (any other tool that lets you make a ISO from a folder will work, but will not apply to the following instructions)
 
 1. Extract your copy of GH2 from its ISO (Disc Image file) container. The files should be in a folder that looks like this:
 ![STOCKGH2PS2EXTRACT.png](dependencies/media/STOCKGH2PS2EXTRACT.png)
