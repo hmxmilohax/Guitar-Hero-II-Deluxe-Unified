@@ -37,7 +37,7 @@ features were beneficial to GH2DX360 (custom highway textures, color themes, Poo
   - ImgBurn (any other tool that lets you make a ISO from a folder will work, but will not apply to the following instructions)
 - **Installation Steps:**
   1. Extract your copy of GH2 from its ISO (Disc Image file) container. The files should be in a folder that looks like this: ![3](dependencies/media/3.png)
-  2. Place your newly extracted copy of GH2 PS2 into `Guitar-Hero-II-Deluxe-Unified\platform\ps2` (it should look like the picture below, DO NOT DELETE ANYTHING ALREADY IN THE FOLDER) ![4](dependencies/media/4.png.)
+  2. Place your newly extracted copy of GH2 PS2 into `Guitar-Hero-II-Deluxe-Unified\platform\ps2` (it should look like the picture below, DO NOT DELETE ANYTHING ALREADY IN THE FOLDER) ![4](dependencies/media/4.png)
   3. Now this is the part where the CMD prompt bit comes in: Open a CMD prompt (does not matter where the prompt is pointed, just run it as admin) ENSURE YOU RUN THIS COMMAND LETTER FOR LETTER: `pip install pillow` 
   4. Once it is installed, located the `scripts` folder in the root of the Repository, in this folder run `build_ps2.bat`. A CMD prompt will now open.
   5. Upon completion of the creation of the DX patch, a new folder called `out` should have opened, you now have offically survived the process of creating your very own copy of GH2DXu for the PlayStation 2! Congrats!
