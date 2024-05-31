@@ -34,5 +34,5 @@
       (kDifficultyEasy 0 0 0 0 0 0 0 0)
       (kDifficultyMedium 100 200 300 400 500 600 700 800 0)
       (kDifficultyHard 200 300 400 500 600 700 800 900 0)
-      (kDifficultyExpert 600 700 800 900 1000 1200 1500 500000 0)))
+      (kDifficultyExpert 600 700 800 900 1000 1200 1500 2000 0)))
 (unlock_game_modes multi_fo)
