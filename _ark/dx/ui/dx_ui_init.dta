@@ -4,7 +4,5 @@
 ; Track/Highway/Note Speed - Each .1 is 10%
 {set $trackspeed 1.0}
 
-; Allow access to the debug menu in overshell
+; Allow access to the debug menu in overshell without entering the cheat
 {set $dx_debug FALSE}
-
-{set $emulatefps 60}

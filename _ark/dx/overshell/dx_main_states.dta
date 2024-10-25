@@ -76,6 +76,7 @@
             mod_nofail
             mod_song_title_always
             mod_black_background
+            mod_half_venue_fps
             mod_fast_menus
             #ifdef HX_XBOX mod_auto_play #endif
 
@@ -101,6 +102,9 @@
             {if {find_obj world}
                {world_panel set_showing {! {world_panel showing}}}
             }
+         )
+         (mod_half_venue_fps
+            {set $dx_half_venue_fps {! $dx_half_venue_fps}}
          )
          (mod_fast_menus
             {set $dx_fast_menus {! $dx_fast_menus}}

@@ -432,6 +432,7 @@
       {world set echo_msgs $echo_world_events}
       #endif)
    (enter
+      {$this iterate PostProc $p {$p set emulate_fps {if_else $dx_half_venue_fps 30 60}}} ; dx - venue fps hook
       {if_else
          {game multiplayer}
          {handle
