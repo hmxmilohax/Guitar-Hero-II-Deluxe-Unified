@@ -91,9 +91,15 @@
          )
          (mod_song_title_always
             {set $dx_song_title_always {! $dx_song_title_always}}
+            {if {&& {exists meta} {! {meta is_up}}}
+               {mtv_overlay_panel show_overlay $dx_song_title_always}
+            }
          )
          (mod_black_background
             {set $dx_black_background {! $dx_black_background}}
+            {if {find_obj world}
+               {world_panel set_showing {! {world_panel showing}}}
+            }
          )
          (mod_fast_menus
             {set $dx_fast_menus {! $dx_fast_menus}}

@@ -10,9 +10,7 @@
       {if_else
          {game is_tutorial_running}
          {$this show_overlay FALSE}
-         {$this setup_text}}
-      {if $dx_black_background
-         {$this show_overlay $dx_song_title_always}})
+         {$this setup_text}})
    (setup_text
       {do
          ($song_text
@@ -111,11 +109,15 @@
          {{{world_panel loaded_dir}
                find
                drummer}
-            show_drummer}})
+            show_drummer}}
+         {if $dx_song_title_always
+            {mtv_overlay_panel show_overlay TRUE}
+         }
+      )
    (intro_start_msg
       ($fast $encore)
       {track_panel intro_start_msg}
-      {mtv_overlay_panel show_overlay FALSE}
+      {mtv_overlay_panel show_overlay $dx_song_title_always}
       {script_task
          (delay 1)
          (units kTaskSeconds)
