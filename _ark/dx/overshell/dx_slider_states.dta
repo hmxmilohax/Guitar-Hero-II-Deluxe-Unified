@@ -31,7 +31,7 @@
       {dx_disable_obj gs_stereo.btn}
       {dx_disable_obj stereo.chk}
       {dx_disable_obj gs_band.sld}
-      {if $dx_in_game {$this disable gs_sfx.sld}}
+      {if {game is_up} {$this disable gs_sfx.sld}} ; Don't allow song speed changing ingame
       {gs_title.lbl set_local_pos 0 0 90}
       {gs_sliders.view set_local_pos 43 0 45}
       {gs_guitar.sld set_current

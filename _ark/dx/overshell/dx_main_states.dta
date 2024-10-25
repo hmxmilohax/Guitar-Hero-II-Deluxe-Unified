@@ -99,10 +99,7 @@
          )
          (mod_black_background
             {set $dx_black_background {! $dx_black_background}}
-            {if {find_obj world}
-               {world_panel set_showing {! {world_panel showing}}}
-               {crowd_audio set_enabled {! $dx_black_background}}
-            }
+            {dx_set_black_background}
          )
          (mod_half_venue_fps
             {set $dx_half_venue_fps {! $dx_half_venue_fps}}

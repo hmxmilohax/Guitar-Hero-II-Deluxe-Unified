@@ -1,15 +1,19 @@
 #define DX_GAME_PANEL_HANDLES
 (
    (dx_on_game_enter
+
+      ; Animation for mtv overlay if black bg is on, else is in intro_start_msg
       {if $dx_black_background
          {mtv_overlay_panel show_overlay TRUE}
          {script_task
             (delay 6)
             (units kTaskSeconds)
             (script
-               {mtv_overlay_panel show_overlay $dx_song_title_always})}
+               {mtv_overlay_panel show_overlay $dx_song_title_always}
+            )
+         }
       }
-      {crowd_audio set_enabled {! $dx_black_background}}
+      {dx_set_black_background}
    )
    (dx_on_game_exit
       kDataUnhandled

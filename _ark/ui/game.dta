@@ -62,7 +62,7 @@
    (encore_song FALSE)
    (load
       {set_loader_period 13})
-   DX_GAME_PANEL_HANDLES
+   DX_GAME_PANEL_HANDLES ; dx - Add our custom handles
    (enter
       #ifdef HX_XBOX
       {rnd suspend}
@@ -112,9 +112,9 @@
                find
                drummer}
             show_drummer}}
-      {$this dx_on_game_enter}
+      {$this dx_on_game_enter} ; dx - Stuff to run on game enter, also runs on song restart
    )
-   (exit {$this dx_on_game_exit})
+   (exit {$this dx_on_game_exit}) ; dx - Stuff to run on game exit
    (intro_start_msg
       ($fast $encore)
       {track_panel intro_start_msg}
@@ -203,7 +203,7 @@
          {$p on_downbeat}}
       kDataUnhandled)
    (game_over
-      {$this dx_on_game_over}
+      {$this dx_on_game_over} ; dx - Stuff to run on fail
       {$this
          foreach_player
          $p
@@ -214,7 +214,7 @@
       kDataUnhandled)
    (game_won_msg
       ($encore)
-      {$this dx_on_game_won}
+      {$this dx_on_game_won} ; dx - Stuff to run on "You Rock!"
       {if_else
          {gamecfg get game_over_sequence}
          {do
@@ -437,14 +437,13 @@
       {world set echo_msgs $echo_world_events}
       #endif)
    (enter
-      {$this iterate PostProc $p {$p set emulate_fps {if_else $dx_half_venue_fps 30 60}}} ; dx - venue fps hook
+      {dx_emulatefps_setter} ; dx - Apply venue FPS based on "Half Venue FPS" modifier
       {if_else
          {game multiplayer}
          {handle
             ($this multi_player)}
          {handle
             ($this single_player)}}
-      {$this set_showing {! $dx_black_background}}
       {$this set_paused FALSE})
    #ifdef HX_XBOX
    (unload
