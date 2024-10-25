@@ -32,7 +32,7 @@
 (DX_FREEPLA "FREE PLAY")
 
 ; Helpbar
-(dx_os_helpbar "OVERSHELL")
+(dx_os_helpbar "OPTIONS")
 (dx_help_speed "CHANGE SPEED")
 
 ; Pause menu
