@@ -6,6 +6,7 @@
    (animate_transition FALSE)
    (pfo_newly_unlocked 0)
    (enter
+      {mtv_overlay_panel show_overlay FALSE} ; dx - Hide the mtv overlay here to fix a bug with the urinal screen
       {crowd_audio turn_off}
       {set
          $new_venue
