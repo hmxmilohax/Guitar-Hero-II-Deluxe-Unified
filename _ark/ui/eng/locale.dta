@@ -9,6 +9,8 @@
    "NOT SIGNED IN")
 (sigin_to_live_msg
    "In order to view Leaderboards, you must be signed into Xbox Live.  Please sign in and then try again.")
+(guitar_help_plugin
+   "Plug the Guitar into controller port 1 and attach the guitar strap.")
 (guitar_help_using
    "USING THE GUITAR CONTROLLER")
 (guitar_help_continue1
