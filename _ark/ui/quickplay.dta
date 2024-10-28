@@ -32,8 +32,7 @@
             (start dx_os_helpbar) 
             (strum help_updown))))
    (SELECT_START_MSG
-      {game set_quickplay}
-      {ui goto_screen loading_screen}
+      {ui goto_screen dx_sel_part_screen}
       kDataUnhandled)
    (BUTTON_DOWN_MSG
       DX_OPEN_OVERSHELL
