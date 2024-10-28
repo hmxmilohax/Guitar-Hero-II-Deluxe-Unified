@@ -53,8 +53,7 @@
          {== $component part0.btn}
             {gamecfg set_track 0 0}
             {gamecfg set_track 0 1}}
-      {game set_quickplay}
-      {ui goto_screen loading_screen}
+      {ui goto_screen qp_diff_screen}
       kDataUnhandled)
    (BUTTON_DOWN_MSG
       DX_OPEN_OVERSHELL
