@@ -75,6 +75,8 @@
    "GET GAMER CARD")
 (lag_title
    "HDTV Lag")
+(lag_button_calibrate
+   "Calibrate")
 (lag_button_recalibrate
    "Recalibrate")
 (lag_button_reset
@@ -193,6 +195,8 @@
    "MANAGE")
 (vs_title
    "VIDEO SETTINGS")
+(vs_lag
+   "CALIBRATE LAG")
 (warning
    "WARNING")
 (pscan_warning
