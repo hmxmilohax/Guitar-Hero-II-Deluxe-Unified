@@ -12,7 +12,7 @@
             (strum help_updown))))
    (sel_song_career FALSE)
    (SELECT_START_MSG
-      {ui goto_screen qp_diff_screen}
+      {ui goto_screen dx_sel_part_screen}
       kDataUnhandled)
    (BUTTON_DOWN_MSG
       DX_OPEN_OVERSHELL
