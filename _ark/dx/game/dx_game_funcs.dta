@@ -1,0 +1,13 @@
+{func
+   dx_set_black_background
+   {if {find_obj world}
+      {world_panel set_showing {! $dx_black_background}}
+      {crowd_audio set_enabled {! $dx_black_background}}
+   }
+}
+{func
+   dx_emulatefps_setter
+   {if {find_obj world}
+      {$this iterate PostProc $p {$p set emulate_fps {if_else $dx_half_venue_fps 30 60}}}
+   }
+}

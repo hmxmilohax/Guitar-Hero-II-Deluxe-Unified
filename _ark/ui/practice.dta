@@ -424,11 +424,9 @@
             {game_restart})
          (change_speed.btn
             ; dx - use this button for deluxe settings instead
-            {set $dx_in_game TRUE}
             {ui push_screen dxState_DeluxeSettings_screen})
          (change_speed_career.btn
             ; dx - use this button for deluxe settings instead
-            {set $dx_in_game TRUE}
             {ui push_screen dxState_DeluxeSettings_screen})
          (new_sec.btn
             {meta_loading_nosave_goto practice_sel_section_screen})
