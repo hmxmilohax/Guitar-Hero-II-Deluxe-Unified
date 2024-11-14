@@ -154,6 +154,20 @@
       (tracks
          ((guitar
                (2 3))
+            (bass 4)
+          ))
+      (pans
+         (-1.0 1.0 -1.0 1.0 0.0))
+      (vols
+         (-1.5 -1.5 -2.0 -2.0 -0.5))
+      (cores
+         (-1 -1 1 1 -1))
+      (midi_file songs/billiondollar/billiondollar.mid))
+   (song_vs
+      (name songs/billiondollar/billiondollar)
+      (tracks
+         ((guitar
+               (2 3))
             (bass 4)))
       (pans
          (-1.0 1.0 -1.0 1.0 0.0))
@@ -167,45 +181,7 @@
    (quickplay
       (character_outfit rockabill1)
       (guitar lespaul)
-      (venue fest))
-   (practice_speeds
-      (100 90 75 60))
-   (song_practice_1
-      (name songs/newsong03/newsong03_p90)
-      (tracks
-         ((guitar 0)
-            (rhythm 1)))
-      (pans
-         (0.0 0.0))
-      (vols
-         (0.0 0.0))
-      (cores
-         (-1 -1))
-      (midi_file songs/newsong03/newsong03.mid))
-   (song_practice_2
-      (name songs/newsong03/newsong03_p75)
-      (tracks
-         ((guitar 0)
-            (rhythm 1)))
-      (pans
-         (0.0 0.0))
-      (vols
-         (0.0 0.0))
-      (cores
-         (-1 -1))
-      (midi_file songs/newsong03/newsong03.mid))
-   (song_practice_3
-      (name songs/newsong03/newsong03_p60)
-      (tracks
-         ((guitar 0)
-            (rhythm 1)))
-      (pans
-         (0.0 0.0))
-      (vols
-         (0.0 0.0))
-      (cores
-         (-1 -1))
-      (midi_file songs/newsong03/newsong03.mid)))
+      (venue fest)))
 ;;;;;;;;
 (cantyouhearme ; DONE
    (name
@@ -566,7 +542,39 @@
       "My Chemical Romance")
    (caption performed_by)
    (song
+      (name songs/dead/dead)
+      (tracks
+         ((guitar
+               (2 3))
+            (rhythm
+               (4 5))
+          
+          ))
+      (pans
+         (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols
+         (-1.5 -1.5 -4.0 -4.0 -3.5 -3.5))
+      (cores
+         (-1 -1 1 1 -1 -1))
+      (midi_file songs/dead/dead.mid)
+      (hopo_threshold 250))
+   (song_coop
       (name songs/dead/dead_coop)
+      (tracks
+         ((guitar
+               (2 3))
+            (rhythm
+               (4 5))))
+      (pans
+         (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols
+         (-1.5 -1.5 -4.0 -4.0 -3.5 -3.5))
+      (cores
+         (-1 -1 1 1 -1 -1))
+      (midi_file songs/dead/dead.mid)
+      (hopo_threshold 250))
+   (song_vs
+      (name songs/dead/dead)
       (tracks
          ((guitar
                (2 3))
@@ -941,14 +949,41 @@
       (tracks
          ((guitar
                (2 3))
+            #ifdef HX_XBOX
             (bass
-               (4 5))))
+               (4 5))
+            #else
+            (bass 4)
+            #endif
+          ))
+      #ifdef HX_XBOX
       (pans
          (-1.0 1.0 -1.0 1.0 -1.0 1.0))
       (vols
          (-1.5 -1.5 -1.5 -1.5 -1.0 -1.0))
       (cores
          (-1 -1 1 1 -1 -1))
+      #else
+      (pans
+         (-1.0 1.0 -1.0 1.0 0.0))
+      (vols
+         (-1.5 -1.5 -1.5 -1.5 -4.0))
+      (cores
+         (-1 -1 1 1 -1))
+      #endif
+      (midi_file songs/hush/hush.mid))
+   (song_vs
+      (name songs/hush/hush)
+      (tracks
+         ((guitar
+               (2 3))
+            (bass 4)))
+      (pans
+         (-1.0 1.0 -1.0 1.0 0.0))
+      (vols
+         (-1.5 -1.5 -1.5 -1.5 -4.0))
+      (cores
+         (-1 -1 1 1 -1))
       (midi_file songs/hush/hush.mid))
    (anim_tempo kTempoMedium)
    (preview 84000 114300)
@@ -1384,6 +1419,21 @@
       (tracks
          ((guitar
                (2 3))
+            (bass 4)
+          
+          ))
+      (pans
+         (-1.0 1.0 -1.0 1.0 0.0))
+      (vols
+         (-4.0 -4.0 -3.0 -3.0 -1.5))
+      (cores
+         (-1 -1 1 1 -1))
+      (midi_file songs/lifewasted/lifewasted.mid))
+   (song_vs
+      (name songs/lifewasted/lifewasted)
+      (tracks
+         ((guitar
+               (2 3))
             (bass 4)))
       (pans
          (-1.0 1.0 -1.0 1.0 0.0))
@@ -1762,61 +1812,28 @@
    (song
       (name songs/possum/possum)
       (tracks
-         ((guitar
-               (2 3))
-            (bass
-               (4 5))))
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0))
-      (vols
-         (-2.5 -2.5 -2.5 -2.5 -2.0 -2.0))
-      (cores
-         (-1 -1 1 1 -1 -1))
+         ((guitar 2)
+          (bass 3)
+          (drum (4 5))))
+      (pans (-1.0 1.0 0.0 0.0 -1.0 1.0))
+      (vols (0.0 0.0 0.0 0.0 0.0 0.0))
+      (cores (-1 -1 1 -1 -1 -1))
+      (midi_file songs/possum/possum.mid))
+   (song_vs
+      (name songs/possum/possum)
+      (tracks
+         ((guitar 2)
+          (bass 3)))
+      (pans (-1.0 1.0 0.0 0.0 -1.0 1.0))
+      (vols (0.0 0.0 0.0 0.0 0.0 0.0))
+      (cores (-1 -1 1 -1 -1 -1))
       (midi_file songs/possum/possum.mid))
    (anim_tempo kTempoMedium)
    (preview 40000 60000)
    (quickplay
       (character_outfit alterna1)
       (guitar sg)
-      (venue battle))
-   (practice_speeds
-      (100 90 75 60))
-   (song_practice_1
-      (name songs/newsong01/newsong01_p90)
-      (tracks
-         ((bass 0)
-            (guitar 1)))
-      (pans
-         (0.0 0.0))
-      (vols
-         (0.0 0.0))
-      (cores
-         (-1 -1))
-      (midi_file songs/newsong01/newsong01.mid))
-   (song_practice_2
-      (name songs/newsong01/newsong01_p75)
-      (tracks
-         ((bass 0)
-            (guitar 1)))
-      (pans
-         (0.0 0.0))
-      (vols
-         (0.0 0.0))
-      (cores
-         (-1 -1))
-      (midi_file songs/newsong01/newsong01.mid))
-   (song_practice_3
-      (name songs/newsong01/newsong01_p60)
-      (tracks
-         ((bass 0)
-            (guitar 1)))
-      (pans
-         (0.0 0.0))
-      (vols
-         (0.0 0.0))
-      (cores
-         (-1 -1))
-      (midi_file songs/newsong01/newsong01.mid)))
+      (venue battle)))
 (psychobilly ; Done
    (name
       "Psychobilly Freakout")
@@ -1894,6 +1911,21 @@
       (tracks
          ((guitar
                (2 3))
+            (bass 4)
+          
+          ))
+      (pans
+         (-1.0 1.0 -1.0 1.0 0.0))
+      (vols
+         (-4.0 -4.0 -3.0 -3.0 -0.5))
+      (cores
+         (-1 -1 1 1 -1))
+      (midi_file songs/rockandroll/rockandroll.mid))
+   (song_vs
+      (name songs/rockandroll/rockandroll)
+      (tracks
+         ((guitar
+               (2 3))
             (bass 4)))
       (pans
          (-1.0 1.0 -1.0 1.0 0.0))
@@ -1902,7 +1934,7 @@
       (cores
          (-1 -1 1 1 -1))
       (midi_file songs/rockandroll/rockandroll.mid))
-   (anim_tempo kTempoFast)
+   (anim_tempo kTempoMedium)
    (preview 28500 48500)
    (quickplay
       (character_outfit funk1)
@@ -1982,59 +2014,48 @@
       (tracks
          ((guitar
                (2 3))
+            #ifdef HX_XBOX
             (bass
-               (4 5))))
+               (4 5))
+            #else
+            (bass 4)
+            #endif
+          ))
+      #ifdef HX_XBOX
       (pans
          (-1.0 1.0 -1.0 1.0 -1.0 1.0))
       (vols
          (-1.0 -1.0 -3.5 -3.5 -3.5 -3.5))
       (cores
          (-1 -1 1 1 -1 -1))
+      #else
+      (pans
+         (-1.0 1.0 -1.0 1.0 0.0))
+      (vols
+         (-1.0 -1.0 -3.5 -3.5 -3.5))
+      (cores
+         (-1 -1 1 1 -1))
+      #endif
+      (midi_file songs/salvation/salvation.mid))
+   (song_vs
+      (name songs/salvation/salvation)
+      (tracks
+         ((guitar
+               (2 3))
+            (bass 4)))
+      (pans
+         (-1.0 1.0 -1.0 1.0 0.0))
+      (vols
+         (-1.0 -1.0 -3.5 -3.5 -3.5))
+      (cores
+         (-1 -1 1 1 -1))
       (midi_file songs/salvation/salvation.mid))
    (anim_tempo kTempoFast)
    (preview 10000 30000)
    (quickplay
       (character_outfit punk1)
       (guitar sg)
-      (venue small1))
-   (practice_speeds
-      (100 90 75 60))
-   (song_practice_1
-      (name songs/newsong02/newsong02_p90)
-      (tracks
-         ((guitar 0)
-            (rhythm 1)))
-      (pans
-         (0.0 0.0))
-      (vols
-         (0.0 0.0))
-      (cores
-         (-1 -1))
-      (midi_file songs/newsong02/newsong02.mid))
-   (song_practice_2
-      (name songs/newsong02/newsong02_p75)
-      (tracks
-         ((guitar 0)
-            (rhythm 1)))
-      (pans
-         (0.0 0.0))
-      (vols
-         (0.0 0.0))
-      (cores
-         (-1 -1))
-      (midi_file songs/newsong02/newsong02.mid))
-   (song_practice_3
-      (name songs/newsong02/newsong02_p60)
-      (tracks
-         ((guitar 0)
-            (rhythm 1)))
-      (pans
-         (0.0 0.0))
-      (vols
-         (0.0 0.0))
-      (cores
-         (-1 -1))
-      (midi_file songs/newsong02/newsong02.mid)))
+      (venue small1)))
 (searchanddestroy ; DONE
    (name
       "Search and Destroy")
@@ -2719,6 +2740,21 @@
    (artist
       "Iron Maiden")
    (song
+      (name songs/trooper/trooper)
+      (tracks
+         ((guitar
+               (2 3))
+            (bass 4)
+          
+          ))
+      (pans
+         (-1.0 1.0 -1.0 1.0 0.0))
+      (vols
+         (-3.0 -3.0 -3.0 -3.0 0.0))
+      (cores
+         (-1 -1 1 1 -1))
+      (midi_file songs/trooper/trooper.mid))
+   (song_vs
       (name songs/trooper/trooper)
       (tracks
          ((guitar
@@ -3568,6 +3604,21 @@
       (tracks
          ((guitar
                (2 3))
+            (bass 4)
+          ))
+      (pans
+         (-1.0 1.0 -1.0 1.0 0.0))
+      (vols
+         (-2.0 -2.0 -2.0 -2.0 0.0))
+      (cores
+         (-1 -1 1 1 -1))
+      (midi_file songs/kicked/kicked.mid)
+      (hopo_threshold 250))
+   (song_vs
+      (name songs/kicked/kicked)
+      (tracks
+         ((guitar
+               (2 3))
             (bass 4)))
       (pans
          (-1.0 1.0 -1.0 1.0 0.0))
@@ -3582,9 +3633,7 @@
    (quickplay
       (character_outfit deathmetal1)
       (guitar sg)
-      (venue small2))
-   (practice_speeds
-      (100 85 65 50)))
+      (venue small2)))
 (ladylightning ; DONE - identical between 360 and ps2
    (name
       "Push Push (Lady Lightning)")
@@ -4714,59 +4763,48 @@
       (tracks
          ((guitar
                (2 3))
+            #ifdef HX_XBOX
             (bass
-               (4 5))))
+               (4 5))
+            #else
+            (bass 4)
+            #endif
+          ))
+      #ifdef HX_XBOX
       (pans
          (-1.0 1.0 -1.0 1.0 -1.0 1.0))
       (vols
          (-3.0 -3.0 -3.0 -3.0 -1.0 -1.0))
       (cores
          (-1 -1 1 1 -1 -1))
+      #else
+      (pans
+         (-1.0 1.0 -1.0 1.0 0.0))
+      (vols
+         (-3.0 -3.0 -3.0 -3.0 -1.0))
+      (cores
+         (-1 -1 1 1 -1))
+      #endif
+      (midi_file songs/drinkup/drinkup.mid))
+   (song_vs
+      (name songs/drinkup/drinkup)
+      (tracks
+         ((guitar
+               (2 3))
+            (bass 4)))
+      (pans
+         (-1.0 1.0 -1.0 1.0 0.0))
+      (vols
+         (-3.0 -3.0 -3.0 -3.0 -1.0))
+      (cores
+         (-1 -1 1 1 -1))
       (midi_file songs/drinkup/drinkup.mid))
    (anim_tempo kTempoFast)
    (preview 30000 44500)
    (quickplay
       (character_outfit metal1)
       (guitar lespaul)
-      (venue big))
-   (practice_speeds
-      (100 90 75 60))
-   (song_practice_1
-      (name songs/yeswecan/yeswecan_p90)
-      (tracks
-         ((bass 0)
-            (guitar 1)))
-      (pans
-         (0.0 0.0))
-      (vols
-         (0.0 0.0))
-      (cores
-         (-1 -1))
-      (midi_file songs/yeswecan/yeswecan.mid))
-   (song_practice_2
-      (name songs/yeswecan/yeswecan_p75)
-      (tracks
-         ((bass 0)
-            (guitar 1)))
-      (pans
-         (0.0 0.0))
-      (vols
-         (0.0 0.0))
-      (cores
-         (-1 -1))
-      (midi_file songs/yeswecan/yeswecan.mid))
-   (song_practice_3
-      (name songs/yeswecan/yeswecan_p60)
-      (tracks
-         ((bass 0)
-            (guitar 1)))
-      (pans
-         (0.0 0.0))
-      (vols
-         (0.0 0.0))
-      (cores
-         (-1 -1))
-      (midi_file songs/yeswecan/yeswecan.mid)))
+      (venue big)))
 (yeswecan ; DONE
    (name
       "Yes We Can")
