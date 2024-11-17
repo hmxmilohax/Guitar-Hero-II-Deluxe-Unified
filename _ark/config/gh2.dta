@@ -166,8 +166,11 @@
    #include scoring.dta)
 (track_graphics
    #include track_graphics.dta)
-(songs 
-   #include songs_merge.dta)
+(songs
+   ;TODO: merge these two files, i just wanted to get the rhythm tracks fixed
+   ;      fast to prevent crashes in quickplay. - glitchgod
+   #ifdef HX_EE #include songs_ps2.dta #endif
+   #ifdef HX_XBOX #include songs_xbox.dta #endif)
 (sound
    #include sound.dta)
 (hud
