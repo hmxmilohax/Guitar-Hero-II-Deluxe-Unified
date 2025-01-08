@@ -16,6 +16,11 @@
       (36 50))
    (come_first FALSE))
 #ifdef HX_EE
+#ifdef FORCE_GUITAR
+(controllers
+   (ro_guitar
+      (detect)))
+#else
 (controllers
    (ro_guitar
       (detect
@@ -30,6 +35,7 @@
    (dualshock
       (detect
          (type kJoypadDualShock))))
+#endif
 #endif
 #ifdef HX_PS3
 (controllers
@@ -71,6 +77,11 @@
       (bidirectional TRUE)))
 #endif
 #ifdef HX_XBOX
+#ifdef FORCE_GUITAR
+(controllers
+   (ro_guitar_xbox
+      (detect)))
+#else
 (controllers
    (ro_guitar_xbox
       (detect
@@ -90,6 +101,7 @@
       (detect
          (type kJoypadAnalog))
       (bidirectional TRUE)))
+#endif
 #endif
 (adapters
    (map
