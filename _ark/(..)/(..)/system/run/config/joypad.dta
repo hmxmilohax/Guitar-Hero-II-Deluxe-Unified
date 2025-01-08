@@ -19,6 +19,12 @@
 #ifdef FORCE_GUITAR
 (controllers
    (ro_guitar
+      (detect))
+   (digital
+      (detect))
+   (analog
+      (detect))
+   (dualshock
       (detect)))
 #else
 (controllers
@@ -80,6 +86,14 @@
 #ifdef FORCE_GUITAR
 (controllers
    (ro_guitar_xbox
+      (detect))
+   #ifndef _SHIP
+   (ro_guitar_xbox_old
+      (detect))
+   (ro_guitar_xbox_old_2
+      (detect))
+   #endif
+   (analog
       (detect)))
 #else
 (controllers
