@@ -31,8 +31,8 @@
    (game_screen game_screen)
    (win_preload_panel '')
    (practice_speed 0)
-   (practice_sections
-      (0 0)))
+   (practice_sections (0 0))
+)
 (attract
    #ifdef HX_XBOX
    (allow_achievements FALSE)
@@ -40,7 +40,8 @@
    (star_power_disable TRUE)
    (show_hud FALSE)
    (show_track FALSE)
-   (force_autoplay TRUE))
+   (force_autoplay TRUE)
+)
 (practice
    #ifdef HX_XBOX
    (allow_achievements FALSE)
@@ -57,61 +58,57 @@
    (track_surface_override rosewood)
    #ifdef HX_XBOX
    (song_block
-      {if_else
-         {==
-            {gamecfg get_track_type 0}
-            kTrackGuitar}
+      {if_else {== {gamecfg get_track_type 0} kTrackGuitar}
          song
-         song_coop})
+         song_coop
+      }
+   )
    (midi_suffix
-      {if_else
-         {==
-            {gamecfg get_track_type 0}
-            kTrackGuitar}
+      {if_else {== {gamecfg get_track_type 0} kTrackGuitar}
          ''
-         COOP})
-    #else
-    (song_block
-      {if_else
-         {gamecfg pre_processed_audio}
-         {switch
-            {gamecfg get practice_speed}
-            (0
-               {gamecfg full_speed_block})
+         COOP
+      }
+   )
+   #else
+   (song_block
+      {if_else {gamecfg pre_processed_audio}
+         {switch {gamecfg get practice_speed}
+            (0 {gamecfg full_speed_block})
             (1 song_practice_1)
             (2 song_practice_2)
-            (3 song_practice_3)}
-         {gamecfg full_speed_block}})
+            (3 song_practice_3)
+         }
+         {gamecfg full_speed_block}
+      }
+   )
    (midi_suffix
-      {if_else
-         {==
-            {gamecfg get_track_type 0}
-            kTrackGuitar}
+      {if_else {== {gamecfg get_track_type 0} kTrackGuitar}
          ''
-         COOP})
+         COOP
+      }
+   )
    (full_speed_block
-      {if_else
-         {==
-            {gamecfg get_track_type 0}
-            kTrackGuitar}
+      {if_else {== {gamecfg get_track_type 0} kTrackGuitar}
          song
-         song_coop})
+         song_coop
+      }
+   )
    (pre_processed_audio
       {!=
-         {find_exists
-            $syscfg
-            songs
-            {gamecfg get_song}
-            practice_speeds}
-         kDataUnhandled})
-   #endif)
+         {find_exists $syscfg songs {gamecfg get_song} practice_speeds}
+         kDataUnhandled
+      }
+   )
+   #endif
+)
 (quickplay
    (continue_screen qp_selsong_screen)
    (hud_file hud_sp.milo)
    (win_preload_panel endgame_panel)
    #ifdef HX_XBOX
    (update_song_leaderboard TRUE)
-   #endif)
+   #endif
+)
 (career
    (main_screen career_screen)
    (continue_screen sel_song_screen)
@@ -121,7 +118,8 @@
    #ifdef HX_XBOX
    (update_song_leaderboard TRUE)
    (update_career_leaderboard TRUE)
-   #endif)
+   #endif
+)
 (multi_vs
    (num_players 2)
    (competitive TRUE)
@@ -130,7 +128,8 @@
    (win_preload_panel multi_compete_panel)
    (hud_file hud_vs.milo)
    (song_block song_vs)
-   (midi_suffix VS))
+   (midi_suffix VS)
+)
 (multi_fo
    (num_players 2)
    (competitive TRUE)
@@ -144,7 +143,8 @@
    ; we set it to use song_vs (normal Face-Off's), and gave every song
    ; two song definitions. Check in songs.dta for that mess.
    (song_block song_vs)
-   (hud_file hud_vs.milo))
+   (hud_file hud_vs.milo)
+)
 (multi_coop
    (num_players 2)
    (shared_star_meter TRUE)
@@ -158,11 +158,13 @@
    (midi_suffix COOP)
    (sp_engage
       ($player $state)
-      {if_else
-         $state
+      {if_else $state
          {play_game_sfx_player sp_deploystart.cue sp_deploystart.cue $player}
-         {stop_sfx sp_deploystart.cue}}
-      kDataUnhandled))
+         {stop_sfx sp_deploystart.cue}
+      }
+      kDataUnhandled
+   )
+)
 (tutorial
    #ifdef HX_XBOX
    (allow_achievements FALSE)
@@ -175,4 +177,5 @@
    (loading_screen tut_loading_screen)
    (blown_streak_feedback FALSE)
    (hud_file hud_sp.milo)
-   (track_surface_override rosewood))
+   (track_surface_override rosewood)
+)

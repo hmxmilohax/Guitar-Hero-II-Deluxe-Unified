@@ -1,7 +1,8 @@
-#define DX_MANAGE_BAND_HANDLES
-(
+#define DX_MANAGE_BAND_HANDLES (
    (dx_set_chooseprof
       {pencil.tex set_bitmap "dx/custom_textures/chooseprof/pencil.png"}
-      {notebook_cover.tex set_bitmap "dx/custom_textures/chooseprof/notebook_cover.png"}
+      {notebook_cover.tex set_bitmap
+         "dx/custom_textures/chooseprof/notebook_cover.png"
+      }
    )
 )

@@ -1,5 +1,4 @@
-{new
-   GHPanel
+{new GHPanel
    dx_welcome_panel
    (file dx_welcome.milo)
    (enter
@@ -16,15 +15,14 @@
       {we_bandname.lbl set_showing FALSE}
    )
 }
-{new
-   GHScreen
+{new GHScreen
    dx_welcome_screen
    (panels dx_welcome_panel helpbar)
    (focus dx_welcome_panel)
-   (helpbar
-      (default
-         ((fret1 help_continue))))
+   (helpbar (default ((fret1 help_continue))))
    (BUTTON_DOWN_MSG
-      {if
-         {== $button kPad_X}
-         {ui goto_screen main_screen}})}
+      {if {== $button kPad_X}
+         {ui goto_screen main_screen}
+      }
+   )
+}

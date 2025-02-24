@@ -8,12 +8,10 @@
 )
 (locale ../ui/eng/locale_milo.dta ../ui/eng/locale.dta)
 (ui
-   #include ../ui/defaults.dta)
-(milo
-   (title
-      "GH2"))
+   #include ../ui/defaults.dta
+)
+(milo (title "GH2"))
 #ifdef HX_XBOX
-(system
-   (ng TRUE))
+(system (ng TRUE))
 #endif
 #merge ../../../system/run/config/milo.dta

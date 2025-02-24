@@ -6,12 +6,16 @@
          (size 5500000)
          #else
          (size 4500000)
-         #endif)
+         #endif
+      )
       (synth
          #ifdef HX_XBOX
          (size 1024)
          #else
          (size 0)
-         #endif)))
+         #endif
+      )
+   )
+)
 (disable_cheats TRUE)
 #merge default.dta
