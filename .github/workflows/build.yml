@@ -19,7 +19,7 @@ jobs:
       # 3) Build base ark for patchcreator
       - name: Build base ark
         run: |
-          dependencies\windows\arkhelper.exe dir2ark .\temp_gh2_files platform\ps2\GEN -n "MAIN" -s 4073741823
+          dependencies\windows\arkhelper.exe dir2ark .\temp_gh2_files\ps2 platform\ps2\GEN -n "MAIN" -s 4073741823
 
       # 4) Set up Python 3.11 (or other version)
       - name: Set up Python 3.11
