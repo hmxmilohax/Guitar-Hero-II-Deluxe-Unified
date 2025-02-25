@@ -38,6 +38,7 @@ jobs:
       # 6) Build ISO with ImgBurn
       - name: Build ISO
         run: |
+          robocopy .\platform\ps2\GEN .\out\ps2\GEN MAIN_0.ARK
           python dependencies\python\create_udf_iso.py .\out\ps2 .\out\gh2_u.iso
 
       # 7) Run ps2master on the newly created ISO
