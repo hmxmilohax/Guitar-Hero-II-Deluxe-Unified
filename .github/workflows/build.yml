@@ -42,6 +42,7 @@ jobs:
 
       # 6) Build ISO with whatever
       - name: Build ISO
+        shell: pwsh
         run: |
           .\dependencies\windows\imgburn.exe /LOG ./log.txt /SETTINGS .\dependencies\windows\imgburn.ini /PORTABLE /MODE BUILD /BUILDMODE IMAGEFILE /FILESYSTEM "ISO9660 + UDF" /UDFREV "1.02" /VOLUMELABEL "GH2UNIFIED" /OVERWRITE YES /ROOTFOLDER NO /NOIMAGEDETAILS /SRC .\out\ps2\ /DEST .\out\gh2_u.iso /START /CLOSE
       
