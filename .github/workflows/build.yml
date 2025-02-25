@@ -59,7 +59,7 @@ jobs:
             /UDFREV "1.02" \
             /VOLUMELABEL "GH2UNIFIED" \
             /OVERWRITE YES \
-            /ROOTFOLDER NO \
+            /ROOTFOLDER YES \
             /NOIMAGEDETAILS \
             /SRC "./out/ps2/SYSTEM.CNF|./out/ps2/IOP/|./out/ps2/GHDX_003.00|./out/ps2/GHDX_003.01|./out/ps2/README.MD|./out/ps2/GEN/" \
             /DEST ./out/gh2_u.iso \
