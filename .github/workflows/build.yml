@@ -26,23 +26,24 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+        run: |
+          pip install pillow
+          pip install pycdlib
 
       # 5) Build ARK (the same commands you run locally)
       - name: Build ARK
-        run: |
-          pip install pillow
           python dependencies\python\configure_build.py ps2
           dependencies\windows\ninja.exe
 
       # 6) Build ISO with ImgBurn
       - name: Build ISO
         run: |
-          .\dependencies\windows\imgburn.exe /MODE BUILD /BUILDMODE IMAGEFILE /FILESYSTEM "ISO9660 + UDF" /UDFREV "1.02" /VOLUMELABEL "GH2_UNIFIED" /OVERWRITE YES /ROOTFOLDER NO /NOIMAGEDETAILS /SRC ".\out\ps2\" /DEST ".\out\gh2_u.iso" /START /CLOSE
+          python dependencies\python\create_udf_iso.py .\out\ps2 .\out\gh2_u.iso
 
       # 7) Run ps2master on the newly created ISO
       - name: Master the ISO (ps2master.exe)
         run: |
-          .\dependencies\windows\ps2master.exe .\out\gh2_u.iso
+          echo Y | .\dependencies\windows\ps2master.exe .\out\gh2_u.iso
 
       # 8) Upload the final ISO artifact
       - name: Upload result
