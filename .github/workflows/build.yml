@@ -36,21 +36,8 @@ jobs:
 
       # 6) Build ISO with ImgBurn
       - name: Build ISO
-        shell: cmd
         run: |
-          .\dependencies\windows\imgburn.exe ^
-            /MODE BUILD ^
-            /BUILDMODE IMAGEFILE ^
-            /FILESYSTEM "ISO9660 + UDF" ^
-            /UDFREV "1.02" ^
-            /VOLUMELABEL "GH2_UNIFIED" ^
-            /OVERWRITE YES ^
-            /ROOTFOLDER NO ^
-            /NOIMAGEDETAILS ^
-            /SRC ".\out\ps2\" ^
-            /DEST ".\out\gh2_u.iso" ^
-            /START ^
-            /CLOSE
+          .\dependencies\windows\imgburn.exe /MODE BUILD /BUILDMODE IMAGEFILE /FILESYSTEM "ISO9660 + UDF" /UDFREV "1.02" /VOLUMELABEL "GH2_UNIFIED" /OVERWRITE YES /ROOTFOLDER NO /NOIMAGEDETAILS /SRC ".\out\ps2\" /DEST ".\out\gh2_u.iso" /START /CLOSE
 
       # 7) Run ps2master on the newly created ISO
       - name: Master the ISO (ps2master.exe)
