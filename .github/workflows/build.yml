@@ -26,7 +26,7 @@ jobs:
       # 4) Build base ark for patchcreator (using Wine)
       - name: Build base ark
         run: |
-          wine ./dependencies/windows/arkhelper.exe dir2ark ./temp_gh2_files/ps2 platform/ps2/GEN -n "MAIN" -s 4073741823
+          ./dependencies/linux/arkhelper dir2ark ./temp_gh2_files/ps2 platform/ps2/GEN -n "MAIN" -s 4073741823
 
       # 5) Set up Python 3.11
       - name: Set up Python 3.11
