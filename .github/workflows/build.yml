@@ -39,7 +39,7 @@ jobs:
         run: |
           pip install pillow
           python dependencies/python/configure_build.py ps2
-          wine ./dependencies/windows/ninja.exe
+          ./dependencies/linux/ninja
 
       # 7) Move ark to output
       - name: Move Base ARK
@@ -63,14 +63,13 @@ jobs:
             /NOIMAGEDETAILS \
             /SRC ./out/ps2/ \
             /DEST ./out/gh2_u.iso \
-            /LOG ./log.txt \
             /START \
             /CLOSE
 
       # 9) Run ps2master.exe for ~10s (via Wine), killing it if still running
       - name: Master the ISO (ps2master.exe) for 10s
         run: |
-          wine ./dependencies/windows/ps2master.exe ./out/gh2_u.iso &
+          ./dependencies/linux/ps2master ./out/gh2_u.iso &
           PID=$!
           sleep 10
           if kill -0 "$PID" 2>/dev/null; then
@@ -85,6 +84,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: GH2_UNIFIED
-          path: |
-            log.txt
+          path:
             out/gh2_u.iso
