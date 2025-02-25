@@ -68,7 +68,7 @@ jobs:
             /OVERWRITE YES \
             /ROOTFOLDER TRUE \
             /NOIMAGEDETAILS \
-            /SRC "./SYSTEM.CNF|./IOP/|./GHDX_003.00|./GHDX_003.01|./README.MD|./GEN/" \
+            /SRC "./SYSTEM.CNF|IOP|./GHDX_003.00|./GHDX_003.01|./README.MD|GEN" \
             /DEST ./out/gh2_u.iso \
             /START \
             /CLOSE
