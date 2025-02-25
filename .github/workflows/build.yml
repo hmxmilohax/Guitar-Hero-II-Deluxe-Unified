@@ -44,7 +44,7 @@ jobs:
       - name: Build ISO
         shell: pwsh
         run: |
-          .\dependencies\windows\imgburn.exe /LOG ./log.txt /SETTINGS .\dependencies\windows\imgburn.ini /PORTABLE /MODE BUILD /BUILDMODE IMAGEFILE /FILESYSTEM "ISO9660 + UDF" /UDFREV "1.02" /VOLUMELABEL "GH2UNIFIED" /OVERWRITE YES /ROOTFOLDER NO /NOIMAGEDETAILS /SRC .\out\ps2\ /DEST .\out\gh2_u.iso /START /CLOSE
+          .\dependencies\windows\imgburn.exe /SETTINGS .\dependencies\windows\imgburn.ini /PORTABLE /MODE BUILD /BUILDMODE IMAGEFILE /FILESYSTEM "ISO9660 + UDF" /UDFREV "1.02" /VOLUMELABEL "GH2UNIFIED" /OVERWRITE YES /ROOTFOLDER NO /NOIMAGEDETAILS /SRC .\out\ps2\ /DEST .\out\gh2_u.iso /LOG ./log.txt /START /CLOSE
       
       # 7) Run ps2master on the newly created ISO
       - name: Master the ISO (ps2master.exe) for 10s
