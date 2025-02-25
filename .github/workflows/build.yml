@@ -36,6 +36,7 @@ jobs:
 
       # 6) Build ISO with ImgBurn
       - name: Build ISO
+        shell: cmd
         run: |
           .\dependencies\windows\imgburn.exe ^
             /MODE BUILD ^
