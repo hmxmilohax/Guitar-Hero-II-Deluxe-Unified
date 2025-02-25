@@ -6,72 +6,85 @@ on:
 
 jobs:
   build_ps2:
-    runs-on: windows-2019
+    runs-on: ubuntu-latest
     steps:
       # 1) Check out this main repo
       - uses: actions/checkout@v4
 
-      # 2) Clone the gh2_files repo
+      # 2) Install Wine (and 32-bit support), so we can run .exe files
+      - name: Install Wine
+        run: |
+          sudo dpkg --add-architecture i386
+          sudo apt-get update
+          sudo apt-get install -y wine32
+
+      # 3) Clone the gh2_files repo
       - name: Clone gh2_files repo
         run: |
-          git clone https://github.com/Milohax-archive/gh2_files .\temp_gh2_files
+          git clone https://github.com/Milohax-archive/gh2_files ./temp_gh2_files
 
-      # 3) Build base ark for patchcreator
+      # 4) Build base ark for patchcreator (using Wine)
       - name: Build base ark
         run: |
-          dependencies\windows\arkhelper.exe dir2ark .\temp_gh2_files\ps2 platform\ps2\GEN -n "MAIN" -s 4073741823
+          wine ./dependencies/windows/arkhelper.exe dir2ark ./temp_gh2_files/ps2 platform/ps2/GEN -n "MAIN" -s 4073741823
 
-      # 4) Set up Python 3.11 (or other version)
+      # 5) Set up Python 3.11
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      # 5) Build ARK (the same commands you run locally)
+      # 6) Build ARK
       - name: Build ARK
         run: |
           pip install pillow
-          pip install pycdlib
-          python dependencies\python\configure_build.py ps2
-          dependencies\windows\ninja.exe
+          python dependencies/python/configure_build.py ps2
+          wine ./dependencies/windows/ninja.exe
 
-      # 6) Move ark to output
+      # 7) Move ark to output
       - name: Move Base ARK
         run: |
-          move .\platform\ps2\GEN\MAIN_0.ARK .\out\ps2\GEN\MAIN_0.ARK
+          mkdir -p ./out/ps2/GEN
+          mv ./platform/ps2/GEN/MAIN_0.ARK ./out/ps2/GEN/MAIN_0.ARK
 
-      # 6) Build ISO with whatever
+      # 8) Build ISO with ImgBurn (via Wine)
       - name: Build ISO
-        shell: pwsh
         run: |
-          .\dependencies\windows\imgburn.exe /SETTINGS .\dependencies\windows\imgburn.ini /PORTABLE /MODE BUILD /BUILDMODE IMAGEFILE /FILESYSTEM "ISO9660 + UDF" /UDFREV "1.02" /VOLUMELABEL "GH2UNIFIED" /OVERWRITE YES /ROOTFOLDER NO /NOIMAGEDETAILS /SRC .\out\ps2\ /DEST .\out\gh2_u.iso /LOG ./log.txt /START /CLOSE
-      
-      # 7) Run ps2master on the newly created ISO
+          wine ./dependencies/windows/imgburn.exe \
+            /SETTINGS ./dependencies/windows/imgburn.ini \
+            /PORTABLE \
+            /MODE BUILD \
+            /BUILDMODE IMAGEFILE \
+            /FILESYSTEM "ISO9660 + UDF" \
+            /UDFREV "1.02" \
+            /VOLUMELABEL "GH2UNIFIED" \
+            /OVERWRITE YES \
+            /ROOTFOLDER NO \
+            /NOIMAGEDETAILS \
+            /SRC ./out/ps2/ \
+            /DEST ./out/gh2_u.iso \
+            /LOG ./log.txt \
+            /START \
+            /CLOSE
+
+      # 9) Run ps2master.exe for ~10s (via Wine), killing it if still running
       - name: Master the ISO (ps2master.exe) for 10s
-        shell: pwsh
         run: |
-          # Start ps2master in the background and capture the process object
-          $process = Start-Process -FilePath .\dependencies\windows\ps2master.exe `
-            -ArgumentList ".\out\gh2_u.iso" `
-            -NoNewWindow `
-            -PassThru
+          wine ./dependencies/windows/ps2master.exe ./out/gh2_u.iso &
+          PID=$!
+          sleep 10
+          if kill -0 "$PID" 2>/dev/null; then
+            kill "$PID"
+            echo "Killed ps2master after 10 seconds, assuming success."
+          else
+            echo "ps2master finished within 10 seconds."
+          fi
 
-          # Wait 10 seconds
-          Start-Sleep -Seconds 10
-
-          # If the process is still alive, force kill it
-          if (!$process.HasExited) {
-            Stop-Process -Id $process.Id -Force
-            Write-Host "Killed ps2master after 10 seconds, assuming success."
-          } else {
-            Write-Host "ps2master finished within 10 seconds."
-          }
-
-      # 8) Upload the final ISO artifact
+      # 10) Upload the final ISO artifact
       - name: Upload result
         uses: actions/upload-artifact@v4
         with:
           name: GH2_UNIFIED
           path: |
-            .\log.txt
-            .\out\gh2_u.iso
+            log.txt
+            out/gh2_u.iso
