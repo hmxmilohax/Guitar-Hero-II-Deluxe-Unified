@@ -42,10 +42,18 @@ jobs:
           ./dependencies/linux/ninja
 
       # 7) Move ark to output
-      - name: Move Base ARK
+      - name: Move Files
         run: |
-          mkdir -p ./out/ps2/GEN
-          mv ./platform/ps2/GEN/MAIN_0.ARK ./out/ps2/GEN/MAIN_0.ARK
+          mkdir -p ./GEN
+          mv ./platform/ps2/GEN/MAIN_0.ARK ./GEN/MAIN_0.ARK
+          mv ./out/ps2/GEN/MAIN_1.ARK ./GEN/MAIN_1.ARK
+          mv ./out/ps2/GEN/MAIN.HDR ./GEN/MAIN.HDR
+          mv ./out/ps2/GHDX_003.00 ./GHDX_003.00
+          mv ./out/ps2/GHDX_003.01 ./GHDX_003.01
+          mv ./out/ps2/SYSTEM.CNF ./SYSTEM.CNF
+          mv ./out/ps2/README.MD ./README.MD
+          mv ./out/ps2/IOP ./IOP
+
 
       # 8) Build ISO with ImgBurn (via Wine + Xvfb)
       - name: Build ISO
@@ -59,9 +67,9 @@ jobs:
             /UDFREV "1.02" \
             /VOLUMELABEL "GH2UNIFIED" \
             /OVERWRITE YES \
-            /ROOTFOLDER YES \
+            /ROOTFOLDER NO \
             /NOIMAGEDETAILS \
-            /SRC "./out/ps2/SYSTEM.CNF|./out/ps2/IOP/|./out/ps2/GHDX_003.00|./out/ps2/GHDX_003.01|./out/ps2/README.MD|./out/ps2/GEN/" \
+            /SRC "./SYSTEM.CNF|./IOP/|./GHDX_003.00|./GHDX_003.01|./README.MD|./GEN/" \
             /DEST ./out/gh2_u.iso \
             /START \
             /CLOSE
