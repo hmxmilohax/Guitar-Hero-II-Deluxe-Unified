@@ -35,10 +35,10 @@ jobs:
           python dependencies\python\configure_build.py ps2
           dependencies\windows\ninja.exe
 
-      # 6) Build ISO with whatever
-      - name: Copy files
+      # 6) Move ark to output
+      - name: Move Base ARK
         run: |
-          robocopy .\platform\ps2\GEN .\out\ps2\GEN MAIN_0.ARK
+          move .\platform\ps2\GEN\MAIN_0.ARK .\out\ps2\GEN\MAIN_0.ARK
 
       # 6) Build ISO with whatever
       - name: Build ISO
