@@ -29,6 +29,7 @@ jobs:
 
       # 5) Build ARK (the same commands you run locally)
       - name: Build ARK
+        run: |
           pip install pillow
           pip install pycdlib
           python dependencies\python\configure_build.py ps2
