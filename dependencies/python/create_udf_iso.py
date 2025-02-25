@@ -21,8 +21,8 @@ def create_udf_iso(input_folder, output_filename):
     # Use UDF 2.60 here (the only option in newer pycdlib versions)
     iso.new(
         interchange_level=4,
-        rock_ridge='2.60',
-        udf='1.02',
+        rock_ridge='1.10',
+        udf='2.60',
         vol_ident='UDF_VOL'
     )
     add_directory_to_iso(iso, input_folder)
