@@ -8,24 +8,33 @@ jobs:
   build_ps2:
     runs-on: windows-2019
     steps:
-      # 1) Check out repo
+      # 1) Check out this main repo
       - uses: actions/checkout@v4
 
-      # 2) Set up Python 3.11 (or whatever version you prefer)
+      # 2) Clone the gh2_files repo
+      - name: Clone gh2_files repo
+        run: |
+          git clone https://github.com/Milohax-archive/gh2_files .\temp_gh2_files
+
+      # 3) Build base ark for patchcreator
+      - name: Build base ark
+        run: |
+          dependencies\windows\arkhelper.exe dir2ark .\temp_gh2_files platform\ps2\GEN -n "MAIN" -s 4073741823
+
+      # 4) Set up Python 3.11 (or other version)
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      # 3) Build ARK (the same commands you run locally)
+      # 5) Build ARK (the same commands you run locally)
       - name: Build ARK
         run: |
           pip install pillow
           python dependencies\python\configure_build.py ps2
           dependencies\windows\ninja.exe
 
-      # 4) Build ISO with ImgBurn
-      #    Adapt the paths for your .ibb file and resulting .iso
+      # 6) Build ISO with ImgBurn
       - name: Build ISO
         run: |
           .\dependencies\windows\imgburn.exe ^
@@ -42,12 +51,12 @@ jobs:
             /START ^
             /CLOSE
 
-      # 5) Run ps2master on the newly created ISO
+      # 7) Run ps2master on the newly created ISO
       - name: Master the ISO (ps2master.exe)
         run: |
           .\dependencies\windows\ps2master.exe .\out\gh2_u.iso
 
-      # 6) Upload the final ISO artifact
+      # 8) Upload the final ISO artifact
       - name: Upload result
         uses: actions/upload-artifact@v4
         with:
