@@ -42,8 +42,10 @@ jobs:
 
       # 7) Run ps2master on the newly created ISO
       - name: Master the ISO (ps2master.exe)
+        shell: cmd
         run: |
-          echo Y | .\dependencies\windows\ps2master.exe .\out\gh2_u.iso
+          echo Y | .\dependencies\windows\ps2master.exe .\out\gh2_u.iso < NUL
+
 
       # 8) Upload the final ISO artifact
       - name: Upload result
