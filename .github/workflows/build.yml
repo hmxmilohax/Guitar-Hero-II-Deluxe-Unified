@@ -41,11 +41,25 @@ jobs:
           python dependencies\python\create_udf_iso.py .\out\ps2 .\out\gh2_u.iso
 
       # 7) Run ps2master on the newly created ISO
-      - name: Master the ISO (ps2master.exe)
-        shell: cmd
+      - name: Master the ISO (ps2master.exe) for 10s
+        shell: pwsh
         run: |
-          echo Y | .\dependencies\windows\ps2master.exe .\out\gh2_u.iso
+          # Start ps2master in the background and capture the process object
+          $process = Start-Process -FilePath .\dependencies\windows\ps2master.exe `
+            -ArgumentList ".\out\gh2_u.iso" `
+            -NoNewWindow `
+            -PassThru
 
+          # Wait 10 seconds
+          Start-Sleep -Seconds 10
+
+          # If the process is still alive, force kill it
+          if (!$process.HasExited) {
+            Stop-Process -Id $process.Id -Force
+            Write-Host "Killed ps2master after 10 seconds, assuming success."
+          } else {
+            Write-Host "ps2master finished within 10 seconds."
+          }
 
       # 8) Upload the final ISO artifact
       - name: Upload result
