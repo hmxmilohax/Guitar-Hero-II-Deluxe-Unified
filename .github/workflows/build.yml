@@ -11,19 +11,19 @@ jobs:
       # 1) Check out this main repo
       - uses: actions/checkout@v4
 
-      # 2) Install Wine (and 32-bit support), so we can run .exe files
-      - name: Install Wine
+      # 2) Install Wine (32-bit support) and Xvfb
+      - name: Install Wine and Xvfb
         run: |
           sudo dpkg --add-architecture i386
           sudo apt-get update
-          sudo apt-get install -y wine32
+          sudo apt-get install -y wine32 xvfb
 
       # 3) Clone the gh2_files repo
       - name: Clone gh2_files repo
         run: |
           git clone https://github.com/Milohax-archive/gh2_files ./temp_gh2_files
 
-      # 4) Build base ark for patchcreator (using Wine)
+      # 4) Build base ark for patchcreator (using native linux exe, if available)
       - name: Build base ark
         run: |
           ./dependencies/linux/arkhelper dir2ark ./temp_gh2_files/ps2 platform/ps2/GEN -n "MAIN" -s 4073741823
@@ -34,7 +34,7 @@ jobs:
         with:
           python-version: '3.11'
 
-      # 6) Build ARK
+      # 6) Build ARK (native)
       - name: Build ARK
         run: |
           pip install pillow
@@ -47,10 +47,10 @@ jobs:
           mkdir -p ./out/ps2/GEN
           mv ./platform/ps2/GEN/MAIN_0.ARK ./out/ps2/GEN/MAIN_0.ARK
 
-      # 8) Build ISO with ImgBurn (via Wine)
+      # 8) Build ISO with ImgBurn (via Wine + Xvfb)
       - name: Build ISO
         run: |
-          wine ./dependencies/windows/imgburn.exe \
+          xvfb-run -a wine ./dependencies/windows/imgburn.exe \
             /SETTINGS ./dependencies/windows/imgburn.ini \
             /PORTABLE \
             /MODE BUILD \
@@ -66,7 +66,7 @@ jobs:
             /START \
             /CLOSE
 
-      # 9) Run ps2master.exe for ~10s (via Wine), killing it if still running
+      # 9) Master the ISO (ps2master)
       - name: Master the ISO (ps2master.exe) for 10s
         run: |
           ./dependencies/linux/ps2master ./out/gh2_u.iso &
@@ -84,5 +84,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: GH2_UNIFIED
-          path:
-            out/gh2_u.iso
+          path: out/gh2_u.iso
