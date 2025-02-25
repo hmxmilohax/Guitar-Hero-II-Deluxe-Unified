@@ -51,7 +51,6 @@ jobs:
           mv ./out/ps2/GHDX_003.00 ./GHDX_003.00
           mv ./out/ps2/GHDX_003.01 ./GHDX_003.01
           mv ./out/ps2/SYSTEM.CNF ./SYSTEM.CNF
-          mv ./out/ps2/README.MD ./README.MD
           mv ./out/ps2/IOP ./IOP
 
 
