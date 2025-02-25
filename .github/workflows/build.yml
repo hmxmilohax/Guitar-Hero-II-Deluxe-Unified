@@ -36,9 +36,13 @@ jobs:
           dependencies\windows\ninja.exe
 
       # 6) Build ISO with whatever
-      - name: Build ISO
+      - name: Copy files
         run: |
           robocopy .\platform\ps2\GEN .\out\ps2\GEN MAIN_0.ARK
+
+      # 6) Build ISO with whatever
+      - name: Build ISO
+        run: |
           .\dependencies\windows\imgburn.exe /MODE BUILD /BUILDMODE IMAGEFILE /FILESYSTEM "ISO9660 + UDF" /UDFREV "1.02" /VOLUMELABEL "GH2_UNIFIED" /OVERWRITE YES /ROOTFOLDER NO /NOIMAGEDETAILS /SRC ".\out\ps2\" /DEST ".\out\gh2_u.iso" /START /CLOSE
 
       # 7) Run ps2master on the newly created ISO
