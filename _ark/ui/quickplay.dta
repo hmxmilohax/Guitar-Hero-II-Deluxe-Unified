@@ -1,3 +1,4 @@
+#include ../dx/ui/sel_song/dx_sel_song_funcs.dta
 {new GHScreen
    qp_selsong_screen
    (animate_transition {! $dx_fast_menus})
