@@ -22,6 +22,12 @@
    (retain_last_focus FALSE)
    (enter
       {$this dx_set_main_menu}
+      ;setup dx attract mode
+      {game_screen set attract_mode FALSE}
+      {set $entering_attract_mode FALSE}
+      {set $disable_attract_mode FALSE}
+      {set $main_enter_time {taskmgr ui_seconds}}
+      ;vanilla flag
       {set $main_entered TRUE}
       #ifdef HX_XBOX
       {set $leaderboards_mode FALSE}
@@ -29,6 +35,7 @@
       {$this reset_player_settings}
       {if {! [already_entered]}
          {synth play_sequence meta_lick}
+         ;dx don't force highlight tutorials, we dont need to git gud
          ;   {if
          ;      {&&
          ;         {==
@@ -110,6 +117,8 @@
       {main_msg.view set_showing
          {< {taskmgr ui_seconds} {$this get msg_last_frame}}
       }
+      ;dx, poll for time in main menu for attract
+      {$this dx_attract_poll}
    )
    (reset_player_settings
       {{game get_player_config 0} set_difficulty kDifficultyExpert}
@@ -148,7 +157,12 @@
 {new GHScreen
    main_screen
    (animate_transition {! $dx_fast_menus})
-   (BUTTON_DOWN_MSG DX_OPEN_OVERSHELL kDataUnhandled)
+   (BUTTON_DOWN_MSG
+      DX_OPEN_OVERSHELL
+      ;reset attract timer on button press
+      {set $main_enter_time {taskmgr ui_seconds}}
+      kDataUnhandled
+   )
    (panels meta main_panel helpbar)
    (focus main_panel)
    (helpbar

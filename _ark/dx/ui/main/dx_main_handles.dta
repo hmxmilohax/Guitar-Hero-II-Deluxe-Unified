@@ -18,4 +18,27 @@
          {ui goto_screen dx_welcome_screen}
       }
    )
+   (dx_attract_poll
+      ;dx attract mode on main menu, copied from splash.dta
+      {if {&& {! $entering_attract_mode} {! {ui in_transition}}}
+         {do
+            ($now {- {taskmgr ui_seconds} $main_enter_time})
+            {if {> $now 40}
+               {if {! $disable_attract_mode}
+                  {$this enter_attract_mode}
+               }
+            }
+         }
+      }
+   )
+   ;dx, go to attract mode handle copied from splash.dta
+   (enter_attract_mode
+      {gamecfg set mode attract}
+      {set $entering_attract_mode TRUE}
+      {game set_song {campaign pick_attract_song}}
+      {{game get_player_config 0} set_difficulty kDifficultyExpert}
+      {game set_quickplay}
+      {game_screen set attract_mode TRUE}
+      {ui goto_screen loading_screen}
+   )
 )

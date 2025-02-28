@@ -32,7 +32,12 @@
 
       {quit.btn set_localized_text {localize os_debug_menu}}
    )
-   (exit {set $dx_settings_open FALSE})
+   (exit
+      {set $dx_settings_open FALSE}
+      ;dx allow attract on main menu again
+      {set $disable_attract_mode FALSE}
+      {set $main_enter_time {taskmgr ui_seconds}}
+   )
    (SELECT_START_MSG
       {switch $component
          ; Button actions

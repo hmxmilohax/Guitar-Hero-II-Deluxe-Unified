@@ -3,6 +3,7 @@
       {synth play_sequence button_select}
       {ui push_screen dxState_DeluxeSettings_screen}
       {set $dx_settings_open TRUE}
+      {set $disable_attract_mode TRUE}
    }
 )
 
