@@ -485,7 +485,7 @@
       (midi_file songs/carryonwayward/carryonwayward.mid)
    )
    (anim_tempo kTempoFast)
-   (preview 93200)
+   (preview 93200 115000)
    (quickplay
       #ifdef HX_XBOX
       (character_outfit rock2)
