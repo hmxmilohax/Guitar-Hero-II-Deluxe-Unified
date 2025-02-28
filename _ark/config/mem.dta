@@ -1,18 +1,18 @@
 (heaps
    #ifdef HX_EE
-   (main
-      (size 19630000))
+   (main (size 19630000))
    (rnd
       (size 5900000)
-      (handle TRUE))
+      (handle TRUE)
+   )
    #endif
    #ifdef HX_XBOX
-   (main
-      (size 50000000))
+   (main (size 50000000))
    #else
-   (main
-      (size 326000000))
-   #endif)
+   (main (size 326000000))
+   #endif
+)
 (pool
    (big_hunk 3100000)
-   (small_hunk 50000))
+   (small_hunk 50000)
+)

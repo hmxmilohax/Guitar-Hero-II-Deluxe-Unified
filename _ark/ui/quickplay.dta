@@ -1,42 +1,41 @@
-{new
-   GHScreen
+{new GHScreen
    qp_selsong_screen
    (animate_transition {! $dx_fast_menus})
    (panels meta sel_song_panel helpbar)
    (focus sel_song_panel)
    (helpbar
       (default
-         ((fret1 help_continue)
+         (
+            (fret1 help_continue)
             (fret2 help_back)
-            (start dx_os_helpbar) 
-            (strum help_updown))))
-   (sel_song_career FALSE)
-   (SELECT_START_MSG
-      {ui goto_screen dx_sel_part_screen}
-      kDataUnhandled)
-   (BUTTON_DOWN_MSG
-      DX_OPEN_OVERSHELL
-      kDataUnhandled
+            (start dx_os_helpbar)
+            (strum help_updown)
+         )
+      )
    )
+   (sel_song_career FALSE)
+   (SELECT_START_MSG {ui goto_screen dx_sel_part_screen} kDataUnhandled)
+   (BUTTON_DOWN_MSG DX_OPEN_OVERSHELL kDataUnhandled)
 }
-{new
-   GHScreen
+{new GHScreen
    qp_diff_screen
    (animate_transition {! $dx_fast_menus})
    (panels meta sel_difficulty_panel helpbar)
    (focus sel_difficulty_panel)
    (helpbar
       (default
-         ((fret1 help_continue)
+         (
+            (fret1 help_continue)
             (fret2 help_back)
-            (start dx_os_helpbar) 
-            (strum help_updown))))
+            (start dx_os_helpbar)
+            (strum help_updown)
+         )
+      )
+   )
    (SELECT_START_MSG
       {game set_quickplay}
       {ui goto_screen loading_screen}
-      kDataUnhandled)
-   (BUTTON_DOWN_MSG
-      DX_OPEN_OVERSHELL
       kDataUnhandled
    )
+   (BUTTON_DOWN_MSG DX_OPEN_OVERSHELL kDataUnhandled)
 }

@@ -1,5 +1,4 @@
-{new
-   GHPanel
+{new GHPanel
    dx_welcome_panel
    (file dx_welcome.milo)
    (enter
@@ -16,27 +15,27 @@
       {we_bandname.lbl set_showing FALSE}
    )
 }
-{new
-   GHScreen
+{new GHScreen
    dx_welcome_screen
    (panels dx_welcome_panel helpbar)
    (focus dx_welcome_panel)
-   (helpbar
-      (default
-         ((fret1 help_continue))))
+   (helpbar (default ((fret1 help_continue))))
    (BUTTON_DOWN_MSG
-      {if
-         {== $button kPad_X}
-         {ui goto_screen main_screen}})}
-{new
-   GHPanel
+      {if {== $button kPad_X}
+         {ui goto_screen main_screen}
+      }
+   )
+}
+{new GHPanel
    dx_sel_part_panel
    (file "../../ui/practice_selpart.milo")
    (focus part0.btn)
    MULTISELECT_PART_HANDLERS
    (enter
       {gamecfg set_track_type rhythm}
-      {$this set_button_text})}
+      {$this set_button_text}
+   )
+}
 {new GHScreen
    dx_sel_part_screen
    (animate_transition {! $dx_fast_menus})
@@ -44,19 +43,21 @@
    (focus dx_sel_part_panel)
    (helpbar
       (default
-         ((fret1 help_continue)
+         (
+            (fret1 help_continue)
             (fret2 help_back)
-            (start dx_os_helpbar) 
-            (strum help_updown))))
+            (start dx_os_helpbar)
+            (strum help_updown)
+         )
+      )
+   )
    (SELECT_START_MSG
-      {if_else
-         {== $component part0.btn}
-            {gamecfg set_track 0 0}
-            {gamecfg set_track 0 1}}
+      {if_else {== $component part0.btn}
+         {gamecfg set_track 0 0}
+         {gamecfg set_track 0 1}
+      }
       {ui goto_screen qp_diff_screen}
-      kDataUnhandled)
-   (BUTTON_DOWN_MSG
-      DX_OPEN_OVERSHELL
       kDataUnhandled
    )
+   (BUTTON_DOWN_MSG DX_OPEN_OVERSHELL kDataUnhandled)
 }

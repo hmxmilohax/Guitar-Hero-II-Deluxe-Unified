@@ -9,7 +9,6 @@
 
       {sel_section.lst set_data
          (
-
             ; Data for the list
             "Display Current Lighting State"
             "Empty Star Power"
@@ -80,14 +79,11 @@
             "Toggle Cam"
             "Toggle Shuttle - Left Analog Scrolls Time"
             "Skip Tutorial VoiceOver"
-
          )
       }
-
    )
    (SELECT_START_MSG
       {switch {$component selected_sym}
-
          ; Button actions
          ("Display Current Lighting State" {toggle_lights_debug})
          ("Empty Star Power" {cheat_empty_star_power})
@@ -102,12 +98,38 @@
          ("Fake Player 1 using Joypad 1" {fake_player1_cheat 0})
          ("Fake Player 2 using Joypad 1" {fake_player1_cheat 1})
          ("Display Character LOD" {toggle_char_lod})
-         ("Beat Song with High Score" {if {meta is_up} {sel_song_panel beat_song 1000000}})
-         ("Beat Song with Best Score" {if {meta is_up} {sel_song_panel gold_song}})
+         (
+            "Beat Song with High Score"
+            {if {meta is_up}
+               {sel_song_panel beat_song 1000000}
+            }
+         )
+         (
+            "Beat Song with Best Score"
+            {if {meta is_up}
+               {sel_song_panel gold_song}
+            }
+         )
          ("Cycle Character Drivers" {next_character_driver})
-         ("From Game, Win with 3 Stars" {if {game is_up} {player0 win 3}})
-         ("(META) Add $100 (GAME) Win with 4 Stars" {if_else {game is_up} {player0 win 4} {cheat_add_cash}})
-         ("From Game, Win with 5 Stars" {if {game is_up} {player0 win 5}})
+         (
+            "From Game, Win with 3 Stars"
+            {if {game is_up}
+               {player0 win 3}
+            }
+         )
+         (
+            "(META) Add $100 (GAME) Win with 4 Stars"
+            {if_else {game is_up}
+               {player0 win 4}
+               {cheat_add_cash}
+            }
+         )
+         (
+            "From Game, Win with 5 Stars"
+            {if {game is_up}
+               {player0 win 5}
+            }
+         )
          ("unlock all achievements" {achievements submit_all})
          ("Force Encore" {game cheat_force_encore})
          ("Stretch Background" {toggle_stretch_bg})
@@ -117,7 +139,12 @@
          ("(META) Beat Song (GAME) Toggle Click Track" {b_cheat})
          ("Barf Cheat" {set $barf_cheat {! $barf_cheat}})
          ("Camera Overlay" {rnd toggle_overlay camera})
-         ("Next Alphabetical Camera" {if {game is_up} {world cycle_shot}})
+         (
+            "Next Alphabetical Camera"
+            {if {game is_up}
+               {world cycle_shot}
+            }
+         )
          ("Hold Camera on Current Shot" {world toggle_pick_shot})
          ("Toggle Dual Perspective" {toggle_dual_perspective})
          ("Lower Excitement Level" {adjust_crowd_rating -0.1})
@@ -126,13 +153,34 @@
          ("Toggle Free Camera" {cycle_free_camera})
          ("Display Walkspots" {waypoint_toggle_show})
          ("Display Mercury Switch Status" {rnd toggle_overlay guitar})
-         ("Hide HUD & Fretboard" {toggle_fretboard} {handle (hud set_showing {! {hud showing}})})
+         (
+            "Hide HUD & Fretboard"
+            {toggle_fretboard}
+            {handle (hud set_showing {! {hud showing}})}
+         )
          ("Hide HUD Only" {handle (hud set_showing {! {hud showing}})})
          ("Display Lighting Info" {rnd toggle_overlay light_preset})
          ("Enable/Disable Lighting Presets" {handle (world toggle_lighting_events)})
-         ("Guitarist Walk to Random Spot" {handle ({find_obj world guitarist0} start_walk)})
-         ("Teleport Guitarist to Next Walkspot" {handle ({find_obj world guitarist0} teleport_next)})
-         ("Show 3 Most Recent Guitarist Animations" {set $guitarist_debug {mod {'+' $guitarist_debug 1} 3}} {if_else {> $guitarist_debug 0} {cheat_display show {sprint "Player " $guitarist_debug " debug"}} {cheat_display show "Player debug off"}} {rnd show_overlay char_status $guitarist_debug} {rnd show_overlay char_history $guitarist_debug})
+         (
+            "Guitarist Walk to Random Spot"
+            {handle ({find_obj world guitarist0} start_walk)}
+         )
+         (
+            "Teleport Guitarist to Next Walkspot"
+            {handle ({find_obj world guitarist0} teleport_next)}
+         )
+         (
+            "Show 3 Most Recent Guitarist Animations"
+            {set $guitarist_debug {mod {'+' $guitarist_debug 1} 3}}
+            {if_else {> $guitarist_debug 0}
+               {cheat_display show
+                  {sprint "Player " $guitarist_debug " debug"}
+               }
+               {cheat_display show "Player debug off"}
+            }
+            {rnd show_overlay char_status $guitarist_debug}
+            {rnd show_overlay char_history $guitarist_debug}
+         )
          ("Automatically Lose" {handle (player0 lose)})
          ("toggle limiter" {synth toggle_limiter})
          ("Disable Crowd Meter" {toggle_crowd_meter})
@@ -146,10 +194,19 @@
          ("(Meta) Print Current Screen" {meta print_current_screen})
          ("Reload Song" {reload_song})
          ("Reload Track" {reload_track})
-         ("Display Score Info" {if {game is_up} {rnd toggle_overlay score}})
+         (
+            "Display Score Info"
+            {if {game is_up}
+               {rnd toggle_overlay score}
+            }
+         )
          ("Fill StarPower Meter" {fill_star_meter})
          ("Show Song Time" {rnd toggle_overlay time})
-         ("Show Timers" {rnd toggle_timers} {rnd toggle_overlay rate})
+         (
+            "Show Timers"
+            {rnd toggle_timers}
+            {rnd toggle_overlay rate}
+         )
          ("Next Tutorial Lesson" {next_tutorial_lesson})
          ("Previous Tutorial Lesson" {prev_tutorial_lesson})
          ("Show Current Version" {show_version})
@@ -158,11 +215,11 @@
          ("Toggle Cam" {toggle_cam})
          ("Toggle Shuttle - Left Analog Scrolls Time" {toggle_shuttle})
          ("Skip Tutorial VoiceOver" {tutorial reset_vo})
-
       }
       DX_OVERSHELL_LST_RESET
    )
-}{new GHScreen
+}
+{new GHScreen
    dxState_Debug_screen
    (panels dxState_Debug_panel) ; Must change for new states
    DX_SETUP_OVERSHELL_SCREEN

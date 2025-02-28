@@ -10,7 +10,9 @@
       (VOCALS vocals)
       (SINGER vocals)
       (RAP rap)
-      (DJ dj)))
+      (DJ dj)
+   )
+)
 (mercury_switch_filter
    (any_sign_filter
       (window 0.5)
@@ -19,4 +21,6 @@
       (threshold 0.93)
       #else
       (num_frames 3)
-      #endif))
+      #endif
+   )
+)
