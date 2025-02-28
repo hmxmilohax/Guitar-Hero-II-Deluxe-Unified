@@ -41,6 +41,9 @@
       {$btn set_text new_band}
    )
    (enter
+      ;dx disable and hide slot 7, which we use to store unlock all campaign
+      {$this disable cp_band7.btn}
+      {cp_band7.btn set_showing FALSE}
       {$this set_up_bands}
       {$this dx_set_chooseprof}
    )

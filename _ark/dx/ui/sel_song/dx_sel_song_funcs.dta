@@ -1,0 +1,20 @@
+{func dx_song_beater
+   ;don't do anything if in career
+   {if {! {{ui current_screen} sel_song_career}}
+      ;store original campaign slot
+      {set $return_slot {campaign profile_slot}}
+      ;flag to check against to restore non unlocked campaign
+      {set $unlocked_all TRUE}
+      ;force career
+      {gamecfg set mode career}
+      ;populate hidden slot for storing unlocked campaign
+      {if {campaign is_empty_profile 7}
+         {campaign set_profile_name {sprint "unlocked"} 7}
+      }
+      ;set to new campaign slot, wipe it, then unlock all
+      {campaign set_profile_slot 7}
+      {campaign new_campaign}
+      {campaign set_all_access TRUE}
+      {gamecfg set mode quickplay}
+   }
+}

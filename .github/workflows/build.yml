@@ -1,0 +1,94 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build_ps2:
+    runs-on: ubuntu-latest
+    steps:
+      # 1) Check out this main repo
+      - uses: actions/checkout@v4
+
+      # 2) Install Wine (32-bit support) and Xvfb
+      - name: Install Wine and Xvfb
+        run: |
+          sudo dpkg --add-architecture i386
+          sudo apt-get update
+          sudo apt-get install -y wine32 xvfb
+
+      # 3) Clone the gh2_files repo
+      - name: Clone gh2_files repo
+        run: |
+          git clone https://github.com/Milohax-archive/gh2_files ./temp_gh2_files
+
+      # 4) Build base ark for patchcreator (using native linux exe, if available)
+      - name: Build base ark
+        run: |
+          ./dependencies/linux/arkhelper dir2ark ./temp_gh2_files/ps2 platform/ps2/GEN -n "MAIN" -s 4073741823
+
+      # 5) Set up Python 3.11
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # 6) Build ARK (native)
+      - name: Build ARK
+        run: |
+          pip install pillow
+          python dependencies/python/configure_build.py ps2
+          ./dependencies/linux/ninja
+
+      # 7) Move ark to output
+      - name: Move Files
+        run: |
+          mkdir -p ./GEN
+          mv ./platform/ps2/GEN/MAIN_0.ARK ./GEN/MAIN_0.ARK
+          mv ./out/ps2/GEN/MAIN_1.ARK ./GEN/MAIN_1.ARK
+          mv ./out/ps2/GEN/MAIN.HDR ./GEN/MAIN.HDR
+          mv ./out/ps2/GHDX_003.00 ./GHDX_003.00
+          mv ./out/ps2/GHDX_003.01 ./GHDX_003.01
+          mv ./out/ps2/SYSTEM.CNF ./SYSTEM.CNF
+          mv ./out/ps2/IOP ./IOP
+
+
+      # 8) Build ISO with ImgBurn (via Wine + Xvfb)
+      - name: Build ISO
+        run: |
+          xvfb-run -a wine ./dependencies/windows/imgburn.exe \
+            /SETTINGS ./dependencies/windows/imgburn.ini \
+            /PORTABLE \
+            /MODE BUILD \
+            /BUILDMODE IMAGEFILE \
+            /FILESYSTEM "ISO9660 + UDF" \
+            /UDFREV "1.02" \
+            /VOLUMELABEL "GH2UNIFIED" \
+            /OVERWRITE YES \
+            /ROOTFOLDER TRUE \
+            /NOIMAGEDETAILS \
+            /SRC "./SYSTEM.CNF|IOP|./GHDX_003.00|./GHDX_003.01|./README.MD|GEN" \
+            /DEST ./out/gh2_u.iso \
+            /START \
+            /CLOSE
+
+      # 9) Master the ISO (ps2master)
+      - name: Master the ISO (ps2master.exe) for 10s
+        run: |
+          ./dependencies/linux/ps2master ./out/gh2_u.iso &
+          PID=$!
+          sleep 10
+          if kill -0 "$PID" 2>/dev/null; then
+            kill "$PID"
+            echo "Killed ps2master after 10 seconds, assuming success."
+          else
+            echo "ps2master finished within 10 seconds."
+          fi
+
+      # 10) Upload the final ISO artifact
+      - name: Upload result
+        uses: actions/upload-artifact@v4
+        with:
+          name: GH2_UNIFIED
+          path: out/gh2_u.iso

@@ -1248,6 +1248,8 @@
    #endif
    (enter
       {{ui current_screen} turn_off_ambient}
+      ;dx store original profile and unlock all songs in quickplay
+      {dx_song_beater}
       #ifdef HX_XBOX
       {$this refresh}
       #else
@@ -1283,6 +1285,12 @@
    )
    #ifdef HX_XBOX
    (exit
+      ;dx relock campaign items and set to original profile
+      {if $unlocked_all
+         {set $unlocked_all FALSE}
+         {campaign set_all_access FALSE}
+         {campaign set_profile_slot $return_slot}
+      }
       {if {! $leaderboards_mode}
          {song_preview ''}
          {if [metamusic_on_exit]
@@ -1296,6 +1304,12 @@
    (unload {profilemgr remove_sink $this storage_changed})
    #else
    (exit
+      ;dx relock campaign items and set to original profile
+      {if $unlocked_all
+         {set $unlocked_all FALSE}
+         {campaign set_all_access FALSE}
+         {campaign set_profile_slot $return_slot}
+      }
       {song_preview ''}
       {if [metamusic_on_exit]
          {meta_music start}
