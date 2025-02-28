@@ -32,6 +32,7 @@
 
       {quit.btn set_localized_text {localize os_debug_menu}}
    )
+   (exit {set $dx_settings_open FALSE})
    (SELECT_START_MSG
       {switch $component
          ; Button actions
@@ -65,6 +66,7 @@
             mod_nofail
             mod_song_title_always
             mod_black_background
+            mod_half_venue_fps
             mod_fast_menus
             #ifdef HX_XBOX
             mod_auto_play
@@ -78,8 +80,15 @@
          (mod_nofail {set $dx_nofail {! $dx_nofail}})
          (mod_song_title_always
             {set $dx_song_title_always {! $dx_song_title_always}}
+            {if {&& {exists meta} {! {meta is_up}}}
+               {mtv_overlay_panel show_overlay $dx_song_title_always}
+            }
          )
-         (mod_black_background {set $dx_black_background {! $dx_black_background}})
+         (mod_black_background
+            {set $dx_black_background {! $dx_black_background}}
+            {dx_set_black_background}
+         )
+         (mod_half_venue_fps {set $dx_half_venue_fps {! $dx_half_venue_fps}})
          (mod_fast_menus {set $dx_fast_menus {! $dx_fast_menus}})
          (mod_auto_play
             {if_else $dx_auto_play

@@ -20,7 +20,7 @@
    (show_track TRUE)
    (encore_fx FALSE)
    (track_surface_override '')
-   (crowd_audio {! $dx_black_background})
+   (crowd_audio TRUE)
    (star_power_disable FALSE)
    (shared_star_meter FALSE)
    (main_screen main_screen)

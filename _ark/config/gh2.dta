@@ -190,10 +190,7 @@
    #include track_graphics.dta
 )
 (songs
-   #include songs.dta
-   #ifdef HX_EE
-   #include songs_xbox.dta
-   #endif
+   #include songs_merge.dta
 )
 (sound
    #include sound.dta

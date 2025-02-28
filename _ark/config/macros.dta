@@ -1,3 +1,6 @@
+; In order to force all controllers to be guitar controllers, uncomment the line below.
+;#define FORCE_GUITAR (1)
+
 #ifdef APP_MACROS_DTA
 
 #else

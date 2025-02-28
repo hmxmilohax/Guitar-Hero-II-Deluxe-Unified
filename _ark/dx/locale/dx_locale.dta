@@ -1,3 +1,6 @@
+;Always save locale files with "Western ISO 8859" Encoding
+;if you dont do this some characters such as "©" will end up as "Á©"  
+
 ; Splash screen
 (splash_legal
    "Guitar Hero II Deluxe © 2006 RedOctane, Inc.\nModifications © 2021-2024 MiloHax. See credits for all contributors.\nOriginal game code © 2005-2006 Harmonix Music Systems, Inc. Developed by Harmonix Music Systems."
@@ -66,7 +69,7 @@
 (DX_FREEPLA "FREE PLAY")
 
 ; Helpbar
-(dx_os_helpbar "OVERSHELL")
+(dx_os_helpbar "OPTIONS")
 (dx_help_speed "CHANGE SPEED")
 
 ; Pause menu
@@ -93,6 +96,10 @@
       {if_else $dx_nofail
          OS_ONOFF
       }
+      {if_else {game is_up}
+         "* "
+         ""
+      }
       "No Fail"
    }
 )
@@ -112,6 +119,18 @@
       "Black Background"
    }
 )
+(mod_half_venue_fps
+   {sprint
+      {if_else $dx_half_venue_fps
+         OS_ONOFF
+      }
+      {if_else {game is_up}
+         "* "
+         ""
+      }
+      "Half Venue FPS"
+   }
+)
 (mod_fast_menus
    {sprint
       {if_else $dx_fast_menus
@@ -124,6 +143,10 @@
    {sprint
       {if_else $dx_auto_play
          OS_ONOFF
+      }
+      {if_else {game is_up}
+         "* "
+         ""
       }
       "Autoplay"
    }

@@ -18,6 +18,23 @@
 #define G_BLUE (kPad_X)
 #define G_ORANGE (kPad_Square)
 #endif
+
+; debug menu cheat
+(
+   (G_ORANGE G_BLUE G_ORANGE G_YELLOW G_ORANGE G_BLUE G_ORANGE G_YELLOW)
+   {if $dx_settings_open
+      {set $dx_debug {! $dx_debug}}
+      {play_sfx
+         {if_else $dx_debug
+            cheat
+            cheat_off
+         }
+      }
+      {ui pop_screen}
+   }
+)
+
+; ps2 horse head cheat because i stll need to add it to the cheat list
 #ifdef HX_EE
 (
    (G_BLUE

@@ -446,7 +446,6 @@
 }
 {new GHScreen
    multi_sel_guitar_screen
-   (animate_transition {! $dx_fast_menus})
    (panels meta multi_sel_guitar_panel multi_guitar_display_panel helpbar)
    (helpbar
       (default
