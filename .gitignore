@@ -3,7 +3,11 @@
 
 *.ark
 *.hdr
+
+#ISO related stuff
 *.iso
+*.log
+*.Bin
 
 #funny files that should never be committed
 .DS_Store
