@@ -15,5 +15,6 @@
       {campaign set_profile_slot 7}
       {campaign new_campaign}
       {campaign set_all_access TRUE}
+      {gamecfg set mode quickplay}
    }
 }
