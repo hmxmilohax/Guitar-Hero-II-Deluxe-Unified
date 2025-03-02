@@ -28,7 +28,10 @@
       {gs_sliders.view set_local_pos 43 0 45}
       {gs_guitar.sld set_current {int {+ 0.5 {/ {+ {- $trackspeed 1} 0.5} 0.1}}}}
       {gs_sfx.sld set_current {int {+ 0.5 {/ {+ {- $speedmod 1} 0.5} 0.05}}}}
-      {gs_band.sld set_current {int {- $emulatefps 1}}}
+      {if_else {> $emulatefps 0}
+         {gs_band.sld set_current {int {- $emulatefps 1}}}
+         {gs_band.sld set_current 0}
+      }
       {$this display_speed_msg $trackspeed $speedmod $emulatefps}
       {gs_band.sld set_text 'VENUE FPS'}
       {gs_guitar.sld set_text 'NOTE SPEED'}
@@ -42,7 +45,7 @@
             {localize speed_msg}
             {int {+ 0.5 {* $tspd 100}}}
             {int {+ 0.5 {* $mspd 100}}}
-            {int $fps}
+            ;{int $fps}
          }
       }
    )
