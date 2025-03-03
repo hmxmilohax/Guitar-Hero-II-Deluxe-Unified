@@ -1260,6 +1260,10 @@
       {if {== {game get_song_index} -1}
          {game set_song_index 0}
       }
+      ;reload stored song position if exists
+      {if $dx_song_index
+         {ss_song.lst set_selected $dx_song_index}
+      }
       {$this update_song_info}
       #endif
    )
@@ -1341,6 +1345,8 @@
             {$this update_pos}
          }
          #endif
+         ;store positional index of last song scrolled to
+         {set $dx_song_index {ss_song.lst selected_pos}}
       }
    )
    (beat_song
