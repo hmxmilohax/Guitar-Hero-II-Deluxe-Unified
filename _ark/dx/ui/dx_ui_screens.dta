@@ -103,10 +103,6 @@
          )
          (part1.btn
             {gamecfg set_track 0 1}
-            {switch {song_provider get_instrument $song 1} ;switch action based on result of which instrument is second in the song definition
-               (bass {gamecfg set_track_type bass}) ;if it's bass, set the track type to bass
-               (rhythm {gamecfg set_track_type rhythm}) ;if it's rhythm, set the track type to rhythm
-            }
          )
          (part2.btn {gamecfg set_track 0 2})
          kDataUnhandled
