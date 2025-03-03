@@ -1334,11 +1334,13 @@
          {song_preview {game get_song}}
          #endif
          {sel_song.view set_frame $frame}
+         #ifdef HX_EE
          ;jump back to the top of the list once we hit our hidden settings song
          {if {== {game get_song} z_1tspeed}
             {ss_song.lst set_selected 0}
             {$this update_pos}
          }
+         #endif
       }
    )
    (beat_song
