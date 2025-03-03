@@ -16,24 +16,25 @@
 ; below this is all of the functions that actually makes this work
 ; if you only aim to add a setting, stick above this line
 
-{func load_settings
-   {do
-      ($slot 0)
-      ;store original campaign slot to return to once finished
-      {set $return_slot {campaign profile_slot}}
-      ;force career
-      {gamecfg set mode career}
-      ;populate hidden slot for storing settings
-      {if {campaign is_empty_profile 6}
-         {campaign set_profile_name {sprint "settings"} 6}
-      }
-      ;call routine to get settings from song
-      {dx_settings_loader}
-
-      ;set back to original campaign slot
-      {campaign set_profile_slot $return_slot}
+;this is used in both save and load, might as well make it a define
+#define DX_CAREER_FORCE
+(
+   ;force career
+   {gamecfg set mode career}
+   ;delete the campaign to repopulate with fresh data
+   ;this might not even be needed, i dont know if this removes overall highscores
+   {if_else $loaded_once ;check if we are allowed to delete slot after first enter
+      {campaign delete_slot 6} ;delete the slot
+      {set $loaded_once TRUE} ;allow deleting the slot after this block has run once
    }
-}
+   ;populate hidden slot for storing unlocked campaign
+   {if {campaign is_empty_profile 6}
+      {campaign set_profile_name {sprint "settings"} 6} ;incredible name
+   }
+   ;select the correct slot to prep storing the highscores
+   {campaign set_profile_slot 6}
+)
+
 ;this is used in both save and load, might as well make it a define
 ;it isnt a func as it is using local vars defined earlier in their cooresponding locations
 #define DX_HIGHEST_SCORE_FINDER
@@ -59,6 +60,23 @@
    ;subtract highest and second highest to get the true stored value
    {set $final_data {- $highest_score {- $second_score 1}}} ;subtract 1 from second score to account for math
 )
+{func load_settings
+   {do
+      ($slot 0)
+      ;store original campaign slot to return to once finished
+      {set $return_slot {campaign profile_slot}}
+      DX_CAREER_FORCE ;this is used in load and save, so a define is cleaner
+      ;call routine to get settings from song
+      {dx_settings_loader}
+      ;set back to original campaign slot
+      {campaign set_profile_slot $return_slot}
+      ;reload stored song index if it exists
+      {if_else $dx_song_index
+         {game set_song_index $dx_song_index}
+         {game set_song_index 0}
+      }
+   }
+}
 {func get_these_scores
    ($song) ;pass in song shortname
    {do
@@ -92,24 +110,16 @@
 {func prep_settings
    ;store original campaign slot to return to once finished
    {set $return_slot {campaign profile_slot}}
-   ;force career
-   {gamecfg set mode career}
-   ;delete the campaign to repopulate with fresh data
-   ;this might not even be needed, i dont know if this removes overall highscores
-   {if_else $loaded_once ;check if we are allowed to delete slot after first enter
-      {campaign delete_slot 6} ;delete the slot
-      {set $loaded_once TRUE} ;allow deleting the slot after this block has run once
-   }
-   ;populate hidden slot for storing unlocked campaign
-   {if {campaign is_empty_profile 6}
-      {campaign set_profile_name {sprint "settings"} 6} ;incredible name
-   }
-   ;select the correct slot to prep storing the highscores
-   {campaign set_profile_slot 6}
+   DX_CAREER_FORCE ;this is used in load and save, so a define is cleaner
    ;actually save the settings
    {dx_settings_saver}
    ;set back to original campaign slot
    {campaign set_profile_slot $return_slot}
+   ;return to song x
+   {if_else $dx_song_index
+      {game set_song_index $dx_song_index}
+      {game set_song_index 0}
+   }
 }
 {func save_setting
    ($setting $indata $song)
