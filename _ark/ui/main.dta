@@ -55,6 +55,16 @@
       {gamecfg set mode quickplay}
       {content_mgr start_enumeration}
       #endif
+      ;yeah this is bad, idk, but it reliably loads the settings
+      ;without the delay, and loading 3 times, it doesnt load
+      ;i dunno
+      {script_task
+         (units kTaskUISeconds)
+         (delay 1)
+         ;load dx settings (3 times lol)
+         (script {load_settings} {load_settings} {load_settings})
+      }
+      
    )
    (SELECT_START_MSG
       {switch $component

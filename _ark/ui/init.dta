@@ -25,6 +25,7 @@
 #include ../dx/funcs/dx_funcs.dta
 #include ../dx/ui/dx_ui_init.dta
 #include ../dx/ui/dx_ui_screens.dta
+#include ../dx/overshell/dx_settings.dta
 #include ../dx/overshell/dx_main_states.dta
 #include ../dx/overshell/dx_slider_states.dta
 #include ../dx/overshell/dx_sys_states.dta

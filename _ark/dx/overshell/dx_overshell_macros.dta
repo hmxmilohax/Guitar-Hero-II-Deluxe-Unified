@@ -11,15 +11,15 @@
    (allow_back FALSE)
    (animate_transition FALSE)
    (BUTTON_DOWN_MSG
-      {if {== $button kPad_Tri}
-         {ui pop_screen}
-         {synth play_sequence button_toggle}
+      {switch $button
+         ((kPad_Start kPad_Tri)
+            {ui pop_screen}
+            {synth play_sequence button_toggle}
+            ;save dx settings to scores
+            {prep_settings}
+         )
+         kDataUnhandled
       }
-      {if {== $button kPad_Start}
-         {ui pop_screen}
-         {synth play_sequence button_toggle}
-      }
-      kDataUnhandled
    )
    (helpbar
       (default

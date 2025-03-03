@@ -80,6 +80,8 @@
    (trogdor (price 550))
    (xstream (price 550))
    (yeswecan (price 550))
+   ;dx settings below this line
+   (z_1tspeed (price 999999))
 )
 (character
    (classic (price 5000))

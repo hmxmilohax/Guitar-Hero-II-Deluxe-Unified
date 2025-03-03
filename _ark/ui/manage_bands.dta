@@ -44,6 +44,9 @@
       ;dx disable and hide slot 7, which we use to store unlock all campaign
       {$this disable cp_band7.btn}
       {cp_band7.btn set_showing FALSE}
+      ;dx disable and hide slot 6, which we use to store settings
+      {$this disable cp_band6.btn}
+      {cp_band6.btn set_showing FALSE}
       {$this set_up_bands}
       {$this dx_set_chooseprof}
    )

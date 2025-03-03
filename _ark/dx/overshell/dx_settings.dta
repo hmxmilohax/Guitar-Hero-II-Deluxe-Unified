@@ -1,0 +1,130 @@
+{func dx_settings_loader
+   ;duplicate this line for loading a setting
+   ; you must also add the song data in songs_settings.dta
+   ; also add to store.dta, and coop_max_scores.dta
+   ; do not name anything in a way that will alphabetically come before "z_1tspeed"
+   {get_these_scores z_1tspeed} ;trackspeed
+}
+{func dx_settings_saver
+   ;this is where we populate dx settings
+   ;TODO implement char2int from permadeath to store strings?
+
+   ;save_setting--name----------data (int)---------song--
+   {save_setting tspeed {int {* $trackspeed 10}} z_1tspeed} ;trackspeed
+}
+
+; below this is all of the functions that actually makes this work
+; if you only aim to add a setting, stick above this line
+
+{func load_settings
+   {do
+      ($slot 0)
+      ;store original campaign slot to return to once finished
+      {set $return_slot {campaign profile_slot}}
+      ;force career
+      {gamecfg set mode career}
+      ;populate hidden slot for storing settings
+      {if {campaign is_empty_profile 6}
+         {campaign set_profile_name {sprint "settings"} 6}
+      }
+      ;call routine to get settings from song
+      {dx_settings_loader}
+
+      ;set back to original campaign slot
+      {campaign set_profile_slot $return_slot}
+   }
+}
+;this is used in both save and load, might as well make it a define
+;it isnt a func as it is using local vars defined earlier in their cooresponding locations
+#define DX_HIGHEST_SCORE_FINDER
+(
+   ;iterate highscores to find the highest
+   {foreach_int $i 1 5
+      {do
+         ($name 0)
+         ($existingscore 0)
+         {highscores get_highscore $i $name $existingscore} ;get name and score for this int
+         {if_else {> $existingscore $highest_score}
+            {do
+               {set $bigname $name} ;store name of top score to check it is valid setting val
+               {set $second_score $highest_score} ;store second highest score as last highest
+               {set $highest_score $existingscore} ;store highest score as new highest
+            }
+            {if {> $existingscore $second_score} ;if current score isnt higher than prev, but higher than last second score
+               {set $second_score $existingscore} ;store new second score
+            }
+         }
+      }
+   }
+   ;subtract highest and second highest to get the true stored value
+   {set $final_data {- $highest_score {- $second_score 1}}} ;subtract 1 from second score to account for math
+)
+{func get_these_scores
+   ($song) ;pass in song shortname
+   {do
+      ($final_data 0)
+      ($bigname 0)
+      ($highest_score 0)
+      ($second_score 0)
+      ;load the correct song for this setting
+      ;TODO, we need to loop through multiple songs if we have more than 5 settings
+      {gamecfg set_song $song}
+      ;load new slot
+      {campaign set_profile_slot 6}
+      DX_HIGHEST_SCORE_FINDER ;this is used in load and save, so a define is cleaner
+      ;{cheat_display show {sprint "F: " $trackspeed " - " $bigname " - " $highest_score " - " $second_score}}
+      ;pass in highest score name and the true stored data
+      {load_the_settings $bigname $final_data}
+   }
+}
+{func load_the_settings
+   ($name $data)
+   ;this is where we map dx settings from saved scores
+   {switch $name ;only set values if passed in score name is valid
+      (tspeed ;trackspeed handling
+         {set $trackspeed {/ $data 10}} ;we multiplied by 10 on save, undo that here
+         {if {< $trackspeed 1} {set $trackspeed 1}} ;for safety, cap values
+         {if {> $trackspeed 3.5} {set $trackspeed 3.5}} ;for safety, cap values
+      )
+      kDataUnhandled
+   }
+}
+{func prep_settings
+   ;store original campaign slot to return to once finished
+   {set $return_slot {campaign profile_slot}}
+   ;force career
+   {gamecfg set mode career}
+   ;delete the campaign to repopulate with fresh data
+   ;this might not even be needed, i dont know if this removes overall highscores
+   {if_else $loaded_once ;check if we are allowed to delete slot after first enter
+      {campaign delete_slot 6} ;delete the slot
+      {set $loaded_once TRUE} ;allow deleting the slot after this block has run once
+   }
+   ;populate hidden slot for storing unlocked campaign
+   {if {campaign is_empty_profile 6}
+      {campaign set_profile_name {sprint "settings"} 6} ;incredible name
+   }
+   ;select the correct slot to prep storing the highscores
+   {campaign set_profile_slot 6}
+   ;actually save the settings
+   {dx_settings_saver}
+   ;set back to original campaign slot
+   {campaign set_profile_slot $return_slot}
+}
+{func save_setting
+   ($setting $indata $song)
+   ;load correct song first
+   {gamecfg set_song $song}
+   {do
+      ($final_data 0)
+      ($bigname 0)
+      ($highest_score 0)
+      ($second_score 0)
+      DX_HIGHEST_SCORE_FINDER ;this is used in load and save, so a define is cleaner
+      ;only save scores if our data changed
+      {if {!= $final_data $indata}
+         {highscores add $setting $highest_score} ;push in the new base score
+         {highscores add $setting {+ $indata $highest_score}} ;push in the base score + data to create the offset we can check for
+      }
+   }
+}

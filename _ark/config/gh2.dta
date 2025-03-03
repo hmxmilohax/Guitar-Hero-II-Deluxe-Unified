@@ -191,6 +191,8 @@
 )
 (songs
    #include songs_merge.dta
+   ;store fake songs that hold settings
+   #include songs_settings.dta
 )
 (sound
    #include sound.dta
