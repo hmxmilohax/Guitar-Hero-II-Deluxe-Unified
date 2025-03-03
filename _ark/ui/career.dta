@@ -298,6 +298,23 @@
          {$this set_focus outfit2.btn}
          {$this set_focus outfit1.btn}
       }
+      ;if a third outfit is found, enable our third button, otherwise disable it
+      {if_else $dx_third_outfit
+         {do
+            {$this enable outfit0.btn}
+            {outfit0.btn set_showing TRUE}
+            {outfit0.btn set_text
+               {sprint
+                  {character_provider get_outfit [char_focus] 2}
+                  _outfit
+               }
+            }
+         }
+         {do
+            {$this disable outfit0.btn}
+            {outfit0.btn set_showing FALSE}
+         }
+      }
       {outfit1.btn set_text
          {sprint
             {character_provider get_outfit [char_focus] 0}
@@ -359,12 +376,18 @@
             ($idx)
             ($old_char)
             {synth play_sequence button_toggle}
-            {if_else {== $new_focus "outfit1.btn"}
-               {set $idx 0}
-               {set $idx 1}
+            ;extends idx support for a third outfit
+            {switch $new_focus
+               ("outfit1.btn" {set $idx 0})
+               ("outfit2.btn" {set $idx 1})
+               ("outfit0.btn" {set $idx 2})
             }
             {set [char_outfit]
                {character_provider get_outfit [char_focus] $idx}
+            }
+            ;restore idx to 0 because tnm sucks
+            {if {== $idx 2}
+               {set $idx 0}
             }
             {cs_arrow.tnm set_frame $idx}
             {set $old_char {char_single get_char 0}}
@@ -440,6 +463,11 @@
       }
       {do
          ($sel_char {sel_character_panel get char_focus})
+         ;check to see if this outfit has more than two, for later
+         {if_else {> {character_provider num_outfits $sel_char} 2}
+            {set $dx_third_outfit TRUE}
+            {set $dx_third_outfit FALSE}
+         }
          {if_else {> {character_provider num_outfits $sel_char} 1}
             {sel_character_panel choose_skins}
             {do

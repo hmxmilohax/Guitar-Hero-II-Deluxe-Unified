@@ -207,17 +207,17 @@
    #include guitars.dta
 )
 (characters
-   (punk (punk1) (punk2))
-   (alterna (alterna1) (alterna2))
-   (glam (glam1) (glam2))
-   (goth (goth2) (goth1))
-   (metal (metal1) (metal2))
+   (punk (punk1) (punk2) (punk3))
+   (alterna (alterna1) (alterna2) (alterna3))
+   (glam (glam1) (glam2) (glam3))
+   (goth (goth2) (goth1) (goth3))
+   (metal (metal1) (metal2) (metal3))
    (rockabill (rockabill1) (rockabill2))
    (rock (rock2) (rock1))
    (deathmetal (deathmetal1) (deathmetal2))
    (classic (classic))
    (funk1 (funk1))
-   (grim (grim))
+   (grim (grim) (gr80))
 )
 (mc
    #include mc.dta

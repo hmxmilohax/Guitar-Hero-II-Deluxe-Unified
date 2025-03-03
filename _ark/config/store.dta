@@ -90,13 +90,19 @@
 )
 (outfit
    (punk2 (price 2000))
+   (punk3 (price 2000))
    (alterna2 (price 2000))
+   (alterna3 (price 2000))
    (glam2 (price 2000))
+   (glam3 (price 2000))
    (goth1 (price 2000))
+   (goth3 (price 2000))
    (metal2 (price 2000))
+   (metal3 (price 2000))
    (rockabill2 (price 2000))
    (rock1 (price 2000))
    (deathmetal2 (price 2000))
+   (gr80 (price 2000))
 )
 (video
    (video3
