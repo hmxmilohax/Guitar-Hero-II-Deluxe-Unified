@@ -5,21 +5,13 @@
       (name songs/badreputation/badreputation)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-3.5 -3.5 -3.0 -3.0 -0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-3.5 -3.5 -3.0 -3.0 -0.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/badreputation/badreputation.mid)
    )
    (anim_tempo kTempoFast)
@@ -34,9 +26,7 @@
       #endif
       (venue fest)
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/badreputation/badreputation_p85)
       (tracks
@@ -45,15 +35,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/badreputation/badreputation.mid)
    )
    (song_practice_2
@@ -64,15 +48,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/badreputation/badreputation.mid)
    )
    (song_practice_3
@@ -83,15 +61,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/badreputation/badreputation.mid)
    )
 )
@@ -102,34 +74,18 @@
       (name songs/beastandtheharlot/beastandtheharlot)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (bass
-               (4 5)
-            )
+            (guitar (2 3))
+            (bass (4 5))
          )
       )
       #ifdef HX_XBOX
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-2.5 -2.5 -3.5 -3.5 -2.5 -2.5)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-2.5 -2.5 -3.5 -3.5 -2.5 -2.5))
+      (cores (-1 -1 1 1 -1 -1))
       #else
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-2.5 -2.5 -3.5 -3.5 -1.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-2.5 -2.5 -3.5 -3.5 -1.0))
+      (cores (-1 -1 1 1 -1))
       #endif
       (midi_file songs/beastandtheharlot/beastandtheharlot.mid)
    )
@@ -146,9 +102,7 @@
       (venue theatre)
       #endif
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/beastandtheharlot/beastandtheharlot_p85)
       (tracks
@@ -157,15 +111,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/beastandtheharlot/beastandtheharlot.mid)
    )
    (song_practice_2
@@ -176,15 +124,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/beastandtheharlot/beastandtheharlot.mid)
    )
    (song_practice_3
@@ -195,15 +137,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/beastandtheharlot/beastandtheharlot.mid)
    )
 )
@@ -215,42 +151,26 @@
       (name songs/billiondollar/billiondollar)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-1.5 -1.5 -2.0 -2.0 -0.5)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-1.5 -1.5 -2.0 -2.0 -0.5))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/billiondollar/billiondollar.mid)
    )
    (song_vs
       (name songs/billiondollar/billiondollar)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-1.5 -1.5 -2.0 -2.0 -0.5)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-1.5 -1.5 -2.0 -2.0 -0.5))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/billiondollar/billiondollar.mid)
    )
    (anim_tempo kTempoFast)
@@ -269,23 +189,13 @@
       (name songs/cantyouhearme/cantyouhearme_coop)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (rhythm
-               (4 5)
-            )
+            (guitar (2 3))
+            (rhythm (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-2.0 -2.0 -2.0 -2.0 -2.0 -2.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-2.0 -2.0 -2.0 -2.0 -2.0 -2.0))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file songs/cantyouhearme/cantyouhearme.mid)
    )
    (anim_tempo kTempoMedium)
@@ -299,9 +209,7 @@
       (guitar lespaul)
       (venue theatre)
    )
-   (practice_speeds
-      (100 90 75 60)
-   )
+   (practice_speeds (100 90 75 60))
    (song_practice_1
       (name songs/cantyouhearme/cantyouhearme_p90)
       (tracks
@@ -310,15 +218,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/cantyouhearme/cantyouhearme.mid)
    )
    (song_practice_2
@@ -329,15 +231,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/cantyouhearme/cantyouhearme.mid)
    )
    (song_practice_3
@@ -348,15 +244,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/cantyouhearme/cantyouhearme.mid)
    )
 )
@@ -367,23 +257,13 @@
       (name songs/carrymehome/carrymehome)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (bass
-               (4 5)
-            )
+            (guitar (2 3))
+            (bass (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-2.0 -2.0 -4.0 -4.0 -1.0 -1.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-2.0 -2.0 -4.0 -4.0 -1.0 -1.0))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file songs/carrymehome/carrymehome.mid)
    )
    (anim_tempo kTempoFast)
@@ -399,9 +279,7 @@
       (venue battle)
       #endif
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/carrymehome/carrymehome_p85)
       (tracks
@@ -410,15 +288,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/carrymehome/carrymehome.mid)
    )
    (song_practice_2
@@ -429,15 +301,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/carrymehome/carrymehome.mid)
    )
    (song_practice_3
@@ -448,15 +314,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/carrymehome/carrymehome.mid)
    )
 )
@@ -467,21 +327,13 @@
       (name songs/carryonwayward/carryonwayward)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-2.5 -2.5 -3.5 -3.5 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-2.5 -2.5 -3.5 -3.5 0.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/carryonwayward/carryonwayward.mid)
    )
    (anim_tempo kTempoFast)
@@ -497,9 +349,7 @@
       (venue arena)
       #endif
    )
-   (practice_speeds
-      (100 90 75 60)
-   )
+   (practice_speeds (100 90 75 60))
    (song_practice_1
       (name songs/carryonwayward/carryonwayward_p90)
       (tracks
@@ -508,15 +358,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/carryonwayward/carryonwayward.mid)
    )
    (song_practice_2
@@ -527,15 +371,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/carryonwayward/carryonwayward.mid)
    )
    (song_practice_3
@@ -546,15 +384,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/carryonwayward/carryonwayward.mid)
    )
 )
@@ -565,38 +397,22 @@
       (name songs/cherrypie/cherrypie)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             #ifdef HX_XBOX
-            (bass
-               (4 5)
-            )
+            (bass (4 5))
             #else
             (bass 4)
             #endif
          )
       )
       #ifdef HX_XBOX
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 -3.0 -3.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 -3.0 -3.0))
+      (cores (-1 -1 1 1 -1 -1))
       #else
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 0.0))
+      (cores (-1 -1 1 1 -1))
       #endif
       (midi_file songs/cherrypie/cherrypie.mid)
    )
@@ -611,9 +427,7 @@
       (venue fest)
       #endif
    )
-   (practice_speeds
-      (100 90 75 60)
-   )
+   (practice_speeds (100 90 75 60))
    (song_practice_1
       (name songs/cherrypie/cherrypie_p90)
       (tracks
@@ -622,15 +436,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/cherrypie/cherrypie.mid)
    )
    (song_practice_2
@@ -641,15 +449,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/cherrypie/cherrypie.mid)
    )
    (song_practice_3
@@ -660,15 +462,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/cherrypie/cherrypie.mid)
    )
 )
@@ -679,21 +475,13 @@
       (name songs/crazyonyou/crazyonyou)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.5 -3.5 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-3.0 -3.0 -3.5 -3.5 0.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/crazyonyou/crazyonyou.mid)
    )
    (anim_tempo kTempoFast)
@@ -707,9 +495,7 @@
       #endif
       (venue fest)
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/crazyonyou/crazyonyou_p85)
       (tracks
@@ -718,15 +504,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/crazyonyou/crazyonyou.mid)
    )
    (song_practice_2
@@ -737,15 +517,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/crazyonyou/crazyonyou.mid)
    )
    (song_practice_3
@@ -756,15 +530,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/crazyonyou/crazyonyou.mid)
    )
    (band metal_bass metal_drummer female_singer)
@@ -778,23 +546,13 @@
       (name songs/dead/dead)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (rhythm
-               (4 5)
-            )
+            (guitar (2 3))
+            (rhythm (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-1.5 -1.5 -4.0 -4.0 -3.5 -3.5)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-1.5 -1.5 -4.0 -4.0 -3.5 -3.5))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file songs/dead/dead.mid)
       (hopo_threshold 250)
    )
@@ -802,23 +560,13 @@
       (name songs/dead/dead_coop)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (rhythm
-               (4 5)
-            )
+            (guitar (2 3))
+            (rhythm (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-1.5 -1.5 -4.0 -4.0 -3.5 -3.5)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-1.5 -1.5 -4.0 -4.0 -3.5 -3.5))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file songs/dead/dead.mid)
       (hopo_threshold 250)
    )
@@ -826,23 +574,13 @@
       (name songs/dead/dead)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (rhythm
-               (4 5)
-            )
+            (guitar (2 3))
+            (rhythm (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-1.5 -1.5 -4.0 -4.0 -3.5 -3.5)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-1.5 -1.5 -4.0 -4.0 -3.5 -3.5))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file songs/dead/dead.mid)
       (hopo_threshold 250)
    )
@@ -861,23 +599,13 @@
       (name songs/freebird/freebird_coop)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (rhythm
-               (4 5)
-            )
+            (guitar (2 3))
+            (rhythm (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 -3.0 -3.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 -3.0 -3.0))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file songs/freebird/freebird.mid)
    )
    (anim_tempo kTempoMedium)
@@ -891,9 +619,7 @@
       (venue arena)
       #endif
    )
-   (practice_speeds
-      (100 90 75 60)
-   )
+   (practice_speeds (100 90 75 60))
    (song_practice_1
       (name songs/freebird/freebird_p90)
       (tracks
@@ -902,15 +628,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/freebird/freebird.mid)
    )
    (song_practice_2
@@ -921,15 +641,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/freebird/freebird.mid)
    )
    (song_practice_3
@@ -940,15 +654,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/freebird/freebird.mid)
    )
 )
@@ -959,23 +667,13 @@
       (name songs/freya/freya)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (bass
-               (4 5)
-            )
+            (guitar (2 3))
+            (bass (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 -2.0 -2.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 -2.0 -2.0))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file songs/freya/freya.mid)
    )
    (anim_tempo kTempoMedium)
@@ -990,9 +688,7 @@
       (venue small1)
       #endif
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/freya/freya_p85)
       (tracks
@@ -1001,15 +697,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/freya/freya.mid)
    )
    (song_practice_2
@@ -1020,15 +710,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/freya/freya.mid)
    )
    (song_practice_3
@@ -1039,15 +723,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/freya/freya.mid)
    )
 )
@@ -1062,15 +740,9 @@
             (rhythm 3)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-3.0 -3.0 -2.5 -2.5)
-      )
-      (cores
-         (-1 -1 1 1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0))
+      (vols (-3.0 -3.0 -2.5 -2.5))
+      (cores (-1 -1 1 1))
       (midi_file songs/girlfriend/girlfriend.mid)
    )
    (anim_tempo kTempoMedium)
@@ -1084,9 +756,7 @@
       (guitar lespaul)
       (venue small2)
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/girlfriend/girlfriend_p85)
       (tracks
@@ -1095,15 +765,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/girlfriend/girlfriend.mid)
    )
    (song_practice_2
@@ -1114,15 +778,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/girlfriend/girlfriend.mid)
    )
    (song_practice_3
@@ -1133,15 +791,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/girlfriend/girlfriend.mid)
    )
 )
@@ -1152,21 +804,13 @@
       (name songs/hangar18/hangar18)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-3.5 -3.5 -3.0 -3.0 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-3.5 -3.5 -3.0 -3.0 0.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/hangar18/hangar18.mid)
    )
    (anim_tempo kTempoMedium)
@@ -1182,9 +826,7 @@
       (venue big)
       #endif
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/hangar18/hangar18_p85)
       (tracks
@@ -1193,15 +835,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/hangar18/hangar18.mid)
    )
    (song_practice_2
@@ -1212,15 +848,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/hangar18/hangar18.mid)
    )
    (song_practice_3
@@ -1231,15 +861,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/hangar18/hangar18.mid)
    )
 )
@@ -1250,38 +874,22 @@
       (name songs/heartshapedbox/heartshapedbox)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             #ifdef HX_XBOX
-            (bass
-               (4 5)
-            )
+            (bass (4 5))
             #else
             (bass 4)
             #endif
          )
       )
       #ifdef HX_XBOX
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-3.5 -3.5 -3.0 -3.0 -2.0 -2.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-3.5 -3.5 -3.0 -3.0 -2.0 -2.0))
+      (cores (-1 -1 1 1 -1 -1))
       #else
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-3.5 -3.5 -3.0 -3.0 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-3.5 -3.5 -3.0 -3.0 0.0))
+      (cores (-1 -1 1 1 -1))
       #endif
       (midi_file songs/heartshapedbox/heartshapedbox.mid)
    )
@@ -1292,9 +900,7 @@
       (guitar lespaul)
       (venue big)
    )
-   (practice_speeds
-      (100 90 75 60)
-   )
+   (practice_speeds (100 90 75 60))
    (song_practice_1
       (name songs/heartshapedbox/heartshapedbox_p90)
       (tracks
@@ -1303,15 +909,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/heartshapedbox/heartshapedbox.mid)
    )
    (song_practice_2
@@ -1322,15 +922,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/heartshapedbox/heartshapedbox.mid)
    )
    (song_practice_3
@@ -1341,15 +935,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/heartshapedbox/heartshapedbox.mid)
    )
 )
@@ -1361,38 +949,22 @@
       (name songs/hush/hush)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             #ifdef HX_XBOX
-            (bass
-               (4 5)
-            )
+            (bass (4 5))
             #else
             (bass 4)
             #endif
          )
       )
       #ifdef HX_XBOX
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-1.5 -1.5 -1.5 -1.5 -1.0 -1.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-1.5 -1.5 -1.5 -1.5 -1.0 -1.0))
+      (cores (-1 -1 1 1 -1 -1))
       #else
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-1.5 -1.5 -1.5 -1.5 -4.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-1.5 -1.5 -1.5 -1.5 -4.0))
+      (cores (-1 -1 1 1 -1))
       #endif
       (midi_file songs/hush/hush.mid)
    )
@@ -1400,21 +972,13 @@
       (name songs/hush/hush)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-1.5 -1.5 -1.5 -1.5 -4.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-1.5 -1.5 -1.5 -1.5 -4.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/hush/hush.mid)
    )
    (anim_tempo kTempoMedium)
@@ -1432,23 +996,13 @@
       (name songs/institutionalized/institutionalized_coop)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (rhythm
-               (4 5)
-            )
+            (guitar (2 3))
+            (rhythm (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 -3.0 -3.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 -3.0 -3.0))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file songs/institutionalized/institutionalized.mid)
    )
    (anim_tempo kTempoFast)
@@ -1464,9 +1018,7 @@
       (venue small1)
       #endif
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/institutionalized/institutionalized_p85)
       (tracks
@@ -1475,15 +1027,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/institutionalized/institutionalized.mid)
    )
    (song_practice_2
@@ -1494,15 +1040,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/institutionalized/institutionalized.mid)
    )
    (song_practice_3
@@ -1513,15 +1053,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/institutionalized/institutionalized.mid)
    )
 )
@@ -1532,23 +1066,13 @@
       (name songs/jessica/jessica_coop)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (rhythm
-               (4 5)
-            )
+            (guitar (2 3))
+            (rhythm (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 -3.0 -3.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 -3.0 -3.0))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file songs/jessica/jessica.mid)
    )
    (anim_tempo kTempoFast)
@@ -1562,9 +1086,7 @@
       (venue fest)
       #endif
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/jessica/jessica_p85)
       (tracks
@@ -1573,15 +1095,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/jessica/jessica.mid)
    )
    (song_practice_2
@@ -1592,15 +1108,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/jessica/jessica.mid)
    )
    (song_practice_3
@@ -1611,15 +1121,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/jessica/jessica.mid)
    )
    (band metal_bass metal_drummer metal_keyboard)
@@ -1632,23 +1136,13 @@
       (name songs/johnthefisherman/johnthefisherman)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (bass
-               (4 5)
-            )
+            (guitar (2 3))
+            (bass (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 -3.0 -3.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 -3.0 -3.0))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file songs/johnthefisherman/johnthefisherman.mid)
    )
    (anim_tempo kTempoMedium)
@@ -1663,9 +1157,7 @@
       #endif
       (venue theatre)
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/johnthefisherman/johnthefisherman_p85)
       (tracks
@@ -1674,15 +1166,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/johnthefisherman/johnthefisherman.mid)
    )
    (song_practice_2
@@ -1693,15 +1179,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/johnthefisherman/johnthefisherman.mid)
    )
    (song_practice_3
@@ -1712,15 +1192,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/johnthefisherman/johnthefisherman.mid)
    )
 )
@@ -1731,21 +1205,13 @@
       (name songs/killinginthenameof/killinginthenameof)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 0.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/killinginthenameof/killinginthenameof.mid)
    )
    (anim_tempo kTempoMedium)
@@ -1761,9 +1227,7 @@
       #endif
       (venue small1)
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/killinginthenameof/killinginthenameof_p85)
       (tracks
@@ -1772,15 +1236,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/killinginthenameof/killinginthenameof.mid)
    )
    (song_practice_2
@@ -1791,15 +1249,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/killinginthenameof/killinginthenameof.mid)
    )
    (song_practice_3
@@ -1810,15 +1262,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/killinginthenameof/killinginthenameof.mid)
    )
 )
@@ -1827,34 +1273,22 @@
    (artist "Lamb of God")
    (song
       (name songs/laidtorest/laidtorest_coop)
-      #ifdef HX_XBOX
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (rhythm
-               (4 5)
-            )
+            #ifdef HX_XBOX
+            (guitar (2 3))
+            (rhythm (4 5))
             #else
             (
                (guitar 2)
-               (rhythm
-                  (3 4)
-               )
+               (rhythm (3 4))
             )
             #endif
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-3.0 -3.0 -5.0 -5.0 -3.0 -3.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-3.0 -3.0 -5.0 -5.0 -3.0 -3.0))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file songs/laidtorest/laidtorest.mid)
    )
    (anim_tempo kTempoFast)
@@ -1869,9 +1303,7 @@
       (venue arena)
       #endif
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/laidtorest/laidtorest_p85)
       (tracks
@@ -1880,15 +1312,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/laidtorest/laidtorest.mid)
    )
    (song_practice_2
@@ -1899,15 +1325,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/laidtorest/laidtorest.mid)
    )
    (song_practice_3
@@ -1918,15 +1338,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/laidtorest/laidtorest.mid)
    )
 )
@@ -1937,23 +1351,13 @@
       (name songs/lastchild/lastchild_coop)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (rhythm
-               (4 5)
-            )
+            (guitar (2 3))
+            (rhythm (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-2.0 -2.0 -2.0 -2.0 -2.0 -2.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-2.0 -2.0 -2.0 -2.0 -2.0 -2.0))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file songs/lastchild/lastchild.mid)
    )
    (anim_tempo kTempoMedium)
@@ -1969,9 +1373,7 @@
       (venue big)
       #endif
    )
-   (practice_speeds
-      (100 90 75 60)
-   )
+   (practice_speeds (100 90 75 60))
    (song_practice_1
       (name songs/lastchild/lastchild_p90)
       (tracks
@@ -1980,15 +1382,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/lastchild/lastchild.mid)
    )
    (song_practice_2
@@ -1999,15 +1395,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/lastchild/lastchild.mid)
    )
    (song_practice_3
@@ -2018,15 +1408,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/lastchild/lastchild.mid)
    )
 )
@@ -2038,42 +1422,26 @@
       (name songs/lifewasted/lifewasted)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-4.0 -4.0 -3.0 -3.0 -1.5)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-4.0 -4.0 -3.0 -3.0 -1.5))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/lifewasted/lifewasted.mid)
    )
    (song_vs
       (name songs/lifewasted/lifewasted)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-4.0 -4.0 -3.0 -3.0 -1.5)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-4.0 -4.0 -3.0 -3.0 -1.5))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/lifewasted/lifewasted.mid)
    )
    (anim_tempo kTempoFast)
@@ -2091,21 +1459,13 @@
       (name songs/madhouse/madhouse)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-4.5 -4.5 -3.0 -3.0 -1.5)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-4.5 -4.5 -3.0 -3.0 -1.5))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/madhouse/madhouse.mid)
    )
    (anim_tempo kTempoFast)
@@ -2120,9 +1480,7 @@
       #endif
       (venue small1)
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/madhouse/madhouse_p85)
       (tracks
@@ -2131,15 +1489,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/madhouse/madhouse.mid)
    )
    (song_practice_2
@@ -2150,15 +1502,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/madhouse/madhouse.mid)
    )
    (song_practice_3
@@ -2169,15 +1515,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/madhouse/madhouse.mid)
    )
 )
@@ -2188,23 +1528,13 @@
       (name songs/messageinabottle/messageinabottle)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (bass
-               (4 5)
-            )
+            (guitar (2 3))
+            (bass (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-3.5 -3.5 -3.5 -3.5 -1.0 -1.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-3.5 -3.5 -3.5 -3.5 -1.0 -1.0))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file songs/messageinabottle/messageinabottle.mid)
    )
    (anim_tempo kTempoFast)
@@ -2219,9 +1549,7 @@
       #endif
       (venue big)
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/messageinabottle/messageinabottle_p85)
       (tracks
@@ -2230,15 +1558,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/messageinabottle/messageinabottle.mid)
    )
    (song_practice_2
@@ -2249,15 +1571,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/messageinabottle/messageinabottle.mid)
    )
    (song_practice_3
@@ -2268,15 +1584,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/messageinabottle/messageinabottle.mid)
    )
 )
@@ -2291,15 +1601,9 @@
             (bass 3)
          )
       )
-      (pans
-         (-1.0 1.0 0.0 0.0)
-      )
-      (vols
-         (-3.0 -3.0 -2.0 0.0)
-      )
-      (cores
-         (-1 -1 1 -1)
-      )
+      (pans (-1.0 1.0 0.0 0.0))
+      (vols (-3.0 -3.0 -2.0 0.0))
+      (cores (-1 -1 1 -1))
       (midi_file songs/misirlou/misirlou.mid)
    )
    (anim_tempo kTempoFast)
@@ -2313,9 +1617,7 @@
       (venue small2)
       #endif
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/misirlou/misirlou_p85)
       (tracks
@@ -2324,15 +1626,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/misirlou/misirlou.mid)
    )
    (song_practice_2
@@ -2343,15 +1639,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/misirlou/misirlou.mid)
    )
    (song_practice_3
@@ -2362,15 +1652,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/misirlou/misirlou.mid)
    )
    (band metal_bass metal_drummer metal_keyboard)
@@ -2383,23 +1667,13 @@
       #ifdef HX_XBOX
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (rhythm
-               (4 5)
-            )
+            (guitar (2 3))
+            (rhythm (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.5 -3.5 -3.5 -3.5)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-3.0 -3.0 -3.5 -3.5 -3.5 -3.5))
+      (cores (-1 -1 1 1 -1 -1))
       #else
       (tracks
          (
@@ -2407,15 +1681,9 @@
             (rhythm 3)
          )
       )
-      (pans
-         (-1.0 1.0 0.0 0.0)
-      )
-      (vols
-         (-3.0 -3.0 -2.0 -2.0)
-      )
-      (cores
-         (-1 -1 1 -1)
-      )
+      (pans (-1.0 1.0 0.0 0.0))
+      (vols (-3.0 -3.0 -2.0 -2.0))
+      (cores (-1 -1 1 -1))
       #endif
       (midi_file songs/mother/mother.mid)
    )
@@ -2431,9 +1699,7 @@
       #endif
       (venue battle)
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/mother/mother_p85)
       (tracks
@@ -2442,15 +1708,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/mother/mother.mid)
    )
    (song_practice_2
@@ -2461,15 +1721,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/mother/mother.mid)
    )
    (song_practice_3
@@ -2480,15 +1734,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/mother/mother.mid)
    )
 )
@@ -2499,23 +1747,13 @@
       (name songs/monkeywrench/monkeywrench)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (bass
-               (4 5)
-            )
+            (guitar (2 3))
+            (bass (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 -2.0 -2.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 -2.0 -2.0))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file songs/monkeywrench/monkeywrench.mid)
       (hopo_threshold 250)
    )
@@ -2532,9 +1770,7 @@
       (venue small2)
       #endif
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/monkeywrench/monkeywrench_p85)
       (tracks
@@ -2543,15 +1779,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/monkeywrench/monkeywrench.mid)
       (hopo_threshold 250)
    )
@@ -2563,15 +1793,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/monkeywrench/monkeywrench.mid)
       (hopo_threshold 250)
    )
@@ -2583,15 +1807,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/monkeywrench/monkeywrench.mid)
       (hopo_threshold 250)
    )
@@ -2607,20 +1825,12 @@
          (
             (guitar 2)
             (bass 3)
-            (drum
-               (4 5)
-            )
+            (drum (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 0.0 0.0 -1.0 1.0)
-      )
-      (vols
-         (0.0 0.0 0.0 0.0 0.0 0.0)
-      )
-      (cores
-         (-1 -1 1 -1 -1 -1)
-      )
+      (pans (-1.0 1.0 0.0 0.0 -1.0 1.0))
+      (vols (0.0 0.0 0.0 0.0 0.0 0.0))
+      (cores (-1 -1 1 -1 -1 -1))
       (midi_file songs/possum/possum.mid)
    )
    (song_vs
@@ -2631,15 +1841,9 @@
             (bass 3)
          )
       )
-      (pans
-         (-1.0 1.0 0.0 0.0 -1.0 1.0)
-      )
-      (vols
-         (0.0 0.0 0.0 0.0 0.0 0.0)
-      )
-      (cores
-         (-1 -1 1 -1 -1 -1)
-      )
+      (pans (-1.0 1.0 0.0 0.0 -1.0 1.0))
+      (vols (0.0 0.0 0.0 0.0 0.0 0.0))
+      (cores (-1 -1 1 -1 -1 -1))
       (midi_file songs/possum/possum.mid)
    )
    (anim_tempo kTempoMedium)
@@ -2657,21 +1861,13 @@
       (name songs/psychobilly/psychobilly)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 -1.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 -1.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/psychobilly/psychobilly.mid)
    )
    (anim_tempo kTempoFast)
@@ -2685,9 +1881,7 @@
       (venue small1)
       #endif
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/psychobilly/psychobilly_p85)
       (tracks
@@ -2696,15 +1890,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/psychobilly/psychobilly.mid)
    )
    (song_practice_2
@@ -2715,15 +1903,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/psychobilly/psychobilly.mid)
    )
    (song_practice_3
@@ -2734,15 +1916,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/psychobilly/psychobilly.mid)
    )
 )
@@ -2754,42 +1930,26 @@
       (name songs/rockandroll/rockandroll)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-4.0 -4.0 -3.0 -3.0 -0.5)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-4.0 -4.0 -3.0 -3.0 -0.5))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/rockandroll/rockandroll.mid)
    )
    (song_vs
       (name songs/rockandroll/rockandroll)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-4.0 -4.0 -3.0 -3.0 -0.5)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-4.0 -4.0 -3.0 -3.0 -0.5))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/rockandroll/rockandroll.mid)
    )
    (anim_tempo kTempoMedium)
@@ -2807,23 +1967,13 @@
       (name songs/rockthistown/rockthistown)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (bass
-               (4 5)
-            )
+            (guitar (2 3))
+            (bass (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.5 -3.5 -1.5 -1.5)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-3.0 -3.0 -3.5 -3.5 -1.5 -1.5))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file songs/rockthistown/rockthistown.mid)
    )
    (anim_tempo kTempoFast)
@@ -2833,9 +1983,7 @@
       (guitar lespaul)
       (venue battle)
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/rockthistown/rockthistown_p85)
       (tracks
@@ -2844,15 +1992,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/rockthistown/rockthistown.mid)
    )
    (song_practice_2
@@ -2863,15 +2005,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/rockthistown/rockthistown.mid)
    )
    (song_practice_3
@@ -2882,15 +2018,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/rockthistown/rockthistown.mid)
    )
 )
@@ -2902,38 +2032,22 @@
       (name songs/salvation/salvation)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             #ifdef HX_XBOX
-            (bass
-               (4 5)
-            )
+            (bass (4 5))
             #else
             (bass 4)
             #endif
          )
       )
       #ifdef HX_XBOX
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-1.0 -1.0 -3.5 -3.5 -3.5 -3.5)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-1.0 -1.0 -3.5 -3.5 -3.5 -3.5))
+      (cores (-1 -1 1 1 -1 -1))
       #else
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-1.0 -1.0 -3.5 -3.5 -3.5)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-1.0 -1.0 -3.5 -3.5 -3.5))
+      (cores (-1 -1 1 1 -1))
       #endif
       (midi_file songs/salvation/salvation.mid)
    )
@@ -2941,21 +2055,13 @@
       (name songs/salvation/salvation)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-1.0 -1.0 -3.5 -3.5 -3.5)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-1.0 -1.0 -3.5 -3.5 -3.5))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/salvation/salvation.mid)
    )
    (anim_tempo kTempoFast)
@@ -2973,21 +2079,13 @@
       (name songs/searchanddestroy/searchanddestroy)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-1.5 -1.5 -2.0 -2.0 -1.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-1.5 -1.5 -2.0 -2.0 -1.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/searchanddestroy/searchanddestroy.mid)
    )
    (anim_tempo kTempoMedium)
@@ -3001,9 +2099,7 @@
       (venue small2)
       #endif
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/searchanddestroy/searchanddestroy_p85)
       (tracks
@@ -3012,15 +2108,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/searchanddestroy/searchanddestroy.mid)
    )
    (song_practice_2
@@ -3031,15 +2121,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/searchanddestroy/searchanddestroy.mid)
    )
    (song_practice_3
@@ -3050,15 +2134,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/searchanddestroy/searchanddestroy.mid)
    )
 )
@@ -3069,21 +2147,13 @@
       (name songs/shoutatthedevil/shoutatthedevil)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.5 -3.5 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-3.0 -3.0 -3.5 -3.5 0.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/shoutatthedevil/shoutatthedevil.mid)
    )
    (anim_tempo kTempoMedium)
@@ -3097,9 +2167,7 @@
       (venue arena)
       #endif
    )
-   (practice_speeds
-      (100 90 75 60)
-   )
+   (practice_speeds (100 90 75 60))
    (song_practice_1
       (name songs/shoutatthedevil/shoutatthedevil_p90)
       (tracks
@@ -3108,15 +2176,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/shoutatthedevil/shoutatthedevil.mid)
    )
    (song_practice_2
@@ -3127,15 +2189,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/shoutatthedevil/shoutatthedevil.mid)
    )
    (song_practice_3
@@ -3146,15 +2202,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/shoutatthedevil/shoutatthedevil.mid)
    )
 )
@@ -3166,21 +2216,13 @@
       (name songs/stop/stop)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-3.0 -3.0 -2.5 -2.5 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-3.0 -3.0 -2.5 -2.5 0.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/stop/stop.mid)
    )
    (anim_tempo kTempoFast)
@@ -3196,9 +2238,7 @@
       (venue big)
       #endif
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/stop/stop_p85)
       (tracks
@@ -3207,15 +2247,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/stop/stop.mid)
    )
    (song_practice_2
@@ -3226,15 +2260,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/stop/stop.mid)
    )
    (song_practice_3
@@ -3245,15 +2273,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/stop/stop.mid)
    )
 )
@@ -3264,23 +2286,13 @@
       (name songs/strutter/strutter_coop)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (rhythm
-               (4 5)
-            )
+            (guitar (2 3))
+            (rhythm (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 -3.0 -3.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 -3.0 -3.0))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file songs/strutter/strutter.mid)
    )
    (anim_tempo kTempoFast)
@@ -3296,9 +2308,7 @@
       (venue fest)
       #endif
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/strutter/strutter_p85)
       (tracks
@@ -3307,15 +2317,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/strutter/strutter.mid)
    )
    (song_practice_2
@@ -3326,15 +2330,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/strutter/strutter.mid)
    )
    (song_practice_3
@@ -3345,15 +2343,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/strutter/strutter.mid)
    )
 )
@@ -3364,21 +2356,13 @@
       (name songs/surrender/surrender)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 0.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/surrender/surrender.mid)
    )
    (anim_tempo kTempoMedium)
@@ -3392,9 +2376,7 @@
       (venue arena)
       #endif
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/surrender/surrender_p85)
       (tracks
@@ -3403,15 +2385,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/surrender/surrender.mid)
    )
    (song_practice_2
@@ -3422,15 +2398,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/surrender/surrender.mid)
    )
    (song_practice_3
@@ -3441,15 +2411,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/surrender/surrender.mid)
    )
 )
@@ -3460,23 +2424,13 @@
       (name songs/sweetchild/sweetchild)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (bass
-               (4 5)
-            )
+            (guitar (2 3))
+            (bass (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-2.0 -2.0 -3.0 -3.0 -3.0 -3.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-2.0 -2.0 -3.0 -3.0 -3.0 -3.0))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file songs/sweetchild/sweetchild.mid)
    )
    (anim_tempo kTempoFast)
@@ -3491,9 +2445,7 @@
       #endif
       (venue arena)
    )
-   (practice_speeds
-      (100 90 75 60)
-   )
+   (practice_speeds (100 90 75 60))
    (song_practice_1
       (name songs/sweetchild/sweetchild_p90)
       (tracks
@@ -3502,15 +2454,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/sweetchild/sweetchild.mid)
    )
    (song_practice_2
@@ -3521,15 +2467,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/sweetchild/sweetchild.mid)
    )
    (song_practice_3
@@ -3540,15 +2480,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/sweetchild/sweetchild.mid)
    )
 )
@@ -3559,21 +2493,13 @@
       (name songs/tattooedloveboys/tattooedloveboys)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 0.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/tattooedloveboys/tattooedloveboys.mid)
       (hopo_threshold 250)
    )
@@ -3589,9 +2515,7 @@
       #endif
       (venue small1)
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/tattooedloveboys/tattooedloveboys_p85)
       (tracks
@@ -3600,15 +2524,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/tattooedloveboys/tattooedloveboys.mid)
       (hopo_threshold 250)
    )
@@ -3620,15 +2538,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/tattooedloveboys/tattooedloveboys.mid)
       (hopo_threshold 250)
    )
@@ -3640,15 +2552,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/tattooedloveboys/tattooedloveboys.mid)
    )
    (band metal_bass metal_drummer female_singer)
@@ -3660,21 +2566,13 @@
       (name songs/thembones/thembones)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 -1.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 -1.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/thembones/thembones.mid)
    )
    (anim_tempo kTempoFast)
@@ -3689,9 +2587,7 @@
       #endif
       (venue theatre)
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/thembones/thembones_p85)
       (tracks
@@ -3700,15 +2596,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/thembones/thembones.mid)
    )
    (song_practice_2
@@ -3719,15 +2609,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/thembones/thembones.mid)
    )
    (song_practice_3
@@ -3738,15 +2622,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/thembones/thembones.mid)
    )
 )
@@ -3757,23 +2635,13 @@
       (name songs/tonightimgonna/tonightimgonna_coop)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (rhythm
-               (4 5)
-            )
+            (guitar (2 3))
+            (rhythm (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-2.5 -2.5 -2.0 -2.0 -2.5 -2.5)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-2.5 -2.5 -2.0 -2.0 -2.5 -2.5))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file songs/tonightimgonna/tonightimgonna.mid)
    )
    (anim_tempo kTempoFast)
@@ -3789,9 +2657,7 @@
       (venue small2)
       #endif
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/tonightimgonna/tonightimgonna_p85)
       (tracks
@@ -3800,15 +2666,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/tonightimgonna/tonightimgonna.mid)
    )
    (song_practice_2
@@ -3819,15 +2679,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/tonightimgonna/tonightimgonna.mid)
    )
    (song_practice_3
@@ -3838,15 +2692,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/tonightimgonna/tonightimgonna.mid)
    )
 )
@@ -3857,21 +2705,13 @@
       (name songs/trippinonahole/trippinonahole)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 0.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/trippinonahole/trippinonahole.mid)
    )
    (anim_tempo kTempoMedium)
@@ -3887,9 +2727,7 @@
       (venue theatre)
       #endif
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/trippinonahole/trippinonahole_p85)
       (tracks
@@ -3898,15 +2736,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/trippinonahole/trippinonahole.mid)
    )
    (song_practice_2
@@ -3917,15 +2749,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/trippinonahole/trippinonahole.mid)
    )
    (song_practice_3
@@ -3936,15 +2762,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/trippinonahole/trippinonahole.mid)
    )
 )
@@ -3956,42 +2776,26 @@
       (name songs/trooper/trooper)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 0.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/trooper/trooper.mid)
    )
    (song_vs
       (name songs/trooper/trooper)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 0.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/trooper/trooper.mid)
    )
    (anim_tempo kTempoFast)
@@ -4009,23 +2813,13 @@
       (name songs/warpigs/warpigs)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (bass
-               (4 5)
-            )
+            (guitar (2 3))
+            (bass (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 -1.0 -1.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 -1.0 -1.0))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file songs/warpigs/warpigs.mid)
    )
    (anim_tempo kTempoMedium)
@@ -4041,9 +2835,7 @@
       (venue arena)
       #endif
    )
-   (practice_speeds
-      (100 90 75 60)
-   )
+   (practice_speeds (100 90 75 60))
    (song_practice_1
       (name songs/warpigs/warpigs_p90)
       (tracks
@@ -4052,15 +2844,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/warpigs/warpigs.mid)
    )
    (song_practice_2
@@ -4071,15 +2857,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/warpigs/warpigs.mid)
    )
    (song_practice_3
@@ -4090,15 +2870,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/warpigs/warpigs.mid)
    )
 )
@@ -4109,23 +2883,13 @@
       (name songs/whowasinmyroom/whowasinmyroom_coop)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (rhythm
-               (4 5)
-            )
+            (guitar (2 3))
+            (rhythm (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 -3.0 -3.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 -3.0 -3.0))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file songs/whowasinmyroom/whowasinmyroom.mid)
       (hopo_threshold 250)
    )
@@ -4141,9 +2905,7 @@
       (venue battle)
       #endif
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/whowasinmyroom/whowasinmyroom_p85)
       (tracks
@@ -4152,15 +2914,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/whowasinmyroom/whowasinmyroom.mid)
       (hopo_threshold 250)
    )
@@ -4172,15 +2928,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/whowasinmyroom/whowasinmyroom.mid)
       (hopo_threshold 250)
    )
@@ -4192,15 +2942,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/whowasinmyroom/whowasinmyroom.mid)
       (hopo_threshold 250)
    )
@@ -4212,21 +2956,13 @@
       (name songs/woman/woman)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-2.0 -2.0 -3.5 -3.5 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-2.0 -2.0 -3.5 -3.5 0.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/woman/woman.mid)
    )
    (anim_tempo kTempoFast)
@@ -4240,9 +2976,7 @@
       #endif
       (venue battle)
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/woman/woman_p85)
       (tracks
@@ -4251,15 +2985,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/woman/woman.mid)
    )
    (song_practice_2
@@ -4270,15 +2998,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/woman/woman.mid)
    )
    (song_practice_3
@@ -4289,15 +3011,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/woman/woman.mid)
    )
 )
@@ -4308,21 +3024,13 @@
       (name songs/youreallygotme/youreallygotme)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 0.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/youreallygotme/youreallygotme.mid)
    )
    (anim_tempo kTempoFast)
@@ -4337,9 +3045,7 @@
       #endif
       (venue small2)
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/youreallygotme/youreallygotme_p85)
       (tracks
@@ -4348,15 +3054,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/youreallygotme/youreallygotme.mid)
    )
    (song_practice_2
@@ -4367,15 +3067,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/youreallygotme/youreallygotme.mid)
    )
    (song_practice_3
@@ -4386,15 +3080,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/youreallygotme/youreallygotme.mid)
    )
 )
@@ -4405,23 +3093,13 @@
       (name songs/yyz/yyz)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (bass
-               (4 5)
-            )
+            (guitar (2 3))
+            (bass (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 -1.0 -1.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 -1.0 -1.0))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file songs/yyz/yyz.mid)
    )
    (anim_tempo kTempoFast)
@@ -4435,9 +3113,7 @@
       #endif
       (venue theatre)
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/yyz/yyz_p85)
       (tracks
@@ -4446,15 +3122,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/yyz/yyz.mid)
    )
    (song_practice_2
@@ -4465,15 +3135,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/yyz/yyz.mid)
    )
    (song_practice_3
@@ -4484,15 +3148,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/yyz/yyz.mid)
    )
    (band metal_bass metal_drummer metal_keyboard)
@@ -4508,23 +3166,13 @@
       (name songs/arterialblack/arterialblack_coop)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (rhythm
-               (4 5)
-            )
+            (guitar (2 3))
+            (rhythm (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 -3.0 -3.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 -3.0 -3.0))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file songs/arterialblack/arterialblack.mid)
    )
    (anim_tempo kTempoFast)
@@ -4534,9 +3182,7 @@
       (guitar lespaul)
       (venue big)
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/arterialblack/arterialblack_p85)
       (tracks
@@ -4545,15 +3191,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/arterialblack/arterialblack.mid)
    )
    (song_practice_2
@@ -4564,15 +3204,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/arterialblack/arterialblack.mid)
    )
    (song_practice_3
@@ -4583,15 +3217,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/arterialblack/arterialblack.mid)
    )
 )
@@ -4603,23 +3231,13 @@
       (name songs/collide/collide)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (bass
-               (4 5)
-            )
+            (guitar (2 3))
+            (bass (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.5 -3.5 -2.0 -2.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-3.0 -3.0 -3.5 -3.5 -2.0 -2.0))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file songs/collide/collide.mid)
    )
    (anim_tempo kTempoMedium)
@@ -4629,9 +3247,7 @@
       (guitar flying_v)
       (venue small1)
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/collide/collide_p85)
       (tracks
@@ -4640,15 +3256,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/collide/collide.mid)
    )
    (song_practice_2
@@ -4659,15 +3269,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/collide/collide.mid)
    )
    (song_practice_3
@@ -4678,15 +3282,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/collide/collide.mid)
    )
 )
@@ -4698,21 +3296,13 @@
       (name songs/elephantbones/elephantbones)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 -0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 -0.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/elephantbones/elephantbones.mid)
    )
    (anim_tempo kTempoFast)
@@ -4722,9 +3312,7 @@
       (guitar lespaul)
       (venue big)
    )
-   (practice_speeds
-      (100 90 75 60)
-   )
+   (practice_speeds (100 90 75 60))
    (song_practice_1
       (name songs/elephantbones/elephantbones_p90)
       (tracks
@@ -4733,15 +3321,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/elephantbones/elephantbones.mid)
    )
    (song_practice_2
@@ -4752,15 +3334,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/elephantbones/elephantbones.mid)
    )
    (song_practice_3
@@ -4771,15 +3347,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/elephantbones/elephantbones.mid)
    )
 )
@@ -4791,38 +3361,22 @@
       (name songs/fallofpangea/fallofpangea)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             #ifdef HX_XBOX
-            (bass
-               (4 5)
-            )
+            (bass (4 5))
             #else
             (bass 4)
             #endif
          )
       )
       #ifdef HX_XBOX
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 -3.0 -3.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 -3.0 -3.0))
+      (cores (-1 -1 1 1 -1 -1))
       #else
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 0.0))
+      (cores (-1 -1 1 1 -1))
       #endif
       (midi_file songs/fallofpangea/fallofpangea.mid)
    )
@@ -4837,9 +3391,7 @@
       #endif
       (venue theatre)
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/fallofpangea/fallofpangea_p85)
       (tracks
@@ -4848,15 +3400,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/fallofpangea/fallofpangea.mid)
    )
    (song_practice_2
@@ -4867,15 +3413,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/fallofpangea/fallofpangea.mid)
    )
    (song_practice_3
@@ -4886,15 +3426,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/fallofpangea/fallofpangea.mid)
    )
 )
@@ -4906,23 +3440,13 @@
       (name songs/ftk/ftk)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (bass
-               (4)
-            )
+            (guitar (2 3))
+            (bass (4))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 0.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/ftk/ftk.mid)
    )
    (anim_tempo kTempoFast)
@@ -4936,9 +3460,7 @@
       (venue battle)
       #endif
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/ftk/ftk_p85)
       (tracks
@@ -4947,15 +3469,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/ftk/ftk.mid)
    )
    (song_practice_2
@@ -4966,15 +3482,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/ftk/ftk.mid)
    )
    (song_practice_3
@@ -4985,15 +3495,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/ftk/ftk.mid)
    )
    (band female_singer metal_drummer metal_bass)
@@ -5006,23 +3510,13 @@
       (name songs/gemini/gemini)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (rhythm
-               (4 5)
-            )
+            (guitar (2 3))
+            (rhythm (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 -3.0 -3.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 -3.0 -3.0))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file songs/gemini/gemini.mid)
    )
    (anim_tempo kTempoMedium)
@@ -5032,9 +3526,7 @@
       (guitar lespaul)
       (venue fest)
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/gemini/gemini_p85)
       (tracks
@@ -5043,15 +3535,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/gemini/gemini.mid)
    )
    (song_practice_2
@@ -5062,15 +3548,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/gemini/gemini.mid)
    )
    (song_practice_3
@@ -5081,15 +3561,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/gemini/gemini.mid)
    )
    (band metal_bass metal_drummer)
@@ -5102,21 +3576,13 @@
       (name songs/jordan/jordan)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 -1.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 -1.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/jordan/jordan.mid)
    )
    (anim_tempo kTempoFast)
@@ -5130,9 +3596,7 @@
       #endif
       (venue small1)
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/jordan/jordan_p85)
       (tracks
@@ -5141,15 +3605,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/jordan/jordan.mid)
    )
    (song_practice_2
@@ -5160,15 +3618,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/jordan/jordan.mid)
    )
    (song_practice_3
@@ -5179,15 +3631,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/jordan/jordan.mid)
    )
    (band metal_drummer metal_keyboard)
@@ -5201,21 +3647,13 @@
       (name songs/kicked/kicked)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-2.0 -2.0 -2.0 -2.0 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-2.0 -2.0 -2.0 -2.0 0.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/kicked/kicked.mid)
       (hopo_threshold 250)
    )
@@ -5223,21 +3661,13 @@
       (name songs/kicked/kicked)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-2.0 -2.0 -2.0 -2.0 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-2.0 -2.0 -2.0 -2.0 0.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/kicked/kicked.mid)
       (hopo_threshold 250)
    )
@@ -5257,21 +3687,13 @@
       (name songs/ladylightning/ladylightning)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 0.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/ladylightning/ladylightning.mid)
    )
    (anim_tempo kTempoFast)
@@ -5281,9 +3703,7 @@
       (guitar lespaul)
       (venue big)
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/ladylightning/ladylightning_p85)
       (tracks
@@ -5292,15 +3712,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/ladylightning/ladylightning.mid)
    )
    (song_practice_2
@@ -5311,15 +3725,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/ladylightning/ladylightning.mid)
    )
    (song_practice_3
@@ -5330,15 +3738,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/ladylightning/ladylightning.mid)
    )
 )
@@ -5350,21 +3752,13 @@
       (name songs/laughtrack/laughtrack_coop)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (rhythm 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 -3.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0))
+      (vols (-3.0 -3.0 -3.0 -3.0 -3.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/laughtrack/laughtrack.mid)
    )
    (anim_tempo kTempoFast)
@@ -5379,9 +3773,7 @@
       (venue battle)
       #endif
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/laughtrack/laughtrack_p85)
       (tracks
@@ -5390,15 +3782,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/laughtrack/laughtrack.mid)
    )
    (song_practice_2
@@ -5409,15 +3795,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/laughtrack/laughtrack.mid)
    )
    (song_practice_3
@@ -5428,15 +3808,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/laughtrack/laughtrack.mid)
    )
 )
@@ -5448,23 +3822,13 @@
       (name songs/lesstalkmorerokk/lesstalkmorerokk_coop)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (rhythm
-               (4 5)
-            )
+            (guitar (2 3))
+            (rhythm (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-3.0 -3.0 -4.0 -4.0 -4.0 -4.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-3.0 -3.0 -4.0 -4.0 -4.0 -4.0))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file songs/lesstalkmorerokk/lesstalkmorerokk.mid)
    )
    (anim_tempo kTempoFast)
@@ -5478,9 +3842,7 @@
       #endif
       (venue small2)
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/lesstalkmorerokk/lesstalkmorerokk_p85)
       (tracks
@@ -5489,15 +3851,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/lesstalkmorerokk/lesstalkmorerokk.mid)
    )
    (song_practice_2
@@ -5508,15 +3864,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/lesstalkmorerokk/lesstalkmorerokk.mid)
    )
    (song_practice_3
@@ -5527,15 +3877,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/lesstalkmorerokk/lesstalkmorerokk.mid)
    )
    (band female_singer metal_drummer metal_bass)
@@ -5548,23 +3892,13 @@
       (name songs/mrfixit/mrfixit)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (bass
-               (4)
-            )
+            (guitar (2 3))
+            (bass (4))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-2.5 -2.5 -3.5 -3.5 -0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-2.5 -2.5 -3.5 -3.5 -0.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/mrfixit/mrfixit.mid)
    )
    (anim_tempo kTempoMedium)
@@ -5574,9 +3908,7 @@
       (guitar lespaul)
       (venue big)
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/mrfixit/mrfixit_p85)
       (tracks
@@ -5585,15 +3917,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/mrfixit/mrfixit.mid)
    )
    (song_practice_2
@@ -5604,15 +3930,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/mrfixit/mrfixit.mid)
    )
    (song_practice_3
@@ -5623,15 +3943,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/mrfixit/mrfixit.mid)
    )
 )
@@ -5643,23 +3957,13 @@
       (name songs/newblack/newblack)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (bass
-               (4)
-            )
+            (guitar (2 3))
+            (bass (4))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 -1.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 -1.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/newblack/newblack.mid)
    )
    (anim_tempo kTempoMedium)
@@ -5674,9 +3978,7 @@
       (venue big)
       #endif
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/newblack/newblack_p85)
       (tracks
@@ -5685,15 +3987,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/newblack/newblack.mid)
    )
    (song_practice_2
@@ -5704,15 +4000,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/newblack/newblack.mid)
    )
    (song_practice_3
@@ -5723,15 +4013,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/newblack/newblack.mid)
    )
 )
@@ -5743,23 +4027,13 @@
       (name songs/onefortheroad/onefortheroad)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (bass
-               (4 5)
-            )
+            (guitar (2 3))
+            (bass (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 -3.0 -3.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 -3.0 -3.0))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file songs/onefortheroad/onefortheroad.mid)
       (hopo_threshold 250)
    )
@@ -5770,9 +4044,7 @@
       (guitar lespaul)
       (venue battle)
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/onefortheroad/onefortheroad_p85)
       (tracks
@@ -5781,15 +4053,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/onefortheroad/onefortheroad.mid)
       (hopo_threshold 250)
    )
@@ -5801,15 +4067,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/onefortheroad/onefortheroad.mid)
       (hopo_threshold 250)
    )
@@ -5821,15 +4081,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/onefortheroad/onefortheroad.mid)
       (hopo_threshold 250)
    )
@@ -5842,23 +4096,13 @@
       (name songs/parasite/parasite)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (bass
-               (4 5)
-            )
+            (guitar (2 3))
+            (bass (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.5 -3.5 -1.5 -1.5)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-3.0 -3.0 -3.5 -3.5 -1.5 -1.5))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file songs/parasite/parasite.mid)
    )
    (anim_tempo kTempoFast)
@@ -5873,9 +4117,7 @@
       (venue arena)
       #endif
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/parasite/parasite_p85)
       (tracks
@@ -5884,15 +4126,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/parasite/parasite.mid)
    )
    (song_practice_2
@@ -5903,15 +4139,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/parasite/parasite.mid)
    )
    (song_practice_3
@@ -5922,15 +4152,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/parasite/parasite.mid)
    )
 )
@@ -5942,23 +4166,13 @@
       (name songs/radiumeyes/radiumeyes)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (bass
-               (4 5)
-            )
+            (guitar (2 3))
+            (bass (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-2.0 -2.0 -3.0 -3.0 -2.0 -2.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-2.0 -2.0 -3.0 -3.0 -2.0 -2.0))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file songs/radiumeyes/radiumeyes.mid)
    )
    (anim_tempo kTempoMedium)
@@ -5968,9 +4182,7 @@
       (guitar lespaul)
       (venue fest)
    )
-   (practice_speeds
-      (100 90 75 60)
-   )
+   (practice_speeds (100 90 75 60))
    (song_practice_1
       (name songs/radiumeyes/radiumeyes_p90)
       (tracks
@@ -5979,15 +4191,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/radiumeyes/radiumeyes.mid)
    )
    (song_practice_2
@@ -5998,15 +4204,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/radiumeyes/radiumeyes.mid)
    )
    (song_practice_3
@@ -6017,15 +4217,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/radiumeyes/radiumeyes.mid)
    )
 )
@@ -6038,43 +4232,23 @@
       #ifdef HX_XBOX
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (bass
-               (4 5)
-            )
+            (guitar (2 3))
+            (bass (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-2.5 -2.5 -3.5 -3.5 -2.0 -2.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-2.5 -2.5 -3.5 -3.5 -2.0 -2.0))
+      (cores (-1 -1 1 1 -1 -1))
       #else
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (bass
-               (4)
-            )
+            (guitar (2 3))
+            (bass (4))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-2.5 -2.5 -3.5 -3.5 -0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-2.5 -2.5 -3.5 -3.5 -0.0))
+      (cores (-1 -1 1 1 -1))
       #endif
       (midi_file songs/redlottery/redlottery.mid)
    )
@@ -6089,9 +4263,7 @@
       #endif
       (venue small1)
    )
-   (practice_speeds
-      (100 90 75 60)
-   )
+   (practice_speeds (100 90 75 60))
    (song_practice_1
       (name songs/redlottery/redlottery_p90)
       (tracks
@@ -6100,15 +4272,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/redlottery/redlottery.mid)
    )
    (song_practice_2
@@ -6119,15 +4285,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/redlottery/redlottery.mid)
    )
    (song_practice_3
@@ -6138,15 +4298,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/redlottery/redlottery.mid)
    )
 )
@@ -6159,41 +4313,23 @@
       #ifdef HX_XBOX
       (tracks
          (
-            (guitar
-               (2 3)
-            )
-            (bass
-               (4 5)
-            )
+            (guitar (2 3))
+            (bass (4 5))
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 -4.0 -4.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 -4.0 -4.0))
+      (cores (-1 -1 1 1 -1 -1))
       #else
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 -1.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 -1.0))
+      (cores (-1 -1 1 1 -1))
       #endif
       (midi_file songs/rawdog/rawdog.mid)
       (hopo_threshold 250)
@@ -6205,9 +4341,7 @@
       (guitar lespaul)
       (venue theatre)
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/rawdog/rawdog_p85)
       (tracks
@@ -6216,15 +4350,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/rawdog/rawdog.mid)
       (hopo_threshold 250)
    )
@@ -6236,15 +4364,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/rawdog/rawdog.mid)
       (hopo_threshold 250)
    )
@@ -6256,15 +4378,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/rawdog/rawdog.mid)
       (hopo_threshold 250)
    )
@@ -6277,21 +4393,13 @@
       (name songs/six/six)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 0.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/six/six.mid)
    )
    (anim_tempo kTempoFast)
@@ -6301,9 +4409,7 @@
       (guitar lespaul)
       (venue fest)
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/six/six_p85)
       (tracks
@@ -6312,15 +4418,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/six/six.mid)
    )
    (song_practice_2
@@ -6331,15 +4431,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/six/six.mid)
    )
    (song_practice_3
@@ -6350,15 +4444,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/six/six.mid)
    )
 )
@@ -6374,15 +4462,9 @@
             (rhythm 3)
          )
       )
-      (pans
-         (-1.0 1.0 0.0 0.0)
-      )
-      (vols
-         (-3.0 -3.0 -2.0 -2.0)
-      )
-      (cores
-         (-1 -1 1 -1)
-      )
+      (pans (-1.0 1.0 0.0 0.0))
+      (vols (-3.0 -3.0 -2.0 -2.0))
+      (cores (-1 -1 1 -1))
       (midi_file songs/soybomb/soybomb.mid)
    )
    (anim_tempo kTempoFast)
@@ -6397,9 +4479,7 @@
       (venue battle)
       #endif
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/soybomb/soybomb_p85)
       (tracks
@@ -6408,15 +4488,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/soybomb/soybomb.mid)
    )
    (song_practice_2
@@ -6427,15 +4501,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/soybomb/soybomb.mid)
    )
    (song_practice_3
@@ -6446,15 +4514,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/soybomb/soybomb.mid)
    )
    (band metal_bass metal_drummer)
@@ -6467,21 +4529,13 @@
       (name songs/thelightthatblinds/thelightthatblinds)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 0.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/thelightthatblinds/thelightthatblinds.mid)
    )
    (anim_tempo kTempoFast)
@@ -6496,9 +4550,7 @@
       (venue fest)
       #endif
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/thelightthatblinds/thelightthatblinds_p85)
       (tracks
@@ -6507,15 +4559,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/thelightthatblinds/thelightthatblinds.mid)
    )
    (song_practice_2
@@ -6526,15 +4572,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/thelightthatblinds/thelightthatblinds.mid)
    )
    (song_practice_3
@@ -6545,15 +4585,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/thelightthatblinds/thelightthatblinds.mid)
    )
 )
@@ -6565,21 +4599,13 @@
       (name songs/thunderhorse/thunderhorse)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 0.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/thunderhorse/thunderhorse.mid)
       (hopo_threshold 250)
    )
@@ -6595,9 +4621,7 @@
       #endif
       (venue fest)
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/thunderhorse/thunderhorse_p85)
       (tracks
@@ -6606,15 +4630,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/thunderhorse/thunderhorse.mid)
       (hopo_threshold 250)
    )
@@ -6626,15 +4644,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/thunderhorse/thunderhorse.mid)
       (hopo_threshold 250)
    )
@@ -6646,15 +4658,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/thunderhorse/thunderhorse.mid)
       (hopo_threshold 250)
    )
@@ -6667,21 +4673,13 @@
       (name songs/trogdor/trogdor)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (rhythm 3)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0)
-      )
-      (cores
-         (-1 -1 1 1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0))
+      (vols (-3.0 -3.0 -3.0 -3.0))
+      (cores (-1 -1 1 1))
       (midi_file songs/trogdor/trogdor.mid)
    )
    (song_coop
@@ -6692,15 +4690,9 @@
             (rhythm 3)
          )
       )
-      (pans
-         (-1.0 1.0 0.0 0.0)
-      )
-      (vols
-         (-0.5 -0.5 -1.0 -1.0)
-      )
-      (cores
-         (-1 -1 1 -1)
-      )
+      (pans (-1.0 1.0 0.0 0.0))
+      (vols (-0.5 -0.5 -1.0 -1.0))
+      (cores (-1 -1 1 -1))
       (midi_file songs/trogdor/trogdor.mid)
    )
    (anim_tempo kTempoFast)
@@ -6714,9 +4706,7 @@
       #endif
       (venue small2)
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/trogdor/trogdor_p85)
       (tracks
@@ -6725,15 +4715,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/trogdor/trogdor.mid)
    )
    (song_practice_2
@@ -6744,15 +4728,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/trogdor/trogdor.mid)
    )
    (song_practice_3
@@ -6763,15 +4741,9 @@
             (rhythm 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/trogdor/trogdor.mid)
    )
 )
@@ -6783,21 +4755,13 @@
       (name songs/xstream/xstream)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 -1.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 -1.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/xstream/xstream.mid)
       (hopo_threshold 250)
    )
@@ -6812,9 +4776,7 @@
       #endif
       (venue big)
    )
-   (practice_speeds
-      (100 85 65 50)
-   )
+   (practice_speeds (100 85 65 50))
    (song_practice_1
       (name songs/xstream/xstream_p85)
       (tracks
@@ -6823,15 +4785,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/xstream/xstream.mid)
       (hopo_threshold 250)
    )
@@ -6843,15 +4799,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/xstream/xstream.mid)
       (hopo_threshold 250)
    )
@@ -6863,15 +4813,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/xstream/xstream.mid)
       (hopo_threshold 250)
    )
@@ -6885,38 +4829,22 @@
       (name songs/drinkup/drinkup)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             #ifdef HX_XBOX
-            (bass
-               (4 5)
-            )
+            (bass (4 5))
             #else
             (bass 4)
             #endif
          )
       )
       #ifdef HX_XBOX
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 -1.0 -1.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 -1.0 -1.0))
+      (cores (-1 -1 1 1 -1 -1))
       #else
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 -1.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 -1.0))
+      (cores (-1 -1 1 1 -1))
       #endif
       (midi_file songs/drinkup/drinkup.mid)
    )
@@ -6924,21 +4852,13 @@
       (name songs/drinkup/drinkup)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 -1.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 -1.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/drinkup/drinkup.mid)
    )
    (anim_tempo kTempoFast)
@@ -6957,21 +4877,13 @@
       (name songs/yeswecan/yeswecan)
       (tracks
          (
-            (guitar
-               (2 3)
-            )
+            (guitar (2 3))
             (bass 4)
          )
       )
-      (pans
-         (-1.0 1.0 -1.0 1.0 0.0)
-      )
-      (vols
-         (-3.0 -3.0 -3.0 -3.0 -1.0)
-      )
-      (cores
-         (-1 -1 1 1 -1)
-      )
+      (pans (-1.0 1.0 -1.0 1.0 0.0))
+      (vols (-3.0 -3.0 -3.0 -3.0 -1.0))
+      (cores (-1 -1 1 1 -1))
       (midi_file songs/yeswecan/yeswecan.mid)
    )
    (anim_tempo kTempoFast)
@@ -6985,9 +4897,7 @@
       #endif
       (venue small1)
    )
-   (practice_speeds
-      (100 90 75 60)
-   )
+   (practice_speeds (100 90 75 60))
    (song_practice_1
       (name songs/yeswecan/yeswecan_p90)
       (tracks
@@ -6996,15 +4906,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/yeswecan/yeswecan.mid)
    )
    (song_practice_2
@@ -7015,15 +4919,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/yeswecan/yeswecan.mid)
    )
    (song_practice_3
@@ -7034,15 +4932,9 @@
             (guitar 1)
          )
       )
-      (pans
-         (0.0 0.0)
-      )
-      (vols
-         (0.0 0.0)
-      )
-      (cores
-         (-1 -1)
-      )
+      (pans (0.0 0.0))
+      (vols (0.0 0.0))
+      (cores (-1 -1))
       (midi_file songs/yeswecan/yeswecan.mid)
    )
    (band metal_bass metal_drummer female_singer)
@@ -7052,22 +4944,10 @@
    (artist "You")
    (song
       (name tutorial/tutorial102)
-      (tracks
-         (
-            (guitar
-               (2 3)
-            )
-         )
-      )
-      (pans
-         (-1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-6.0 -6.0 -6.0 -6.0)
-      )
-      (cores
-         (-1 -1 1 1)
-      )
+      (tracks ((guitar (2 3))))
+      (pans (-1.0 1.0 -1.0 1.0))
+      (vols (-6.0 -6.0 -6.0 -6.0))
+      (cores (-1 -1 1 1))
       (midi_file tutorial/tutorial102.mid)
    )
    (bpm 108)
@@ -7085,22 +4965,10 @@
    (artist "You")
    (song
       (name tutorial/tutorial103)
-      (tracks
-         (
-            (guitar
-               (2 3)
-            )
-         )
-      )
-      (pans
-         (-1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-6.0 -6.0 -6.0 -6.0)
-      )
-      (cores
-         (-1 -1 1 1)
-      )
+      (tracks ((guitar (2 3))))
+      (pans (-1.0 1.0 -1.0 1.0))
+      (vols (-6.0 -6.0 -6.0 -6.0))
+      (cores (-1 -1 1 1))
       (midi_file tutorial/tutorial103.mid)
    )
    (bpm 108)
@@ -7118,22 +4986,10 @@
    (artist "You")
    (song
       (name tutorial/tutorial104)
-      (tracks
-         (
-            (guitar
-               (2 3)
-            )
-         )
-      )
-      (pans
-         (-1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-6.0 -6.0 -6.0 -6.0)
-      )
-      (cores
-         (-1 -1 1 1)
-      )
+      (tracks ((guitar (2 3))))
+      (pans (-1.0 1.0 -1.0 1.0))
+      (vols (-6.0 -6.0 -6.0 -6.0))
+      (cores (-1 -1 1 1))
       (midi_file tutorial/tutorial104.mid)
    )
    (bpm 108)
@@ -7151,22 +5007,10 @@
    (artist "You")
    (song
       (name tutorial/tutorial105)
-      (tracks
-         (
-            (guitar
-               (2 3)
-            )
-         )
-      )
-      (pans
-         (-1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-6.0 -6.0 -6.0 -6.0)
-      )
-      (cores
-         (-1 -1 1 1)
-      )
+      (tracks ((guitar (2 3))))
+      (pans (-1.0 1.0 -1.0 1.0))
+      (vols (-6.0 -6.0 -6.0 -6.0))
+      (cores (-1 -1 1 1))
       (midi_file tutorial/tutorial105.mid)
    )
    (bpm 108)
@@ -7184,22 +5028,10 @@
    (artist "You")
    (song
       (name tutorial/tutorial202)
-      (tracks
-         (
-            (guitar
-               (2 3)
-            )
-         )
-      )
-      (pans
-         (-1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-6.0 -6.0 -6.0 -6.0)
-      )
-      (cores
-         (-1 -1 1 1)
-      )
+      (tracks ((guitar (2 3))))
+      (pans (-1.0 1.0 -1.0 1.0))
+      (vols (-6.0 -6.0 -6.0 -6.0))
+      (cores (-1 -1 1 1))
       (midi_file tutorial/tutorial202.mid)
    )
    (bpm 108)
@@ -7217,22 +5049,10 @@
    (artist "You")
    (song
       (name tutorial/tutorial203)
-      (tracks
-         (
-            (guitar
-               (2 3)
-            )
-         )
-      )
-      (pans
-         (-1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-6.0 -6.0 -6.0 -6.0)
-      )
-      (cores
-         (-1 -1 1 1)
-      )
+      (tracks ((guitar (2 3))))
+      (pans (-1.0 1.0 -1.0 1.0))
+      (vols (-6.0 -6.0 -6.0 -6.0))
+      (cores (-1 -1 1 1))
       (midi_file tutorial/tutorial203.mid)
    )
    (bpm 108)
@@ -7250,22 +5070,10 @@
    (artist "You")
    (song
       (name tutorial/tutorial204)
-      (tracks
-         (
-            (guitar
-               (2 3)
-            )
-         )
-      )
-      (pans
-         (-1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-6.0 -6.0 -6.0 -6.0)
-      )
-      (cores
-         (-1 -1 1 1)
-      )
+      (tracks ((guitar (2 3))))
+      (pans (-1.0 1.0 -1.0 1.0))
+      (vols (-6.0 -6.0 -6.0 -6.0))
+      (cores (-1 -1 1 1))
       (midi_file tutorial/tutorial204.mid)
    )
    (bpm 108)
@@ -7283,22 +5091,10 @@
    (artist "You")
    (song
       (name tutorial/tutorial205)
-      (tracks
-         (
-            (guitar
-               (2 3)
-            )
-         )
-      )
-      (pans
-         (-1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-6.0 -6.0 -6.0 -6.0)
-      )
-      (cores
-         (-1 -1 1 1)
-      )
+      (tracks ((guitar (2 3))))
+      (pans (-1.0 1.0 -1.0 1.0))
+      (vols (-6.0 -6.0 -6.0 -6.0))
+      (cores (-1 -1 1 1))
       (midi_file tutorial/tutorial205.mid)
    )
    (bpm 108)
@@ -7316,22 +5112,10 @@
    (artist "You")
    (song
       (name tutorial/tutorial206)
-      (tracks
-         (
-            (guitar
-               (2 3)
-            )
-         )
-      )
-      (pans
-         (-1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-6.0 -6.0 -6.0 -6.0)
-      )
-      (cores
-         (-1 -1 1 1)
-      )
+      (tracks ((guitar (2 3))))
+      (pans (-1.0 1.0 -1.0 1.0))
+      (vols (-6.0 -6.0 -6.0 -6.0))
+      (cores (-1 -1 1 1))
       (midi_file tutorial/tutorial206.mid)
    )
    (bpm 108)
@@ -7350,22 +5134,10 @@
    (artist "You")
    (song
       (name songs/yyz/yyz)
-      (tracks
-         (
-            (guitar
-               (2 3)
-            )
-         )
-      )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-1.0 -1.0 -1.0 -1.0 0.0 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (tracks ((guitar (2 3))))
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-1.0 -1.0 -1.0 -1.0 0.0 0.0))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file test/budget_songs/two_note_chords.mid)
    )
    (bpm 120)
@@ -7383,22 +5155,10 @@
    (artist "You")
    (song
       (name songs/yyz/yyz)
-      (tracks
-         (
-            (guitar
-               (2 3)
-            )
-         )
-      )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-1.0 -1.0 -1.0 -1.0 0.0 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (tracks ((guitar (2 3))))
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-1.0 -1.0 -1.0 -1.0 0.0 0.0))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file test/budget_songs/two_note_chords.mid)
    )
    (bpm 120)
@@ -7416,22 +5176,10 @@
    (artist "You")
    (song
       (name songs/yyz/yyz)
-      (tracks
-         (
-            (guitar
-               (2 3)
-            )
-         )
-      )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-1.0 -1.0 -1.0 -1.0 0.0 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (tracks ((guitar (2 3))))
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-1.0 -1.0 -1.0 -1.0 0.0 0.0))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file test/budget_songs/two_note_tails.mid)
    )
    (bpm 120)
@@ -7449,22 +5197,10 @@
    (artist "You")
    (song
       (name songs/yyz/yyz)
-      (tracks
-         (
-            (guitar
-               (2 3)
-            )
-         )
-      )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-1.0 -1.0 -1.0 -1.0 0.0 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (tracks ((guitar (2 3))))
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-1.0 -1.0 -1.0 -1.0 0.0 0.0))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file test/budget_songs/two_note_tails.mid)
    )
    (bpm 120)
@@ -7482,22 +5218,10 @@
    (artist "You")
    (song
       (name songs/yyz/yyz)
-      (tracks
-         (
-            (guitar
-               (2 3)
-            )
-         )
-      )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-1.0 -1.0 -1.0 -1.0 0.0 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (tracks ((guitar (2 3))))
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-1.0 -1.0 -1.0 -1.0 0.0 0.0))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file test/budget_songs/three_note_chords.mid)
    )
    (bpm 120)
@@ -7515,22 +5239,10 @@
    (artist "You")
    (song
       (name songs/yyz/yyz)
-      (tracks
-         (
-            (guitar
-               (2 3)
-            )
-         )
-      )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-1.0 -1.0 -1.0 -1.0 0.0 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (tracks ((guitar (2 3))))
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-1.0 -1.0 -1.0 -1.0 0.0 0.0))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file test/budget_songs/three_note_chords.mid)
    )
    (bpm 120)
@@ -7548,22 +5260,10 @@
    (artist "You")
    (song
       (name songs/yyz/yyz)
-      (tracks
-         (
-            (guitar
-               (2 3)
-            )
-         )
-      )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-1.0 -1.0 -1.0 -1.0 0.0 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (tracks ((guitar (2 3))))
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-1.0 -1.0 -1.0 -1.0 0.0 0.0))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file test/budget_songs/three_note_tails.mid)
    )
    (bpm 120)
@@ -7581,22 +5281,10 @@
    (artist "You")
    (song
       (name songs/yyz/yyz)
-      (tracks
-         (
-            (guitar
-               (2 3)
-            )
-         )
-      )
-      (pans
-         (-1.0 1.0 -1.0 1.0 -1.0 1.0)
-      )
-      (vols
-         (-1.0 -1.0 -1.0 -1.0 0.0 0.0)
-      )
-      (cores
-         (-1 -1 1 1 -1 -1)
-      )
+      (tracks ((guitar (2 3))))
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (-1.0 -1.0 -1.0 -1.0 0.0 0.0))
+      (cores (-1 -1 1 1 -1 -1))
       (midi_file test/budget_songs/three_note_tails.mid)
    )
    (bpm 120)

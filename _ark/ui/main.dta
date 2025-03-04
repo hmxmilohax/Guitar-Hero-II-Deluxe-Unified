@@ -64,7 +64,6 @@
          ;load dx settings (3 times lol)
          (script {load_settings} {load_settings} {load_settings})
       }
-      
    )
    (SELECT_START_MSG
       {switch $component

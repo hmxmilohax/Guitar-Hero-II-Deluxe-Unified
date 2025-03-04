@@ -3,10 +3,8 @@
 (sysutl
    (precache
       #ifdef HX_XBOX
-      (shaders
-         (enabled FALSE)
-         #endif
-      )
+      (shaders (enabled FALSE))
+      #endif
       (platforms ps2)
       (dirs REQ_DIRS)
       (exclude)
@@ -25,7 +23,5 @@
 (ui
    #include ../mplay/ui.dta
 )
-(rnd
-   (title "Movie Player")
-)
+(rnd (title "Movie Player"))
 #merge default.dta

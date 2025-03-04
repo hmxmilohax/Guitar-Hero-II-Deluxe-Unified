@@ -91,18 +91,51 @@
 (outfit
    (punk2 (price 2000))
    (punk3 (price 2000))
+   #ifdef HX_XBOX
+   (punk4 (price 2000))
+   #endif
    (alterna2 (price 2000))
+   #ifdef HX_XBOX
+   (alterna4 (price 2000))
+   #endif
    (alterna3 (price 2000))
    (glam2 (price 2000))
    (glam3 (price 2000))
+   #ifdef HX_XBOX
+   (glam4 (price 2000))
+   #endif
    (goth1 (price 2000))
    (goth3 (price 2000))
+   #ifdef HX_XBOX
+   (goth4 (price 2000))
+   #endif
    (metal2 (price 2000))
    (metal3 (price 2000))
+   #ifdef HX_XBOX
+   (metal4 (price 2000))
+   #endif
+   #ifdef HX_XBOX
+   (cwretro (price 2000))
+   #endif
+   #ifdef HX_XBOX
+   (funk2 (price 2000))
+   #endif
    (rockabill2 (price 2000))
+   #ifdef HX_XBOX
+   (eddiebill3 (price 2000))
+   #endif
    (rock1 (price 2000))
+   #ifdef HX_XBOX
+   (rock3 (price 2000))
+   #endif
    (deathmetal2 (price 2000))
+   #ifdef HX_XBOX
+   (deathmetal3 (price 2000))
+   #endif
    (gr80 (price 2000))
+   #ifdef HX_XBOX
+   (grog (price 2000))
+   #endif
 )
 (video
    (video3

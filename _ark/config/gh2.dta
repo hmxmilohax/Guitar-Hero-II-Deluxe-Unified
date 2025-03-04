@@ -207,17 +207,86 @@
    #include guitars.dta
 )
 (characters
-   (punk (punk1) (punk2) (punk3))
-   (alterna (alterna1) (alterna2) (alterna3))
-   (glam (glam1) (glam2) (glam3))
-   (goth (goth2) (goth1) (goth3))
-   (metal (metal1) (metal2) (metal3))
-   (rockabill (rockabill1) (rockabill2))
-   (rock (rock2) (rock1))
-   (deathmetal (deathmetal1) (deathmetal2))
-   (classic (classic))
-   (funk1 (funk1))
-   (grim (grim) (gr80))
+   (punk
+      (punk1)
+      (punk2)
+      (punk3)
+      #ifdef HX_XBOX
+      (punk4)
+      #endif
+   )
+   (alterna
+      (alterna1)
+      (alterna2)
+      (alterna3)
+      #ifdef HX_XBOX
+      (alterna4)
+      #endif
+   )
+   (glam
+      (glam1)
+      (glam2)
+      (glam3)
+      #ifdef HX_XBOX
+      (glam4)
+      #endif
+   )
+   (goth
+      (goth2)
+      (goth1)
+      (goth3)
+      #ifdef HX_XBOX
+      (goth4)
+      #endif
+   )
+   (metal
+      (metal1)
+      (metal2)
+      (metal3)
+      #ifdef HX_XBOX
+      (metal4)
+      #endif
+   )
+   (rockabill
+      (rockabill1)
+      (rockabill2)
+      #ifdef HX_XBOX
+      (eddiebill3)
+      #endif
+   )
+   (rock
+      (rock2)
+      (rock1)
+      #ifdef HX_XBOX
+      (rock3)
+      #endif
+   )
+   (deathmetal
+      (deathmetal1)
+      (deathmetal2)
+      #ifdef HX_XBOX
+      (deathmetal3)
+      #endif
+   )
+   (classic
+      (classic)
+      #ifdef HX_XBOX
+      (cwretro)
+      #endif
+   )
+   (funk1
+      (funk1)
+      #ifdef HX_XBOX
+      (funk2)
+      #endif
+   )
+   (grim
+      (grim)
+      (gr80)
+      #ifdef HX_XBOX
+      (grog)
+      #endif
+   )
 )
 (mc
    #include mc.dta

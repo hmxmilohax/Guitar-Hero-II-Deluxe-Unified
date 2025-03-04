@@ -1,15 +1,26 @@
 #define CHARACTERS (
    (punk alterna glam goth metal rockabill rock deathmetal classic funk1 grim)
 )
-#define IGNORED_CHARS
-(
+#define IGNORED_CHARS (
    punk3
    alterna3
    glam3
    goth3
    metal3
    gr80
+   #ifdef HX_XBOX
+   deathmetal3
+   eddiebill3
+   cwretro
+   funk2
+   rock3
+   grog
+   #endif
 )
+#ifdef HX_XBOX
+;a 4th+ outfit doesnt actually load, stuff them in this define
+#define IGNORED_XBOX_PORTS (alterna4 punk4 goth4 glam4 metal4)
+#endif
 #define LOAD_CHARACTERS (
    (punk1
       punk2
@@ -31,7 +42,9 @@
       funk1
       grim
       ;I don't know why added chars don't load in debug ui. we hide them here
-      #ifdef _SHIP IGNORED_CHARS #endif
+      #ifdef _SHIP
+      IGNORED_CHARS
+      #endif
    )
 )
 #define STORE_CHARACTERS (classic funk1 grim)
@@ -45,7 +58,9 @@
    rock1
    deathmetal2
    ;I don't know why added chars don't load in debug store either. we hide them here
-   #ifdef _SHIP IGNORED_CHARS #endif
+   #ifdef _SHIP
+   IGNORED_CHARS
+   #endif
 )
 #define SKIN_ANIM_TIME (0.4)
 (init

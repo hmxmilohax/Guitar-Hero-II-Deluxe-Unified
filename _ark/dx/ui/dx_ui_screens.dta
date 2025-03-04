@@ -101,9 +101,7 @@
             {gamecfg set_track 0 0}
             {gamecfg set_track_type guitar}
          )
-         (part1.btn
-            {gamecfg set_track 0 1}
-         )
+         (part1.btn {gamecfg set_track 0 1})
          (part2.btn {gamecfg set_track 0 2})
          kDataUnhandled
       }

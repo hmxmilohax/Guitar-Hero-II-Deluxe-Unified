@@ -315,6 +315,40 @@
             {outfit0.btn set_showing FALSE}
          }
       }
+      ;if a fourth outfit is found, enable our third button, otherwise disable it
+      {if_else $dx_fourth_outfit
+         {do
+            {$this enable outfit0.btn}
+            {outfit3.btn set_showing TRUE}
+            {outfit3.btn set_text
+               {sprint
+                  {character_provider get_outfit [char_focus] 3}
+                  _outfit
+               }
+            }
+         }
+         {do
+            {$this disable outfit3.btn}
+            {outfit3.btn set_showing FALSE}
+         }
+      }
+      ;if a fifth outfit is found, enable our third button, otherwise disable it
+      {if_else $dx_fifth_outfit
+         {do
+            {$this enable outfit4.btn}
+            {outfit4.btn set_showing TRUE}
+            {outfit4.btn set_text
+               {sprint
+                  {character_provider get_outfit [char_focus] 4}
+                  _outfit
+               }
+            }
+         }
+         {do
+            {$this disable outfit4.btn}
+            {outfit4.btn set_showing FALSE}
+         }
+      }
       {outfit1.btn set_text
          {sprint
             {character_provider get_outfit [char_focus] 0}
@@ -381,13 +415,22 @@
                ("outfit1.btn" {set $idx 0})
                ("outfit2.btn" {set $idx 1})
                ("outfit0.btn" {set $idx 2})
+               ("outfit3.btn" {set $idx 3})
+               ("outfit4.btn" {set $idx 4})
             }
             {set [char_outfit]
                {character_provider get_outfit [char_focus] $idx}
             }
             ;restore idx to 0 because tnm sucks
-            {if {== $idx 2}
-               {set $idx 0}
+            {switch $idx
+               (
+                  (2 0)
+                  {set $idx 0}
+               )
+               (
+                  (1 3 4)
+                  {set $idx 1}
+               )
             }
             {cs_arrow.tnm set_frame $idx}
             {set $old_char {char_single get_char 0}}
@@ -467,6 +510,14 @@
          {if_else {> {character_provider num_outfits $sel_char} 2}
             {set $dx_third_outfit TRUE}
             {set $dx_third_outfit FALSE}
+         }
+         {if_else {> {character_provider num_outfits $sel_char} 3}
+            {set $dx_fourth_outfit TRUE}
+            {set $dx_fourth_outfit FALSE}
+         }
+         {if_else {> {character_provider num_outfits $sel_char} 4}
+            {set $dx_fifth_outfit TRUE}
+            {set $dx_fifth_outfit FALSE}
          }
          {if_else {> {character_provider num_outfits $sel_char} 1}
             {sel_character_panel choose_skins}

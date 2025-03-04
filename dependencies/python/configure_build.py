@@ -101,7 +101,7 @@ match sys.platform:
         ninja.variable("dtacheck", "true")
     case "linux":
         ninja.variable("silence", "> /dev/null")
-        ninja.rule("copy", "cp --reflink=auto $in $out",description="COPY $in")
+        ninja.rule("copy", "cp --reflink=auto $in $out", description="COPY $in")
         ninja.rule("bswap", "dependencies/linux/swap_art_bytes $in $out", "BSWAP $in")
         ninja.rule("version", "python dependencies/python/gen_version.py $out", description="Writing version info")
         ninja.rule("png_list", "python dependencies/python/png_list.py $dir $out", description="PNGLIST $dir")
@@ -168,8 +168,31 @@ ninja.build("_always", "phony")
 
 build_files = []
 
+# For PS2, define additional folder names to ignore.
+ps2_ignore_folders = {
+    "ignore", "alterna4", "cwretro", "deathmetal3", "deathmetal4",
+    "eddiebill3", "eddiebill4", "funk2", "glam4", "glam5",
+    "goth4", "goth5", "grog", "metal4", "metal5", "punk5",
+    "punk4", "rock3", "rock4"
+}
+
 # copy whatever arbitrary files you need to output
-for f in filter(lambda x: x.is_file(), Path("dependencies", "platform_files", args.platform).rglob("*")):
+def platform_file_filter(f: Path):
+    if not f.is_file():
+        return False
+    # For PS2, check only the directory parts.
+    if args.platform == "ps2":
+        if "ng" in (part.lower() for part in f.parts[:-1]):
+            return False
+        if any(part.lower() in ps2_ignore_folders for part in f.parts[:-1]):
+            return False
+    # For Xbox, check only the directory parts.
+    if args.platform == "xbox":
+        if "og" in (part.lower() for part in f.parts[:-1]):
+            return False
+    return True
+
+for f in filter(platform_file_filter, Path("dependencies", "platform_files", args.platform).rglob("*")):
     index = f.parts.index(args.platform)
     out_path = Path("out", args.platform).joinpath(*f.parts[index + 1 :])
     ninja.build(str(out_path), "copy", str(f))
@@ -178,6 +201,12 @@ for f in filter(lambda x: x.is_file(), Path("dependencies", "platform_files", ar
 def ark_file_filter(file: Path):
     if file.is_dir():
         return False
+    # For PS2, check only the directory parts.
+    if args.platform == "ps2":
+        if "ng" in (part.lower() for part in file.parts[:-1]):
+            return False
+        if any(part.lower() in ps2_ignore_folders for part in file.parts[:-1]):
+            return False
     if file.suffix.endswith("_ps3") and args.platform != "ps3":
         return False
     if file.suffix.endswith("_xbox") and args.platform != "xbox":
@@ -190,7 +219,6 @@ def ark_file_filter(file: Path):
         return False
     if (args.platform == "wii"  or args.no_updates) and file.parts[slice(2)] == ("_ark", "songs"):
         return False
-
     return True
 
 # build ark files
@@ -251,14 +279,12 @@ for f in filter(ark_file_filter, Path("_ark").rglob("*")):
         case [".dta"]:
             target_filename = Path(gen_folder, f.stem + ".dtb")
             stamp_filename = Path(gen_folder, f.stem + ".dtb.checked")
-
             output_directory = Path("obj", args.platform, "ark").joinpath(
                 *f.parent.parts[1:]
             )
             serialize_directory = Path("obj", args.platform, "raw").joinpath(
                 *f.parent.parts[1:]
             )
-
             serialize_output = serialize_directory.joinpath(target_filename)
             encryption_output = output_directory.joinpath(target_filename)
             stamp = serialize_directory.joinpath(stamp_filename)

@@ -17,8 +17,7 @@
 ; if you only aim to add a setting, stick above this line
 
 ;this is used in both save and load, might as well make it a define
-#define DX_CAREER_FORCE
-(
+#define DX_CAREER_FORCE (
    ;force career
    {gamecfg set mode career}
    ;delete the campaign to repopulate with fresh data
@@ -37,8 +36,7 @@
 
 ;this is used in both save and load, might as well make it a define
 ;it isnt a func as it is using local vars defined earlier in their cooresponding locations
-#define DX_HIGHEST_SCORE_FINDER
-(
+#define DX_HIGHEST_SCORE_FINDER (
    ;iterate highscores to find the highest
    {foreach_int $i 1 5
       {do
@@ -101,8 +99,12 @@
    {switch $name ;only set values if passed in score name is valid
       (tspeed ;trackspeed handling
          {set $trackspeed {/ $data 10}} ;we multiplied by 10 on save, undo that here
-         {if {< $trackspeed 1} {set $trackspeed 1}} ;for safety, cap values
-         {if {> $trackspeed 3.5} {set $trackspeed 3.5}} ;for safety, cap values
+         {if {< $trackspeed 1}
+            {set $trackspeed 1}
+         } ;for safety, cap values
+         {if {> $trackspeed 3.5}
+            {set $trackspeed 3.5}
+         } ;for safety, cap values
       )
       kDataUnhandled
    }
