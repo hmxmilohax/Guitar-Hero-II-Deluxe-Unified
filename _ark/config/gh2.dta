@@ -207,67 +207,14 @@
    #include guitars.dta
 )
 (characters
-   (punk
-      (punk1)
-      (punk2)
-      (punk3)
-      #ifdef HX_XBOX
-      (punk4)
-      #endif
-   )
-   (alterna
-      (alterna1)
-      (alterna2)
-      (alterna3)
-      #ifdef HX_XBOX
-      (alterna4)
-      #endif
-   )
-   (glam
-      (glam1)
-      (glam2)
-      (glam3)
-      #ifdef HX_XBOX
-      (glam4)
-      #endif
-   )
-   (goth
-      (goth2)
-      (goth1)
-      (goth3)
-      #ifdef HX_XBOX
-      (goth4)
-      #endif
-   )
-   (metal
-      (metal1)
-      (metal2)
-      (metal3)
-      #ifdef HX_XBOX
-      (metal4)
-      #endif
-   )
-   (rockabill
-      (rockabill1)
-      (rockabill2)
-      #ifdef HX_XBOX
-      (eddiebill3)
-      #endif
-   )
-   (rock
-      (rock2)
-      (rock1)
-      #ifdef HX_XBOX
-      (rock3)
-      #endif
-   )
-   (deathmetal
-      (deathmetal1)
-      (deathmetal2)
-      #ifdef HX_XBOX
-      (deathmetal3)
-      #endif
-   )
+   (punk (punk1) (punk2))
+   (alterna (alterna1) (alterna2))
+   (glam (glam1) (glam2))
+   (goth (goth2) (goth1))
+   (metal (metal1) (metal2))
+   (rockabill (rockabill1) (rockabill2))
+   (rock (rock2) (rock1))
+   (deathmetal (deathmetal1) (deathmetal2))
    (classic
       (classic)
       #ifdef HX_XBOX
@@ -280,13 +227,23 @@
       (funk2)
       #endif
    )
-   (grim
-      (grim)
-      (gr80)
-      #ifdef HX_XBOX
-      (grog)
-      #endif
-   )
+   (grim (grim) (gr80))
+   (glam3 (glam3))
+   (alterna3 (alterna3))
+   (punk3 (punk3))
+   (goth3 (goth3))
+   (metal3 (metal3))
+   #ifdef HX_XBOX
+   (punk4 (punk4))
+   (grog (grog))
+   (metal4 (metal4))
+   (deathmetal3 (deathmetal3))
+   (rock3 (rock3))
+   (eddiebill3 (eddiebill3))
+   (goth4 (goth4))
+   (glam4 (glam4))
+   (alterna4 (alterna4))
+   #endif
 )
 (mc
    #include mc.dta

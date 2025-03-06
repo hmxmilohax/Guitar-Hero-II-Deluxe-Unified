@@ -1,67 +1,68 @@
 #define CHARACTERS (
    (punk alterna glam goth metal rockabill rock deathmetal classic funk1 grim)
 )
-#define IGNORED_CHARS (
+#define EXTENDED_CHARS (
+   punk2
    punk3
+   #ifdef HX_XBOX
+   punk4
+   #endif
+   alterna2
    alterna3
+   #ifdef HX_XBOX
+   alterna4
+   #endif
+   glam2
    glam3
+   #ifdef HX_XBOX
+   glam4
+   #endif
+   goth1
    goth3
+   #ifdef HX_XBOX
+   goth4
+   #endif
+   metal2
    metal3
-   gr80
+   #ifdef HX_XBOX
+   metal4
+   #endif
+   deathmetal2
    #ifdef HX_XBOX
    deathmetal3
+   #endif
+   rock1
+   #ifdef HX_XBOX
+   rock3
+   #endif
+   rockabill2
+   #ifdef HX_XBOX
    eddiebill3
    cwretro
    funk2
-   rock3
+   #endif
+   gr80
+   #ifdef HX_XBOX
    grog
    #endif
 )
-#ifdef HX_XBOX
-;a 4th+ outfit doesnt actually load, stuff them in this define
-#define IGNORED_XBOX_PORTS (alterna4 punk4 goth4 glam4 metal4)
-#endif
 #define LOAD_CHARACTERS (
    (punk1
-      punk2
       alterna1
-      alterna2
       glam1
-      glam2
       goth2
-      goth1
       metal1
-      metal2
       rockabill1
-      rockabill2
       rock2
-      rock1
       deathmetal1
-      deathmetal2
       classic
       funk1
       grim
-      ;I don't know why added chars don't load in debug ui. we hide them here
-      #ifdef _SHIP
-      IGNORED_CHARS
-      #endif
+      EXTENDED_CHARS
    )
 )
 #define STORE_CHARACTERS (classic funk1 grim)
-#define STORE_OUTFITS (
-   punk2
-   alterna2
-   glam2
-   goth1
-   metal2
-   rockabill2
-   rock1
-   deathmetal2
-   ;I don't know why added chars don't load in debug store either. we hide them here
-   #ifdef _SHIP
-   IGNORED_CHARS
-   #endif
-)
+#define STORE_OUTFITS (EXTENDED_CHARS)
 #define SKIN_ANIM_TIME (0.4)
 (init
    #include init.dta

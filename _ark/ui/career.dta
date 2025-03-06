@@ -240,7 +240,12 @@
    (focus character.lst)
    (skin_select FALSE)
    (enter
-      {character.lst set_provider character_provider}
+      ;we statically set the contents of the select character list here
+      ;because we have hidden characters that scroll past the end of the list normally
+      {character.lst set_data
+         (punk alterna glam goth metal rockabill rock deathmetal classic funk1 grim)
+      }
+      ;{character.lst set_provider character_provider}
       {animate_forever_30fps $this sel_character.view}
       {sel_skin.tnm set_frame 0}
       {char_highlight.mnm animate
@@ -261,9 +266,63 @@
          {sc_char_blurb.lbl set_localized_text
             {localize {sprint $character "_blurb"}}
          }
-         {$this set char_focus $character}
+         ;specifically 80s grim is not classified as a character, but has a unique bio, so display it here
+         {if {== {game get_character_outfit} gr80}
+            {sc_char_blurb.lbl set_localized_text {localize gr80_blurb}}
+         }
          {$this set char_outfit $outfit}
-         {character.lst set_selected {character_provider get_index $character}}
+         ;thats right, another huge switch!
+         ;we need to map the extended characters to where they actually go in the list, and then jump to that spot
+         {switch {game get_character}
+            (
+               (punk3 punk4 punk5)
+               {$this set char_focus punk}
+               {character.lst set_selected 0}
+            )
+            (
+               (alterna3 alterna4 alterna5)
+               {$this set char_focus alterna}
+               {character.lst set_selected 1}
+            )
+            (
+               (glam3 glam4 glam5)
+               {$this set char_focus glam}
+               {character.lst set_selected 2}
+            )
+            (
+               (goth3 goth4 goth5)
+               {$this set char_focus goth}
+               {character.lst set_selected 3}
+            )
+            (
+               (metal3 metal4 metal5)
+               {$this set char_focus metal}
+               {character.lst set_selected 4}
+            )
+            (
+               (eddiebill3 eddiebill4)
+               {$this set char_focus rockabill}
+               {character.lst set_selected 5}
+            )
+            (
+               (rock3 rock4)
+               {$this set char_focus rock}
+               {character.lst set_selected 6}
+            )
+            (
+               (deathmetal3 deathmetal4)
+               {$this set char_focus deathmetal}
+               {character.lst set_selected 7}
+            )
+            (
+               (gr80 grog)
+               {$this set char_focus grim}
+               {character.lst set_selected 10}
+            )
+            ;fallback for any characters not listed above
+            {$this set char_focus $character}
+            {character.lst set_selected {character_provider get_index $character}}
+         }
          {$this set old_scroll_pos {character.lst selected_pos}}
          {char_highlight.tnm set_frame [old_scroll_pos]}
          {foreach $c CHARACTERS
@@ -298,6 +357,45 @@
          {$this set_focus outfit2.btn}
          {$this set_focus outfit1.btn}
       }
+      ;set up another static list to detirmine if a 3rd, 4th, and 5th alt outfit is available for the selected char
+      ;then also store that outfit name
+      {if $dx_third_outfit
+         {set $alt3outfit 0}
+         {switch [char_focus]
+            (alterna {set $alt3outfit alterna3})
+            (glam {set $alt3outfit glam3})
+            (punk {set $alt3outfit punk3})
+            (metal {set $alt3outfit metal3})
+            (goth {set $alt3outfit goth3})
+            (rockabill {set $alt3outfit eddiebill3})
+            (deathmetal {set $alt3outfit deathmetal3})
+            (grim {set $alt3outfit grog})
+            (rock {set $alt3outfit rock3})
+         }
+      }
+      {if $dx_fourth_outfit
+         {set $alt4outfit 0}
+         {switch [char_focus]
+            (alterna {set $alt4outfit alterna4})
+            (glam {set $alt4outfit glam4})
+            (punk {set $alt4outfit punk4})
+            (metal {set $alt4outfit metal4})
+            (goth {set $alt4outfit goth4})
+            (rockabill {set $alt4outfit eddiebill4})
+            (deathmetal {set $alt4outfit deathmetal4})
+            (rock {set $alt4outfit rock4})
+         }
+      }
+      {if $dx_fifth_outfit
+         {set $alt5outfit 0}
+         {switch [char_focus]
+            (alterna {set $alt5outfit alterna5})
+            (glam {set $alt5outfit glam5})
+            (punk {set $alt5outfit punk5})
+            (metal {set $alt5outfit metal5})
+            (goth {set $alt5outfit goth5})
+         }
+      }
       ;if a third outfit is found, enable our third button, otherwise disable it
       {if_else $dx_third_outfit
          {do
@@ -305,7 +403,7 @@
             {outfit0.btn set_showing TRUE}
             {outfit0.btn set_text
                {sprint
-                  {character_provider get_outfit [char_focus] 2}
+                  {character_provider get_outfit $alt3outfit 0}
                   _outfit
                }
             }
@@ -315,14 +413,14 @@
             {outfit0.btn set_showing FALSE}
          }
       }
-      ;if a fourth outfit is found, enable our third button, otherwise disable it
+      ;if a fourth outfit is found, enable our fourth button, otherwise disable it
       {if_else $dx_fourth_outfit
          {do
-            {$this enable outfit0.btn}
+            {$this enable outfit3.btn}
             {outfit3.btn set_showing TRUE}
             {outfit3.btn set_text
                {sprint
-                  {character_provider get_outfit [char_focus] 3}
+                  {character_provider get_outfit $alt4outfit 0}
                   _outfit
                }
             }
@@ -332,14 +430,14 @@
             {outfit3.btn set_showing FALSE}
          }
       }
-      ;if a fifth outfit is found, enable our third button, otherwise disable it
+      ;if a fifth outfit is found, enable our fifth button, otherwise disable it
       {if_else $dx_fifth_outfit
          {do
             {$this enable outfit4.btn}
             {outfit4.btn set_showing TRUE}
             {outfit4.btn set_text
                {sprint
-                  {character_provider get_outfit [char_focus] 4}
+                  {character_provider get_outfit $alt5outfit 0}
                   _outfit
                }
             }
@@ -378,6 +476,54 @@
    (SCROLL_MSG
       {do
          ($new_scroll_pos {character.lst selected_pos})
+         ;handle skipping locked chars in our new static list
+         ;yes i know this also sucks
+         ;the idea is we check the last position, and the position we scrolled to
+         ;this gives us a direction, and an understanding if we are out of the current bounds
+         ;since we made the list static, it doesnt dynamically reduce the list itself
+         ;we have to manage those locked spots, and skip if they are locked
+         {if {== [old_scroll_pos] 0}
+            {if {&& {== $new_scroll_pos 10} {! {campaign is_unlocked grim}}}
+               {$this set old_scroll_pos $new_scroll_pos}
+               {set $new_scroll_pos {- $new_scroll_pos 1}}
+               {character.lst set_selected $new_scroll_pos}
+            }
+         }
+         {if {== [old_scroll_pos] 10}
+            {if {&& {== $new_scroll_pos 9} {! {campaign is_unlocked funk1}}}
+               {$this set old_scroll_pos $new_scroll_pos}
+               {set $new_scroll_pos {- $new_scroll_pos 1}}
+               {character.lst set_selected $new_scroll_pos}
+            }
+         }
+         {if {== [old_scroll_pos] 9}
+            {if {&& {== $new_scroll_pos 8} {! {campaign is_unlocked classic}}}
+               {$this set old_scroll_pos $new_scroll_pos}
+               {set $new_scroll_pos {- $new_scroll_pos 1}}
+               {character.lst set_selected $new_scroll_pos}
+            }
+         }
+         {if {== [old_scroll_pos] 7}
+            {if {&& {== $new_scroll_pos 8} {! {campaign is_unlocked classic}}}
+               {$this set old_scroll_pos $new_scroll_pos}
+               {set $new_scroll_pos {+ $new_scroll_pos 1}}
+               {character.lst set_selected $new_scroll_pos}
+            }
+         }
+         {if {== [old_scroll_pos] 8}
+            {if {&& {== $new_scroll_pos 9} {! {campaign is_unlocked funk1}}}
+               {$this set old_scroll_pos $new_scroll_pos}
+               {set $new_scroll_pos {+ $new_scroll_pos 1}}
+               {character.lst set_selected $new_scroll_pos}
+            }
+         }
+         {if {== [old_scroll_pos] 9}
+            {if {&& {== $new_scroll_pos 10} {! {campaign is_unlocked grim}}}
+               {$this set old_scroll_pos $new_scroll_pos}
+               {set $new_scroll_pos 0}
+               {character.lst set_selected $new_scroll_pos}
+            }
+         }
          {if
             {&&
                {!= $new_scroll_pos [old_scroll_pos]}
@@ -409,31 +555,307 @@
          {do
             ($idx)
             ($old_char)
+            {set $char_stored_focus $new_focus}
             {synth play_sequence button_toggle}
             ;extends idx support for a third outfit
-            {switch $new_focus
+            ;we store extended outfits on new chars, so we map idx to account
+            {switch $char_stored_focus
                ("outfit1.btn" {set $idx 0})
                ("outfit2.btn" {set $idx 1})
-               ("outfit0.btn" {set $idx 2})
-               ("outfit3.btn" {set $idx 3})
-               ("outfit4.btn" {set $idx 4})
+               ("outfit0.btn" {set $idx 0}) ;outfit 3 (80s)
+               ("outfit3.btn" {set $idx 0}) ;outfit 4 (ps2 1)
+               ("outfit4.btn" {set $idx 1}) ;outfit 5 (ps2 2)
             }
             {set [char_outfit]
                {character_provider get_outfit [char_focus] $idx}
             }
-            ;restore idx to 0 because tnm sucks
-            {switch $idx
+            ;replaced the tnm with manually moving the mesh to account for our new buttons
+            ;its just easier than hex editing the tnm sorry
+            {switch $char_stored_focus
+               ("outfit1.btn" {cs_arrow.mesh set_local_pos 20 0 120})
+               ("outfit2.btn" {cs_arrow.mesh set_local_pos 20 0 80})
+               ("outfit0.btn" {cs_arrow.mesh set_local_pos 20 0 160}) ;outfit 3 (80s)
+               ("outfit3.btn" {cs_arrow.mesh set_local_pos 20 0 40}) ;outfit 4 (ps2 1)
+               ("outfit4.btn" {cs_arrow.mesh set_local_pos 20 0 0}) ;outfit 5 (ps2 2)
+            }
+            ;{cs_arrow.tnm set_frame $idx}
+            {set $old_char {char_single get_char 0}}
+            ;yes i know this is terrible. im sorry
+            ;so, the game eats shit on `show_char` whenever there is a 3rd+ outfit for a char
+            ;I didnt want to add the extra outfits as chars, but because of this problem, i had to
+            ;so here, we have to fix up the character before we use show_char
+            ;this will check which button is highlight, and handle setting to the proper char and outfit manually
+            ;$old_char is set to false because of an issue with charclips overflowing when switching characters like this
+            {switch $char_stored_focus
                (
-                  (2 0)
-                  {set $idx 0}
+                  "outfit0.btn" ;outfit 3 (80s)
+                  {switch {char_single get_char 0}
+                     (
+                        (alterna alterna1 alterna2 alterna3 alterna4 alterna5)
+                        {set $old_char FALSE}
+                        {game set_character alterna3 TRUE}
+                        {$this set char_outfit alterna3}
+                     )
+                     (
+                        (glam glam1 glam2 glam3 glam4 glam5)
+                        {set $old_char FALSE}
+                        {game set_character glam3 TRUE}
+                        {$this set char_outfit glam3}
+                     )
+                     (
+                        (punk punk1 punk2 jnog punk3 punk4 punk5)
+                        {set $old_char FALSE}
+                        {game set_character punk3 TRUE}
+                        {$this set char_outfit punk3}
+                     )
+                     (
+                        (metal metal1 metal2 metal3 metal4 metal5)
+                        {set $old_char FALSE}
+                        {game set_character metal3 TRUE}
+                        {$this set char_outfit metal3}
+                     )
+                     (
+                        (goth goth1 goth2 goth3 goth4 goth5)
+                        {set $old_char FALSE}
+                        {game set_character goth3 TRUE}
+                        {$this set char_outfit goth3}
+                     )
+                     #ifdef HX_XBOX
+                     (
+                        (rockabill rockabill1 rockabill2 eddiebill3 eddiebill4)
+                        {set $old_char FALSE}
+                        {game set_character eddiebill3 TRUE}
+                        {$this set char_outfit eddiebill3}
+                     )
+                     (
+                        (deathmetal deathmetal1 deathmetal2 deathmetal3 deathmetal4)
+                        {set $old_char FALSE}
+                        {game set_character deathmetal3 TRUE}
+                        {$this set char_outfit deathmetal3}
+                     )
+                     (
+                        (rock rock1 rock2 rock3 rock4)
+                        {set $old_char FALSE}
+                        {game set_character rock3 TRUE}
+                        {$this set char_outfit rock3}
+                     )
+                     (
+                        (grim gr80 grog)
+                        {game set_character grog TRUE}
+                        {set $old_char FALSE}
+                        {$this set char_outfit grog}
+                     )
+                     #endif
+                  }
                )
                (
-                  (1 3 4)
-                  {set $idx 1}
+                  "outfit1.btn"
+                  {switch {char_single get_char 0}
+                     (
+                        (alterna alterna1 alterna2 alterna3 alterna4 alterna5)
+                        {set $old_char FALSE}
+                        {game set_character alterna1 TRUE}
+                        {$this set char_outfit alterna1}
+                     )
+                     (
+                        (glam glam1 glam2 glam3 glam4 glam5)
+                        {set $old_char FALSE}
+                        {game set_character glam1 TRUE}
+                        {$this set char_outfit glam1}
+                     )
+                     (
+                        (punk punk1 punk2 jnog punk3 punk4 punk5)
+                        {set $old_char FALSE}
+                        {game set_character punk1 TRUE}
+                        {$this set char_outfit punk1}
+                     )
+                     (
+                        (metal metal1 metal2 metal3 metal4 metal5)
+                        {set $old_char FALSE}
+                        {game set_character metal1 TRUE}
+                        {$this set char_outfit metal1}
+                     )
+                     (
+                        (goth goth1 goth2 goth3 goth4 goth5)
+                        {set $old_char FALSE}
+                        {game set_character goth2 TRUE}
+                        {$this set char_outfit goth2}
+                     )
+                     (
+                        (rockabill rockabill1 rockabill2 eddiebill3 eddiebill4)
+                        {set $old_char FALSE}
+                        {game set_character rockabill1 TRUE}
+                        {$this set char_outfit rockabill1}
+                     )
+                     (
+                        (deathmetal deathmetal1 deathmetal2 deathmetal3 deathmetal4)
+                        {set $old_char FALSE}
+                        {game set_character deathmetal1 TRUE}
+                        {$this set char_outfit deathmetal1}
+                     )
+                     (
+                        (rock rock1 rock2 rock3 rock4)
+                        {set $old_char FALSE}
+                        {game set_character rock2 TRUE}
+                        {$this set char_outfit rock2}
+                     )
+                     (
+                        (grim grog gr80)
+                        {set $old_char FALSE}
+                        {game set_character grim TRUE}
+                        {$this set char_outfit grim}
+                     )
+                  }
+               )
+               (
+                  "outfit2.btn"
+                  {switch {char_single get_char 0}
+                     (
+                        (alterna alterna1 alterna2 alterna3 alterna4 alterna5)
+                        {set $old_char FALSE}
+                        {game set_character alterna2 TRUE}
+                        {$this set char_outfit alterna2}
+                     )
+                     (
+                        (glam glam1 glam2 glam3 glam4 glam5)
+                        {set $old_char FALSE}
+                        {game set_character glam2 TRUE}
+                        {$this set char_outfit glam2}
+                     )
+                     (
+                        (punk punk1 punk2 jnog punk3 punk4 punk5)
+                        {set $old_char FALSE}
+                        {game set_character punk2 TRUE}
+                        {$this set char_outfit punk2}
+                     )
+                     (
+                        (metal metal1 metal2 metal3 metal4 metal5)
+                        {set $old_char FALSE}
+                        {game set_character metal2 TRUE}
+                        {$this set char_outfit metal2}
+                     )
+                     (
+                        (goth goth1 goth2 goth3 goth4 goth5)
+                        {set $old_char FALSE}
+                        {game set_character goth1 TRUE}
+                        {$this set char_outfit goth1}
+                     )
+                     (
+                        (rockabill rockabill1 rockabill2 eddiebill3 eddiebill4)
+                        {set $old_char FALSE}
+                        {game set_character rockabill2 TRUE}
+                        {$this set char_outfit rockabill2}
+                     )
+                     (
+                        (deathmetal deathmetal1 deathmetal2 deathmetal3 deathmetal4)
+                        {set $old_char FALSE}
+                        {game set_character deathmetal2 TRUE}
+                        {$this set char_outfit deathmetal2}
+                     )
+                     (
+                        (rock rock1 rock2 rock3 rock4)
+                        {game set_character rock1 TRUE}
+                        {set $old_char FALSE}
+                        {$this set char_outfit rock1}
+                     )
+                     (
+                        (grim gr80 grog)
+                        {game set_character grim TRUE}
+                        {set $old_char FALSE}
+                        {$this set char_outfit gr80}
+                     )
+                  }
+               )
+               (
+                  "outfit3.btn" ;outfit 4 (ps2 1)
+                  {switch {char_single get_char 0}
+                     (
+                        (alterna alterna1 alterna2 alterna3 alterna4 alterna5)
+                        {set $old_char FALSE}
+                        {game set_character alterna4 TRUE}
+                        {$this set char_outfit alterna4}
+                     )
+                     (
+                        (glam glam1 glam2 glam3 glam4 glam5)
+                        {set $old_char FALSE}
+                        {game set_character glam4 TRUE}
+                        {$this set char_outfit glam4}
+                     )
+                     (
+                        (punk punk1 punk2 jnog punk3 punk4 punk5)
+                        {set $old_char FALSE}
+                        {game set_character punk4 TRUE}
+                        {$this set char_outfit punk4}
+                     )
+                     (
+                        (metal metal1 metal2 metal3 metal4 metal5)
+                        {set $old_char FALSE}
+                        {game set_character metal4 TRUE}
+                        {$this set char_outfit metal4}
+                     )
+                     (
+                        (goth goth1 goth2 goth3 goth4 goth5)
+                        {set $old_char FALSE}
+                        {game set_character goth4 TRUE}
+                        {$this set char_outfit goth4}
+                     )
+                     (
+                        (rockabill rockabill1 rockabill2 eddiebill3 eddiebill4)
+                        {set $old_char FALSE}
+                        {game set_character eddiebill4 TRUE}
+                        {$this set char_outfit eddiebill4}
+                     )
+                     (
+                        (deathmetal deathmetal1 deathmetal2 deathmetal3 deathmetal4)
+                        {set $old_char FALSE}
+                        {game set_character deathmetal4 TRUE}
+                        {$this set char_outfit deathmetal4}
+                     )
+                     (
+                        (rock rock1 rock2 rock3 rock4)
+                        {set $old_char FALSE}
+                        {game set_character rock4 TRUE}
+                        {$this set char_outfit rock4}
+                     )
+                  }
+               )
+               (
+                  "outfit4.btn" ;outfit 5 (ps2 2)
+                  {switch {char_single get_char 0}
+                     (
+                        (alterna alterna1 alterna2 alterna3 alterna4 alterna5)
+                        {set $old_char FALSE}
+                        {game set_character alterna5 TRUE}
+                        {$this set char_outfit alterna5}
+                     )
+                     (
+                        (glam glam1 glam2 glam3 glam4 glam5)
+                        {set $old_char FALSE}
+                        {game set_character glam5 TRUE}
+                        {$this set char_outfit glam5}
+                     )
+                     (
+                        (punk punk1 punk2 jnog punk3 punk4 punk5)
+                        {set $old_char FALSE}
+                        {game set_character punk5 TRUE}
+                        {$this set char_outfit punk5}
+                     )
+                     (
+                        (metal metal1 metal2 metal3 metal4 metal5)
+                        {set $old_char FALSE}
+                        {game set_character metal5 TRUE}
+                        {$this set char_outfit metal5}
+                     )
+                     (
+                        (goth goth1 goth2 goth3 goth4 goth5)
+                        {set $old_char FALSE}
+                        {game set_character goth5 TRUE}
+                        {$this set char_outfit goth5}
+                     )
+                  }
                )
             }
-            {cs_arrow.tnm set_frame $idx}
-            {set $old_char {char_single get_char 0}}
+            ;sheesh
             {if {char_single show_char 0 [char_outfit]}
                {do
                   ($new_char {char_single get_char 0})
@@ -506,19 +928,47 @@
       }
       {do
          ($sel_char {sel_character_panel get char_focus})
-         ;check to see if this outfit has more than two, for later
-         {if_else {> {character_provider num_outfits $sel_char} 2}
-            {set $dx_third_outfit TRUE}
-            {set $dx_third_outfit FALSE}
+         ;that's right, we are hardcoding maps between characters for outfits
+         ;outfit 3 is 80s, or ps2 outfit 1 on xbox
+         ;outfit 4 is outfit 1 on xbox on chars from ps2 with an 80s fit, outfit 2 from ps2 on those without
+         ;outfit 5 is the remaining outfit 2's from ps2 on xbox
+
+         ;we do the same for 4 and 5 outfit support
+         ;these flags enable and disable buttons dynamically in outfit select based on num of combined outfits across characters
+         {set $dx_third_outfit FALSE}
+         {switch {sel_character_panel get char_focus}
+            (
+               (punk
+                  alterna
+                  glam
+                  goth
+                  metal
+                  #ifdef HX_XBOX
+                  rockabill
+                  rock
+                  grim
+                  deathmetal
+                  #endif
+               )
+               {set $dx_third_outfit TRUE}
+            )
          }
-         {if_else {> {character_provider num_outfits $sel_char} 3}
-            {set $dx_fourth_outfit TRUE}
-            {set $dx_fourth_outfit FALSE}
+         #ifdef HX_XBOX
+         {set $dx_fourth_outfit FALSE}
+         {switch {sel_character_panel get char_focus}
+            (
+               (punk alterna glam goth metal) ;port these and add when done rockabill rock deathmetal
+               {set $dx_fourth_outfit TRUE}
+            )
          }
-         {if_else {> {character_provider num_outfits $sel_char} 4}
-            {set $dx_fifth_outfit TRUE}
-            {set $dx_fifth_outfit FALSE}
+         {set $dx_fifth_outfit FALSE}
+         {switch {sel_character_panel get char_focus}
+            (
+               (punk alterna glam goth metal)
+               {set $dx_fifth_outfit FALSE} ;set to true when remaining outfits are ported
+            )
          }
+         #endif
          {if_else {> {character_provider num_outfits $sel_char} 1}
             {sel_character_panel choose_skins}
             {do
