@@ -54,6 +54,8 @@
    "Saving Guitar Hero II Deluxe data. Do not remove memory card (8MB)(for PlayStation®2) in MEMORY CARD slot {SLOT}, reset, or switch off console."
 )
 
+(thunderhorse "Thunderhorse")
+
 ;extended char names
 
 (punk3 "Johnny Napalm")

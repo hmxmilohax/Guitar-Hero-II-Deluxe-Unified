@@ -1,4 +1,4 @@
-(badreputation ; DONE
+(badreputation 
    (name "Bad Reputation")
    (artist "Thin Lizzy")
    (song
@@ -67,7 +67,7 @@
       (midi_file songs/badreputation/badreputation.mid)
    )
 )
-(beastandtheharlot ; DONE
+(beastandtheharlot 
    (name "Beast And the Harlot")
    (artist "Avenged Sevenfold")
    (song
@@ -182,7 +182,7 @@
    )
 )
 ;;;;;;;;
-(cantyouhearme ; DONE
+(cantyouhearme 
    (name "Can't You Hear Me Knocking")
    (artist "The Rolling Stones")
    (song
@@ -250,7 +250,7 @@
       (midi_file songs/cantyouhearme/cantyouhearme.mid)
    )
 )
-(carrymehome ; DONE
+(carrymehome 
    (name "Carry Me Home")
    (artist "The Living End")
    (song
@@ -320,7 +320,7 @@
       (midi_file songs/carrymehome/carrymehome.mid)
    )
 )
-(carryonwayward ;; DONE
+(carryonwayward ;
    (name "Carry On Wayward Son")
    (artist "Kansas")
    (song
@@ -390,7 +390,7 @@
       (midi_file songs/carryonwayward/carryonwayward.mid)
    )
 )
-(cherrypie ; DONE
+(cherrypie 
    (name "Cherry Pie")
    (artist "Warrant")
    (song
@@ -468,7 +468,7 @@
       (midi_file songs/cherrypie/cherrypie.mid)
    )
 )
-(crazyonyou ; DONE
+(crazyonyou 
    (name "Crazy on You")
    (artist "Heart")
    (song
@@ -592,7 +592,7 @@
       (venue battle)
    )
 )
-(freebird ; DONE
+(freebird 
    (name "Free Bird")
    (artist "Lynyrd Skynyrd")
    (song
@@ -660,7 +660,7 @@
       (midi_file songs/freebird/freebird.mid)
    )
 )
-(freya ; DONE
+(freya 
    (name "Freya")
    (artist "The Sword")
    (song
@@ -729,7 +729,7 @@
       (midi_file songs/freya/freya.mid)
    )
 )
-(girlfriend ; DONE
+(girlfriend 
    (name "Girlfriend")
    (artist "Matthew Sweet")
    (song
@@ -797,7 +797,7 @@
       (midi_file songs/girlfriend/girlfriend.mid)
    )
 )
-(hangar18 ; DONE 
+(hangar18  
    (name "Hangar 18")
    (artist "Megadeth")
    (song
@@ -867,7 +867,7 @@
       (midi_file songs/hangar18/hangar18.mid)
    )
 )
-(heartshapedbox ; DONE
+(heartshapedbox 
    (name "Heart-Shaped Box")
    (artist "Nirvana")
    (song
@@ -989,7 +989,7 @@
       (venue big)
    )
 )
-(institutionalized ; DONE
+(institutionalized 
    (name "Institutionalized")
    (artist "Suicidal Tendencies")
    (song
@@ -1059,7 +1059,7 @@
       (midi_file songs/institutionalized/institutionalized.mid)
    )
 )
-(jessica ; DONE
+(jessica 
    (name "Jessica")
    (artist "The Allman Brothers Band")
    (song
@@ -1198,7 +1198,7 @@
       (midi_file songs/johnthefisherman/johnthefisherman.mid)
    )
 )
-(killinginthenameof ; DONE
+(killinginthenameof 
    (name "Killing In The Name")
    (artist "Rage Against The Machine")
    (song
@@ -1268,7 +1268,7 @@
       (midi_file songs/killinginthenameof/killinginthenameof.mid)
    )
 )
-(laidtorest ; DONE
+(laidtorest 
    (name "Laid To Rest")
    (artist "Lamb of God")
    (song
@@ -1344,7 +1344,7 @@
       (midi_file songs/laidtorest/laidtorest.mid)
    )
 )
-(lastchild ; DONE
+(lastchild 
    (name "Last Child")
    (artist "Aerosmith")
    (song
@@ -1452,7 +1452,7 @@
       (venue big)
    )
 )
-(madhouse ; DONE
+(madhouse 
    (name "Madhouse")
    (artist "Anthrax")
    (song
@@ -1521,7 +1521,7 @@
       (midi_file songs/madhouse/madhouse.mid)
    )
 )
-(messageinabottle ; DONE
+(messageinabottle 
    (name "Message In A Bottle")
    (artist "The Police")
    (song
@@ -1590,7 +1590,7 @@
       (midi_file songs/messageinabottle/messageinabottle.mid)
    )
 )
-(misirlou ; DONE
+(misirlou 
    (name "Misirlou")
    (artist "Dick Dale")
    (song
@@ -1740,7 +1740,7 @@
       (midi_file songs/mother/mother.mid)
    )
 )
-(monkeywrench ; Done
+(monkeywrench 
    (name "Monkey Wrench")
    (artist "Foo Fighters")
    (song
@@ -1854,7 +1854,7 @@
       (venue battle)
    )
 )
-(psychobilly ; Done
+(psychobilly 
    (name "Psychobilly Freakout")
    (artist "Reverend Horton Heat")
    (song
@@ -1960,7 +1960,7 @@
       (venue battle)
    )
 )
-(rockthistown ; DONE 
+(rockthistown  
    (name "Rock This Town")
    (artist "Stray Cats")
    (song
@@ -2072,7 +2072,7 @@
       (venue small1)
    )
 )
-(searchanddestroy ; DONE
+(searchanddestroy 
    (name "Search and Destroy")
    (artist "Iggy Pop and the Stooges")
    (song
@@ -2140,7 +2140,7 @@
       (midi_file songs/searchanddestroy/searchanddestroy.mid)
    )
 )
-(shoutatthedevil ; DONE
+(shoutatthedevil 
    (name "Shout At The Devil")
    (artist "Mötley Crüe")
    (song
@@ -2349,7 +2349,7 @@
       (midi_file songs/strutter/strutter.mid)
    )
 )
-(surrender ; Done
+(surrender 
    (name "Surrender")
    (artist "Cheap Trick")
    (song
@@ -2417,7 +2417,7 @@
       (midi_file songs/surrender/surrender.mid)
    )
 )
-(sweetchild ; Done
+(sweetchild 
    (name "Sweet Child O' Mine")
    (artist "Guns n' Roses")
    (song
@@ -2486,7 +2486,7 @@
       (midi_file songs/sweetchild/sweetchild.mid)
    )
 )
-(tattooedloveboys ; Done
+(tattooedloveboys 
    (name "Tattooed Love Boys")
    (artist "The Pretenders")
    (song
@@ -2559,7 +2559,7 @@
    )
    (band metal_bass metal_drummer female_singer)
 )
-(thembones ; DONE
+(thembones 
    (name "Them Bones")
    (artist "Alice in Chains")
    (song
@@ -2698,7 +2698,7 @@
       (midi_file songs/tonightimgonna/tonightimgonna.mid)
    )
 )
-(trippinonahole ; DONE
+(trippinonahole 
    (name "Trippin' on a Hole in a Paper Heart")
    (artist "Stone Temple Pilots")
    (song
@@ -2806,7 +2806,7 @@
       (venue arena)
    )
 )
-(warpigs ; DONE
+(warpigs 
    (name "War Pigs")
    (artist "Black Sabbath")
    (song
@@ -2949,7 +2949,7 @@
       (hopo_threshold 250)
    )
 )
-(woman ; DONE
+(woman 
    (name "Woman")
    (artist "Wolfmother")
    (song
@@ -3158,7 +3158,7 @@
 
 ; BONUS SONGS START
 
-(arterialblack ; DONE - identical between 360 and ps2
+(arterialblack  - identical between 360 and ps2
    (name "Arterial Black")
    (artist "Drist")
    (caption performed_by)
@@ -3223,7 +3223,7 @@
       (midi_file songs/arterialblack/arterialblack.mid)
    )
 )
-(collide ; DONE - identical between 360 and ps2
+(collide  - identical between 360 and ps2
    (name "Collide")
    (artist "Anarchy Club")
    (caption performed_by)
@@ -3288,7 +3288,7 @@
       (midi_file songs/collide/collide.mid)
    )
 )
-(elephantbones ; DONE - identical between 360 and ps2
+(elephantbones  - identical between 360 and ps2
    (name "Elephant Bones")
    (artist "That Handsome Devil")
    (caption performed_by)
@@ -3353,7 +3353,7 @@
       (midi_file songs/elephantbones/elephantbones.mid)
    )
 )
-(fallofpangea ; done
+(fallofpangea 
    (name "Fall Of Pangea")
    (artist "Valient Thorr")
    (caption performed_by)
@@ -3432,7 +3432,7 @@
       (midi_file songs/fallofpangea/fallofpangea.mid)
    )
 )
-(ftk ; done
+(ftk 
    (name "FTK")
    (artist "Vagiant")
    (caption performed_by)
@@ -3502,7 +3502,7 @@
    )
    (band female_singer metal_drummer metal_bass)
 )
-(gemini ; done - idenctical between 360 and ps2
+(gemini  - idenctical between 360 and ps2
    (name "Gemini")
    (artist "Brian Kahanek")
    (caption performed_by)
@@ -3568,7 +3568,7 @@
    )
    (band metal_bass metal_drummer)
 )
-(jordan ; done
+(jordan 
    (name "Jordan")
    (artist "Buckethead")
    (caption performed_by)
@@ -3679,7 +3679,7 @@
       (venue small2)
    )
 )
-(ladylightning ; DONE - identical between 360 and ps2
+(ladylightning  - identical between 360 and ps2
    (name "Push Push (Lady Lightning)")
    (artist "Bang Camaro")
    (caption performed_by)
@@ -3744,7 +3744,7 @@
       (midi_file songs/ladylightning/ladylightning.mid)
    )
 )
-(laughtrack ; DONE
+(laughtrack 
    (name "Laughtrack")
    (artist "The Acro-brats")
    (caption performed_by)
@@ -3814,7 +3814,7 @@
       (midi_file songs/laughtrack/laughtrack.mid)
    )
 )
-(lesstalkmorerokk ; DONE
+(lesstalkmorerokk 
    (name "Less Talk More Rokk")
    (artist "Freezepop")
    (caption performed_by)
@@ -3884,7 +3884,7 @@
    )
    (band female_singer metal_drummer metal_bass)
 )
-(mrfixit ; DONE - identical between 360 and ps2
+(mrfixit  - identical between 360 and ps2
    (name "Mr. Fix It")
    (artist "The Amazing Crowns")
    (caption performed_by)
@@ -4019,7 +4019,7 @@
       (midi_file songs/newblack/newblack.mid)
    )
 )
-(onefortheroad ; Done - identical between 360 and ps2
+(onefortheroad  - identical between 360 and ps2
    (name "One For the Road")
    (artist "Breaking Wheel")
    (caption performed_by)
@@ -4088,7 +4088,7 @@
       (hopo_threshold 250)
    )
 )
-(parasite ; done
+(parasite 
    (name "Parasite")
    (artist "The Neighborhoods")
    (caption performed_by)
@@ -4158,7 +4158,7 @@
       (midi_file songs/parasite/parasite.mid)
    )
 )
-(radiumeyes ; done - identical between 360 and ps2
+(radiumeyes  - identical between 360 and ps2
    (name "Radium Eyes")
    (artist "Count Zero")
    (caption performed_by)
@@ -4223,7 +4223,7 @@
       (midi_file songs/radiumeyes/radiumeyes.mid)
    )
 )
-(redlottery ; DONE
+(redlottery 
    (name "Red Lottery")
    (artist "Megasus")
    (caption performed_by)
@@ -4304,7 +4304,7 @@
       (midi_file songs/redlottery/redlottery.mid)
    )
 )
-(rawdog ; DONE
+(rawdog 
    (name "Raw Dog")
    (artist "The Last Vegas")
    (caption performed_by)
@@ -4385,7 +4385,7 @@
       (hopo_threshold 250)
    )
 )
-(six ; done - identical between 360 and ps2
+(six  - identical between 360 and ps2
    (name "Six")
    (artist "All That Remains")
    (caption performed_by)
@@ -4450,7 +4450,7 @@
       (midi_file songs/six/six.mid)
    )
 )
-(soybomb ; DONE
+(soybomb 
    (name "Soy Bomb")
    (artist "Honest Bob and the Factory-to-Dealer Incentives")
    (caption performed_by)
@@ -4521,7 +4521,7 @@
    )
    (band metal_bass metal_drummer)
 )
-(thelightthatblinds ; done
+(thelightthatblinds 
    (name "The Light That Blinds")
    (artist "Shadows Fall")
    (caption performed_by)
@@ -4591,7 +4591,7 @@
       (midi_file songs/thelightthatblinds/thelightthatblinds.mid)
    )
 )
-(thunderhorse ; done
+(thunderhorse 
    (name "Thunderhorse")
    (artist "Dethklok")
    (caption performed_by)
@@ -4665,7 +4665,7 @@
       (hopo_threshold 250)
    )
 )
-(trogdor ; done
+(trogdor 
    (name "Trogdor")
    (artist "Strong Bad")
    (caption performed_by)
@@ -4869,7 +4869,7 @@
       (venue big)
    )
 )
-(yeswecan ; DONE
+(yeswecan 
    (name "Yes We Can")
    (artist "Made in Mexico")
    (caption performed_by)
