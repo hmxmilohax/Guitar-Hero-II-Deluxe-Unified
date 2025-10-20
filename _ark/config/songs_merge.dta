@@ -183,7 +183,7 @@
 )
 ;;;;;;;;
 (cantyouhearme ; DONE
-   (name "Can't You Hear Me Knockin'")
+   (name "Can't You Hear Me Knocking")
    (artist "The Rolling Stones")
    (song
       (name songs/cantyouhearme/cantyouhearme_coop)
@@ -1924,7 +1924,7 @@
 )
 ;; 360 Exclusive
 (rockandroll
-   (name "Rock and Roll Hoochie Koo")
+   (name "Rock and Roll, Hoochie Koo")
    (artist "Rick Derringer")
    (song
       (name songs/rockandroll/rockandroll)
@@ -4748,7 +4748,7 @@
    )
 )
 (xstream
-   (name "X-Stream")
+   (name "The X-Stream")
    (artist "Voivod")
    (caption performed_by)
    (song
