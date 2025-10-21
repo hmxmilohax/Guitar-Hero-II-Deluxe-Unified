@@ -19,6 +19,9 @@
       metaloop_hoods
       metaloop_rawdog
       metaloop_voivod
+      metaloop4_youreally
+      metaloop5_arterial
+      metaloop6_trogdor
    )
    (background_sfx
       (sequence meta_people)
