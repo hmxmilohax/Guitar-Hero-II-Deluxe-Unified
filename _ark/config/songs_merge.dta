@@ -3158,7 +3158,7 @@
 
 ; BONUS SONGS START
 
-(arterialblack  - identical between 360 and ps2
+(arterialblack
    (name "Arterial Black")
    (artist "Drist")
    (caption performed_by)
@@ -3223,7 +3223,7 @@
       (midi_file songs/arterialblack/arterialblack.mid)
    )
 )
-(collide  - identical between 360 and ps2
+(collide
    (name "Collide")
    (artist "Anarchy Club")
    (caption performed_by)
@@ -3288,7 +3288,7 @@
       (midi_file songs/collide/collide.mid)
    )
 )
-(elephantbones  - identical between 360 and ps2
+(elephantbones
    (name "Elephant Bones")
    (artist "That Handsome Devil")
    (caption performed_by)
@@ -3679,7 +3679,7 @@
       (venue small2)
    )
 )
-(ladylightning  - identical between 360 and ps2
+(ladylightning
    (name "Push Push (Lady Lightning)")
    (artist "Bang Camaro")
    (caption performed_by)
@@ -3884,7 +3884,7 @@
    )
    (band female_singer metal_drummer metal_bass)
 )
-(mrfixit  - identical between 360 and ps2
+(mrfixit
    (name "Mr. Fix It")
    (artist "The Amazing Crowns")
    (caption performed_by)
@@ -4019,7 +4019,7 @@
       (midi_file songs/newblack/newblack.mid)
    )
 )
-(onefortheroad  - identical between 360 and ps2
+(onefortheroad
    (name "One For the Road")
    (artist "Breaking Wheel")
    (caption performed_by)
@@ -4158,7 +4158,7 @@
       (midi_file songs/parasite/parasite.mid)
    )
 )
-(radiumeyes  - identical between 360 and ps2
+(radiumeyes
    (name "Radium Eyes")
    (artist "Count Zero")
    (caption performed_by)
@@ -4385,7 +4385,7 @@
       (hopo_threshold 250)
    )
 )
-(six  - identical between 360 and ps2
+(six
    (name "Six")
    (artist "All That Remains")
    (caption performed_by)
