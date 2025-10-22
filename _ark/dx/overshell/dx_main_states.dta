@@ -73,6 +73,7 @@
             mod_black_background
             mod_half_venue_fps
             mod_fast_menus
+            mod_whammyfx
             #ifdef HX_XBOX
             mod_auto_play
             #endif
@@ -95,6 +96,7 @@
          )
          (mod_half_venue_fps {set $dx_half_venue_fps {! $dx_half_venue_fps}})
          (mod_fast_menus {set $dx_fast_menus {! $dx_fast_menus}})
+         (mod_whammyfx {set $dx_whammyfx {! $dx_whammyfx}})
          (mod_auto_play
             {if_else $dx_auto_play
                {set $dx_auto_play FALSE}

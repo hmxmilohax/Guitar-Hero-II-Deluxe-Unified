@@ -376,6 +376,14 @@
       "Fast Menus"
    }
 )
+(mod_whammyfx
+   {sprint
+      {if_else $dx_whammyfx
+         OS_ONOFF
+      }
+      "Whammy FX"
+   }
+)
 (mod_auto_play
    {sprint
       {if_else $dx_auto_play

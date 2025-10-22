@@ -12,7 +12,7 @@
       }
    )
    (cheat_error 0)
-   (pitch_bend_range 1)
+   (pitch_bend_range $dx_whammyfx) ;was 1
    (ms_to_full_pitch_bend 1000)
 )
 (parser (hopo_threshold 170))

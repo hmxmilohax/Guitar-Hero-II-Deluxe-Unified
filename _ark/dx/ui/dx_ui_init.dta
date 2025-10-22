@@ -4,5 +4,8 @@
 ; Track/Highway/Note Speed - Each .1 is 10%
 {set $trackspeed 1.0}
 
+; Toggles whammy pitch bend
+{set $dx_whammyfx 1}
+
 ; Allow access to the debug menu in overshell without entering the cheat
 {set $dx_debug FALSE}
