@@ -5,41 +5,49 @@
    punk2
    punk3
    #ifdef HX_XBOX
-   punk4
+   puog1
+   puog2
    #endif
    alterna2
    alterna3
    #ifdef HX_XBOX
-   alterna4
+   alterog1
+   alterog2
    #endif
    glam2
    glam3
    #ifdef HX_XBOX
-   glam4
+   glog1
+   glog2
    #endif
    goth1
    goth3
    #ifdef HX_XBOX
-   goth4
+   goog1
+   goog2
    #endif
    metal2
    metal3
    #ifdef HX_XBOX
-   metal4
+   metog1
+   metog2
    #endif
    deathmetal2
    #ifdef HX_XBOX
-   deathmetal3
+   deathmetog1
+   deathmetog2
    #endif
    rock1
    #ifdef HX_XBOX
-   rock3
+   roog1
+   roog2
    #endif
    rockabill2
    #ifdef HX_XBOX
-   eddiebill3
-   cwretro
-   funk2
+   rockabiog1
+   rockabiog2
+   classog
+   fuog1
    #endif
    gr80
    #ifdef HX_XBOX

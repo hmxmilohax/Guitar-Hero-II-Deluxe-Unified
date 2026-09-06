@@ -275,42 +275,42 @@
          ;we need to map the extended characters to where they actually go in the list, and then jump to that spot
          {switch {game get_character}
             (
-               (punk3 punk4 punk5)
+               (punk3 puog1 puog2)
                {$this set char_focus punk}
                {character.lst set_selected 0}
             )
             (
-               (alterna3 alterna4 alterna5)
+               (alterna3 alterog1 alterog2)
                {$this set char_focus alterna}
                {character.lst set_selected 1}
             )
             (
-               (glam3 glam4 glam5)
+               (glam3 glog1 glog2)
                {$this set char_focus glam}
                {character.lst set_selected 2}
             )
             (
-               (goth3 goth4 goth5)
+               (goth3 goog1 goog2)
                {$this set char_focus goth}
                {character.lst set_selected 3}
             )
             (
-               (metal3 metal4 metal5)
+               (metal3 metog1 metog2)
                {$this set char_focus metal}
                {character.lst set_selected 4}
             )
             (
-               (eddiebill3 eddiebill4)
+               (rockabiog1 rockabiog2)
                {$this set char_focus rockabill}
                {character.lst set_selected 5}
             )
             (
-               (rock3 rock4)
+               (roog1 roog2)
                {$this set char_focus rock}
                {character.lst set_selected 6}
             )
             (
-               (deathmetal3 deathmetal4)
+               (deathmetog1 deathmetog2)
                {$this set char_focus deathmetal}
                {character.lst set_selected 7}
             )
@@ -367,33 +367,33 @@
             (punk {set $alt3outfit punk3})
             (metal {set $alt3outfit metal3})
             (goth {set $alt3outfit goth3})
-            (rockabill {set $alt3outfit eddiebill3})
-            (deathmetal {set $alt3outfit deathmetal3})
+            (rockabill {set $alt3outfit rockabiog1})
+            (deathmetal {set $alt3outfit deathmetog1})
             (grim {set $alt3outfit grog})
-            (rock {set $alt3outfit rock3})
+            (rock {set $alt3outfit roog1})
          }
       }
       {if $dx_fourth_outfit
          {set $alt4outfit 0}
          {switch [char_focus]
-            (alterna {set $alt4outfit alterna4})
-            (glam {set $alt4outfit glam4})
-            (punk {set $alt4outfit punk4})
-            (metal {set $alt4outfit metal4})
-            (goth {set $alt4outfit goth4})
-            (rockabill {set $alt4outfit eddiebill4})
-            (deathmetal {set $alt4outfit deathmetal4})
-            (rock {set $alt4outfit rock4})
+            (alterna {set $alt4outfit alterog1})
+            (glam {set $alt4outfit glog1})
+            (punk {set $alt4outfit puog1})
+            (metal {set $alt4outfit metog1})
+            (goth {set $alt4outfit goog1})
+            (rockabill {set $alt4outfit rockabiog2})
+            (deathmetal {set $alt4outfit deathmetog2})
+            (rock {set $alt4outfit roog2})
          }
       }
       {if $dx_fifth_outfit
          {set $alt5outfit 0}
          {switch [char_focus]
-            (alterna {set $alt5outfit alterna5})
-            (glam {set $alt5outfit glam5})
-            (punk {set $alt5outfit punk5})
-            (metal {set $alt5outfit metal5})
-            (goth {set $alt5outfit goth5})
+            (alterna {set $alt5outfit alterog2})
+            (glam {set $alt5outfit glog2})
+            (punk {set $alt5outfit puog2})
+            (metal {set $alt5outfit metog2})
+            (goth {set $alt5outfit goog2})
          }
       }
       ;if a third outfit is found, enable our third button, otherwise disable it
@@ -591,53 +591,53 @@
                   "outfit0.btn" ;outfit 3 (80s)
                   {switch {char_single get_char 0}
                      (
-                        (alterna alterna1 alterna2 alterna3 alterna4 alterna5)
+                        (alterna alterna1 alterna2 alterna3 alterog1 alterog2)
                         {set $old_char FALSE}
                         {game set_character alterna3 TRUE}
                         {$this set char_outfit alterna3}
                      )
                      (
-                        (glam glam1 glam2 glam3 glam4 glam5)
+                        (glam glam1 glam2 glam3 glog1 glog2)
                         {set $old_char FALSE}
                         {game set_character glam3 TRUE}
                         {$this set char_outfit glam3}
                      )
                      (
-                        (punk punk1 punk2 jnog punk3 punk4 punk5)
+                        (punk punk1 punk2 jnog punk3 puog1 puog2)
                         {set $old_char FALSE}
                         {game set_character punk3 TRUE}
                         {$this set char_outfit punk3}
                      )
                      (
-                        (metal metal1 metal2 metal3 metal4 metal5)
+                        (metal metal1 metal2 metal3 metog1 metog2)
                         {set $old_char FALSE}
                         {game set_character metal3 TRUE}
                         {$this set char_outfit metal3}
                      )
                      (
-                        (goth goth1 goth2 goth3 goth4 goth5)
+                        (goth goth1 goth2 goth3 goog1 goog2)
                         {set $old_char FALSE}
                         {game set_character goth3 TRUE}
                         {$this set char_outfit goth3}
                      )
                      #ifdef HX_XBOX
                      (
-                        (rockabill rockabill1 rockabill2 eddiebill3 eddiebill4)
+                        (rockabill rockabill1 rockabill2 rockabiog1 rockabiog2)
                         {set $old_char FALSE}
-                        {game set_character eddiebill3 TRUE}
-                        {$this set char_outfit eddiebill3}
+                        {game set_character rockabiog TRUE}
+                        {$this set char_outfit rockabiog1}
                      )
                      (
-                        (deathmetal deathmetal1 deathmetal2 deathmetal3 deathmetal4)
+                        (deathmetal deathmetal1 deathmetal2 deathmetog1 deathmetog2)
                         {set $old_char FALSE}
-                        {game set_character deathmetal3 TRUE}
-                        {$this set char_outfit deathmetal3}
+                        {game set_character deathmetog1 TRUE}
+                        {$this set char_outfit deathmetog1}
                      )
                      (
-                        (rock rock1 rock2 rock3 rock4)
+                        (rock rock1 rock2 roog1 roog2)
                         {set $old_char FALSE}
-                        {game set_character rock3 TRUE}
-                        {$this set char_outfit rock3}
+                        {game set_character roog TRUE}
+                        {$this set char_outfit roog1}
                      )
                      (
                         (grim gr80 grog)
@@ -652,49 +652,49 @@
                   "outfit1.btn"
                   {switch {char_single get_char 0}
                      (
-                        (alterna alterna1 alterna2 alterna3 alterna4 alterna5)
+                        (alterna alterna1 alterna2 alterna3 alterog1 alterog2)
                         {set $old_char FALSE}
                         {game set_character alterna1 TRUE}
                         {$this set char_outfit alterna1}
                      )
                      (
-                        (glam glam1 glam2 glam3 glam4 glam5)
+                        (glam glam1 glam2 glam3 glog1 glog2)
                         {set $old_char FALSE}
                         {game set_character glam1 TRUE}
                         {$this set char_outfit glam1}
                      )
                      (
-                        (punk punk1 punk2 jnog punk3 punk4 punk5)
+                        (punk punk1 punk2 jnog punk3 puog1 puog2)
                         {set $old_char FALSE}
                         {game set_character punk1 TRUE}
                         {$this set char_outfit punk1}
                      )
                      (
-                        (metal metal1 metal2 metal3 metal4 metal5)
+                        (metal metal1 metal2 metal3 metog1 metog2)
                         {set $old_char FALSE}
                         {game set_character metal1 TRUE}
                         {$this set char_outfit metal1}
                      )
                      (
-                        (goth goth1 goth2 goth3 goth4 goth5)
+                        (goth goth1 goth2 goth3 goog1 goog2)
                         {set $old_char FALSE}
                         {game set_character goth2 TRUE}
                         {$this set char_outfit goth2}
                      )
                      (
-                        (rockabill rockabill1 rockabill2 eddiebill3 eddiebill4)
+                        (rockabill rockabill1 rockabill2 rockabiog1 rockabiog2)
                         {set $old_char FALSE}
                         {game set_character rockabill1 TRUE}
                         {$this set char_outfit rockabill1}
                      )
                      (
-                        (deathmetal deathmetal1 deathmetal2 deathmetal3 deathmetal4)
+                        (deathmetal deathmetal1 deathmetal2 deathmetog1 deathmetog2)
                         {set $old_char FALSE}
                         {game set_character deathmetal1 TRUE}
                         {$this set char_outfit deathmetal1}
                      )
                      (
-                        (rock rock1 rock2 rock3 rock4)
+                        (rock rock1 rock2 roog1 roog2)
                         {set $old_char FALSE}
                         {game set_character rock2 TRUE}
                         {$this set char_outfit rock2}
@@ -711,56 +711,56 @@
                   "outfit2.btn"
                   {switch {char_single get_char 0}
                      (
-                        (alterna alterna1 alterna2 alterna3 alterna4 alterna5)
+                        (alterna alterna1 alterna2 alterna3 alterog1 alterog2)
                         {set $old_char FALSE}
                         {game set_character alterna2 TRUE}
                         {$this set char_outfit alterna2}
                      )
                      (
-                        (glam glam1 glam2 glam3 glam4 glam5)
+                        (glam glam1 glam2 glam3 glog1 glog2)
                         {set $old_char FALSE}
                         {game set_character glam2 TRUE}
                         {$this set char_outfit glam2}
                      )
                      (
-                        (punk punk1 punk2 jnog punk3 punk4 punk5)
+                        (punk punk1 punk2 jnog punk3 puog1 puog2)
                         {set $old_char FALSE}
                         {game set_character punk2 TRUE}
                         {$this set char_outfit punk2}
                      )
                      (
-                        (metal metal1 metal2 metal3 metal4 metal5)
+                        (metal metal1 metal2 metal3 metog1 metog2)
                         {set $old_char FALSE}
                         {game set_character metal2 TRUE}
                         {$this set char_outfit metal2}
                      )
                      (
-                        (goth goth1 goth2 goth3 goth4 goth5)
+                        (goth goth1 goth2 goth3 goog1 goog2)
                         {set $old_char FALSE}
                         {game set_character goth1 TRUE}
                         {$this set char_outfit goth1}
                      )
                      (
-                        (rockabill rockabill1 rockabill2 eddiebill3 eddiebill4)
+                        (rockabill rockabill1 rockabill2 rockabiog1 rockabiog2)
                         {set $old_char FALSE}
                         {game set_character rockabill2 TRUE}
                         {$this set char_outfit rockabill2}
                      )
                      (
-                        (deathmetal deathmetal1 deathmetal2 deathmetal3 deathmetal4)
+                        (deathmetal deathmetal1 deathmetal2 deathmetog1 deathmetog2)
                         {set $old_char FALSE}
                         {game set_character deathmetal2 TRUE}
                         {$this set char_outfit deathmetal2}
                      )
                      (
-                        (rock rock1 rock2 rock3 rock4)
+                        (rock rock1 rock2 roog1 roog2)
                         {game set_character rock1 TRUE}
                         {set $old_char FALSE}
                         {$this set char_outfit rock1}
                      )
                      (
                         (grim gr80 grog)
-                        {game set_character grim TRUE}
+                        {game set_character gr80 TRUE}
                         {set $old_char FALSE}
                         {$this set char_outfit gr80}
                      )
@@ -770,52 +770,52 @@
                   "outfit3.btn" ;outfit 4 (ps2 1)
                   {switch {char_single get_char 0}
                      (
-                        (alterna alterna1 alterna2 alterna3 alterna4 alterna5)
+                        (alterna alterna1 alterna2 alterna3 alterog1 alterog2)
                         {set $old_char FALSE}
-                        {game set_character alterna4 TRUE}
-                        {$this set char_outfit alterna4}
+                        {game set_character alterog1 TRUE}
+                        {$this set char_outfit alterog1}
                      )
                      (
-                        (glam glam1 glam2 glam3 glam4 glam5)
+                        (glam glam1 glam2 glam3 glog1 glog2)
                         {set $old_char FALSE}
-                        {game set_character glam4 TRUE}
-                        {$this set char_outfit glam4}
+                        {game set_character glog TRUE}
+                        {$this set char_outfit glog1}
                      )
                      (
-                        (punk punk1 punk2 jnog punk3 punk4 punk5)
+                        (punk punk1 punk2 jnog punk3 puog1 puog2)
                         {set $old_char FALSE}
-                        {game set_character punk4 TRUE}
-                        {$this set char_outfit punk4}
+                        {game set_character puog TRUE}
+                        {$this set char_outfit puog1}
                      )
                      (
-                        (metal metal1 metal2 metal3 metal4 metal5)
+                        (metal metal1 metal2 metal3 metog1 metog2)
                         {set $old_char FALSE}
-                        {game set_character metal4 TRUE}
-                        {$this set char_outfit metal4}
+                        {game set_character metog1 TRUE}
+                        {$this set char_outfit metog1}
                      )
                      (
-                        (goth goth1 goth2 goth3 goth4 goth5)
+                        (goth goth1 goth2 goth3 goog1 goog2)
                         {set $old_char FALSE}
-                        {game set_character goth4 TRUE}
-                        {$this set char_outfit goth4}
+                        {game set_character goog1 TRUE}
+                        {$this set char_outfit goog1}
                      )
                      (
-                        (rockabill rockabill1 rockabill2 eddiebill3 eddiebill4)
+                        (rockabill rockabill1 rockabill2 rockabiog1 rockabiog2)
                         {set $old_char FALSE}
-                        {game set_character eddiebill4 TRUE}
-                        {$this set char_outfit eddiebill4}
+                        {game set_character rockabiog TRUE}
+                        {$this set char_outfit rockabiog2}
                      )
                      (
-                        (deathmetal deathmetal1 deathmetal2 deathmetal3 deathmetal4)
+                        (deathmetal deathmetal1 deathmetal2 deathmetog1 deathmetog2)
                         {set $old_char FALSE}
-                        {game set_character deathmetal4 TRUE}
-                        {$this set char_outfit deathmetal4}
+                        {game set_character deathmetog1 TRUE}
+                        {$this set char_outfit deathmetog2}
                      )
                      (
-                        (rock rock1 rock2 rock3 rock4)
+                        (rock rock1 rock2 roog1 roog2)
                         {set $old_char FALSE}
-                        {game set_character rock4 TRUE}
-                        {$this set char_outfit rock4}
+                        {game set_character roog TRUE}
+                        {$this set char_outfit roog2}
                      )
                   }
                )
@@ -823,34 +823,34 @@
                   "outfit4.btn" ;outfit 5 (ps2 2)
                   {switch {char_single get_char 0}
                      (
-                        (alterna alterna1 alterna2 alterna3 alterna4 alterna5)
+                        (alterna alterna1 alterna2 alterna3 alterog1 alterog2)
                         {set $old_char FALSE}
-                        {game set_character alterna5 TRUE}
-                        {$this set char_outfit alterna5}
+                        {game set_character alterog1 TRUE}
+                        {$this set char_outfit alterog2}
                      )
                      (
-                        (glam glam1 glam2 glam3 glam4 glam5)
+                        (glam glam1 glam2 glam3 glog1 glog2)
                         {set $old_char FALSE}
-                        {game set_character glam5 TRUE}
-                        {$this set char_outfit glam5}
+                        {game set_character glog TRUE}
+                        {$this set char_outfit glog2}
                      )
                      (
-                        (punk punk1 punk2 jnog punk3 punk4 punk5)
+                        (punk punk1 punk2 jnog punk3 puog1 puog2)
                         {set $old_char FALSE}
-                        {game set_character punk5 TRUE}
-                        {$this set char_outfit punk5}
+                        {game set_character puog TRUE}
+                        {$this set char_outfit puog2}
                      )
                      (
-                        (metal metal1 metal2 metal3 metal4 metal5)
+                        (metal metal1 metal2 metal3 metog1 metog2)
                         {set $old_char FALSE}
-                        {game set_character metal5 TRUE}
-                        {$this set char_outfit metal5}
+                        {game set_character metog1 TRUE}
+                        {$this set char_outfit metog2}
                      )
                      (
-                        (goth goth1 goth2 goth3 goth4 goth5)
+                        (goth goth1 goth2 goth3 goog1 goog2)
                         {set $old_char FALSE}
-                        {game set_character goth5 TRUE}
-                        {$this set char_outfit goth5}
+                        {game set_character goog1 TRUE}
+                        {$this set char_outfit goog2}
                      )
                   }
                )
@@ -957,7 +957,7 @@
          {set $dx_fourth_outfit FALSE}
          {switch {sel_character_panel get char_focus}
             (
-               (punk alterna glam goth metal) ;port these and add when done rockabill rock deathmetal
+               (punk alterna glam goth metal rockabill rock deathmetal) ;port these and add when done rockabill rock deathmetal
                {set $dx_fourth_outfit TRUE}
             )
          }
@@ -965,7 +965,7 @@
          {switch {sel_character_panel get char_focus}
             (
                (punk alterna glam goth metal)
-               {set $dx_fifth_outfit FALSE} ;set to true when remaining outfits are ported
+               {set $dx_fifth_outfit TRUE} ;set to true when remaining outfits are ported
             )
          }
          #endif
