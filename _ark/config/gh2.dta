@@ -218,13 +218,13 @@
    (classic
       (classic)
       #ifdef HX_XBOX
-      (cwretro)
+      (classog)
       #endif
    )
    (funk1
       (funk1)
       #ifdef HX_XBOX
-      (funk2)
+      (fuog1)
       #endif
    )
    (grim (grim) (gr80))
@@ -234,15 +234,15 @@
    (goth3 (goth3))
    (metal3 (metal3))
    #ifdef HX_XBOX
-   (punk4 (punk4))
+   (puog (puog1) (puog2))
    (grog (grog))
-   (metal4 (metal4))
-   (deathmetal3 (deathmetal3))
-   (rock3 (rock3))
-   (eddiebill3 (eddiebill3))
-   (goth4 (goth4))
-   (glam4 (glam4))
-   (alterna4 (alterna4))
+   (metog1 (metog1) (metog2))
+   (deathmetog1 (deathmetog1) (deathmetog2))
+   (roog1 (roog1) (roog2))
+   (rockabiog (rockabiog1) (rockabiog2))
+   (goog1 (goog1) (goog2))
+   (glog (glog1) (glog2))
+   (alterog1 (alterog1) (alterog2))
    #endif
 )
 (mc

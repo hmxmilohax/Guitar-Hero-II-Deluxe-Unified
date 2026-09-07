@@ -59,51 +59,53 @@
 ;extended char names
 
 (punk3 "Johnny Napalm")
-(punk4 "Johnny Napalm")
-(punk5 "Johnny Napalm")
-(eddiebill3 "Eddie Knox")
-(eddiebill4 "Eddie Knox")
+(puog1 "Johnny Napalm")
+(puog2 "Johnny Napalm")
+(rockabiog1 "Eddie Knox")
+(rockabiog2 "Eddie Knox")
 (alterna3 "Judy Nails")
-(alterna4 "Judy Nails")
-(alterna5 "Judy Nails")
+(alterog1 "Judy Nails")
+(alterog2 "Judy Nails")
 (glam3 "Izzy Sparks")
-(glam4 "Izzy Sparks")
-(glam5 "Izzy Sparks")
+(glog1 "Izzy Sparks")
+(glog2 "Izzy Sparks")
 (goth3 "Pandora")
-(goth4 "Pandora")
-(goth5 "Pandora")
+(goog1 "Pandora")
+(goog2 "Pandora")
 (metal3 "Axel Steel")
-(metal4 "Axel Steel")
-(metal5 "Axel Steel")
+(metog1 "Axel Steel")
+(metog2 "Axel Steel")
 (gr80 "Grim Ripper")
 (grog "Grim Ripper")
 (rock3 "Casey Lynch")
-(rock4 "Casey Lynch")
-(funk2 "Xavier Stone")
-(cwretro "Clive Winston")
-(deathmetal3 "Lars Ümlaüt")
-(deathmetal4 "Lars Ümlaüt")
+(roog1 "Casey Lynch")
+(fuog1 "Xavier Stone")
+(classog "Clive Winston")
+(deathmetog1 "Lars Ümlaüt")
+(deathmetog2 "Lars Ümlaüt")
 
 ;extended outfits
 
 (funk1_outfit "Groovy")
-(funk2_outfit "Retro Groovy")
+(fuog1_outfit "Retro Groovy")
 (grim_outfit "Death")
 (classic_outfit "Classic Rock")
-(cwretro_outfit "Retro Rock")
-(deathmetal3_outfit "Retro Gaunts")
-(deathmetal4_outfit "Retro Gargs")
-(metal4_outfit "Retro Shirt")
-(metal5_outfit "Retro Shirt")
-(goth4_outfit "Retro Feathers")
-(goth3_outfit "Retro Leathers")
-(rock3_outfit "Retro Skins")
-(rock4_outfit "Retro Shirts")
-(eddiebill3_outfit "Retro Reno")
-(glam4_outfit "Retro Codpiece")
-(alterna4_outfit "Retro Skulls")
-(alterna5_outfit "Retro Snakes")
-(punk4_outfit "Retro Mohawk")
+(classog_outfit "Retro Rock")
+(deathmetog1_outfit "Retro Gaunts")
+(deathmetog1_outfit "Retro Gargs")
+(metog1_outfit "Retro Shirt")
+(metog2_outfit "Retro Other Shirt")
+(goog2_outfit "Retro Leathers")
+(goog1_outfit "Retro Feathers")
+(roog1_outfit "Retro Skins")
+(roog1_outfit "Retro Shirts")
+(rockabiog1_outfit "Retro Reno")
+(glog1_outfit "Retro Codpiece")
+(glog2_outfit "Retro Top Hat")
+(alterog1_outfit "Retro Skulls")
+(alterog2_outfit "Retro Snakes")
+(puog1_outfit "Retro Mohawk")
+(puog2_outfit "Retro Spikes")
 (grog_outfit "Retro Death")
 
 (punk3_outfit "ANARCHY RED")
@@ -136,58 +138,58 @@
 
 ;gh2
 
-(alterna4_shop_desc
+(alterog1_shop_desc
    "The queen of alternative rock, through and through, Judy is always seen in the latest styles. Keep her on the cutting edge with this cute get-up."
 )
-(alterna5_shop_desc
+(alterog2_shop_desc
    "The queen of alternative rock, through and through, Judy is always seen in the latest styles. Keep her on the cutting edge with this cute get-up."
 )
-(deathmetal3_shop_desc
+(deathmetog1_shop_desc
    "Asked about his gauntlets-to-gargoyles style, Lars responds, \qLARS HAS A REPUTATION OF STRENGTH OF WHICH HE NEEDS TO BE DOING THE UPHOLDING!\q"
 )
-(deathmetal4_shop_desc
+(deathmetog2_shop_desc
    "Asked about his gauntlets-to-gargoyles style, Lars responds, \qLARS HAS A REPUTATION OF STRENGTH OF WHICH HE NEEDS TO BE DOING THE UPHOLDING!\q"
 )
-(goth4_shop_desc
+(goog1_shop_desc
    "The consummate chameleon, Pandora is admired almost as much for her unique and ever-changing personal style as for her incomparable shredding skills."
 )
-(goth5_shop_desc
+(goog2_shop_desc
    "The consummate chameleon, Pandora is admired almost as much for her unique and ever-changing personal style as for her incomparable shredding skills."
 )
-(glam4_shop_desc
+(glog1_shop_desc
    "Not everybody can pull off a top hat and feather boa. Izzy is not afraid to subvert the dominant paradigm in this ultra-glam ensemble."
 )
-(glam5_shop_desc
+(glog2_shop_desc
    "Not everybody can pull off a top hat and feather boa. Izzy is not afraid to subvert the dominant paradigm in this ultra-glam ensemble."
 )
-(metal4_shop_desc
+(metog1_shop_desc
    "Since they don't make you play better and you can't drink 'em, Axel has zero interest in clothes. But even Axel needs a change once in awhile."
 )
-(metal5_shop_desc
+(metog2_shop_desc
    "Since they don't make you play better and you can't drink 'em, Axel has zero interest in clothes. But even Axel needs a change once in awhile."
 )
-(rock4_shop_desc
+(roog1_shop_desc
    "Casey's look is designed for backbreaking life on the road; if she can't pass out in the van wearing it, she's not interested."
 )
-(rock3_shop_desc
+(roog2_shop_desc
    "Casey's look is designed for backbreaking life on the road; if she can't pass out in the van wearing it, she's not interested."
 )
-(eddiebill3_shop_desc
+(rockabiog1_shop_desc
    "Eddie Knox is one cat who ain't afraid to look his best. As long as his hair is in place, he's as comfortable in old jeans as he is in these swanky duds."
 )
-(eddiebill4_shop_desc
+(rockabiog2_shop_desc
    "Eddie Knox is one cat who ain't afraid to look his best. As long as his hair is in place, he's as comfortable in old jeans as he is in these swanky duds."
 )
-(punk4_shop_desc
+(og1_shop_desc
    "Johnny has a couple of different looks, but neither of them involves bathing. With liberty spikes and a bullet belt, Johnny makes sordid, degenerate behavior look pretty good."
 )
-(punk5_shop_desc
+(og2_shop_desc
    "Johnny has a couple of different looks, but neither of them involves bathing. With liberty spikes and a bullet belt, Johnny makes sordid, degenerate behavior look pretty good."
 )
-(cwretro_shop_desc
+(classog_shop_desc
    "Having abandoned his fascination with the sitar (an interest developed during a court-ordered \qmeditation retreat\q), Clive returns to the forefront of classic rock with his guitar wizardry and iconic status."
 )
-(funk2_shop_desc
+(fuog1_shop_desc
    "Raised in suburban Connecticut, Xavier Stone broke from his pampered upbringing after realizing he preferred rock clubs to country clubs. Weaving slick '70s style with chunky grooves, Xavier does it right every time."
 )
 (grog_shop_desc
@@ -236,58 +238,58 @@
 (grog_blurb
    "This rock star is bad to the bone. Grim's riffs are so killer, fans are lucky just to leave the show with their souls intact. Grim's supernatural licks always knock 'em dead. 'Cause he's... you know... right."
 )
-(alterna4_blurb
+(alterog1_blurb
    "A fan of distorted feedback and roller derby, Judy Nails has been a pioneer of alt-rock since her first tour at age 17. Known for her huge collection of vinyl, Judy brings a smile, and a lot of pedals, to the stage."
 )
-(alterna5_blurb
+(alterog2_blurb
    "A fan of distorted feedback and roller derby, Judy Nails has been a pioneer of alt-rock since her first tour at age 17. Known for her huge collection of vinyl, Judy brings a smile, and a lot of pedals, to the stage."
 )
-(cwretro_blurb
+(classog_blurb
    "Having abandoned his fascination with the sitar (an interest developed during a court-ordered \qmeditation retreat\q), Clive returns to the forefront of classic rock with his guitar wizardry and iconic status."
 )
-(deathmetal3_blurb
+(deathmetog1_blurb
    "Lock the doors and board the windows, Lars Ümlaüt is coming for you! An intimidating presence, the Norwegian-born Ümlaüt describes himself as \qa force for you to be doing the reckoning with!\q"
 )
-(deathmetal4_blurb
+(deathmetog1_blurb
    "Lock the doors and board the windows, Lars Ümlaüt is coming for you! An intimidating presence, the Norwegian-born Ümlaüt describes himself as \qa force for you to be doing the reckoning with!\q"
 )
-(funk2_blurb
+(fuog1_blurb
    "Raised in suburban Connecticut, Xavier Stone broke from his pampered upbringing after realizing he preferred rock clubs to country clubs. Weaving slick '70s style with chunky grooves, Xavier does it right every time."
 )
-(goth4_blurb
+(goog1_blurb
    "Pandora's youth is shrouded in mystery.  Some say she was born in a dimension of pure darkness. Others say she was raised in a duplex near Boise. With her blazing solos and chaotic melodies, Pandora is the Dark Princess of Rock."
 )
-(goth5_blurb
+(goog2_blurb
    "Pandora's youth is shrouded in mystery.  Some say she was born in a dimension of pure darkness. Others say she was raised in a duplex near Boise. With her blazing solos and chaotic melodies, Pandora is the Dark Princess of Rock."
 )
-(glam4_blurb
+(glog1_blurb
    "A real crowd pleaser, Izzy thrills all with his energetic onstage showmanship while delighting the media with his offstage debauchery. Izzy's fan base is even bigger than his hair."
 )
-(glam5_blurb
+(glog2_blurb
    "A real crowd pleaser, Izzy thrills all with his energetic onstage showmanship while delighting the media with his offstage debauchery. Izzy's fan base is even bigger than his hair."
 )
-(metal4_blurb
+(metog1_blurb
    "Famous for his driving riffs and up-front attitude, Axel Steel first picked up a guitar in an attempt to quell his boredom during suspension from elementary school. The rest is history. Metal history."
 )
-(metal5_blurb
+(metog2_blurb
    "Famous for his driving riffs and up-front attitude, Axel Steel first picked up a guitar in an attempt to quell his boredom during suspension from elementary school. The rest is history. Metal history."
 )
-(punk4_blurb
+(puog1_blurb
    "Johnny embodies the true spirit of punk rock with his signature stomp and swagger. Released from lockup for \qalmost tolerable behavior,\q Johnny lurches back into the spotlight, rough and ready for action."
 )
-(punk5_blurb
+(puog2_blurb
    "Johnny embodies the true spirit of punk rock with his signature stomp and swagger. Released from lockup for \qalmost tolerable behavior,\q Johnny lurches back into the spotlight, rough and ready for action."
 )
-(rock4_blurb
+(roog1_blurb
    "A veteran of the tour circuit, Casey's dirty, low-end growl and ultra-heavy riffs have influenced budding shredders from Maine to Alaska. She's tough, she's brash, and she'll break your heart faster than an E string."
 )
-(rock5_blurb
+(roog2_blurb
    "A veteran of the tour circuit, Casey's dirty, low-end growl and ultra-heavy riffs have influenced budding shredders from Maine to Alaska. She's tough, she's brash, and she'll break your heart faster than an E string."
 )
-(eddiebill3_blurb
+(rockabiog1_blurb
    "When he's not cruisin' in his '55 Chevy, Eddie brings his hard-working rock to any stage he sets foot on. A real \qroad dog,\q Eddie Knox claims that as long as he's got his hollow body and his pomade, he \qain't too far from home.\q"
 )
-(eddiebill4_blurb
+(rockabiog2_blurb
    "When he's not cruisin' in his '55 Chevy, Eddie brings his hard-working rock to any stage he sets foot on. A real \qroad dog,\q Eddie Knox claims that as long as he's got his hollow body and his pomade, he \qain't too far from home.\q"
 )
 
