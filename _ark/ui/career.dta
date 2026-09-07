@@ -367,7 +367,7 @@
             (punk {set $alt3outfit punk3})
             (metal {set $alt3outfit metal3})
             (goth {set $alt3outfit goth3})
-            (rockabill {set $alt3outfit rockabiog1})
+            (rockabill {set $alt3outfit rockabiog})
             (deathmetal {set $alt3outfit deathmetog1})
             (grim {set $alt3outfit grog})
             (rock {set $alt3outfit roog1})
@@ -377,23 +377,23 @@
          {set $alt4outfit 0}
          {switch [char_focus]
             (alterna {set $alt4outfit alterog1})
-            (glam {set $alt4outfit glog1})
-            (punk {set $alt4outfit puog1})
+            (glam {set $alt4outfit glog})
+            (punk {set $alt4outfit puog})
             (metal {set $alt4outfit metog1})
             (goth {set $alt4outfit goog1})
-            (rockabill {set $alt4outfit rockabiog2})
-            (deathmetal {set $alt4outfit deathmetog2})
-            (rock {set $alt4outfit roog2})
+            (rockabill {set $alt4outfit rockabiog})
+            (deathmetal {set $alt4outfit deathmetog1})
+            (rock {set $alt4outfit roog1})
          }
       }
       {if $dx_fifth_outfit
          {set $alt5outfit 0}
          {switch [char_focus]
-            (alterna {set $alt5outfit alterog2})
-            (glam {set $alt5outfit glog2})
-            (punk {set $alt5outfit puog2})
-            (metal {set $alt5outfit metog2})
-            (goth {set $alt5outfit goog2})
+            (alterna {set $alt5outfit alterog1})
+            (glam {set $alt5outfit glog})
+            (punk {set $alt5outfit puog})
+            (metal {set $alt5outfit metog1})
+            (goth {set $alt5outfit goog1})
          }
       }
       ;if a third outfit is found, enable our third button, otherwise disable it
@@ -437,7 +437,7 @@
             {outfit4.btn set_showing TRUE}
             {outfit4.btn set_text
                {sprint
-                  {character_provider get_outfit $alt5outfit 0}
+                  {character_provider get_outfit $alt5outfit 1}
                   _outfit
                }
             }
