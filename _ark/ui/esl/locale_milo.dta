@@ -1,0 +1,251 @@
+#ifdef GAME_GH2
+(gh2_permadeath
+   {if_else $randomizer
+      "Permadeath Aleatorio"
+      "Permadeath de GH2"
+   }
+)
+(perma_welcome "GH2GYM")
+;(op_data_settings "Ajustes de GH2GYM")
+#else
+(gh2_permadeath
+   {if_else $randomizer
+      "Permadeath Aleatorio"
+      "Permadeath de 80s"
+   }
+)
+(perma_welcome "80SGYM")
+;(op_data_settings "Ajustes de 80SGYM")
+#endif
+(perma_welcome_desc "Elige tu destino.\nPresiona START para confirmar.")
+(gym_options "REINICIAR GYM")
+(gym_options_confirm
+   "¿De verdad quieres salir y regresar a las opciones de inicio?\n\nSe perderá todo tu progreso"
+)
+(dlc_option
+   {if_else $scandlc
+      "DLC : ACTIVADO"
+      "DLC : DESACTIVADO"
+   }
+)
+(perma_option
+   {if_else $permadeath
+      "Permadeath : SÍ"
+      "Permadeath : NO"
+   }
+)
+(random_option
+   {if_else $randomizer
+      "Randomizer : SÍ"
+      "Randomizer : NO"
+   }
+)
+(unlock_option
+   {if_else $gym_unlock_all
+      "DESBLOQUEAR TODO : SÍ"
+      "DESBLOQUEAR TODO : NO"
+   }
+)
+(force_option
+   {if_else $force_all_as_guitar
+      "MANDO ES GUITARRA : SÍ"
+      "MANDO ES GUITARRA : NO"
+   }
+)
+;this one is flipped
+(strum_option
+   {if_else $strum_limit_disabled
+      "Límite de Rasgueo : NO"
+      "Límite de Rasgueo : SÍ"
+   }
+)
+(too_short_name "Ponle Pilas")
+(too_short_name_msg
+   "El nombre de tu banda necesita más de 3 caracteres.\n\n¡Intenta ser más creativo!"
+)
+(cant_xenia_title "NO PUEDES AVANZAR")
+(cant_xenia
+   #ifdef GAME_GH2
+   "Detectamos que estás jugando GH2GYM en Xenia.\nGH2GYM sólo funciona en conjunto con\n\qGame Relative Writes\q y\n\qWritable Code Segments\q\nhabilitados en el archivo xenia.config.toml."
+   #else
+   "Detectamos que estás jugando 80SGYM en Xenia.\n80SGYM sólo funciona en conjunto con\n\qGame Relative Writes\q and\n\qWritable Code Segments\q\nhabilitados en el archivo xenia.config.toml."
+   #endif
+)
+(cant_save
+   "Ten en cuenta que no podemos restaurar tu repertorio de Randomizer al reiniciar el juego.\nTu partida aleatoria será borrada al apagar la consola."
+)
+(cant_save_disabled
+   #ifdef GAME_GH2
+   "El guardado se ha deshabilitado al usar Desbloquear Todo.\n\nVe a Opciones > Ajustes de GH2GYM para reiniciar GH2GYM y habilitar el guardado."
+   #else
+   "El guardado se ha deshabilitado al usar Desbloquear Todo.\n\nVe a Opciones > Ajustes de 80SGYM para reiniciar 80SGYM y habilitar el guardado."
+   #endif
+)
+(permadeath_welcome
+   {if_else $strum_limit_disabled
+      "Welcome (back)\nIntentos: %i\nRacha Máxima: %i\nTop FC streak: %i songs\nEl Límite de Rasgueo está apagado."
+      #ifdef GAME_GH2
+      "Welcome (back)\nIntentos: %i\nRacha Máxima: %i\nTop FC streak: %i songs\nTrogdor no tiene Límite de Rasgueo."
+      #else
+      "Welcome (back)\nIntentos: %i\nRacha Máxima: %i\nTop FC streak: %i songs\nEl Límite de Rasgueo está encendido."
+      #endif
+   }
+)
+(num_lives
+   "Número de vidas: %i\nTu partida será borrada si pierdes todas tus vidas.\n\nFallar te sacará de la canción.\nARRIBA/ABAJO : +/- VIDAS"
+)
+(accuracy_threshold_fc
+   "Umbral de Victoria Requerido: %s\nAjusta el umbral de precisión para superar canciones en Permadeath. Seleccionar FC te quitará una vida al fallar una nota.\nARRIBA/ABAJO : +/- AJUSTAR"
+)
+(accuracy_threshold_int
+   "Umbral de Victoria Requerido: %d%%\nAjusta el umbral de precisión para superar canciones en Permadeath. Seleccionar FC te quitará una vida al fallar una nota.\nARRIBA/ABAJO : +/- AJUSTAR"
+)
+(accuracy_threshold_float
+   "Umbral de Victoria Requerido: %1.1f%%\nAjusta el umbral de precisión para superar canciones en Permadeath. Seleccionar FC te quitará una vida al fallar una nota.\nARRIBA/ABAJO : +/- AJUSTAR"
+)
+(overlay_threshold_fc "Umbral de Victoria: %s")
+(overlay_threshold_int "Umbral de Victoria: %d%%")
+(overlay_threshold_float "Umbral de Victoria: %1.1f%%")
+(overlay_songs_complete "Canciones Superadas: %i / %i")
+(overlay_num_lives_streak "Racha de Notas: %i | Vidas: %i")
+(overlay_num_lives "Vidas: %i")
+(overlay_num_lives_acc_float "Precisión Más Baja: %1.1f%% | Vidas: %i")
+(overlay_num_lives_acc_int "Precisión Más Baja: %i | Vidas: %i")
+(full_combo "FC")
+(permadeath_lost_perc
+   "No superaste el umbral de victoria de esta canción.\nTu precisión: %1.1f%%.\nNecesitas: %1.1f%%\nTe quedan %i vidas."
+)
+(permadeath_lost "Fallaste.\nTe quedan %i vidas.")
+(permadeath_lost_final "Fallaste.\nEs tu última vida.")
+(permadeath_lost_final_perc
+   "No superaste el umbral de victoria de esta canción.\nTu precisión: %1.1f%%.\nNecesitas: %1.1f%%\nEs tu última vida."
+)
+(permadeath_lost_restart "Se acabó.\nTu progreso ha sido eliminado.")
+(permadeath_lost_restart_perc
+   "No superaste el umbral de victoria de esta canción.\nTu precisión: %1.1f%%.\nNecesitas: %1.1f%%\nSe acabó.\nTu progreso ha sido eliminado."
+)
+(permadeath_win
+   {if_else $randomizer
+      "Puta madre, ¡¿superaste el Randomizer?!\nAhora házlo con menos fallos.\nVidas perdidas: %i\nIntentos: %i\nRacha Máxima: %i\nRacha Máxima de FCs: %i canciones"
+      "¡A la mierda, lo lograste!\nAhora házlo con menos fallos.\nVidas perdidas: %i\nIntentos: %i\nRacha Máxima: %i\nRacha Máxima de FCs: %i canciones"
+   }
+)
+(permadeath_win_no_miss
+   {if_else $randomizer
+      "Puta madre, ¡¿superaste el Randomizer?!\n¿Sin fallos? QUÉ\nVidas perdidas: %i\nIntentos: %i\nRacha Máxima: %i\nRacha Máxima de FCs: %i canciones"
+      "¡A la mierda, lo lograste!\n¿Y sin fallos? WOW\nVidas perdidas: %i\nIntentos: %i\nRacha Máxima: %i\nRacha Máxima de FCs: %i canciones"
+   }
+)
+(permadeath_win_buff_up_float
+   {if_else $randomizer
+      "¡Carajo, superaste el Randomizer!\nPasaste todas las canciones con una precisión de %1.1f%% \nAhora sigue practicando e intenta un umbral más alto\nVidas perdidas: %i\nIntentos: %i"
+      "¡Carajo, superaste el Permadeath!\nPasaste todas las canciones con una precisión de %1.1f%% \nAhora sigue practicando e intenta un umbral más alto\nVidas perdidas: %i\nIntentos: %i"
+   }
+)
+(permadeath_win_buff_up_int
+   {if_else $randomizer
+      "¡Carajo, superaste el Randomizer!\nPasaste todas las canciones con una precisión de %i \n¡Ahora sigue practicando e intenta un umbral más alto!\nVidas perdidas: %i\nIntentos: %i"
+      "¡Carajo, superaste el Permadeath!\nPasaste todas las canciones con una precisión de %i \n¡Ahora sigue practicando e intenta un umbral más alto!\nVidas perdidas: %i\nIntentos: %i"
+   }
+)
+(eg_percent_frac_format "%1.2f%%")
+(eg_streak_format
+   {switch {game get_track_type 0}
+      (kTrackBass "¡Racha de Bajo de %i !")
+      (kTrackRhythm "¡Racha Rítmica de %i !")
+      "¡Rachas de %i Notas!"
+   }
+)
+(song_list "selección de canción")
+(main_menu "menú principal")
+(perma_bonus_song "Canción Bonus")
+(perma_bonus_song_desc
+   "Toca esta canción en el modo carrera para revelar su identidad. La tienda nunca revelará la canción."
+)
+(caption_unknown "??????????")
+#ifdef GAME_GH2
+(song_win_other
+   {if_else $randomizer
+      "Supera ??????????? para ganar"
+      "Supera Free Bird para ganar"
+   }
+)
+#else
+(song_win_other
+   {if_else $randomizer
+      "Supera ??????????? para ganar"
+      "Supera Play With Me para ganar"
+   }
+)
+#endif
+(scythe_shop_desc
+   "¿Alguna vez has soñado con tocar música usando las almas de inocentes? Aniquila solos con esta hacha mortífera y las góticas gritarán tu nombre."
+)
+(scythe_desc
+   "¿Alguna vez has soñado con tocar música usando las almas de inocentes? Aniquila solos con esta hacha mortífera y las góticas gritarán tu nombre."
+)
+(guitar_red_octane "SG de RedOctane")
+(guitar_red_octane_locked_desc
+   "No puede ser, ¿o sí? Consigue cinco estrellas en todas las canciones en dificultad EXPERTO para averiguarlo."
+)
+(guitar_red_octane_desc
+   "Espera, ¿esto siempre estuvo en los archivos del juego? Sí, lo estuvo."
+)
+(guitar_red_octane_shop_desc
+   "Espera, ¿esto siempre estuvo en los archivos del juego? Sí, lo estuvo."
+)
+(dead "Dead!")
+(dead_shop_desc
+   "Un vampiro, un sadomasoquista y un Punk vestido de negro entran a un bar en Nueva York."
+)
+(hush "Hush")
+(hush_shop_desc
+   "\qHush\q fue originalmente escrita por Joe South, y una versión de la canción fue grabada por Billy Joe Royal un año antes de que saliera el cover de Deep Purple."
+)
+(possum "Possum Kingdom")
+(possum_shop_desc
+   "Los orígenes de la canción yacen en el folklore de Texas, el estado en donde la banda fue formada. Possum Kingdom Lake es un lago en North Texas, cerca de Fort Worth."
+)
+(salvation "Salvation")
+(salvation_shop_desc
+   "Formada en 1991, Rancid no es solo un nombre ingenioso. También son, supuestamente, una banda Punk. ¿Por qué supuestamente? Ni idea, solo me parecía apropiado usar esa palabra."
+)
+(lifewasted "Life Wasted")
+(lifewasted_shop_desc
+   "Las letras de \qLife Wasted\q fueron aparentemente escritas sobre la muerte del guitarrista de Punk Rock Johnny Ramone y sobre los sentimientos que tiene una persona al llegar a casa después de un funeral."
+)
+(billiondollar "Billion Dollar Babies")
+(billiondollar_shop_desc
+   "Sí, la gente dice que todos los caminos llevan a Roma, pero si eres fan del Rock, todos los caminos llevan a Alice Cooper."
+)
+(rockandroll "Rock and Roll Hoochie Koo")
+(rockandroll_shop_desc
+   "All American Boy, el álbum solista de Derringer, fue lanzado en el '73 con el ya conocido \qRock and Roll, Hoochie Koo\q esta vez como un 'hit' en formato single."
+)
+(trooper "The Trooper")
+(trooper_shop_desc
+   "Esta canción está basada en \qLa Carga de la Brigada Ligera\q en la Batalla de Balaclava de 1854, que ocurrió durante la Guerra de Crimea, e inspirada por el poema homónimo de Lord Tennyson."
+)
+(drinkup "Drink Up")
+(drinkup_shop_desc
+   "¡OUNCE of SELF está listo para mostrarle a todos los Metaleros como se hace! Dejando todo pesado, fangoso y tembloroso, la banda tiende a dejar su marca en la escena del Metal."
+)
+(kicked "Kicked to the Curb")
+(kicked_shop_desc
+   "Noble Rot es Rock 'n' Roll Americano puro con una porción grande de FIESTA. Fundada en 2006, su primer álbum completo se estrena el 7 de Diciembre."
+)
+
+(lag_audio_setting "Audio: %d ms")
+(lag_video_setting "Video: %d ms")
+
+(lag_info_howto_manual
+   "Rasguea hacia arriba o hacia abajo para cambiar el valor."
+)
+
+(lag_audio_test "Prueba de Audio")
+(lag_info_howto_audio_test "Rasguea al ritmo de los pitidos.")
+
+(lag_video_test "Prueba de Video")
+(lag_info_howto_video_test
+   "Rasguea cuando el círculo golpee el objetivo."
+)

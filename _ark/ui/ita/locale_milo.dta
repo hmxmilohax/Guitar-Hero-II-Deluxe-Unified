@@ -1,0 +1,247 @@
+#ifdef GAME_GH2
+(gh2_permadeath
+   {if_else $randomizer
+      "Random-Permadeath"
+      "GH2 Permadeath"
+   }
+)
+(perma_welcome "GH2GYM")
+;(op_data_settings "GH2GYM Settings")
+#else
+(gh2_permadeath
+   {if_else $randomizer
+      "Random-Permadeath"
+      "80s Permadeath"
+   }
+)
+(perma_welcome "80SGYM")
+;(op_data_settings "80SGYM Settings")
+#endif
+(perma_welcome_desc "Choose your fate.\nPress START to confirm.")
+(gym_options "RESTART GYM")
+(gym_options_confirm
+   "Are you sure you want to quit and return to bootup options?\n\nAll progress will be lost"
+)
+(dlc_option
+   {if_else $scandlc
+      "DLC : ENABLED"
+      "DLC : DISABLED"
+   }
+)
+(perma_option
+   {if_else $permadeath
+      "Permadeath : ON"
+      "Permadeath : OFF"
+   }
+)
+(random_option
+   {if_else $randomizer
+      "Randomizer : ON"
+      "Randomizer : OFF"
+   }
+)
+(unlock_option
+   {if_else $gym_unlock_all
+      "UNLOCK ALL : ON"
+      "UNLOCK ALL : OFF"
+   }
+)
+(force_option
+   {if_else $force_all_as_guitar
+      "FORCE AS GUITAR : ON"
+      "FORCE AS GUITAR : OFF"
+   }
+)
+;this one is flipped
+(strum_option
+   {if_else $strum_limit_disabled
+      "Strum Limit : OFF"
+      "Strum Limit : ON"
+   }
+)
+(too_short_name "Get Creative")
+(too_short_name_msg
+   "Your band name needs to have at least 3 characters.\n\nWhy don't you come up with something a little better?"
+)
+(cant_xenia_title "CANT PROCEED")
+(cant_xenia
+   #ifdef GAME_GH2
+   "We detected you may be playing GH2GYM on Xenia.\nGH2GYM only works in conjunction with both\n\qGame Relative Writes\q and\n\qWritable Code Segments\q\nenabled in the xenia.config.toml."
+   #else
+   "We detected you may be playing 80SGYM on Xenia.\n80SGYM only works in conjunction with both\n\qGame Relative Writes\q and\n\qWritable Code Segments\q\nenabled in the xenia.config.toml."
+   #endif
+)
+(cant_save
+   "Please note, we cannot restore the randomized setlist after restarting the game.\nYour randomizer save will be deleted when the console is powered off."
+)
+(cant_save_disabled
+   #ifdef GAME_GH2
+   "Saving is disabled while in unlock all.\n\nHead to Options>GH2GYM Settings to restart GH2GYM and re-enable saving."
+   #else
+   "Saving is disabled while in unlock all.\n\nHead to Options>80SGYM Settings to restart 80SGYM and re-enable saving."
+   #endif
+)
+(permadeath_welcome
+   {if_else $strum_limit_disabled
+      "Welcome (back)\nAttempts: %i\nTop Streak: %i\nTop FC streak: %i songs\nStrum Limit is disabled."
+      #ifdef GAME_GH2
+      "Welcome (back)\nAttempts: %i\nTop Streak: %i\nTop FC streak: %i songs\nTrogdor has No Strum Limit."
+      #else
+      "Welcome (back)\nAttempts: %i\nTop Streak: %i\nTop FC streak: %i songs\nStrum Limit is enabled."
+      #endif
+   }
+)
+(num_lives
+   "Number of lives: %i\nYour save will be deleted if you lose all of your lives.\n\nMissing will always exit a song.\nUP/DOWN : +/- LIVES"
+)
+(accuracy_threshold_fc
+   "Required Win Threshold: %s\nAdjust accuracy threshold for beating each song in permadeath. Selecting FC will lose a life on note miss.\nUP/DOWN : +/- ADJUST"
+)
+(accuracy_threshold_int
+   "Required Win Threshold: %d%%\nAdjust accuracy threshold for beating each song in permadeath. Selecting FC will lose a life on note miss.\nUP/DOWN : +/- ADJUST"
+)
+(accuracy_threshold_float
+   "Required Win Threshold: %1.1f%%\nAdjust accuracy threshold for beating each song in permadeath. Selecting FC will lose a life on note miss.\nUP/DOWN : +/- ADJUST"
+)
+(overlay_threshold_fc "Win Threshold: %s")
+(overlay_threshold_int "Win Threshold: %d%%")
+(overlay_threshold_float "Win Threshold: %1.1f%%")
+(overlay_songs_complete "Songs Won: %i / %i")
+(overlay_num_lives_streak "Note Streak: %i | Lives: %i")
+(overlay_num_lives "Lives: %i")
+(overlay_num_lives_acc_float "Lowest Accuracy: %1.1f%% | Lives: %i")
+(overlay_num_lives_acc_int "Lowest Accuracy: %i | Lives: %i")
+(full_combo "FC")
+(permadeath_lost_perc
+   "You didnt beat the win threshold for this song.\nYour accuracy: %1.1f%%.\nNeeded: %1.1f%%\nYou have %i lives remaining."
+)
+(permadeath_lost "You missed.\nYou have %i lives remaining.")
+(permadeath_lost_final "You missed.\nThis is your final life.")
+(permadeath_lost_final_perc
+   "You didnt beat the win threshold for this song.\nYour accuracy: %1.1f%%.\nNeeded: %1.1f%%\nThis is your final life."
+)
+(permadeath_lost_restart "You died.\nYour progress has been deleted.")
+(permadeath_lost_restart_perc
+   "You didnt beat the win threshold for this song.\nYour accuracy: %1.1f%%.\nNeeded: %1.1f%%\nYou died.\nYour progress has been deleted."
+)
+(permadeath_win
+   {if_else $randomizer
+      "Holy fuck you beat randomizer?!\nNow do it with less misses.\nLives lost: %i\nAttempts: %i\nTop Streak: %i\nTop FC streak: %i songs"
+      "Holy shit you did it!\nNow do it with less misses.\nLives lost: %i\nAttempts: %i\nTop Streak: %i\nTop FC streak: %i songs"
+   }
+)
+(permadeath_win_no_miss
+   {if_else $randomizer
+      "Holy fuck you beat randomizer?!\nWith no misses too? WHAT\nLives lost: %i\nAttempts: %i\nTop Streak: %i\nTop FC streak: %i songs"
+      "Holy shit you did it!\nWith no misses too? WOW\nLives lost: %i\nAttempts: %i\nTop Streak: %i\nTop FC streak: %i songs"
+   }
+)
+(permadeath_win_buff_up_float
+   {if_else $randomizer
+      "Hell yeah you beat randomizer!\nEvery song beaten with at least %1.1f%% accuracy\nNow keep buffing your skills and try a higher threshold\nLives lost: %i\nAttempts: %i"
+      "Hell yeah you beat permadeath!\nEvery song beaten with at least %1.1f%% accuracy\nNow keep buffing your skills and try a higher threshold\nLives lost: %i\nAttempts: %i"
+   }
+)
+(permadeath_win_buff_up_int
+   {if_else $randomizer
+      "Hell yeah you beat randomizer!\nEvery song beaten with at least %i accuracy\nNow keep buffing your skills and try a higher threshold!\nLives lost: %i\nAttempts: %i"
+      "Hell yeah you beat permadeath!\nEvery song beaten with at least %i accuracy\nNow keep buffing your skills and try a higher threshold!\nLives lost: %i\nAttempts: %i"
+   }
+)
+(eg_percent_frac_format "%1.2f%%")
+(eg_streak_format
+   {switch {game get_track_type 0}
+      (kTrackBass "%i Bass Streak!")
+      (kTrackRhythm "%i Rhythm Streak!")
+      "%i Note Streak!"
+   }
+)
+(song_list "song select")
+(main_menu "main menu")
+(perma_bonus_song "Bonus Song")
+(perma_bonus_song_desc
+   "Play this song in career to uncover its identity. The shop will never reveal the song."
+)
+(caption_unknown "??????????")
+#ifdef GAME_GH2
+(song_win_other
+   {if_else $randomizer
+      "Beat ??????????? to win"
+      "Beat Free Bird to win"
+   }
+)
+#else
+(song_win_other
+   {if_else $randomizer
+      "Beat ??????????? to win"
+      "Beat Play With Me to win"
+   }
+)
+#endif
+(scythe_shop_desc
+   "Ever felt like shredding with the souls of the undead? Slice a slick solo, and the goth girls will be screaming for beelzebub."
+)
+(scythe_desc
+   "Ever felt like shredding with the souls of the undead? Slice a slick solo, and the goth girls will be screaming for beelzebub."
+)
+(guitar_red_octane "RedOctane SG")
+(guitar_red_octane_locked_desc
+   "It can't be, or maybe it really is? Get five stars on every song on EXPERT to find out."
+)
+(guitar_red_octane_desc
+   "Wait a second, this was really in the game this whole time? Yes it was."
+)
+(guitar_red_octane_shop_desc
+   "Wait a second, this was really in the game this whole time? Yes it was."
+)
+(dead "Dead!")
+(dead_shop_desc
+   "To quote Patrick Kolan's review of My Chemical Romance's Sydney Luna Park gig, \qpigeonhole... based... attire\q. Hmm, how about: \qThey're punk with a black taint. It's an image thing\q."
+)
+(hush "Hush")
+(hush_shop_desc
+   "\qHush\q was originally written by Joe South, and a version of the song was recorded by Billy Joe Royal a year prior to the release of Deep Purple's cover of the song."
+)
+(possum "Possum Kingdom")
+(possum_shop_desc
+   "The song's origins lie in folklore from the band's native state of Texas. Possum Kingdom Lake is a lake in North Texas near Fort Worth."
+)
+(salvation "Salvation")
+(salvation_shop_desc
+   "Formed in 1991, Rancid isn't just a clever name. They're also, allegedly, a punk band. Why, allegedly? I don't know, it just felt like an allegedly moment."
+)
+(lifewasted "Life Wasted")
+(lifewasted_shop_desc
+   "The lyrics for \qLife Wasted\q were reportedly written about the death of the punk rock guitarist Johnny Ramone and about the feelings one has after driving home from a funeral."
+)
+(billiondollar "Billion Dollar Babies")
+(billiondollar_shop_desc
+   "Yes, people say all roads lead to Rome, and that every person on the planet is only a few links away from Kevin Bacon, but up here (I'm tapping my head here), it's all about Alice Cooper."
+)
+(rockandroll "Rock and Roll Hoochie Koo")
+(rockandroll_shop_desc
+   "Derringer's solo album, All American Boy was released in '73 with the now already popular \qRock and Roll, Hoochie Koo\q this time as a 'hit' single."
+)
+(trooper "The Trooper")
+(trooper_shop_desc
+   "This song is based on the \qCharge of the Light Brigade\q at the Battle of Balaclava 1854, which took place during the Crimean War, and inspired by Lord Tennyson's 1854 poem of the same name."
+)
+(drinkup "Drink Up")
+(drinkup_shop_desc
+   "OUNCE of SELF is ready to out-heavy the entire face of this planet! Keeping everything heavy, sludgy, and earth-shaking, the band tends to leave their mark on the metal scene."
+)
+(kicked "Kicked to the Curb")
+(kicked_shop_desc
+   "Noble Rot is pure American rock 'n' roll with an extra large side order of PARTY. Founded in 2006, their first full-length album debuts December 7th."
+)
+
+(lag_audio_setting "Audio: %d ms")
+(lag_video_setting "Video: %d ms")
+
+(lag_info_howto_manual "Strum up or down to change the offset.")
+
+(lag_audio_test "Audio Test")
+(lag_info_howto_audio_test "Strum to the beat of the audible beeps.")
+
+(lag_video_test "Video Test")
+(lag_info_howto_video_test "Strum when the circle hits the target.")

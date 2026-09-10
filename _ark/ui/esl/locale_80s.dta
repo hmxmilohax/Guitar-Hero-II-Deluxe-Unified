@@ -1,0 +1,148 @@
+(splash_legal
+   "Guitar Hero TM: Rock de los 80 TM © 2006-2007 Activision Publishing, Inc. Código del juego © 2005-2007 Harmonix Music Systems, Inc. Desarrollado por Harmonix Music Systems."
+)
+(fest "Rock for Safety Tour")
+(win_easy
+   "¡Hola ______________________!\n\nEnhorabuena por arrasar en el nivel fácil de Guitar Hero: Rock de los 80. Es hora de pasar a otro nivel, máquina.\n\n¿Quieres premios en metálico? Juega en los niveles MEDIO, DIFÍCIL o EXPERTO. Podrás comprar nuevas guitarras, nuevos acabados...todo lo que tu coranzoncito de roquero desee... Quién sabe, quizás incluso te encuentres con un nuevo modo... \n\nEs la hora de la verdad, colega.\n\nUn saludo,\nLa Directiva"
+)
+(win_medium
+   "¡Hola ______________________!\n\nEnhorabuena, has arrasado en el nivel medio de Guitar Hero: Rock de los 80. ¡Bien hecho!\n\nSeguro que puedes conseguir más dinero y comprar más artículos si juegas en los niveles DIFÍCIL o EXPERTO, ¿verdad? Comprar cosas mola. Si compras artículos, le gustas a la gente.\n\nSube de nivel y verás. Sigue vendiendo entradas como rosquillas y seremos buenos.\n\nAbrazos, \nLa Directiva"
+)
+(win_hard
+   "¡Hola ______________________!\n\nEnhorabuena has arrasado en el nivel difícil de Guitar Hero: Rock de los 80. Es una gran hazaña.\n\nPonte a prueba en el nivel EXPERTO. Se llama EXPERTO por algo. Quizá te esté esperando un premio si lo superas.\n\nVamos, ponte a ello.\n\nUn abrazo,\nLa Directiva"
+)
+(win_expert
+   "¡Hola _____________________!\n\n¡Qué pasada! Has arrasado en el nivel EXPERTO de Guitar Hero: Rock de los 80.\n\nHa sido flipante. Eres una leyenda entre los mortales.\n\n¿¿Has superado todas las canciones con CINCO ESTRELLAS?? Si no, vuelve al trabajo, campeón. Tus esfuerzos serán recompensados.\n\nEn serio, eres alucinante. Enhorabuena.\n\nUn fuerte abrazo,\nLa Directiva"
+)
+(win_diff "Te has pasado Guitar Hero: Rock de los 80 en el nivel %s")
+(win_legendary
+   "Tu legendaria actuación será recordada hasta bien entrados los 90."
+)
+(win_stardom "¡La caña de España!")
+(sponsor_blurb1
+   "Ernie Ball cree que tienes algo especial, chico. Te van a pagar con un patrocinio y unas cuerdas de calidad para empezar."
+)
+(sponsor_sub2 "(Y tu padre decía que no comerías de esto...)")
+(sponsor_blurb2
+   "Line 6 Amps piensa que te luciste en la última actuación, ¡es hora de darle caña! Te han ofrecido un patrocinio y un aplificador Line 6 a para que arrases."
+)
+(sponsor_sub3 "(¡Vive el sueño!)")
+(sponsor_blurb3
+   "Esa aclamada actuación ha dado que hablar y Orange Amps se ha enterado de todo. Te ofrecen un patrocinio y un alucinante amplificador Orange para que tus amigos se mueran de envidia."
+)
+(sponsor_sub4
+   "(Es genial que te puedas permitir una cartera más grande.)"
+)
+(sponsor_blurb4
+   "Krank Amps piensa que te vas a montar en el tren de la fama y quiere estar a bordo. Te ofrecen un patrocinio y un increíble amplificador Krank como billete de ida."
+)
+(sponsor_sub5 "(¡Rebózate en tu dinero!)")
+(sponsor_blurb5
+   "Vaya, mírate, los peces gordos se fijan en ti. Mesa Boogie se quedaron impresionados con tu última actuación. Te han ofrecido un considerable patrocinio y un amplificador Mesa Boogie para que nadie te quite los ojos de encima."
+)
+(sponsor_sub6 "(Hora de esconderse de los paparazzi.)")
+(sponsor_blurb6
+   "¿Ves como todos esos ensayos servían de algo? ¡Boss Pedals piensa que sí y te ofrecen un patrocinio bestial, sin olvidarte de los pedales Boss suficientes para personalizar tu sonido!"
+)
+(sponsor_sub7 "(No te olvides de la gente corriente.)")
+(sponsor_blurb7
+   "Ernie Ball ha estado contigo desde el principio y está orgulloso de tu gran éxito. Te ofrecen un patrocinio incomparable y cuerdas de por vida. Enhorabuena."
+)
+(unlock_profaceoff4
+   "El duelo de GUITARRAS es la caña, hasta que tu amigo el tonto te dice algo que no es verdad como que tocaste un tema más facil y te llama pringao y tu estás ahí como \qsí, claro\q y la cosa degenera en una conversación de besugos. Ahora ya puedes estar tranquilo porque tu habilidad es la que manda y tienes que probarlo en el DUELO DE GUITARRAS PRO, un modo de competición a lo bestia que está en el menú multijugador. ¡Genial!\n\nDiviértete,\nLa Directiva"
+)
+(alterna_blurb
+   "Judy Nails puede parecer un angelito en el escenario, pero se rumorea que esta chica alternativa es una bestia entre bastidores. Tras pasar su adolescencia de gira en gira, Judy es una veterana del rock and roll y una princesa del pedal de efectos."
+)
+(goth_blurb
+   "Enigmática y experimental, Pandora es una verdadera creadora de tendencias. Cuando se le preguntó por su estilo de guitarra innovador, Pandora explicó que sus solos \qson tributos al lado más puro de los robots y el plástico\q."
+)
+(glam_blurb
+   "El niño bonito de los medios de comunicación e icono de la cultura pop, Izzy Sparks representa el sueño del rock and roll y la pesadilla de cualquier madre. Con su gusto por el legato y el motivo de piel de leopardo, Izzy reparte metal al público en general."
+)
+(grim_blurb
+   "A ver tíos, Morticio es acojonante y punto. Con su endiablada técnica y sus licks cañeros, ya sabes porque reúne a 40.000 mendas cada vez que da un concierto. Morticio gusta, es el que parte el bacalao."
+)
+(metal_blurb
+   "Es un chico de ciudad que nació y se crió en South Peoria. Axel Steel es un fanático del rock de estadio y de las fiestas salvajes después del concierto. Rey de los estadios y maestro de los botellones, Axel Steel es un referente cuando se habla de riffs."
+)
+(punk_blurb
+   "Un monstruo a la hora tocar la guitarra con el estilo más punk, Johnny Napalm, pasa tanto tiempo desfasando encima del escenario como metiéndose en bronca con la pasma. Las actuaciones de Johnny han sido siempre caóticas, tóxicas y por supuesto legendarias."
+)
+(grim_shop_desc
+   "A ver tíos, Morticio es acojonante y punto. Con su endiablada técnica y sus licks cañeros, ya sabes porque reúne a 40.000 mendas cada vez que da un concierto. Morticio gusta, es el que parte el bacalao."
+)
+(eyeball_reward_desc
+   "Alguien dijo una vez: \qMenos mal que a nadie se le ha ocurrido hacer una guitarra en forma de ojo\q.  Esa persona se estará tirando de los pelos ahora mismo."
+)
+(battleaxe_reward_desc
+   "Posiblemente alguno de los de Manowar tiene una guitarra como ésta, así que ya es algo."
+)
+(song_header_battle "1. Para principiantes")
+(song_header_small1 "2. Calentando amplificadores")
+(song_header_small2 "3. Rompe las cuerdas")
+(song_header_theatre "4. El retorno del monstruo")
+(song_header_fest "5. A todo riff")
+(song_header_arena "6. Trastes a saco")
+(endgame_encore_letter3
+   "¡Dios mío! Las masas te adoran. O TOCAS un bis o se MUEREN aquí mismo. ¿Puedes tocar uno más, verdad?"
+)
+(endgame_encore_letter4
+   "Esta es la actuación más asombrosa de todos los tiempos. Tienes aguante para tocar un tema más, ¿verdad? Venga."
+)
+(endgame_encore_letter5
+   "¡Guau, las masas no van a parar de corear tu nombre! ¡En serio, tienes que tocar otro tema! ¿Podrás lograrlo para salir por la puerta grande?"
+)
+(comedy_tip1
+   "No se trata de lo BIEN que cantes sino de lo ALTO que cantes."
+)
+(comedy_tip2
+   "Cuando te hagas famoso, tendrás ayudantes para desenfundarte los pantalones de cuero.  Pero hasta que llegue ese momento, usa polvos de talco."
+)
+(comedy_tip3
+   "El cantante de tu grupo tiene razón. \qNoche\q es la palabra que mejor rima con \qnoche\q."
+)
+(comedy_tip4 "No te pongas muy cerca de los fuegos artificiales.")
+(comedy_tip5
+   "Sigue practicando el baile de \qAxl Dance\q. Un día de estos te saldrá."
+)
+(comedy_tip6 "¡DALE CAÑA!")
+(comedy_tip7
+   "Vive la vida como un verdadero rockero. Destroza  tus gallumbos de la misma manera que tus vaqueros."
+)
+(comedy_tip8
+   "Si tu pelo aún se mueve mientras agitas el tarro eso significa que no utilizas suficiente laca."
+)
+(comedy_tip9
+   "Huele la nueva cinta de cassette. Este es el aroma del rock."
+)
+(comedy_tip10
+   "Cuidado: los grupos de country también llevan chaquetas con flecos."
+)
+(comedy_tip11
+   "Antes de que existiera Internet, la gente expresaba su amor por el heavy metal en las paredes de los servicios."
+)
+(comedy_tip12
+   "Es una buena idea comprarle una batería enorme al bateras. Así nadie podrá ver lo mal maquillado que está."
+)
+(comedy_tip13
+   "Para un buen solo como el Dios del heavy manda, necesitas usar la barra de vibrato 3 veces en cada nota. Eso como mínimo."
+)
+(comedy_tip14
+   "Si los vecinos se quejan por el ruido, sube el volumen y acaba con ellos."
+)
+(comedy_tip15 "Las masas nunca se cansarán de la letra \q¡Oh yeah!\q")
+(encore_tip1 "Alborota siempre tu pelo para el bis. SIEMPRE.")
+(encore_tip2 "¡OTRA, OTRA! ¿Tenían que pedírtelo?  ¡Vamos TÍO!")
+(encore_tip3
+   "Para tu bis, recuerda: los efectos láser que nunca has utilizado pueden jugar una mala pasada."
+)
+(encore_tip4
+   "Tras tocar un buen repertorio solo hay dos palabras que definen como te sientes: cansancio y sudor. Empapa a tu batería de soda antes del bis."
+)
+(encore_tip5
+   "Dalo todo en el bis. Hazlo para hacerte con la tía en vaqueros rotos de la tercera fila."
+)
+(encore_tip6
+   "Regla de oro de un bis: toca siempre el primer tema de tu disco en último lugar."
+)

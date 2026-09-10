@@ -1,0 +1,58 @@
+#define PAUSE_THE_GAME (
+   {beatmatch set_paused TRUE}
+   {game set_paused TRUE}
+   {world_panel set_paused TRUE}
+)
+#define LOST_THE_GAME (
+   {set $lost_the_game TRUE}
+   ;lost a life
+   {++ $lives_lost}
+   ;lives remain, go back to song_select/main menu
+   {if {< $lives_lost $num_of_lives}
+      PAUSE_THE_GAME
+      ;submit note streak if no lives lost
+      {set $this_note_streak {int 0}}
+      {meta_loading_goto permadeath_lost_screen}
+   }
+   ;no lives remain
+   {if {|| {== $num_of_lives $lives_lost} {<= {- $num_of_lives $lives_lost} 0}}
+      ;delete permadeath save file, besides our tracking ones
+      {if {! {campaign is_empty_profile 0}}
+         {campaign delete_slot 0}
+      }
+      ;return to intro flow
+      PAUSE_THE_GAME
+      {set $return_flow TRUE}
+      {meta_loading_goto permadeath_lost_screen}
+   }
+)
+#define COMMON_CALLBACK_HANDLES (
+   (gem_hit_callback
+      ;track temp note streak in case of life lost
+      ;streak is submitted on win song or lost all lives
+      {if {== $accuracy_threshold_elem 0}
+         {++ $temp_note_streak}
+      }
+      {$this first_note}
+   )
+   (gem_miss_callback
+      {if $passed_first_note
+         {if {&& {! $lost_the_game} {== $accuracy_threshold_elem 0}}
+            LOST_THE_GAME
+         }
+      }
+   )
+   (gem_pass_callback
+      {$this first_note}
+      {if {&& {! $lost_the_game} {== $accuracy_threshold_elem 0}}
+         LOST_THE_GAME
+      }
+   )
+   (first_note
+      {if {! $passed_first_note} ;if the first note has not been hit/missed/passed yet, track that the first note has been hit/missed/passed
+         {set $passed_first_note TRUE}
+      }
+   )
+)
+{new Object note_streak_callback_p0 COMMON_CALLBACK_HANDLES}
+{new Object note_streak_callback_p1 COMMON_CALLBACK_HANDLES}

@@ -1,0 +1,196 @@
+(vs_pscan "PROGRESSIVE SCAN")
+(vs_widescreen "WIDESCREEN DISPLAY")
+(mc_title_loading "loading...")
+(mc_title_saving "saving...")
+(mc_title_deleting "deleting...")
+(mc_title_caution "caution")
+(mc_title_error "error")
+(mc_title_nosave "save not found")
+(mc_title_fileerror "save file error")
+(already_formatted_error_ps2
+   "FORMAT ERROR: The \nmemory card (8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT} has already been formatted! Please reinsert unformatted \nmemory card (8MB)(for PlayStation®2)\n and select retry."
+)
+(autosave_disable_check_ps2 "Do you want to disable the Autosave feature?")
+(bootup_caution_ps2
+   #ifdef GAME_GH2
+   "Caution! Guitar Hero II uses an Autosave feature. Insertion of a \nmemory card (8MB)(for PlayStation®2)\n beyond this point may cause data to be overwritten. Continue without saving?"
+   #else
+   "Caution! Guitar Hero: Rocks the 80s uses an Autosave feature. Insertion of a \nmemory card (8MB)(for PlayStation®2)\n beyond this point may cause data to be overwritten. Continue without saving?"
+   #endif
+)
+(bootup_caution_format_cancelled_ps2
+   "Format cancelled. Continue without saving?"
+)
+(bootup_caution_nodata_ps2
+   #ifdef GAME_GH2
+   "Caution! No Guitar Hero II save data found on \nmemory card (8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT}. {REQ_SPACE} of free space is required to save game data. Continue without saving?"
+   #else
+   "Caution! No Guitar Hero: Rocks the 80s save data found on \nmemory card (8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT}. {REQ_SPACE} of free space is required to save game data. Continue without saving?"
+   #endif
+)
+(bootup_corrupt_data_ps2
+   "Corrupt data detected on \nmemory card (8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT}. {REQ_SPACE} of free space is required to save game data. Replace the corrupt file and create a new save file?"
+)
+(bootup_create_save_ps2
+   #ifdef GAME_GH2
+   "Creating Guitar Hero II save file. Do not remove \nmemory card (8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT}, reset, or switch off console."
+   #else
+   "Creating Guitar Hero: Rocks the 80s save file. Do not remove \nmemory card (8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT}, reset, or switch off console."
+   #endif
+)
+(bootup_create_save_check_ps2
+   #ifdef GAME_GH2
+   "No Guitar Hero II save data present on memory card\n(8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT}. Guitar Hero II uses an Autosave feature. {REQ_SPACE} of free space is required to save game data. Do you want to create a save file now?"
+   #else
+   "No Guitar Hero: Rocks the 80s save data present on memory card\n(8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT}. Guitar Hero: Rocks the 80s uses an Autosave feature. {REQ_SPACE} of free space is required to save game data. Do you want to create a save file now?"
+   #endif
+)
+(bootup_create_save_no_space_ps2
+   "Insufficient space on the \nmemory card (8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT}. Insert a \nmemory card (8MB)(for PlayStation®2)\n with at least {REQ_SPACE} of free space, or create some space using the console browser. Continue without saving?"
+)
+(bootup_create_success_ps2
+   #ifdef GAME_GH2
+   "Guitar Hero II data created successfully."
+   #else
+   "Guitar Hero: Rocks the 80s data created successfully."
+   #endif
+)
+(bootup_nocard_ps2
+   #ifdef GAME_GH2
+   "No memory card\n(8MB)(for PlayStation®2)\n detected in MEMORY CARD slot {SLOT}. Guitar Hero II uses an Autosave feature. {REQ_SPACE} of space is required to save game data. Do you want to start the game without saving?"
+   #else
+   "No memory card\n(8MB)(for PlayStation®2)\n detected in MEMORY CARD slot {SLOT}. Guitar Hero: Rocks the 80s uses an Autosave feature. {REQ_SPACE} of space is required to save game data. Do you want to start the game without saving?"
+   #endif
+)
+(bootup_nospace_ps2
+   "Insufficient space on the \nmemory card (8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT}. Insert a \nmemory card (8MB)(for PlayStation®2)\n with at least {REQ_SPACE} of free space, or create some space using the console browser. Continue without saving?"
+)
+(bootup_replace_save_check_ps2
+   #ifdef GAME_GH2
+   "SAVE ERROR: A Guitar Hero II save file already exists on the \nmemory card (8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT}. Select REPLACE to create a brand new save file, or LOAD to use that save data."
+   #else
+   "SAVE ERROR: A Guitar Hero: Rocks the 80s save file already exists on the \nmemory card (8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT}. Select REPLACE to create a brand new save file, or LOAD to use that save data."
+   #endif
+)
+(bootup_save_card_removed_ps2
+   #ifdef GAME_GH2
+   "No memory card \n(8MB)(for PlayStation®2)\n inserted in MEMORY CARD slot {SLOT}. Guitar Hero II uses an Autosave feature. {REQ_SPACE} of space is required to save game data. Do you want to start the game without saving?"
+   #else
+   "No memory card \n(8MB)(for PlayStation®2)\n inserted in MEMORY CARD slot {SLOT}. Guitar Hero: Rocks the 80s uses an Autosave feature. {REQ_SPACE} of space is required to save game data. Do you want to start the game without saving?"
+   #endif
+)
+(bootup_space_check_failed_ps2
+   "Insufficient space on the \nmemory card (8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT}. At least {REQ_SPACE} is needed to save this game data. Do you want to start the game without saving?"
+)
+(delete_confirm_ps2
+   "Are you sure you want to permanently delete this band?"
+)
+(different_card_ps2
+   "The status of the \nmemory card (8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT} has changed.  Data may be overwritten.  Proceed with save?"
+)
+(file_exists_error_ps2
+   #ifdef GAME_GH2
+   "SAVE ERROR: Guitar Hero II data already exists on the \nmemory card (8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT}. Overwrite previous data?"
+   #else
+   "SAVE ERROR: Guitar Hero: Rocks the 80s data already exists on the \nmemory card (8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT}. Overwrite previous data?"
+   #endif
+)
+(format_card_ps2
+   "Formatting memory card \n(8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT}. Do not remove your memory card \n(8MB)(for PlayStation®2), reset,\n or switch off the console."
+)
+(format_card_error_ps2
+   "FORMAT ERROR: An error occurred while attempting to format the \nmemory card (8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT}. Retry format?"
+)
+(format_no_card_error_ps2
+   "FORMAT ERROR: There is no \nmemory card (8MB)(for PlayStation®2)\n detected in MEMORY CARD slot {SLOT}. Please reinsert the \nmemory card (8MB)(for PlayStation®2)\n and select retry to continue formatting."
+)
+(load_loading_ps2
+   #ifdef GAME_GH2
+   "Loading Guitar Hero II data. Do not remove \nmemory card (8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT}, reset, or switch off the console."
+   #else
+   "Loading Guitar Hero: Rocks the 80s data. Do not remove \nmemory card (8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT}, reset, or switch off the console."
+   #endif
+)
+(load_success_ps2
+   #ifdef GAME_GH2
+   "Guitar Hero II data loaded successfully."
+   #else
+   "Guitar Hero: Rocks the 80s data loaded successfully."
+   #endif
+)
+(mc_card_removed_error_ps2
+   #ifdef GAME_GH2
+   "LOAD FAILED:  No \nmemory card (8MB)(for PlayStation®2)\n detected in MEMORY CARD slot {SLOT}. Do you wish to insert a \nmemory card (8MB)(for PlayStation®2)\n containing Guitar Hero II data and reattempt load?"
+   #else
+   "LOAD FAILED:  No \nmemory card (8MB)(for PlayStation®2)\n detected in MEMORY CARD slot {SLOT}. Do you wish to insert a \nmemory card (8MB)(for PlayStation®2)\n containing Guitar Hero: Rocks the 80s data and reattempt load?"
+   #endif
+)
+(mc_checking_ps2
+   "Checking status of \nmemory card (8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT}.  Do not remove the memory card \n(8MB)(for PlayStation®2), reset, or switch off console."
+)
+(mc_corrupt_error_ps2
+   "LOAD FAILED: Corrupt data detected \non the memory card \n(8MB)(for PlayStation®2) in MEMORY CARD slot {SLOT}. Try loading again?"
+)
+(mc_nocard_error_ps2
+   #ifdef GAME_GH2
+   "No memory card \n(8MB)(for PlayStation®2) inserted in MEMORY CARD slot {SLOT}. \nDo you wish to insert a \nmemory card (8MB)(for PlayStation®2)\n containing Guitar Hero II data and try loading again?"
+   #else
+   "No memory card \n(8MB)(for PlayStation®2) inserted in MEMORY CARD slot {SLOT}. \nDo you wish to insert a \nmemory card (8MB)(for PlayStation®2)\n containing Guitar Hero: Rocks the 80s data and try loading again?"
+   #endif
+)
+(mc_nodata_error_ps2
+   #ifdef GAME_GH2
+   "No Guitar Hero II data on \nmemory card (8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT}. \nDo you wish to insert a \nmemory card (8MB)(for PlayStation®2)\n containing Guitar Hero II data and try loading again?"
+   #else
+   "No Guitar Hero: Rocks the 80s data on \nmemory card (8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT}. \nDo you wish to insert a \nmemory card (8MB)(for PlayStation®2)\n containing Guitar Hero: Rocks the 80s data and try loading again?"
+   #endif
+)
+(mc_load_confirm_ps2
+   "WARNING: \nIf you load data from a \nmemory card (8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT}, you will lose your current game progress. Continue with load?"
+)
+(mc_save_confirm_ps2
+   #ifdef GAME_GH2
+   "WARNING: Saving will overwrite any existing Guitar Hero II data on the memory card \n(8MB)(for PlayStation®2) in MEMORY CARD slot {SLOT}. Are you sure you want to save?"
+   #else
+   "WARNING: Saving will overwrite any existing Guitar Hero: Rocks the 80s data on the memory card \n(8MB)(for PlayStation®2) in MEMORY CARD slot {SLOT}. Are you sure you want to save?"
+   #endif
+)
+(no_card_error_ps2
+   "SAVE ERROR: No \nmemory card (8MB)(for PlayStation®2)\n detected in MEMORY CARD slot {SLOT}. Do you wish to continue the game \nwithout saving?"
+)
+(no_format_warn_ps2
+   "SAVE ERROR: Data could not be \nsaved to the unformatted \nmemory card (8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT}.  Retry or continue without saving?"
+)
+(no_space_error_ps2
+   "SAVE ERROR: Insufficient space on \nmemory card (8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT}. {REQ_SPACE} of free space is required to save data. Do you want to continue without saving?"
+)
+(pre_delete_confirm_ps2
+   #ifdef GAME_GH2
+   "Before deleting a band, your current progress must be saved to a \nmemory card (8MB)(for PlayStation®2)\n.  Any existing Guitar Hero II data may be overwritten."
+   #else
+   "Before deleting a band, your current progress must be saved to a \nmemory card (8MB)(for PlayStation®2)\n.  Any existing Guitar Hero: Rocks the 80s data may be overwritten."
+   #endif
+)
+(save_error_ps2
+   "SAVE ERROR: Data was \nnot saved successfully to the \nmemory card (8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT}. Retry or Continue without saving?"
+)
+(save_saving_ps2
+   #ifdef GAME_GH2
+   "Saving Guitar Hero II data. Do not remove \nmemory card (8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT}, reset, or switch off console."
+   #else
+   "Saving Guitar Hero: Rocks the 80s data. Do not remove \nmemory card (8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT}, reset, or switch off console."
+   #endif
+)
+(save_success_ps2 "Save successful")
+(unformatted_card_ps2
+   "The memory card \n(8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT} is unformatted. You must format this \nmemory card (8MB)(for PlayStation®2)\n to save game data.  \nDo you wish to format the memory card (8MB)(for PlayStation®2)\n in MEMORY CARD slot {SLOT}?"
+)
+(mc_new_profile_warning_ps2
+   "WARNING: You have unsaved data. If you continue you will lose your progress."
+)
+(pscan_warning
+   "Progressive Mode may not work on all televisions.  If it doesn't work on yours, please wait 15 seconds and we'll automatically switch back."
+)
+(pscan_switching
+   "You are now in Progressive Mode.  Do you want to keep this display mode?"
+)

@@ -30,6 +30,17 @@
             (sd_diff4.btn kDifficultyExpert)
          }
       }
+      {if {! $set_first_diff_once}
+         {set $set_first_diff_once TRUE}
+         {set $first_diff
+            {switch $component
+               (sd_diff1.btn kDifficultyEasy)
+               (sd_diff2.btn kDifficultyMedium)
+               (sd_diff3.btn kDifficultyHard)
+               (sd_diff4.btn kDifficultyExpert)
+            }
+         }
+      }
       {$this update_difficulty}
    )
    (SELECT_START_MSG
@@ -45,7 +56,15 @@
    (file sel_difficulty.milo)
    SEL_DIFFICULTY_COMMON
    (enter {$this update_focus})
-   (last_difficulty {game get_difficulty 0})
+   (last_difficulty
+      {if_else {! $diff_done_once}
+         {do
+            {set $diff_done_once TRUE}
+            kDifficultyExpert
+         }
+         {game get_difficulty 0}
+      }
+   )
    (update_difficulty)
 }
 {new UIPanel
@@ -67,7 +86,15 @@
       }
       {$this update_focus}
    )
-   (last_difficulty {campaign last_difficulty})
+   (last_difficulty
+      {if_else {! $career_diff_done_once}
+         {do
+            {set $career_diff_done_once TRUE}
+            kDifficultyExpert
+         }
+         {campaign last_difficulty}
+      }
+   )
    (update_difficulty {campaign update_difficulty})
 }
 {new GHScreen
@@ -217,7 +244,7 @@
       #endif
    )
    (resume_from_practice
-      {practice_sel_section_screen set career_mode FALSE}
+      {practice_sel_section_screen set career_mode FALSE} ;why does gym not do this
       {gamecfg set mode career}
       {gamecfg set continue_screen sel_song_screen}
    )
@@ -572,11 +599,11 @@
             ;replaced the tnm with manually moving the mesh to account for our new buttons
             ;its just easier than hex editing the tnm sorry
             {switch $char_stored_focus
-               ("outfit1.btn" {cs_arrow.mesh set_local_pos 20 0 120})
-               ("outfit2.btn" {cs_arrow.mesh set_local_pos 20 0 80})
-               ("outfit0.btn" {cs_arrow.mesh set_local_pos 20 0 160}) ;outfit 3 (80s)
-               ("outfit3.btn" {cs_arrow.mesh set_local_pos 20 0 40}) ;outfit 4 (ps2 1)
-               ("outfit4.btn" {cs_arrow.mesh set_local_pos 20 0 0}) ;outfit 5 (ps2 2)
+               ("outfit1.btn" {cs_arrow.mesh set_local_pos 20 0 125})
+               ("outfit2.btn" {cs_arrow.mesh set_local_pos 20 0 100})
+               ("outfit0.btn" {cs_arrow.mesh set_local_pos 20 0 150}) ;outfit 3 (80s)
+               ("outfit3.btn" {cs_arrow.mesh set_local_pos 20 0 75}) ;outfit 4 (ps2 1)
+               ("outfit4.btn" {cs_arrow.mesh set_local_pos 20 0 50}) ;outfit 5 (ps2 2)
             }
             ;{cs_arrow.tnm set_frame $idx}
             {set $old_char {char_single get_char 0}}
@@ -930,8 +957,8 @@
          ($sel_char {sel_character_panel get char_focus})
          ;that's right, we are hardcoding maps between characters for outfits
          ;outfit 3 is 80s, or ps2 outfit 1 on xbox
-         ;outfit 4 is outfit 1 on xbox on chars from ps2 with an 80s fit, outfit 2 from ps2 on those without
-         ;outfit 5 is the remaining outfit 2's from ps2 on xbox
+         ;outfit og1 is outfit 1 on xbox on chars from ps2
+         ;outfit og2 is the remaining outfit 2's from ps2 on xbox
 
          ;we do the same for 4 and 5 outfit support
          ;these flags enable and disable buttons dynamically in outfit select based on num of combined outfits across characters
@@ -973,6 +1000,10 @@
             {sel_character_panel choose_skins}
             {do
                {game set_character {sel_character_panel get char_outfit} TRUE}
+               {if {! $set_first_char_once}
+                  {set $set_first_char_once TRUE}
+                  {set $first_char {sel_character_panel get char_outfit}}
+               }
                {ui goto_screen [done_screen]}
             }
          }
@@ -1062,6 +1093,11 @@
    )
    (exit {char_single set_paused FALSE})
    (goto_career
+      {if {! $set_first_guitar_once}
+         {set $set_first_guitar_once TRUE}
+         {set $first_guitar_body {sel_guitar_panel get_selected_guitar 0}}
+         {set $first_guitar_skin {sel_guitar_panel get_selected_skin 0}}
+      }
       {game set_guitar
          {sel_guitar_panel get_selected_guitar 0}
          {sel_guitar_panel get_selected_skin 0}
@@ -1074,6 +1110,25 @@
             {ui goto_screen career_screen}
          }
       }
+      #ifdef HX_XBOX
+      {if
+         {&&
+            $permadeath
+            $set_first_guitar_once
+            $set_first_name_once
+            $set_first_diff_once
+            $set_first_char_once
+         }
+         {new ObjectDir permadeath_settings}
+         {permadeath_settings set career_name $first_name}
+         {permadeath_settings set guitar_body $first_guitar_body}
+         {permadeath_settings set guitar_skin $first_guitar_skin}
+         {permadeath_settings set career_char $first_char}
+         {permadeath_settings set career_diff $first_diff}
+         {permadeath_settings save_objects "GAME:/permadeath_settings.milo"}
+         {delete permadeath_settings}
+      }
+      #endif
    )
    (BUTTON_DOWN_MSG
       {switch $button
@@ -1123,6 +1178,8 @@
    (go_back
       {$this backwards_anim}
       {synth play_sequence button_back.cue}
+      {set $set_first_guitar_once FALSE}
+      {set $set_first_char_once FALSE}
       {ui goto_screen sel_character_new_screen}
    )
 }
@@ -1203,8 +1260,24 @@
    (update_store_item_desc
       {if_else {$this is_item_in_stock}
          {do
-            {st_item_name.lbl set_text {[item_provider] get_text [itemIdx]}}
-            {st_item_desc.lbl set_text {sprintf "%s_shop_desc" [item_name]}}
+            {if $randomizer
+               {if_else {== [category] song}
+                  {do
+                     {st_item_name.lbl set_text
+                        {sprint {localize perma_bonus_song} " " {+ [itemIdx] 1}}
+                     }
+                     {st_item_desc.lbl set_text {localize perma_bonus_song_desc}}
+                  }
+                  {do
+                     {st_item_name.lbl set_text {[item_provider] get_text [itemIdx]}}
+                     {st_item_desc.lbl set_text {sprintf "%s_shop_desc" [item_name]}}
+                  }
+               }
+            }
+            {if {! $randomizer}
+               {st_item_name.lbl set_text {[item_provider] get_text [itemIdx]}}
+               {st_item_desc.lbl set_text {sprintf "%s_shop_desc" [item_name]}}
+            }
             {st_cost.lbl set_localized_text {sprintf "$%d" {$this get_item_price}}}
             {st_question.lbl set_showing FALSE}
          }
@@ -1261,21 +1334,42 @@
             }
          )
          (song
-            {song_logos.pic set_tex
-               {sprint
-                  "ui/image/og/us_logo_"
-                  #ifdef HX_XBOX
-                  [item_name]
-                  #else
-                  {if_else {find_elem STORE_SONG_GENERIC_LOGO [item_name]}
-                     "generic"
-                     [item_name]
+            {if $randomizer
+               {song_logos.pic set_tex {sprint "ui/image/og/us_logo_generic_keep.png"}}
+            }
+            {if {! $randomizer}
+               {do
+                  ($arr
+                     (
+                        #ifdef HX_EE
+                        thunderhorse
+                        trogdor
+                        #endif
+                        dead
+                        hush
+                        possum
+                        salvation
+                        lifewasted
+                        billiondollar
+                        rockandroll
+                        trooper
+                        drinkup
+                        kicked
+                     )
+                  )
+                  {song_logos.pic set_tex
+                     {sprint
+                        "ui/image/og/us_logo_"
+                        {if_else {find_elem $arr [item_name]}
+                           "generic"
+                           [item_name]
+                        }
+                        "_keep.png"
+                     }
                   }
-                  #endif
-                  "_keep.png"
+                  {song_preview [item_name]}
                }
             }
-            {song_preview [item_name]}
          )
       }
       TRUE
@@ -1292,7 +1386,6 @@
       {st_poster.pic set_tex
          {sprint "ui/image/og/us_poster_" [category] "_keep.png"}
       }
-      #ifdef HX_XBOX
       {if_else {== [category] downloads}
          {st_costrange.lbl set_text store_downloads_costrange}
          {st_costrange.lbl set_localized_text
@@ -1303,15 +1396,6 @@
             }
          }
       }
-      #else
-      {st_costrange.lbl set_localized_text
-         {sprintf
-            {localize category_cost}
-            {store_panel low_cost [category]}
-            {store_panel high_cost [category]}
-         }
-      }
-      #endif
       {st_cat_name.lbl set_text {sprint "store_" [category]}}
    )
    (update_total_cash_display
@@ -1336,18 +1420,22 @@
       }
    )
    (enter
-      #ifdef HX_XBOX
       {$this set_focus st_guitars.btn}
-      {if_else {profilemgr is_active_pad_signed_in}
-         {$this enable st_downloads.btn}
-         {$this disable st_downloads.btn}
-      }
+      #ifdef HX_XBOX
+      {$this disable st_downloads.btn}
       #endif
       {$this set_store_mode TRUE}
       {$this show_store_screen_1}
       {$this update_store_category_desc}
       {$this update_total_cash_display}
       {$this hide_models}
+      #ifdef HX_XBOX
+         #ifndef GAME_GH2
+         {$this disable st_songs.btn}
+         {$this disable st_videos.btn}
+         ;{$this disable st_outfits.btn}
+         #endif
+      #endif
       {cash.view set_showing FALSE}
       {set [item_provider] store_item_provider}
       {[item_provider] set_category character}
@@ -1363,7 +1451,6 @@
       {cash.view set_showing FALSE}
    )
    (poll
-      #ifdef HX_XBOX
       {st_loading.lbl set_showing
          {&&
             {st_screen2.view showing}
@@ -1371,15 +1458,7 @@
             {! {char_store are_chars_loaded}}
          }
       }
-      #else
-      {if {st_screen2.view showing}
-         {st_loading.lbl set_showing
-            {&& {== [category] character} {! {char_store are_chars_loaded}}}
-         }
-      }
-      #endif
    )
-   #ifdef HX_XBOX
    (SELECT_START_MSG
       {if_else {== $component st_downloads.btn}
          {profilemgr show_marketplace}
@@ -1397,7 +1476,9 @@
                )
                (st_songs.btn
                   {meta_music stop}
+                  #ifdef HX_XBOX
                   {profilemgr disable_xmp}
+                  #endif
                   {song_logos.pic set_showing TRUE}
                )
                (st_characters.btn
@@ -1427,49 +1508,7 @@
          }
       }
    )
-   #else
-   (SELECT_START_MSG
-      {set [item_provider] store_item_provider}
-      {[item_provider] set_category [category]}
-      {switch $component
-         (st_guitars.btn
-            {set [item_provider] store_guitar_provider}
-            {store_guitar_display_panel set_showing TRUE}
-         )
-         (st_skins.btn
-            {set [item_provider] store_skin_provider}
-            {store_guitar_display_panel set_showing TRUE}
-         )
-         (st_songs.btn
-            {meta_music stop}
-            {song_logos.pic set_showing TRUE}
-         )
-         (st_characters.btn
-            {char_store set_placer 0 char_store.placer}
-            {char_store.placer set_showing TRUE}
-            {char_store set_exclusions (STORE_OUTFITS)}
-         )
-         (st_outfits.btn
-            {char_store set_placer 0 char_store.placer}
-            {char_store.placer set_showing TRUE}
-            {char_store set_exclusions (STORE_CHARACTERS)}
-         )
-         (st_videos.btn
-            {set [item_provider] store_video_provider}
-            {{store_video_panel find store_video.view} set_showing TRUE}
-            {taskmgr clear_tasks}
-            {store_video_panel animate_video}
-         )
-      }
-      {set [itemIdx] 0}
-      {set [item_name] {[item_provider] get_symbol [itemIdx]}}
-      {$this show_store_screen_2}
-      {$this update_store_item_desc}
-      {$this update_store_item_display}
-      {$this update_store_item_sold}
-      kDataUnhandled
-   )
-   #endif
+   #ifdef HX_XBOX
    (update_index
       ($dir)
       {set [itemIdx] {mod {'+' [itemIdx] $dir} {[item_provider] list_length}}}
@@ -1479,6 +1518,22 @@
       {$this update_store_item_sold}
       {synth play_sequence button_toggle}
    )
+   #else
+   (update_index
+      ($dir)
+      {do
+         ($oldIdx [itemIdx])
+         {set [itemIdx] {mod {'+' [itemIdx] $dir} {[item_provider] list_length}}}
+         {if {!= $oldIdx [itemIdx]}
+            {set [item_name] {[item_provider] get_symbol [itemIdx]}}
+            {$this update_store_item_desc}
+            {$this update_store_item_display}
+            {$this update_store_item_sold}
+            {synth play_sequence button_toggle}
+         }
+      }
+   )
+   #endif
    (hide_models
       {song_preview ''}
       {meta_music start}
@@ -1502,9 +1557,7 @@
                (st_characters.btn character)
                (st_outfits.btn outfit)
                (st_videos.btn video)
-               #ifdef HX_XBOX
                (st_downloads.btn downloads)
-               #endif
                kDataUnhandled
             }
          )
@@ -1563,9 +1616,7 @@
                   showing}}
             {if_else {store_panel can_buy_item}
                {do
-                  #ifdef HX_XBOX
                   ($cat {store_panel get category})
-                  #endif
                   {campaign buy_item
                      {store_panel get item_name}
                      {store_panel get_item_price}
@@ -1577,12 +1628,7 @@
                   #endif
                   {store_panel update_store_item_sold}
                   {store_panel update_total_cash_display}
-                  {if
-                     #ifdef HX_XBOX
-                     {== $cat guitar}
-                     #else
-                     {== {store_panel get category} guitar}
-                     #endif
+                  {if {== $cat guitar}
                      {store_skin_provider init_data}
                   }
                   {ui push_screen store_bought_screen}
@@ -1685,15 +1731,33 @@
                {game set_venue big}
             )
             (sv_theatre.btn
-               {$this set_venue_map_frame 5}
+               {$this set_venue_map_frame
+                  #ifdef GAME_GH2
+                  5
+                  #else
+                  4
+                  #endif
+               }
                {game set_venue theatre}
             )
             (sv_fest.btn
-               {$this set_venue_map_frame 6}
+               {$this set_venue_map_frame
+                  #ifdef GAME_GH2
+                  6
+                  #else
+                  5
+                  #endif
+               }
                {game set_venue fest}
             )
             (sv_arena.btn
-               {$this set_venue_map_frame 7}
+               {$this set_venue_map_frame
+                  #ifdef GAME_GH2
+                  7
+                  #else
+                  6
+                  #endif
+               }
                {game set_venue arena}
             )
             (sv_stone.btn
@@ -1703,7 +1767,11 @@
          }
       }
    )
-   (SELECT_START_MSG {ui goto_screen [next_screen]} kDataUnhandled)
+   (SELECT_START_MSG
+      {ui goto_screen [next_screen]}
+      {set $last_index 0} ;reset last hovered song in career
+      kDataUnhandled
+   )
 )
 {new GHPanel sel_venue_panel (file sel_venue.milo) (focus sv_battle.btn)}
 {new GHScreen
@@ -1743,7 +1811,6 @@
    #endif
    sel_song_panel
    (file
-      #ifdef HX_XBOX
       {do
          ($cfg {gamecfg get mode})
          {cond
@@ -1752,18 +1819,12 @@
             (TRUE sel_song_quickplay.milo)
          }
       }
-      #else
-      {switch {gamecfg get mode}
-         ((career multi_coop) sel_song.milo)
-         sel_song_quickplay.milo
-      }
-      #endif
    )
    (metamusic_on_exit TRUE)
    (focus ss_song.lst)
    (joypad
-      (hold_ms 500)
-      (repeat_ms 80)
+      (hold_ms 300)
+      (repeat_ms 50)
    )
    #ifdef HX_XBOX
    (load
@@ -1806,17 +1867,16 @@
          {game set_career_song}
       }
       {ss_song.lst set_selected {game get_song_index}}
-      #ifdef HX_XBOX
-      {if {! $leaderboards_mode}
-         {meta_music stop}
-         {profilemgr disable_xmp}
+      {if {! $randomizer}
+         {if {! $leaderboards_mode}
+            {meta_music stop}
+            #ifdef HX_XBOX
+            {profilemgr disable_xmp}
+            #endif
+         }
       }
-      #else
-      {meta_music stop}
-      #endif
       {$this update_pos}
    )
-   #ifdef HX_XBOX
    (exit
       ;dx relock campaign items and set to original profile
       {if $unlocked_all
@@ -1825,57 +1885,42 @@
          {campaign set_profile_slot $return_slot}
       }
       {if {! $leaderboards_mode}
-         {song_preview ''}
-         {if [metamusic_on_exit]
-            {meta_music start}
-            {profilemgr enable_xmp}
+         {if {! $randomizer}
+            {song_preview ''}
+            {if [metamusic_on_exit]
+               {meta_music start}
+               #ifdef HX_XBOX
+               {profilemgr enable_xmp}
+               #endif
+            }
          }
          {set [metamusic_on_exit] TRUE}
+         #ifdef HX_XBOX
          {song_provider set_mode kSongsCareer}
+         #else
+         {song_provider set_quickplay FALSE}
+         #endif
       }
    )
+   #ifdef HX_XBOX
    (unload {profilemgr remove_sink $this storage_changed})
-   #else
-   (exit
-      ;dx relock campaign items and set to original profile
-      {if $unlocked_all
-         {set $unlocked_all FALSE}
-         {campaign set_all_access FALSE}
-         {campaign set_profile_slot $return_slot}
-      }
-      {song_preview ''}
-      {if [metamusic_on_exit]
-         {meta_music start}
-      }
-      {set [metamusic_on_exit] TRUE}
-      {song_provider set_quickplay FALSE}
-   )
    #endif
    (SCROLL_MSG {$this update_pos})
    (update_pos
       {do
          ($pos {ss_song.lst selected_pos})
          ($frame {'+' $pos {song_provider num_headers $pos}})
-         #ifdef HX_XBOX
          {if {! $leaderboards_mode}
             {game set_song_index $pos}
+            {set $last_index {game get_song_index}} ;store last hovered song
+            #ifdef HX_XBOX
             {$this cache_song}
-            {song_preview {game get_song}}
+            #endif
+            {if {! $randomizer}
+               {song_preview {game get_song}}
+            }
          }
-         #else
-         {game set_song_index $pos}
-         {song_preview {game get_song}}
-         #endif
          {sel_song.view set_frame $frame}
-         #ifdef HX_EE
-         ;jump back to the top of the list once we hit our hidden settings song
-         {if {== {game get_song} z_1tspeed}
-            {ss_song.lst set_selected 0}
-            {$this update_pos}
-         }
-         #endif
-         ;store positional index of last song scrolled to
-         {set $dx_song_index {ss_song.lst selected_pos}}
       }
    )
    (beat_song
@@ -1889,16 +1934,6 @@
          }
       }
    )
-   (beat_song
-      {if {$this is_up}
-         {do
-            ($index {ss_song.lst selected_pos})
-            ($song {song_provider get_symbol $index})
-            {campaign beat_song $song}
-            {$this refresh}
-         }
-      }
-   )
    (gold_song
       {if {$this is_up}
          {campaign cheat_gold_song
@@ -1907,8 +1942,8 @@
          {$this refresh}
       }
    )
-   #ifdef HX_XBOX
    (refresh
+      #ifdef HX_XBOX
       {song_provider set_mode
          {switch {ui current_screen}
             (leaderboards_song_screen kSongsLeaderboards)
@@ -1916,29 +1951,22 @@
             kSongsQuickplay
          }
       }
+      #else
+      {if {! {{ui current_screen} sel_song_career}}
+         {song_provider set_quickplay TRUE}
+      }
+      #endif
       {ss_song.lst set_provider song_provider}
       {if {&& {! $leaderboards_mode} {== {game get_song_index} -1}}
          {game set_song_index 0}
       }
       {$this update_song_info}
    )
-   #else
-   (refresh
-      {if {! {{ui current_screen} sel_song_career}}
-         {song_provider set_quickplay TRUE}
-      }
-      {ss_song.lst set_provider song_provider}
-      {if {== {game get_song_index} -1}
-         {game set_song_index 0}
-      }
-      {$this update_song_info}
-   )
-   #endif
 }
 {new GHScreen
    sel_song_screen
    (animate_transition {! $dx_fast_menus})
-   (panels meta sel_song_panel helpbar)
+   (panels meta sel_song_panel permadeath_overlay_panel helpbar)
    (focus sel_song_panel)
    (helpbar
       (default

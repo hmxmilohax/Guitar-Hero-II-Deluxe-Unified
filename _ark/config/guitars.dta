@@ -2,16 +2,28 @@
    (type guitar)
    (skins
       (lp_cherry
-         (outfit lespaull)
-         (mat guitar_lespaul_burst.mat)
+         (outfit
+            {if_else {== {game get_track_sym 0} bass}
+               bass_music_black
+               lespaull
+            }
+         )
+         (mat
+            {if_else {== {game get_track_sym 0} bass}
+               bass_music_black.mat
+               guitar_lespaul_burst.mat
+            }
+         )
       )
       (lp_cayenne
          (outfit lp_cayenne)
-         #ifdef HX_XBOX
-         (mat guitar_lespaul_cayenne.mat)
-         #else
-         (mat lp_cayenne.mat)
-         #endif
+         (mat
+            #ifdef HX_XBOX
+            guitar_lespaul_cayenne
+            #else
+            lp_cayenne.mat
+            #endif
+         )
       )
       (lp_goddessburst
          (outfit lp_goddessburst)
@@ -27,12 +39,18 @@
    (type guitar)
    (skins
       (sg_cherry
-         (outfit guitar_sg)
-         #ifdef HX_XBOX
-         (mat guitar.mat)
-         #else
-         (mat guitar_sg_cherry.mat)
-         #endif
+         (outfit
+            {if_else {== {game get_track_sym 0} bass}
+               bass_music_lava
+               guitar_sg
+            }
+         )
+         (mat
+            {if_else {== {game get_track_sym 0} bass}
+               bass_music_lava.mat
+               guitar_sg_cherry.mat
+            }
+         )
       )
       (sg_white
          #ifdef HX_XBOX
@@ -57,8 +75,18 @@
    (type guitar)
    (skins
       (fv_white
-         (outfit fv_white)
-         (mat fv_white.mat)
+         (outfit
+            {if_else {== {game get_track_sym 0} bass}
+               bass_sg_cream
+               fv_white
+            }
+         )
+         (mat
+            {if_else {== {game get_track_sym 0} bass}
+               bass_sg_cream.mat
+               fv_white.mat
+            }
+         )
       )
       (fv_v2
          (outfit flyingv_v2)
@@ -206,11 +234,13 @@
       )
       (es_cherry
          (outfit es335_cherry)
-         #ifdef HX_XBOX
-         (mat es335_cherry.mat)
-         #else
-         (mat guitar_firebird.mat)
-         #endif
+         (mat
+            #ifdef HX_XBOX
+            es335_cherry.mat
+            #else
+            guitar_firebird.mat
+            #endif
+         )
       )
    )
 )
@@ -296,8 +326,6 @@
 )
 (fish_reward
    (type guitar)
-   (require tour_passed)
-   (difficulty kDifficultyEasy)
    (skins
       (fish
          (outfit fish)
@@ -307,8 +335,6 @@
 )
 (usa_reward
    (type guitar)
-   (require tour_5_star)
-   (difficulty kDifficultyEasy)
    (skins
       (usa
          (outfit usa)
@@ -318,8 +344,6 @@
 )
 (coffin_reward
    (type guitar)
-   (require tour_passed)
-   (difficulty kDifficultyMedium)
    (skins
       (coffin
          (outfit coffin)
@@ -329,8 +353,6 @@
 )
 (viking_reward
    (type guitar)
-   (require tour_5_star)
-   (difficulty kDifficultyMedium)
    (skins
       (viking
          (outfit viking)
@@ -340,8 +362,6 @@
 )
 (snaketapus_reward
    (type guitar)
-   (require tour_passed)
-   (difficulty kDifficultyHard)
    (skins
       (snaketapus
          (outfit snaketapus)
@@ -351,8 +371,6 @@
 )
 (eyeball_reward
    (type guitar)
-   (require tour_5_star)
-   (difficulty kDifficultyHard)
    (skins
       (eyeball
          (outfit eyeball)
@@ -383,7 +401,7 @@
    )
 )
 (scythe
-   (type grim)
+   (type guitar)
    (skins
       (scythe
          (outfit scythe)
@@ -392,7 +410,9 @@
    )
 )
 (guitar_red_octane
-   (type cheat)
+   (type guitar)
+   (require tour_5_star)
+   (difficulty kDifficultyExpert)
    (skins
       (guitar_red_octane
          (outfit guitar_redoctane)
@@ -411,10 +431,6 @@
 )
 (bass_musicman_lava
    (type bass)
-   (require
-      (songs 2)
-      (stars 3)
-   )
    (skins
       (bass_music_lava
          (outfit bass_music_lava)
@@ -424,10 +440,6 @@
 )
 (bass_sg_mahogany
    (type bass)
-   (require
-      (songs 1)
-      (stars 3)
-   )
    (skins
       (bass_sg_mahog
          (outfit bass_sg_mahog)
@@ -437,10 +449,6 @@
 )
 (bass_sg_cream
    (type bass)
-   (require
-      (songs 5)
-      (stars 3)
-   )
    (skins
       (bass_sg_cream
          (outfit bass_sg_cream)
@@ -450,10 +458,6 @@
 )
 (bass_grabber_cherry
    (type bass)
-   (require
-      (songs 10)
-      (stars 3)
-   )
    (skins
       (bass_grab_cherry
          (outfit bass_grab_cherry)
@@ -463,10 +467,6 @@
 )
 (bass_grabber_maple
    (type bass)
-   (require
-      (songs 20)
-      (stars 3)
-   )
    (skins
       (bass_grab_maple
          (outfit bass_grab_maple)
@@ -476,10 +476,6 @@
 )
 (bass_thunderbird_ebony
    (type bass)
-   (require
-      (songs 30)
-      (stars 3)
-   )
    (skins
       (bass_tb_ebony
          (outfit bass_tb_ebony)
@@ -489,10 +485,6 @@
 )
 (bass_thunderbird_burst
    (type bass)
-   (require
-      (songs 40)
-      (stars 3)
-   )
    (skins
       (bass_tb_burst
          (outfit bass_tb_burst)
@@ -500,12 +492,9 @@
       )
    )
 )
+#ifdef HX_XBOX
 (bass_hofner
    (type bass)
-   (require
-      (songs 40)
-      (stars 3)
-   )
    (skins
       (bass_hofner
          (outfit bass_hofner)
@@ -513,3 +502,4 @@
       )
    )
 )
+#endif

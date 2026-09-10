@@ -1,0 +1,60 @@
+{new UIPanel
+   loading_panel
+   (file loading.milo)
+   (enter
+      {if {! $load_strum_once}
+         {set $load_strum_once TRUE}
+         {set $strumlimit_setter {load_objects "ui/strum_limit.milo"}}
+      }
+      {do
+         ($trogdor FALSE)
+         ($temp FALSE)
+         {foreach $entry {find $syscfg mapped_songs}
+            {if {!= $entry mapped_songs}
+               {if {== {elem $entry 1} {gamecfg get_song}} ;find outer linked song (current song)
+                  {if {== {elem $entry 0} trogdor} ;check if it is linked to trogdor via randomizer
+                     {set $trogdor TRUE}
+                  }
+               }
+            }
+         }
+         {if_else {|| $strum_limit_disabled $trogdor}
+            {set $strumlimit 0.0}
+            {set $strumlimit 52.0}
+         }
+      }
+      #ifdef HX_XBOX
+      {eval {eval {$strumlimit_setter get set_strum_limit}}}
+      #else
+         #ifdef _SHIP
+         {eval {elem {$strumlimit_setter get set_strum_limit} 0}}
+         #endif
+      #endif
+      {tip.lbl set_localized_text {tips random_tip}}
+      {{game get_bank_loader} reset}
+      {meta set won_campaign FALSE}
+      {script_task
+         (units kTaskUISeconds)
+         (script
+            {animate_forever_30fps $this flyingtape2.grp}
+            {animate_forever_30fps $this loading_word.grp}
+         )
+      }
+   )
+}
+{new GHScreen
+   loading_screen
+   (panels loading_panel)
+   (allow_back FALSE)
+   (animate_transition FALSE)
+   (enter {$this reset_ambient})
+   (TRANSITION_COMPLETE_MSG {ui goto_screen game_screen})
+}
+{new GHScreen
+   practice_loading_screen
+   (panels loading_panel)
+   (allow_back FALSE)
+   (animate_transition FALSE)
+   (enter {$this reset_ambient})
+   (TRANSITION_COMPLETE_MSG {ui goto_screen practice_game_screen})
+}

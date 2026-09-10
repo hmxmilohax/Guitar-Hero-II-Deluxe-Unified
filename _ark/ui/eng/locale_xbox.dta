@@ -1,0 +1,105 @@
+(signin_changed_title "SIGN-IN CHANGED")
+(signin_changed_msg
+   "A user sign-in change has caused the game to lose ownership of saves and achievements.  As a result, the game has restarted."
+)
+(sigin_to_live_title "NOT SIGNED IN")
+(sigin_to_live_msg
+   "In order to view Leaderboards, you must be signed into Xbox Live.  Please sign in and then try again."
+)
+(help_tolisting "TO LEADERBOARD")
+(help_gamercard "GET GAMER CARD")
+(song_header_download "Downloaded Tracks")
+(store_downloads "DOWNLOADS")
+(downloads_shop_desc "Purchase new songs through Xbox Live Marketplace!")
+(store_downloads_costrange "$ REAL MONEY $")
+(mc_title_saving "Saving")
+(mc_title_autosave "Autosave")
+(mc_title_warning "Warning")
+(mc_title_error "Error")
+(mc_enable_autosave
+   "You must choose a storage device and save in order for autosave to become active."
+)
+(mc_autosave_device_changed
+   "Autosave has detected the storage device has changed since the last save.  Please choose your autosave location, or disable autosave."
+)
+(mc_checking "Checking storage devices...")
+(mc_multiple_saves
+   "Multiple storage devices with valid saves were found.  Please choose your preferred storage device, or continue without loading."
+)
+(mc_not_signed_in
+   "You are not signed in.  If you don't sign in, you can't save your progress."
+)
+(mc_confirm_not_signed_in
+   "You have chosen to continue without signing in.  Any progress you make will not be saved."
+)
+(mc_load_file_corrupt
+   "Loading saved game failed because the save file is corrupt."
+)
+(mc_load_failed
+   "Loading has failed for an unknown reason. Selected storage device is no longer available."
+)
+(mc_create_file "No save data was found.  Create a new save file?")
+(mc_saving "Saving...")
+(mc_save_complete "Saving Complete.")
+(mc_saving_long "Saving content.  Please don't turn off your console.")
+(mc_save_confirm_overwrite "Save file already exists.  Overwrite?")
+(mc_save_failed "Saving has failed.  Autosaving is disabled.")
+(mc_save_choose_device "Choose the device to save to.")
+(mc_save_not_enough_space
+   "Insufficient space on the selected storage device."
+)
+(mc_unsaved_data
+   "There is unsaved data.  If you load without saving first, you will lose that data.  Are you sure you want to Load?"
+)
+(mc_load_choose_device "Choose the device to load from.")
+(mc_file_not_found "No save data found on selected device.")
+(mc_delete_confirmation
+   "You are about to permanently delete the selected band.  All progress associated with that band will be lost.  Are you sure you want to continue?"
+)
+(mc_storage_changed
+   "A change has been detected in the Xbox 360 Memory Unit.  You are being redirected to the Main Menu."
+)
+(mc_storage_device_missing
+   "Selected storage device cannot be found.  Loading Failed."
+)
+(mc_save_storage_device_pulled
+   "Selected storage device has become unavailable.  Saving has failed."
+)
+(mc_load_storage_device_pulled
+   "Selected storage device has become unavailable.  Loading has failed."
+)
+(mc_continue "continue")
+(mc_choose_device "Choose Storage Device")
+(mc_create_save "Create New Save")
+(mc_disable_autosave "Disable Autosaving")
+(mc_signin "Sign In")
+(mc_no_save "Continue Without Saving")
+(mc_overwrite "Overwrite")
+(leaderboards "leaderboards")
+(lb_career_leaderboard "Career Score")
+(lb_campaign_leaderboard "Campaign Score")
+(lb_option1 "song:")
+(lb_option2 "timeframe:")
+(lb_option3 "show:")
+(lb_charts "This Week's Charts")
+(lb_charts_alltime "All-Time Charts")
+(lb_charts_campaign "Campaign Only")
+(lb_charts_all_songs "All Songs")
+(lb_yourname "Your Name:")
+(lb_top "%d of %d")
+(lb_unranked "UNRANKED")
+(lb_gotolist "GO TO LIST")
+(lb_all_time "ALL TIME")
+(lb_this_week "THIS WEEK ONLY")
+(lb_campaign_songs "CAMPAIGN ONLY")
+(lb_friends_only "FRIENDS ONLY")
+(lb_select_song "SELECT A LEADERBOARD")
+(lb_diff "EMHX")
+(lb_placeholder_name "---")
+(lb_move_to_top "GO TO TOP")
+(lb_my_position "GO TO MY SCORE")
+(sc_headline "Select Controller")
+(sc_attached "(ATTACHED CONTROLLERS)")
+(sc_instructions
+   "Press the strum bar on your guitar controller, or use the D-pad on your Xbox 360 controller to move your desired input device onto your side of the screen."
+)

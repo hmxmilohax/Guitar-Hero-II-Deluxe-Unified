@@ -1,5 +1,3 @@
-#include ../dx/ui/dialog/dx_dialog_handles.dta
-
 #define MEMCARD_RESULT_MSG (memcard_result ($result))
 #define DIALOG_SCREEN (
    (panels meta dialog helpbar)
@@ -91,18 +89,19 @@
       {$this setup '' '' none $msg $title}
    )
 }
-{func goto_startup_load
-   {set $mc_return_screen guitar_help_screen}
-   {set $autosave TRUE}
-   {if_else {profilemgr is_active_pad_signed_in}
-      {ui goto_screen startup_load_finder_screen}
-      {ui goto_screen startup_signin_screen}
-   }
-}
+;rewrite func to inject permadeath custom screen when loading a save
 {func goto_post_startup_load
-   {if_else {> {campaign num_profiles} 0}
-      {ui goto_screen main_screen}
-      {ui goto_screen main_screen}
+   {set $autosave TRUE}
+   {if_else $permadeath
+      {ui goto_screen permadeath_options_screen}
+      {do
+         {set $mc_return_screen guitar_help_screen}
+         {set $autosave TRUE}
+         {if_else {> {campaign num_profiles} 0}
+            {ui goto_screen main_screen}
+            {ui goto_screen guitar_help_screen}
+         }
+      }
    }
 }
 {new GHScreen
@@ -176,7 +175,7 @@
    (MEMCARD_RESULT_MSG
       {switch $result
          (kMCNoDeviceFound {ui goto_screen startup_load_storage_pulled_screen})
-         (kMCNoError {goto_post_startup_load})
+         (kMCNoError {goto_post_startup_load} {set_calibration})
          (kMCCorrupt {ui goto_screen startup_load_corrupt_screen})
          {ui goto_screen load_failed_screen}
       }
@@ -334,25 +333,6 @@
          (dl_button1.btn {ui goto_screen startup_load_finder_screen})
       }
    )
-}
-{func autosave_goto
-   ($next_screen)
-   {if_else
-      {&&
-         {campaign needs_save}
-         {! {campaign all_access}}
-         $autosave
-         {! $disable_save}
-      }
-      {do
-         {set $mc_return_screen $next_screen}
-         {if_else {memcard is_storage_device_valid}
-            {goto_save_with_overwrite}
-            {ui goto_screen autosave_device_invalid_screen}
-         }
-      }
-      {ui goto_screen $next_screen}
-   }
 }
 {new GHScreen
    enable_autosave_screen
@@ -812,6 +792,12 @@
       {switch $component
          (dl_button1.btn
             {campaign delete_slot {manage_band_screen get profile_slot}}
+            {resize {find $syscfg mapped_songs} 1}
+            {new ObjectDir random_setlist}
+            {random_setlist set setlist {find $syscfg mapped_songs}}
+            {random_setlist save_objects "GAME:/randomize.milo"}
+            {delete random_setlist}
+            {randomize_career}
             {autosave_goto options_screen}
          )
          (dl_button2.btn {ui goto_screen manage_band_screen})

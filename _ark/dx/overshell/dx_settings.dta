@@ -8,9 +8,9 @@
 {func dx_settings_saver
    ;this is where we populate dx settings
    ;TODO implement char2int from permadeath to store strings?
-
+   kDataUnhandled
    ;save_setting--name----------data (int)---------song--
-   {save_setting tspeed {int {* $trackspeed 10}} z_1tspeed} ;trackspeed
+   ;{save_setting tspeed {int {* $trackspeed 10}} z_1tspeed} ;trackspeed
 }
 
 ; below this is all of the functions that actually makes this work

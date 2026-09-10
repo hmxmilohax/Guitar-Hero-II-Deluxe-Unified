@@ -102,11 +102,23 @@
    #endif
 )
 (quickplay
+   (song_block
+      {if_else {== {gamecfg get_track_type 0} kTrackGuitar}
+         song
+         song_coop
+      }
+   )
+   (midi_suffix
+      {if_else {== {gamecfg get_track_type 0} kTrackGuitar}
+         ''
+         COOP
+      }
+   )
    (continue_screen qp_selsong_screen)
    (hud_file hud_sp.milo)
    (win_preload_panel endgame_panel)
    #ifdef HX_XBOX
-   (update_song_leaderboard TRUE)
+   (update_song_leaderboard FALSE) ;nuh uh
    #endif
 )
 (career
@@ -116,8 +128,8 @@
    (hud_file hud_sp.milo)
    (encore_fx TRUE)
    #ifdef HX_XBOX
-   (update_song_leaderboard TRUE)
-   (update_career_leaderboard TRUE)
+   (update_song_leaderboard FALSE) ;nuh uh
+   (update_career_leaderboard FALSE) ;nuh uh
    #endif
 )
 (multi_vs

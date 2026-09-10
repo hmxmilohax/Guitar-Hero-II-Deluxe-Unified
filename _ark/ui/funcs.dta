@@ -1,0 +1,612 @@
+#include ../dx/overshell/dx_overshell_funcs.dta
+{func fix_streak_meter_emu
+   ;check if we are loaded in the affected hud's
+   {if
+      {||
+         {== {gamecfg get hud_file} hud_sp.milo}
+         {== {gamecfg get hud_file} hud_practice.milo}
+      }
+      ;find and move the mesh slightly
+      ;original value in the milo is -17.5 -0.96 -39.64
+      {{{{hud loaded_dir} find BandStreakDisplay1} find score_mult_3.mesh} set_local_pos
+         -18.5
+         -0.96
+         -39.64
+      }
+   }
+}
+{func set_calibration
+   {do
+      {options set_sync_offset {* -1.0 $lag_video}} ; input offset (hit window, aka lag compensation)
+      {set $audio_offset {* -1.0 {- $lag_audio $lag_video}}} ; a/v offset (audio adjustment)
+      {if {! $audio_offset_set_once}
+         {set $audio_offset_set_once TRUE}
+         {set $audio_offset_setter {load_objects "ui/audio_lag.milo"}}
+      }
+      #ifdef HX_XBOX
+      {eval {eval {$audio_offset_setter get set_audio_offset}}}
+      #else
+         #ifdef _SHIP
+         {eval {eval {elem {$audio_offset_setter get set_audio_offset} 0}}}
+         #endif
+      #endif
+   }
+}
+{func goto_startup_load
+   ;set initial screen for create a save to our custom screen
+   {set $mc_return_screen guitar_help_screen}
+   {set $autosave TRUE}
+   #ifdef HX_XBOX
+   {if_else {profilemgr is_active_pad_signed_in}
+      {ui goto_screen startup_load_finder_screen}
+      {ui goto_screen startup_signin_screen}
+   }
+   #else
+   {ui goto_screen bootup_load}
+   #endif
+}
+{func save_calibration
+   #ifdef HX_XBOX
+   {do
+      {new ObjectDir calibration}
+      {calibration set audio $lag_audio}
+      {calibration set video $lag_video}
+      {calibration save_objects "GAME:/settings.milo"}
+      {delete calibration}
+   }
+   #else
+   {set $lag_video_int {int {+ $lag_video 500}}}
+   {set $lag_audio_int {int {+ $lag_audio 500}}}
+   {campaign set_profile_name
+      {sprint {num_to_alph {sprint $lag_audio_int}}}
+      3
+   }
+   {campaign set_profile_name
+      {sprint {num_to_alph {sprint $lag_video_int}}}
+      4
+   }
+   #endif
+}
+
+{func load_calibration
+   #ifdef HX_XBOX
+   {do
+      {set $load {load_objects "GAME:/settings.milo"}}
+      {if $load
+         {set $lag_audio {$load get audio}}
+         {set $lag_video {$load get video}}
+      }
+      {delete $load}
+   }
+   #else
+   {if_else {campaign is_empty_profile 3}
+      {set $lag_audio_int 500}
+      {set $lag_audio_int {int {alph_to_num {symbol {campaign profile_name 3}}}}}
+   }
+   {set $lag_audio {+ {- $lag_audio_int 500} 0.0}}
+   {if_else {campaign is_empty_profile 4}
+      {set $lag_video_int 500}
+      {set $lag_video_int {int {alph_to_num {symbol {campaign profile_name 4}}}}}
+   }
+   {set $lag_video {+ {- $lag_video_int 500} 0.0}}
+   #endif
+}
+#ifdef HX_EE
+{func reset_all_cheats
+   {set $disable_save 0}
+   {set $disable_career 0}
+   {campaign set_all_access 0}
+   {set $cheat_enabled_unlock_all 0}
+   {set $cheat_guitar 0}
+   {set $cheat_enabled_performance_mode FALSE}
+   {set $cheat_enabled_hyper_speed_mode FALSE}
+   {set $cheat_enabled_flaming_head FALSE}
+   {set $cheat_crowd_heads 0}
+}
+#endif
+{func num_to_alph
+   ($in)
+   {search_replace {sprint $in} "0" "A" $in}
+   {search_replace {sprint $in} "1" "B" $in}
+   {search_replace {sprint $in} "2" "C" $in}
+   {search_replace {sprint $in} "3" "D" $in}
+   {search_replace {sprint $in} "4" "E" $in}
+   {search_replace {sprint $in} "5" "F" $in}
+   {search_replace {sprint $in} "6" "G" $in}
+   {search_replace {sprint $in} "7" "H" $in}
+   {search_replace {sprint $in} "8" "I" $in}
+   {search_replace {sprint $in} "9" "J" $in}
+   $in
+}
+{func alph_to_num
+   ($in)
+   {search_replace $in 'A' '0' $in}
+   {search_replace $in 'B' '1' $in}
+   {search_replace $in 'C' '2' $in}
+   {search_replace $in 'D' '3' $in}
+   {search_replace $in 'E' '4' $in}
+   {search_replace $in 'F' '5' $in}
+   {search_replace $in 'G' '6' $in}
+   {search_replace $in 'H' '7' $in}
+   {search_replace $in 'I' '8' $in}
+   {search_replace $in 'J' '9' $in}
+   {symbol $in}
+}
+{func force_all_as_guitar
+   ($bool)
+   {if_else $bool
+      {do
+         ;first is the device mapping
+         {resize
+            {find $syscfg joypad controllers}
+            1
+         }
+         #ifdef HX_XBOX
+         {push_back
+            {find $syscfg joypad controllers}
+            (ro_guitar_xbox
+               (detect)
+               (ignore_buttons kPad_L2 kPad_R2)
+            )
+         }
+         {push_back
+            {find $syscfg joypad controllers}
+            (analog
+               (detect)
+               (ignore_buttons kPad_L2 kPad_R2)
+            )
+         }
+         #endif
+         #ifdef HX_EE
+         {push_back
+            {find $syscfg joypad controllers}
+            (ro_guitar (detect))
+         }
+         {push_back
+            {find $syscfg joypad controllers}
+            (digital (detect))
+         }
+         {push_back
+            {find $syscfg joypad controllers}
+            (analog (detect))
+         }
+         {push_back
+            {find $syscfg joypad controllers}
+            (dualshock (detect))
+         }
+         #endif
+         ;below is the button mapping
+         {resize
+            {find $syscfg beatmatcher controller}
+            1
+         }
+         {push_back
+            {find $syscfg beatmatcher controller}
+            (joypad_guitar
+               (slots kPad_L2 0 kPad_L1 1 kPad_R1 2 kPad_R2 3 kPad_X 4)
+               (force_mercury kPad_Select)
+               (dpad_for_navigation FALSE)
+            )
+         }
+         {push_back
+            {find $syscfg beatmatcher controller}
+            (lefty_joypad_guitar
+               (slots kPad_X 0 kPad_R2 1 kPad_R1 2 kPad_L1 3 kPad_L2 4)
+               (force_mercury kPad_Select)
+               (dpad_for_navigation FALSE)
+            )
+         }
+         {push_back
+            {find $syscfg beatmatcher controller}
+            (guitar
+               (slots kPad_R2 0 kPad_Circle 1 kPad_Tri 2 kPad_X 3 kPad_Square 4)
+               (force_mercury kPad_Select)
+            )
+         }
+         #ifdef HX_EE
+         {push_back
+            {find $syscfg beatmatcher controller}
+            (joypad
+               (slots kPad_R2 0 kPad_Circle 1 kPad_Tri 2 kPad_X 3 kPad_Square 4)
+               (force_mercury kPad_Select)
+            )
+         }
+         {push_back
+            {find $syscfg beatmatcher controller}
+            (guitar_xbox
+               (slots kPad_X 0 kPad_Tri 1 kPad_Square 2 kPad_Circle 3 kPad_L1 4)
+               (force_mercury kPad_Select)
+               (mercury_switch kPad_RStickUp)
+            )
+         }
+         #endif
+         #ifdef HX_XBOX
+         {push_back
+            {find $syscfg beatmatcher controller}
+            (joypad
+               (slots kPad_X 0 kPad_Tri 1 kPad_Circle 2 kPad_Square 3 kPad_L1 4)
+               (controller_style ro_xbox)
+               (force_mercury kPad_Select)
+            )
+         }
+         {push_back
+            {find $syscfg beatmatcher controller}
+            (hx_guitar_xbox
+               (slots kPad_X 0 kPad_Tri 1 kPad_Square 2 kPad_Circle 3 kPad_L1 4)
+               (controller_style ro_xbox)
+               (force_mercury kPad_Select)
+            )
+         }
+         {push_back
+            {find $syscfg beatmatcher controller}
+            (hx_guitar_xbox_new
+               (slots kPad_X 0 kPad_Tri 1 kPad_Circle 2 kPad_Square 3 kPad_L1 4)
+               (controller_style ro_xbox)
+               (force_mercury kPad_Select)
+            )
+         }
+         #endif
+      }
+      {do
+         ;first is the device mapping
+         {resize
+            {find $syscfg joypad controllers}
+            1
+         }
+         #ifdef HX_XBOX
+         {push_back
+            {find $syscfg joypad controllers}
+            (ro_guitar_xbox
+               (detect (type kJoypadXboxGuitar))
+               (ignore_buttons kPad_L2 kPad_R2)
+            )
+         }
+         {push_back
+            {find $syscfg joypad controllers}
+            (analog
+               (detect (type kJoypadAnalog))
+               (bidirectional TRUE)
+            )
+         }
+         #endif
+         #ifdef HX_EE
+         {push_back
+            {find $syscfg joypad controllers}
+            (ro_guitar
+               (detect
+                  (type kJoypadAnalog)
+                  (button kPad_DLeft)
+               )
+            )
+         }
+         {push_back
+            {find $syscfg joypad controllers}
+            (digital (detect (type kJoypadDigital)))
+         }
+         {push_back
+            {find $syscfg joypad controllers}
+            (analog (detect (type kJoypadAnalog)))
+         }
+         {push_back
+            {find $syscfg joypad controllers}
+            (dualshock (detect (type kJoypadDualShock)))
+         }
+         #endif
+         ;below is the button mapping
+         {resize
+            {find $syscfg beatmatcher controller}
+            1
+         }
+         {push_back
+            {find $syscfg beatmatcher controller}
+            (joypad
+               (slots kPad_L2 0 kPad_L1 1 kPad_R1 2 kPad_R2 3 kPad_X 4)
+               (force_mercury kPad_Select)
+               (dpad_for_navigation FALSE)
+            )
+         }
+         {push_back
+            {find $syscfg beatmatcher controller}
+            (joypad_guitar
+               (slots kPad_L2 0 kPad_L1 1 kPad_R1 2 kPad_R2 3 kPad_X 4)
+               (force_mercury kPad_Select)
+               (dpad_for_navigation FALSE)
+            )
+         }
+         {push_back
+            {find $syscfg beatmatcher controller}
+            (lefty_joypad_guitar
+               (slots kPad_X 0 kPad_R2 1 kPad_R1 2 kPad_L1 3 kPad_L2 4)
+               (force_mercury kPad_Select)
+               (dpad_for_navigation FALSE)
+            )
+         }
+         {push_back
+            {find $syscfg beatmatcher controller}
+            (guitar
+               (slots kPad_R2 0 kPad_Circle 1 kPad_Tri 2 kPad_X 3 kPad_Square 4)
+               (force_mercury kPad_Select)
+            )
+         }
+         #ifdef HX_EE
+         {push_back
+            {find $syscfg beatmatcher controller}
+            (guitar_xbox
+               (slots kPad_X 0 kPad_Tri 1 kPad_Square 2 kPad_Circle 3 kPad_L1 4)
+               (force_mercury kPad_Select)
+               (mercury_switch kPad_RStickUp)
+            )
+         }
+         #endif
+         #ifdef HX_XBOX
+         {push_back
+            {find $syscfg beatmatcher controller}
+            (hx_guitar_xbox
+               (slots kPad_X 0 kPad_Tri 1 kPad_Square 2 kPad_Circle 3 kPad_L1 4)
+               (controller_style ro_xbox)
+               (force_mercury kPad_Select)
+            )
+         }
+         {push_back
+            {find $syscfg beatmatcher controller}
+            (hx_guitar_xbox_new
+               (slots kPad_X 0 kPad_Tri 1 kPad_Circle 2 kPad_Square 3 kPad_L1 4)
+               (controller_style ro_xbox)
+               (force_mercury kPad_Select)
+            )
+         }
+         #endif
+      }
+   }
+}
+{func populate_song_bank
+   {resize {find $syscfg song_bank} 1}
+   {foreach $entry {find $syscfg campaign order battle}
+      {if {!= $entry battle}
+         {push_back {find $syscfg song_bank} $entry}
+      }
+   }
+   {foreach $entry {find $syscfg campaign order small1}
+      {if {!= $entry small1}
+         {push_back {find $syscfg song_bank} $entry}
+      }
+   }
+   {foreach $entry {find $syscfg campaign order small2}
+      {if {!= $entry small2}
+         {push_back {find $syscfg song_bank} $entry}
+      }
+   }
+   #ifdef GAME_GH2
+   {foreach $entry {find $syscfg campaign order big}
+      {if {!= $entry big}
+         {push_back {find $syscfg song_bank} $entry}
+      }
+   }
+   #endif
+   {foreach $entry {find $syscfg campaign order theatre}
+      {if {!= $entry theatre}
+         {push_back {find $syscfg song_bank} $entry}
+      }
+   }
+   {foreach $entry {find $syscfg campaign order fest}
+      {if {!= $entry fest}
+         {push_back {find $syscfg song_bank} $entry}
+      }
+   }
+   {foreach $entry {find $syscfg campaign order arena}
+      {if {!= $entry arena}
+         {push_back {find $syscfg song_bank} $entry}
+      }
+   }
+   #ifdef GAME_GH2
+   {foreach $entry {find $syscfg campaign order stone}
+      {if {!= $entry stone}
+         {push_back {find $syscfg song_bank} $entry}
+      }
+   }
+   #endif
+   {if
+      {>
+         {size
+            {find $syscfg store song}
+         }
+         1
+      }
+      {foreach $entry {find $syscfg store song}
+         {if {!= $entry song}
+            {push_back {find $syscfg song_bank} {elem $entry 0}}
+         }
+      }
+   }
+}
+{func randomize_career
+   ;load potential stored randomized setlist
+   {resize {find $syscfg mapped_songs} 1}
+   {populate_song_bank}
+   #ifdef HX_XBOX
+   {if {&& $randomizer {! $permadeath}}
+      {set $load {load_objects "GAME:/randomize.milo"}}
+      {if $load
+         {if {> {size {$load get setlist}} 1}
+            {foreach $entry {$load get setlist}
+               {if {!= $entry mapped_songs}
+                  {push_back {find $syscfg mapped_songs} {eval $entry}}
+               }
+            }
+         }
+      }
+      {delete $load}
+   }
+   #endif
+   {if {! {> {size {find $syscfg mapped_songs}} 1}}
+      {do
+         ($all_songs {find $syscfg song_bank})
+         ($mapped_songs {array 0})
+         ($available_songs {array 0})
+         ;populate temp array with only actual shortnames
+         {foreach $entry $all_songs
+            {if {!= $entry song_bank}
+               {push_back $available_songs $entry}
+            }
+         }
+         ;create randomized map
+         {do
+            {foreach_int $i 0 {size $available_songs}
+               {if {> {size $available_songs} 0}
+                  {do
+                     ($this_song
+                        {if_else $randomizer
+                           {random_elem $available_songs}
+                           {elem $all_songs {+ $i 1}}
+                        }
+                     )
+                     ($storage {array 0})
+                     ;this is kinda lame but whatever
+                     ;store array pair of random_song to its linked shortname
+                     {push_back $storage {eval $this_song}}
+                     {push_back $storage {eval {elem $all_songs {+ $i 1}}}}
+                     {push_back $mapped_songs {eval $storage}}
+                     ;clear song from random pool
+                     {remove_elem $available_songs $this_song}
+                  }
+               }
+            }
+         }
+         ;save map to root array
+         {foreach $entry $mapped_songs
+            {push_back {find $syscfg mapped_songs} {eval $entry}}
+         }
+         #ifdef HX_XBOX
+         {if $randomizer
+            {new ObjectDir random_setlist}
+            {random_setlist set setlist {find $syscfg mapped_songs}}
+            {random_setlist save_objects "GAME:/randomize.milo"}
+            {delete random_setlist}
+         }
+         #endif
+      }
+   }
+   ;iterate and rewrite all used song metadata with our backup from songs_real
+   {foreach $entry1 {find $syscfg mapped_songs}
+      {if {!= $entry1 mapped_songs}
+         {resize
+            {find $syscfg songs {elem $entry1 1}}
+            1
+         }
+         {foreach $entry2 {find $syscfg songs_real {elem $entry1 0}}
+            {push_back
+               {find $syscfg songs {elem $entry1 1}}
+               $entry2
+            }
+         }
+      }
+   }
+}
+{func song_completed
+   ($song)
+   {do
+      ($ret
+         {if_else $randomizer
+            FALSE
+            TRUE
+         }
+      )
+      {if $randomizer
+         {set $ret
+            #ifdef HX_XBOX
+            {campaign is_song_passed
+               {elem
+                  {find $syscfg mapped_songs $song}
+                  1
+               }
+            }
+            #else
+            {find_elem
+               $beat_songs_array
+               {elem
+                  {find $syscfg mapped_songs $song}
+                  1
+               }
+            }
+            #endif
+         }
+      }
+      $ret
+   }
+}
+{func song_completed_non_randomizer
+   ($song)
+   {do
+      ($ret FALSE)
+      {set $ret
+         {find_elem
+            $beat_songs_array
+            {elem
+               {find $syscfg mapped_songs $song}
+               1
+            }
+         }
+      }
+      $ret
+   }
+}
+{func permadeath_check_win
+   {if $permadeath
+      {do
+         ($won_song TRUE)
+         {foreach $entry {find $syscfg mapped_songs}
+            {if {!= $entry mapped_songs}
+               {if $won_song
+                  {set $won_song {song_completed_non_randomizer {elem $entry 0}}}
+               }
+            }
+         }
+         {if {&& $won_song {== $accuracy_threshold_elem 0}}
+            {set $permadeath_shown_won TRUE}
+            {ui goto_screen permadeath_win_screen}
+         }
+         {if {&& $won_song {!= $accuracy_threshold_elem 0}}
+            {set $permadeath_shown_won TRUE}
+            {ui goto_screen permadeath_win_buff_up_screen}
+         }
+         {if
+            {||
+               {&& {! $won_song} {== $accuracy_threshold_elem 0}}
+               {&& {! $won_song} {!= $accuracy_threshold_elem 0}}
+            }
+            {ui goto_screen
+               {if_else {== {gamecfg get mode} career}
+                  {cond
+                     ({> {status_panel get new_status} 0} status_screen)
+                     ({> {cashaward_screen get new_cash} 0} cashaward_screen)
+                     ({campaign num_guitar_awards} unlock_guitar_screen)
+                     (TRUE complete_screen)
+                  }
+                  highscore_screen
+               }
+            }
+         }
+      }
+   }
+}
+{func dx_set_black_background
+   {if {find_obj world}
+      {world_panel set_showing {! $dx_black_background}}
+      {crowd_audio set_enabled {! $dx_black_background}}
+   }
+}
+{func dx_emulatefps_setter
+   {if {find_obj world}
+      {$this iterate
+         PostProc
+         $p
+         {$p set
+            emulate_fps
+            {if_else $dx_half_venue_fps
+               30
+               60
+            }
+         }
+      }
+   }
+}

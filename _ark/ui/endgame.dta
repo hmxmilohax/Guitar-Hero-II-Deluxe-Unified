@@ -7,6 +7,59 @@
    (enter
       {crowd_audio turn_off}
       {set $new_venue ""}
+      {set $good_to_go TRUE}
+      {set $percent_hit_frac1 100.0}
+      {set $percent_hit_frac2 100.0}
+      {set $counting_p1 TRUE}
+      {set $temp_lowest_acc 100.0}
+      ;this checks if permadeath non fc runs passed the required threshold to go to endgame
+      ;for single player career and multi coop
+      {if
+         {&&
+            $permadeath
+            {|| {== career {gamecfg get mode}} {== multi_coop {gamecfg get mode}}}
+         }
+         {gamecfg foreach_player $player
+            {if $counting_p1
+               {set $counting_p1 FALSE}
+               {set $percent_hit_frac1
+                  {*
+                     {/ {$player gems_hit} {'+' {$player gems_hit} {$player gems_passed}}}
+                     100
+                  }
+               }
+            }
+            {if {! $counting_p1}
+               {set $percent_hit_frac2
+                  {*
+                     {/ {$player gems_hit} {'+' {$player gems_hit} {$player gems_passed}}}
+                     100
+                  }
+               }
+            }
+         }
+         {if {!= $accuracy_threshold_elem 0}
+            {if
+               {||
+                  {< $percent_hit_frac1 $accuracy_threshold}
+                  {< $percent_hit_frac2 $accuracy_threshold}
+               }
+               {set $good_to_go FALSE}
+               {++ $lives_lost}
+            }
+            {if {!= $accuracy_threshold_elem 0}
+               ;set temp lowest acc to lowest acc player (crudely)
+               {if_else {< $percent_hit_frac2 $percent_hit_frac1}
+                  {set $temp_lowest_acc $percent_hit_frac2}
+                  {set $temp_lowest_acc $percent_hit_frac1}
+               }
+               ;submit highest note streak
+               {if {< $temp_lowest_acc $lowest_acc}
+                  {set $lowest_acc $temp_lowest_acc}
+               }
+            }
+         }
+      }
       {if {== career {gamecfg get mode}}
          {do
             ($score {player0 score})
@@ -16,54 +69,67 @@
             ($new_status_award)
             ($pfo {campaign is_unlocked multi_fo})
             ($already_won {campaign won_campaign})
-            {campaign finish_song
-               $score
-               $new_cash
-               $new_cash_reason
-               $new_venue
-               $new_status
-               $new_status_award
-            }
-            {set [pfo_newly_unlocked] {&& {! $pfo} {campaign is_unlocked multi_fo}}}
-            {cashaward_screen set new_cash $new_cash}
-            {cashaward_screen set new_cash_reason $new_cash_reason}
-            {if {! $already_won}
-               {status_panel set new_status $new_status}
-            }
-            {status_panel set new_status_award $new_status_award}
-            {if {!= $new_venue ""}
-               {gamecfg set continue_screen career_screen}
+            {if $good_to_go
+               {campaign finish_song
+                  $score
+                  $new_cash
+                  $new_cash_reason
+                  $new_venue
+                  $new_status
+                  $new_status_award
+               }
+               {set [pfo_newly_unlocked] {&& {! $pfo} {campaign is_unlocked multi_fo}}}
+               {cashaward_screen set new_cash $new_cash}
+               {cashaward_screen set new_cash_reason $new_cash_reason}
+               {if {! $already_won}
+                  {status_panel set new_status $new_status}
+               }
+               {status_panel set new_status_award $new_status_award}
+               {if {!= $new_venue ""}
+                  {gamecfg set continue_screen career_screen}
+                  #ifdef HX_XBOX
+                  {achievements submit_venue $new_venue}
+                  #endif
+               }
+               {if {get_highscore_index $score}
+                  {highscores add {campaign profile_name {campaign profile_slot}} $score}
+               }
+               {if {|| $permadeath $randomizer}
+                  {if {! {find_elem $beat_songs_array {gamecfg get_song}}}
+                     {push_back $beat_songs_array {gamecfg get_song}}
+                  }
+               }
                #ifdef HX_XBOX
-               {achievements submit_venue $new_venue}
+               {if {campaign won_campaign}
+                  {do
+                     ($diff {gamecfg get_difficulty 0})
+                     ($five {campaign is_max_status})
+                     {achievements submit_tour $diff $five}
+                  }
+               }
                #endif
             }
-            {if {get_highscore_index $score}
-               {highscores add {campaign profile_name {campaign profile_slot}} $score}
-            }
-            #ifdef HX_XBOX
-            {if {campaign won_campaign}
-               {do
-                  ($diff {gamecfg get_difficulty 0})
-                  ($five {campaign is_max_status})
-                  {achievements submit_tour $diff $five}
-               }
-            }
-            #endif
          }
       }
-      #ifdef HX_XBOX
-      {if {! {gamecfg multiplayer}}
-         {if
-            {&&
-               {campaign is_song_passed trogdor}
-               {campaign is_song_passed thunderhorse}
-            }
-            {achievements submit troghorse}
-         }
-         {if {campaign store_songs_passed}
-            {achievements submit beat_unlocks}
-         }
-      }
+      ;TODO - this crashes right now
+      ;#ifdef HX_XBOX
+      ;{if {&& $good_to_go {! {gamecfg multiplayer}}}
+      ;   #ifdef GAME_GH2
+      ;   {if
+      ;      {&&
+      ;         {song_completed_non_randomizer trogdor}
+      ;         {song_completed_non_randomizer thunderhorse}
+      ;      }
+      ;      {achievements submit troghorse}
+      ;   }
+      ;   #endif
+      ;   {if {campaign store_songs_passed}
+      ;      {achievements submit beat_unlocks}
+      ;   }
+      ;}
+      ;#endif
+      
+      ;do not send scores to the leaderboard dawg
       ;{if
       ;   {!
       ;      {gamecfg multiplayer}}
@@ -71,9 +137,8 @@
       ;      submit_score
       ;      {gamecfg get_song}
       ;      {player0 score}}}
-      #endif
       {do
-         ($win_screen $freebird)
+         ($win_screen $is_final_song)
          {set $win_screen
             {if_else {meta get won_campaign}
                win_game_screen
@@ -82,11 +147,27 @@
                      {game get force_encore}
                      {&&
                         {game get encore_unlock_check}
-                        {campaign encore_newly_unlocked $freebird}
+                        {campaign encore_newly_unlocked $is_final_song}
                      }
                   }
                   endgame_encore_screen
                   {gamecfg get win_screen}
+               }
+            }
+         }
+         ;set lose (win) screen if we failed to meet threshold earlier
+         {if $permadeath
+            {if {! $good_to_go}
+               {set $win_screen permadeath_lost_in_game_screen}
+            }
+            {if $good_to_go
+               ;submit note streak if no lives lost
+               {if {== $accuracy_threshold_elem 0}
+                  {set $this_note_streak {+ $this_note_streak $temp_note_streak}}
+                  ;submit highest note streak
+                  {if {> $this_note_streak $highest_note_streak}
+                     {set $highest_note_streak $this_note_streak}
+                  }
                }
             }
          }
@@ -96,7 +177,45 @@
             (script {play_sfx postshow_loop})
          }
          {if {== $win_screen endgame_encore_screen}
-            {endgame_encore_panel set freebird $freebird}
+            ;#ifdef HX_XBOX
+            ;{endgame_encore_panel set freebird $freebird}
+            ;show final song encore flow regardless of campaign
+            {endgame_encore_panel set
+               is_final_song
+               {==
+                  {gamecfg get_song}
+                  {elem
+                     {find
+                        $syscfg
+                        campaign
+                        order
+                        #ifdef GAME_GH2
+                        stone
+                        #else
+                        arena
+                        #endif
+                     }
+                     {-
+                        {size
+                           {find
+                              $syscfg
+                              campaign
+                              order
+                              #ifdef GAME_GH2
+                              stone
+                              #else
+                              arena
+                              #endif
+                           }
+                        }
+                        2
+                     }
+                  }
+               }
+            }
+            ;#else
+            ;{endgame_encore_panel set is_final_song $is_final_song}
+            ;#endif
          }
          {ui goto_screen $win_screen}
       }
@@ -109,15 +228,19 @@
    #endif
 }
 {func goto_endgame_complete
-   {ui goto_screen
-      {if_else {== {gamecfg get mode} career}
-         {cond
-            ({> {status_panel get new_status} 0} status_screen)
-            ({> {cashaward_screen get new_cash} 0} cashaward_screen)
-            ({campaign num_guitar_awards} unlock_guitar_screen)
-            (TRUE complete_screen)
+   ;check if all songs have been fc'd and prompt win
+   {if_else {&& $permadeath {! $permadeath_shown_won}}
+      {permadeath_check_win}
+      {ui goto_screen
+         {if_else {== {gamecfg get mode} career}
+            {cond
+               ({> {status_panel get new_status} 0} status_screen)
+               ({> {cashaward_screen get new_cash} 0} cashaward_screen)
+               ({campaign num_guitar_awards} unlock_guitar_screen)
+               (TRUE complete_screen)
+            }
+            highscore_screen
          }
-         highscore_screen
       }
    }
 }
@@ -377,8 +500,21 @@
          {endgame_streak_data.lbl set_localized_text
             {sprint {$player longest_streak}}
          }
-         {endgame_percent_data.lbl set_localized_text
-            {sprintf {localize eg_percent_format} {$player percent_hit}}
+         {if_else
+            {&&
+               {!= $percent_hit_frac1 100.0}
+               $permadeath
+               {!= $accuracy_threshold_elem 0}
+            }
+            {endgame_percent_data.lbl set_localized_text
+               {sprintf {localize eg_percent_frac_format} $percent_hit_frac1}
+            }
+            {if_else {&& $permadeath {== $accuracy_threshold_elem 0}}
+               {endgame_percent_data.lbl set_localized_text {localize full_combo}}
+               {endgame_percent_data.lbl set_localized_text
+                  {sprintf {localize eg_percent_format} {$player percent_hit}}
+               }
+            }
          }
          {endgame_streak_data.lbl set_localized_text
             {sprintf {localize eg_streak_format} {$player longest_streak}}
@@ -401,7 +537,7 @@
 {new GHScreen
    endgame_screen
    (BUTTON_DOWN_MSG DX_OPEN_OVERSHELL kDataUnhandled)
-   (panels GAME_PANELS endgame_panel helpbar)
+   (panels GAME_PANELS endgame_panel permadeath_overlay_panel helpbar)
    (focus endgame_panel)
    (clear_vram TRUE)
    (enter {world_panel set_showing FALSE})
@@ -598,12 +734,12 @@
    (file endgame_encore.milo)
    (focus yes.btn)
    (cash_award 0)
-   (freebird 0)
+   (is_final_song 0)
    (enter
-      {freebird_moves.tnm set_frame 0.0}
-      {freebird1.grp set_showing FALSE}
-      {freebird2.grp set_showing FALSE}
-      {freebird3.grp set_showing FALSE}
+      {finalsong_moves.tnm set_frame 0.0}
+      {finalsong1.grp set_showing FALSE}
+      {finalsong2.grp set_showing FALSE}
+      {finalsong3.grp set_showing FALSE}
       {$this set_focus yes.btn}
       {set [cash_award] {cashaward_screen get new_cash}}
       {score.lbl set_localized_text
@@ -619,25 +755,28 @@
          }
       }
       {letter2.lbl set_text
-         {if_else [freebird]
-            endgame_encore_freebird1
+         {if_else [is_final_song]
+            endgame_encore_finalsong1
             {random_elem ENDGAME_ENCORE_LETTERS}
          }
       }
+      {finalsong1.lbl set_text {localize finalsong_confirm1}}
+      {finalsong2.lbl set_text {localize finalsong_confirm2}}
+      {finalsong3.lbl set_text {localize finalsong_confirm3}}
    )
    (SELECT_START_MSG
       {synth play_sequence button_select}
       {switch $component
          (yes.btn
-            {if_else [freebird]
+            {if_else [is_final_song]
                {do
-                  {freebird_moves.tnm animate
+                  {finalsong_moves.tnm animate
                      (range 0.0 1.0)
                      (period 0.15)
                      (units k30_fps_ui)
                   }
-                  {freebird1.grp set_showing TRUE}
-                  {$this set_focus yes_freebird1.btn}
+                  {finalsong1.grp set_showing TRUE}
+                  {$this set_focus yes_finalsong1.btn}
                }
                {do
                   START_ENCORE
@@ -645,33 +784,30 @@
             }
          )
          (
-            (no.btn no_freebird1.btn no_freebird2.btn no_freebird3.btn)
-            #ifdef HX_XBOX
-            {achievements submit encoreno}
-            #endif
+            (no.btn no_finalsong1.btn no_finalsong2.btn no_finalsong3.btn)
             {world play_meta_sfx encore_no}
             {encore_stream stop}
             {ui goto_screen endgame_screen}
          )
-         (yes_freebird1.btn
-            {freebird_moves.tnm animate
+         (yes_finalsong1.btn
+            {finalsong_moves.tnm animate
                (range 1.0 2.0)
                (period 0.15)
                (units k30_fps_ui)
             }
-            {freebird2.grp set_showing TRUE}
-            {$this set_focus yes_freebird2.btn}
+            {finalsong2.grp set_showing TRUE}
+            {$this set_focus yes_finalsong2.btn}
          )
-         (yes_freebird2.btn
-            {freebird_moves.tnm animate
+         (yes_finalsong2.btn
+            {finalsong_moves.tnm animate
                (range 2.0 3.0)
                (period 0.15)
                (units k30_fps_ui)
             }
-            {freebird3.grp set_showing TRUE}
-            {$this set_focus yes_freebird3.btn}
+            {finalsong3.grp set_showing TRUE}
+            {$this set_focus yes_finalsong3.btn}
          )
-         (yes_freebird3.btn START_ENCORE)
+         (yes_finalsong3.btn START_ENCORE)
       }
       kDataUnhandled
    )
@@ -1333,5 +1469,173 @@
             (strum help_updown)
          )
       )
+   )
+}
+{new GHScreen
+   permadeath_lost_in_game_screen
+   (panels GAME_PANELS dialog helpbar)
+   (allow_only_active_controller TRUE)
+   (focus dialog)
+   (clear_vram TRUE)
+   (in_game TRUE)
+   (allow_back FALSE)
+   (animate_transition FALSE)
+   (force_exit TRUE)
+   (enter
+      ;panel handle btn1 btn2 default_sel bodymsg header
+      {dialog setup song_list main_menu button1 none gh2_permadeath}
+      {{dialog find dl_title.lbl} set_text {localize gh2_permadeath}}
+      ;print loss
+      ;| || || |_
+      ;we only report 1 number, so if player 2 did worse, report that number instead
+      {if {< $percent_hit_frac2 $percent_hit_frac1}
+         {set $percent_hit_frac1 $percent_hit_frac2}
+      }
+      {if_else {== $lives_lost {- $num_of_lives 1}}
+         {{dialog find dl_message.lbl} set_localized_text
+            {localize permadeath_lost_final_perc
+               $percent_hit_frac1
+               $accuracy_threshold
+            }
+         }
+         {{dialog find dl_message.lbl} set_localized_text
+            {sprintf
+               {localize permadeath_lost_perc}
+               $percent_hit_frac1
+               $accuracy_threshold
+               {- $num_of_lives $lives_lost}
+            }
+         }
+      }
+      ;if we completely ran out of lives
+      {if {== $lives_lost $num_of_lives}
+         ;reenable saving to store our stats
+         {set $autosave TRUE}
+         {set $disable_save FALSE}
+         {{dialog find dl_message.lbl} set_localized_text
+            {sprintf
+               {localize permadeath_lost_restart_perc}
+               $percent_hit_frac1
+               $accuracy_threshold
+            }
+         }
+         ;hide buttons
+         {{dialog find dl_button1.btn} set_showing FALSE}
+         {{dialog find dl_button2.btn} set_showing FALSE}
+      }
+   )
+   (SELECT_START_MSG
+      {if_else {== $lives_lost $num_of_lives}
+         ;save stats to file and restart flow
+         {meta_loading_goto permadeath_options_screen}
+         ;we arent dead yet
+         {switch $component
+            (dl_button1.btn {meta_loading_goto sel_song_screen})
+            (dl_button2.btn {meta_loading_goto main_screen})
+         }
+      }
+   )
+}
+{new GHScreen
+   permadeath_win_buff_up_screen
+   (panels GAME_PANELS dialog helpbar)
+   (allow_only_active_controller TRUE)
+   (focus dialog)
+   (clear_vram TRUE)
+   (in_game TRUE)
+   (allow_back FALSE)
+   (animate_transition FALSE)
+   (force_exit TRUE)
+   (enter
+      ;panel handle btn1 btn2 default_sel bodymsg header
+      {dialog setup you won button1 none gh2_permadeath}
+      {{dialog find dl_title.lbl} set_text {localize gh2_permadeath}}
+      {set $permadeath_shown_won TRUE}
+      ;print stats
+      {if_else
+         {||
+            {== $accuracy_threshold 99.9}
+            {== $accuracy_threshold 99.8}
+            {== $accuracy_threshold 99.7}
+            {== $accuracy_threshold 99.6}
+            {== $accuracy_threshold 99.5}
+            {== $accuracy_threshold 99.4}
+            {== $accuracy_threshold 99.3}
+            {== $accuracy_threshold 99.2}
+            {== $accuracy_threshold 99.1}
+         }
+         {{dialog find dl_message.lbl} set_localized_text
+            {sprintf
+               {localize permadeath_win_buff_up_float}
+               $accuracy_threshold
+               $lives_lost
+               $this_attempts
+            }
+         }
+         {{dialog find dl_message.lbl} set_localized_text
+            {sprintf
+               {localize permadeath_win_buff_up_int}
+               $accuracy_threshold
+               $lives_lost
+               $this_attempts
+            }
+         }
+      }
+      ;allow saving, congrats
+      {set $autosave TRUE}
+      {set $disable_save FALSE}
+   )
+   (SELECT_START_MSG
+      {switch $component
+         (dl_button1.btn {goto_endgame_complete})
+         (dl_button2.btn {goto_endgame_complete})
+      }
+   )
+}
+{new GHScreen
+   permadeath_win_screen
+   (panels GAME_PANELS dialog helpbar)
+   (allow_only_active_controller TRUE)
+   (focus dialog)
+   (clear_vram TRUE)
+   (in_game TRUE)
+   (allow_back FALSE)
+   (animate_transition FALSE)
+   (force_exit TRUE)
+   (enter
+      ;panel handle btn1 btn2 default_sel bodymsg header
+      {dialog setup you won button1 none gh2_permadeath}
+      {{dialog find dl_title.lbl} set_text {localize gh2_permadeath}}
+      {set $permadeath_shown_won TRUE}
+      ;print stats
+      {if_else {== $lives_lost 0}
+         {{dialog find dl_message.lbl} set_localized_text
+            {sprintf
+               {localize permadeath_win_no_miss}
+               $lives_lost
+               $this_attempts
+               $highest_note_streak
+               $highest_songs_completed
+            }
+         }
+         {{dialog find dl_message.lbl} set_localized_text
+            {sprintf
+               {localize permadeath_win}
+               $lives_lost
+               $this_attempts
+               $highest_note_streak
+               $highest_songs_completed
+            }
+         }
+      }
+      ;allow saving, congrats
+      {set $autosave TRUE}
+      {set $disable_save FALSE}
+   )
+   (SELECT_START_MSG
+      {switch $component
+         (dl_button1.btn {goto_endgame_complete})
+         (dl_button2.btn {goto_endgame_complete})
+      }
    )
 }

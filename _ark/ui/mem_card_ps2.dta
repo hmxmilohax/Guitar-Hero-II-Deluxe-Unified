@@ -1,5 +1,3 @@
-#include ../dx/ui/dialog/dx_dialog_handles.dta
-
 #define kMCNoError (0)
 #define kMCNoCard (-101)
 #define kMCNotFormatted (-102)
@@ -115,7 +113,10 @@
             {script_task
                (delay 1)
                (units kTaskUISeconds)
-               (script {ui goto_screen cut_scene_screen})
+               (script
+                  {ui goto_screen main_screen}
+                  {set_calibration}
+               )
             }
          )
          (kMCNoCard {ui goto_screen bootup_nocard})
@@ -183,7 +184,10 @@
             {script_task
                (delay 1)
                (units kTaskUISeconds)
-               (script {ui goto_screen cut_scene_screen})
+               (script
+                  {ui goto_screen main_screen}
+                  {set_calibration}
+               )
             }
          )
          (kMCNoCard {ui goto_screen bootup_save_nocard})
@@ -313,6 +317,7 @@
          (dl_button2.btn {set $autosave TRUE})
       }
       {ui goto_screen cut_scene_screen}
+      {set_calibration}
    )
 }
 {new GHScreen
