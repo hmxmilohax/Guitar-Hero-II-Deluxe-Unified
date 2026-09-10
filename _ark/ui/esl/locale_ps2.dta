@@ -1,0 +1,119 @@
+(vs_pscan "E. PROGRESIVO")
+(vs_widescreen "TV PANORÁMICA")
+(mc_title_loading "cargando...")
+(mc_title_saving "guardando...")
+(mc_title_deleting "borrando...")
+(mc_title_caution "atención")
+(mc_title_error "error")
+(mc_title_nosave "partida no encontrada")
+(mc_title_fileerror "error archivo guardado")
+(bootup_caution_format_cancelled_ps2
+   "Formato cancelado. ¿Deseas continuar sin guardar?"
+)
+(bootup_caution_nodata_ps2
+   "¡Atención! No se han guardado \ndatos de Guitar Hero: Rock de los 80 guardados en la \nMemory Card (Tarjeta de Memoria) \n(8MB) (para PlayStation®2) de la ranura para MEMORY CARD (tarjeta de memoria) {SLOT}. Se necesitan {REQ_SPACE} de espacio libre para guardar los datos de la partida. ¿Deseas continuar sin guardar?"
+)
+(bootup_corrupt_data_ps2
+   "Se han detectado datos dañados en la \nMemory Card (Tarjeta de Memoria) \n(8MB) (para PlayStation®2) de la ranura para MEMORY CARD (tarjeta de memoria) {SLOT}. Se necesitan {REQ_SPACE} de espacio libre para guardar los datos de la partida. ¿Deseas reemplazar el archivo dañado y crear uno nuevo?"
+)
+(bootup_create_save_ps2
+   "Creando archivo para guardar datos de Guitar Hero: Rock de los 80. \nNo extraigas la \nMemory Card (Tarjeta de Memoria) \n(8MB) (para PlayStation®2) que hay en la ranura para MEMORY CARD (tarjeta de memoria) {SLOT} ni reinicies o apagues la consola."
+)
+(bootup_create_save_check_ps2
+   "No hay datos de Guitar Hero: \nRock de los 80 guardados en la \nMemory Card (Tarjeta de Memoria) \n(8MB) (para PlayStation®2) de la ranura para MEMORY CARD (tarjeta de memoria) {SLOT}. Guitar Hero: Rock de los 80 tiene una función de autoguardado. \nSe necesitan {REQ_SPACE} de espacio libre para guardar los datos de la partida. ¿Deseas crear un archivo para guardar datos?"
+)
+(bootup_create_save_no_space_ps2
+   "No hay suficiente espacio libre en la \nMemory Card (Tarjeta de Memoria) \n(8MB) (para PlayStation®2) de la ranura para MEMORY CARD (tarjeta de memoria) {SLOT}. Introduce una Memory Card (Tarjeta de Memoria) con al menos {REQ_SPACE} de espacio libre o libera espacio utilizando el navegador de la consola. ¿Deseas continuar sin guardar?"
+)
+(bootup_create_success_ps2
+   " Datos de Guitar Hero: Rock de los 80 creados correctamente."
+)
+(bootup_nocard_ps2
+   "No hay Memory Card (Tarjeta de Memoria) \n(8MB) (para PlayStation®2) en la ranura para MEMORY CARD (tarjeta de memoria) {SLOT}. Guitar Hero: Rock de los 80 tiene una función de autoguardado. Se necesitan {REQ_SPACE} de espacio libre para guardar los datos de la partida. ¿Deseas comenzar el juego sin guardar los datos?"
+)
+(bootup_nospace_ps2
+   "No hay suficiente espacio libre en la \nMemory Card (Tarjeta de Memoria) \n(8MB) (para PlayStation®2) de la ranura para MEMORY CARD (tarjeta de memoria) {SLOT}. Introduce una Memory Card (Tarjeta de Memoria) con al menos {REQ_SPACE} de espacio libre o libera espacio utilizando el navegador de la consola. ¿Deseas continuar sin guardar?"
+)
+(bootup_replace_save_check_ps2
+   "ERROR DE GUARDADO: ya existe un archivo para guardar datos de \nGuitar Hero: Rock de los 80 en la \nMemory Card (Tarjeta de Memoria) \n(8MB) (para PlayStation®2) de la ranura para MEMORY CARD (tarjeta de memoria) {SLOT}. Selecciona REEMPLAZAR para crear un archivo nuevo para guardar datos o CARGAR para usar esos datos guardados."
+)
+(bootup_save_card_removed_ps2
+   "No hay Memory Card (Tarjeta de Memoria) \n(8MB) (para PlayStation®2) en la ranura para MEMORY CARD (tarjeta de memoria) {SLOT}. Guitar Hero: Rock de los 80  tiene una función de autoguardado. Se necesitan {REQ_SPACE} de espacio libre para guardar los datos de la partida. ¿Deseas comenzar el juego sin guardar los datos?"
+)
+(bootup_space_check_failed_ps2
+   "No hay suficiente espacio libre en la \nMemory Card (Tarjeta de Memoria) \n(8MB) (para PlayStation®2) de la ranura para MEMORY CARD (tarjeta de memoria) {SLOT}. Se necesitan al menos {REQ_SPACE} para guardar los datos de la partida. ¿Deseas comenzar el juego sin guardar los datos?"
+)
+(delete_confirm_ps2
+   "¿Estás seguro de borrar permanentemente este grupo?"
+)
+(different_card_ps2
+   "El estado de la \nMemory Card (Tarjeta de Memoria) \n(8MB) (para PlayStation®2) de la ranura para MEMORY CARD (tarjeta de memoria) {SLOT} ha cambiado. Podrían sobrescribirse los datos.  ¿Deseas guardar los datos?"
+)
+(file_exists_error_ps2
+   "ERROR DE GUARDADO: ya hay datos de Guitar Hero: Rock de los 80 en la \nMemory Card (Tarjeta de Memoria) \n(8MB) (para PlayStation®2) de la ranura para MEMORY CARD (tarjeta de memoria) {SLOT}. ¿Deseas sobrescribir los datos actuales?"
+)
+(format_card_ps2
+   "Se está formateando la \nMemory Card (Tarjeta de Memoria) \n(8MB) (para PlayStation®2) de la ranura para MEMORY CARD (tarjeta de memoria) {SLOT}. No extraigas la Memory Card (Tarjeta de Memoria) ni reinicies o apagues la consola."
+)
+(format_card_error_ps2
+   "ERROR DE FORMATO: se produjo un error al intentar formatear la \nMemory Card (Tarjeta de Memoria) \n(8MB) (para PlayStation®2) en la ranura para MEMORY CARD (tarjeta de memoria) {SLOT}. ¿Reintentar formateo?"
+)
+(format_no_card_error_ps2
+   "ERROR DE FORMATO: no hay \nMemory Card (Tarjeta de Memoria) \n(8MB) (para PlayStation®2) en la ranura para MEMORY CARD (tarjeta de memoria) {SLOT}. Vuelve a introducir la tarjeta no formateada y selecciona reintentar."
+)
+(load_loading_ps2
+   "Cargando datos de Guitar Hero: Rock de los 80. No extraigas la \nMemory Card (Tarjeta de Memoria) \n(8MB) (para PlayStation®2) que hay en la ranura para MEMORY CARD (tarjeta de memoria) {SLOT} ni reinicies o apagues la consola."
+)
+(load_success_ps2 "Guitar Hero: Rock de los 80 cargados correctamente.")
+(mc_card_removed_error_ps2
+   "ERROR AL CARGAR:  no hay \nMemory Card (Tarjeta de Memoria) \n(8MB) (para PlayStation®2) en la ranura para MEMORY CARD (tarjeta de memoria) {SLOT}. ¿Quieres introducir una Memory Card (Tarjeta de Memoria) que contenga datos de Guitar Hero: Rock de los 80  y volver a intentarlo?"
+)
+(mc_checking_ps2
+   "Se está comprobando el estado de la \nMemory Card (Tarjeta de Memoria) \n(8MB) (para PlayStation®2) que hay en la ranura para MEMORY CARD (tarjeta de memoria) {SLOT}.  No extraigas la Memory Card (Tarjeta de Memoria) ni reinicies o apagues la consola."
+)
+(mc_corrupt_error_ps2
+   "ERROR AL CARGAR: se han detectado datos dañados en la \nMemory Card (Tarjeta de Memoria) \n(8MB) (para PlayStation®2) de la ranura para MEMORY CARD (tarjeta de memoria) {SLOT}. ¿Deseas volver a intentarlo?"
+)
+(mc_nocard_error_ps2
+   "No hay Memory Card (Tarjeta de Memoria) \n(8MB) (para PlayStation®2) en la ranura para MEMORY CARD (tarjeta de memoria) {SLOT}. ¿Quieres introducir una Memory Card (Tarjeta de Memoria) que contenga datos de Guitar Hero: Rock de los 80 y volver a intentarlo?"
+)
+(mc_nodata_error_ps2
+   "No hay datos de \nGuitar Hero: Rock de los 80 en la \nMemory Card (Tarjeta de Memoria) \n(8MB) (para PlayStation®2) de la ranura para MEMORY CARD (tarjeta de memoria) {SLOT}. ¿Quieres introducir una Memory Card (Tarjeta de Memoria) que contenga datos de Guitar Hero: Rock de los 80 y volver a intentarlo?"
+)
+(mc_load_confirm_ps2
+   "ADVERTENCIA: \nSi cargas datos de una \nMemory Card (Tarjeta de Memoria) \n(8MB) (para PlayStation®2), perderás tu progreso actual. ¿Continuar cargando?"
+)
+(mc_save_confirm_ps2
+   "ADVERTENCIA: si guardas estos datos se sobrescribirán los datos de Guitar Hero: Rock de los 80 en la \nMemory Card (Tarjeta de Memoria) \n(8MB) (para PlayStation®2) de la ranura para MEMORY CARD (tarjeta de memoria) {SLOT}. ¿Seguro que deseas guardarlos?"
+)
+(no_card_error_ps2
+   "ERROR DE GUARDADO: no hay \nMemory Card (Tarjeta de Memoria) \n(8MB) (para PlayStation®2) en la ranura para MEMORY CARD (tarjeta de memoria) {SLOT}. ¿Deseas continuar el juego sin guardar los datos?"
+)
+(no_format_warn_ps2
+   "ERROR DE GUARDADO: no se pudieron guardar los datos en la \nMemory Card (Tarjeta de Memoria) \n(8MB) (para PlayStation®2) no formateada que hay en la ranura para MEMORY CARD (tarjeta de memoria) {SLOT}. ¿Deseas volver a intentarlo o continuar sin guardar?"
+)
+(no_space_error_ps2
+   "ERROR DE GUARDADO: no hay suficiente espacio libre en la \nMemory Card (Tarjeta de Memoria) \n(8MB) (para PlayStation®2) de la ranura para MEMORY CARD (tarjeta de memoria) {SLOT}. Se necesitan {REQ_SPACE} de espacio libre para guardar datos. ¿Deseas continuar sin guardar?"
+)
+(pre_delete_confirm_ps2
+   "Antes de borrar un grupo, debes guardar tu progreso actual en una \nMemory Card (Tarjeta de Memoria) \n(8MB) (para PlayStation®2). Los datos de Guitar Hero: Rock de los 80 existentes podrían ser sobrescritos."
+)
+(save_error_ps2
+   "ERROR DE GUARDADO: no se pudieron guardar los datos en la \nMemory Card (Tarjeta de Memoria) \n(8MB) (para PlayStation®2) que hay en la ranura para MEMORY CARD (tarjeta de memoria) {SLOT}. ¿Deseas volver a intentarlo o continuar sin guardar?"
+)
+(save_saving_ps2
+   "Guardando datos de Guitar Hero: Rock de los 80. No extraigas la \nMemory Card (Tarjeta de Memoria) \n(8MB) (para PlayStation®2) \nque hay en la ranura para \nMEMORY CARD (tarjeta de memoria) {SLOT} ni reinicies o apagues la consola."
+)
+(save_success_ps2 "Guardado correctamente")
+(unformatted_card_ps2
+   "La Memory Card (Tarjeta de Memoria) \n(8MB) (para PlayStation®2) que hay en la ranura para MEMORY CARD (tarjeta de memoria) {SLOT} no está formateada. Para poder guardar partidas, debes formatear esta Memory Card (Tarjeta de Memoria).  ¿Deseas formatear la Memory Card (Tarjeta de Memoria) que hay en la ranura para MEMORY CARD (tarjeta de memoria) {SLOT}?"
+)
+(mc_new_profile_warning_ps2
+   "ADVERTENCIA: tienes datos sin guardar. Si continúas, perderás tu progreso actual."
+)
+(pscan_warning
+   "El modo progresivo puede no funcionar en todas las televisiones. Si este es tu caso, espera 15 segundos para volver al modo actual."
+)
+(pscan_switching
+   "Ahora estás en modo progresivo. ¿Quieres mantener este modo de visualización?"
+)

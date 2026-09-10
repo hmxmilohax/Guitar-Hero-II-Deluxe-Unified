@@ -159,6 +159,15 @@
                {== $button kPad_Tri}
                {==
                   [section]
+                  0}
+               {! {practice_sel_section_screen get career_mode}}}
+            {meta_loading_nosave_goto main_screen}
+            TRUE
+         )
+         ({&&
+               {== $button kPad_Tri}
+               {==
+                  [section]
                   1}}
             {set [section] 0}
             {section_provider set_start_section -1}
@@ -256,11 +265,14 @@
    (update
       {click_parser remove_sink $this}
       {if
-         #ifdef HX_XBOX
-         {&& {!= {gamecfg get practice_speed} 0} {! $stretch_bg}}
-         #else
-         {!= {gamecfg get practice_speed} 0}
-         #endif
+         {&&
+            {!= {gamecfg get practice_speed} 0}
+            #ifdef HX_XBOX
+            {! $stretch_bg}
+            #else
+            TRUE
+            #endif
+         }
          {click_parser add_sink $this}
       }
       #ifdef HX_XBOX
@@ -306,12 +318,15 @@
       {switch $button
          (kPad_Select {game_restart_fast})
          (kPad_Start
-            {if {! {game get game_over}}
-               {game set_paused TRUE}
-               {ui goto_screen pract_pause_screen}
+            {if {&& {== $button kPad_Start} {! {game get game_over}}}
+               {$this pause_practice}
             }
          )
       }
+   )
+   (pause_practice
+      {game set_paused TRUE}
+      {ui goto_screen pract_pause_screen}
    )
    (enter {practice_panel update})
    (TRANSITION_COMPLETE_MSG
@@ -385,7 +400,15 @@
          )
          (new_sec.btn {meta_loading_nosave_goto practice_sel_section_screen})
          (new_sec_career.btn {meta_loading_goto practice_sel_section_screen})
-         (new_song.btn {meta_loading_nosave_goto practice_selsong_screen})
+         (new_song.btn
+            {if_else {practice_sel_section_screen get career_mode}
+               {do
+                  {gamecfg set mode career}
+                  {meta_loading_nosave_goto career_screen}
+               }
+               {meta_loading_nosave_goto practice_selsong_screen}
+            }
+         )
          (quit.btn {meta_loading_nosave_goto main_screen})
          (quit_career.btn
             {career_screen resume_from_practice}

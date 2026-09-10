@@ -15,10 +15,10 @@
       {$this set_focus {dialog find dl_button1.btn}}
       {{dialog find dl_button1.btn} set_text CONTINUE}
       {{dialog find dl_button2.btn} set_showing FALSE}
-      #ifdef HX_XBOX
-      {$this disable {dialog find dl_button2.btn}}
-      #else
+      #ifdef HX_EE
       {{dialog find dl_button2.btn} set_state kDisabled}
+      #else
+      {$this disable {dialog find dl_button2.btn}}
       #endif
       {{dialog find dl_title.lbl} set_text {$this title}}
       {{dialog find dl_message.lbl} set_text {$this message}}
@@ -52,4 +52,10 @@
    ERROR_SCREEN_HANDLERS
    (title max_profile)
    (message max_profile_msg)
+}
+{new GHScreen
+   error_too_short_screen
+   ERROR_SCREEN_HANDLERS
+   (title too_short_name)
+   (message too_short_name_msg)
 }

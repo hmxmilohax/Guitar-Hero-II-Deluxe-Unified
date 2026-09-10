@@ -1,5 +1,10 @@
-#include ../dx/ui/splash/dx_splash_handles.dta
-
+#define DX_SPLASH_HANDLES (
+   (dx_set_splash
+      {splash_poster.tex set_bitmap
+         "dx/custom_textures/splash/splash_poster.png"
+      }
+   )
+)
 {new HelpBarPanel
    helpbar
    (file helpbar.milo)
@@ -20,11 +25,9 @@
       {profilemgr enable_xmp}
       #endif
    )
-   (exit
-      #ifdef HX_XBOX
-      {profilemgr disable_xmp}
-      #endif
-   )
+   #ifdef HX_XBOX
+   (exit {profilemgr disable_xmp})
+   #endif
    (set_defaults
       {set $first_screen main_screen}
       {set $autosave FALSE}
@@ -41,6 +44,7 @@
    cut_scene_screen
    (allow_back FALSE)
    (animate_transition FALSE)
+   #ifdef HX_XBOX
    (poll_count 2)
    (enter {set [poll_count] 2})
    (poll
@@ -51,14 +55,18 @@
          }
       }
    )
+   #else
+   (TRANSITION_COMPLETE_MSG {$this play_movie})
+   #endif
    (play_movie
-      ;skip movie
-      ;{meta play_movie CUT_SCENE_VIDEO}
-      ;skip splash screen
-      {ui goto_screen splash_screen}
+      {meta play_movie CUT_SCENE_VIDEO}
+      ;{if_else {|| $permadeath $randomizer {> {campaign num_profiles} 0}} ;skip guitar help for fast
+         {ui goto_screen splash_screen}
+         ;{ui goto_screen guitar_help_screen} ;skip guitar help for fast
+      ;}
    )
 }
-#define DELAY_BEFORE_ATTRACT_SEC (60)
+#define DELAY_BEFORE_ATTRACT_SEC (30) ;xbox is 60, always 30
 {new UIPanel
    splash_panel
    (file splash.milo)
@@ -75,10 +83,7 @@
       {reset_all_cheats}
       {ui set_virtual_dpad FALSE}
       #endif
-      ;{splash.view
-      ;   animate
-      ;   (period 3.333)
-      ;   (range 0 100)}
+      ;{splash.view animate (period 3.333) (range 0 100)} ;why was this commented out?
       {set $enter_time {taskmgr ui_seconds}}
       {game_screen set attract_mode FALSE}
       {set $entering_attract_mode FALSE}
@@ -119,10 +124,8 @@
          {profilemgr set_active_pad_from_player $player_num}
          {gamecfg set_player 0 {profilemgr active_padnum}}
          {ui set_virtual_dpad TRUE}
-         {goto_startup_load}
-         #else
-         {ui goto_screen main_screen}
          #endif
+         {goto_startup_load}
       }
    )
 }
@@ -179,8 +182,7 @@
       }
    )
 }
-#endif
-#ifdef HX_EE
+#else
 {func get_text_entry_help_text
    ($array $ten $back)
    {resize $array 0}

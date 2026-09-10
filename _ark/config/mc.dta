@@ -1,20 +1,18 @@
-(base_dir
+#ifdef HX_XBOX
+(base_dir "BASLUS-21447")
+#else
    #ifdef _SHIP
-   "GH2DX-00300"
+   (base_dir "GH2DX-00300")
+   (elf_name "GHDX_003.00")
    #else
-   "GH2DX-00301"
+   (base_dir "GH2DX-00301")
+   (elf_name "GHDX_003.01")
    #endif
-)
-(elf_name
-   #ifdef _SHIP
-   "GHDX_003.00"
-   #else
-   "GHDX_003.01"
-   #endif
-)
+#endif
 (ps2_icon
    (file "gh.icn")
    (bg_transparency 128)
+   #ifdef GAME_GH2
    (bg_colors
       (0 0 0)
       (0 0 0)
@@ -32,5 +30,24 @@
       (1 0.75 0)
    )
    (ambient 0.5 0.8 0.5)
+   #else
+   (bg_colors
+      (255 255 0)
+      (0 191 255)
+      (255 105 180)
+      (0 238 2)
+   )
+   (lit_dirs
+      (0.2 1 0)
+      (1 0 1)
+      (1 1 0)
+   )
+   (lit_colors
+      (1 1 1)
+      (1 1 1)
+      (1 1 1)
+   )
+   (ambient 1 1 1)
+   #endif
 )
 (testing FALSE)

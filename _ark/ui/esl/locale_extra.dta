@@ -1,0 +1,63 @@
+#ifdef GAME_GH2
+   #ifdef HX_XBOX
+   (highscore_dummy_0 "Reiko")
+   (highscore_dummy_1 "Devon")
+   (highscore_dummy_2 "Gayle")
+   (highscore_dummy_3 "Matt")
+   (highscore_dummy_4 "Kelly")
+   #else
+   (highscore_dummy_0 "Finn")
+   (highscore_dummy_1 "Alex D.")
+   (highscore_dummy_2 "Owen")
+   (highscore_dummy_3 "Kayley")
+   (highscore_dummy_4 "Liana")
+   #endif
+#else
+(highscore_dummy_0 "Christine")
+(highscore_dummy_1 "Hank")
+(highscore_dummy_2 "Gil")
+(highscore_dummy_3 "Kampas")
+(highscore_dummy_4 "Perly")
+#endif
+
+(autosave_mem "autoguar.")
+(ds_autosave "guardado automático")
+(multi_outfit "ELIGE VESTUARIO")
+(multi_select_multi_mode "ELEGIR MODO MULTIJUGADOR")
+(mp_select_outfit "ELIGE VESTUARIO")
+(mp_select_character "ELIGE TU PERSONAJE")
+(cm_char_title "GUITARRISTA:")
+(cm_guitar_title "GUITARRA:")
+(career_featuring "UNA ACTUACIÓN DE")
+(career_playing_the "TOCANDO ")
+
+(stat_streaks_broken "MALA RACHA")
+(stat_best "MEJOR ACTUACIÓN")
+(stat_lead "TIEMPO EN CABEZA")
+(stat_best_performer "MEJOR ACTUACIÓN")
+(stat_section_title "sección de estadíst.")
+(unlock_song1 "¡Enhorabuena!")
+(unlock_song2 "Has desbloqueado:")
+(unlock_song3 "Este tema ya está disponible en tu repertorio.")
+(top_rockers "MEJORES ROCKEROS")
+(highscore_title "MEJORES ROCKEROS")
+(mp_ready "A PUNTO")
+(ready "A PUNTO")
+
+(load "cargar")
+(replace "cambiar")
+(yes "sí")
+(no "no")
+(cancel "cancelar")
+(ok "ok")
+(continue "continuar")
+(confirm_ok "ok")
+
+(select_mode "elige modo")
+
+(mp_player_1_short "J1")
+(mp_player_2_short "J2")
+(p1 "J1")
+(p2 "J2")
+(sc_player1 "JUGADOR 1")
+(sc_player2 "JUGADOR 2")

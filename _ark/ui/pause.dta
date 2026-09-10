@@ -4,6 +4,31 @@
    (focus resume.btn)
    (reset_focus TRUE)
 }
+{new GHPanel
+   pause_ingame_panel
+   (file pause.milo)
+   (focus resume.btn)
+   (reset_focus TRUE)
+   (enter
+      {resume.btn set_local_pos 0 0 50}
+      {if {! {exists practice.btn}}
+         {new BandButton practice.btn}
+         {practice.btn copy restart.btn kCopyShallow}
+         ;{pause_buttons.view add_object practice.btn}
+         {restart.btn set nav_down practice.btn}
+         {practice.btn set_local_pos 0 0 -10}
+         {pause sync_objects}
+      }
+      {restart.btn set_local_pos 0 0 20}
+      {pause_buttons.view set_local_pos 0 0 -20}
+      {practice.btn set text_token lose_practice}
+      {pause sync_objects}
+   )
+   (exit
+      {restart.btn set nav_down audio_options.btn}
+      {$this set_focus resume.btn}
+   )
+}
 #define PAUSE_SCREEN_HANDLERS (
    (allow_back FALSE)
    (animate_transition FALSE)
@@ -22,23 +47,38 @@
    (restart
       {synth stop_all_sfx}
       {synth play_sequence button_play}
-      {if_else {game get intro_complete}
-         {game_restart_fast}
-         {game_restart}
-      }
+      ;{if_else {game get intro_complete}
+      {game_restart_fast} ;always game restart fast to skip repeating intro sequence
+      ;   {game_restart}
+      ;}
    )
 )
 #define PAUSE_SELECT_START_HANDLER (
    (SELECT_START_MSG
       {switch $component
-         (resume.btn {$this resume})
+         (resume.btn
+            ; force restart if calibrated
+            {if_else $cal_from_pause
+               {do
+                  {$this restart}
+                  {set $cal_from_pause FALSE}
+               }
+               {$this resume}
+            }
+         )
          (restart.btn
-            #ifdef HX_XBOX
-            {pause_confirm_restart_screen set pause_screen $this}
-            {ui goto_screen pause_confirm_restart_screen}
-            #else
-            {$this restart}
-            #endif
+            ; force restart if calibrated
+            ; dont confirm restart if before intro is complete
+            {if_else {|| $cal_from_pause {! {game get intro_complete}}}
+               {do
+                  {$this restart}
+                  {set $cal_from_pause FALSE}
+               }
+               {do
+                  {pause_confirm_restart_screen set pause_screen $this}
+                  {ui goto_screen pause_confirm_restart_screen}
+               }
+            }
          )
          (audio_options.btn
             ; dx - use this button for deluxe settings instead
@@ -85,15 +125,22 @@
 )
 {new GHScreen
    pause_screen
-   (panels GAME_PANELS pause_panel)
-   (focus pause_panel)
+   (panels GAME_PANELS pause_ingame_panel)
+   (focus pause_ingame_panel)
    (clear_vram TRUE)
    (in_game TRUE)
    PAUSE_SCREEN_HANDLERS
    PAUSE_SELECT_START_HANDLER
    (BUTTON_DOWN_MSG
       {if {== $button kPad_Start}
-         {$this resume}
+         ; force restart if calibrated
+         {if_else $cal_from_pause
+            {do
+               {$this restart}
+               {set $cal_from_pause FALSE}
+            }
+            {$this resume}
+         }
       }
       kDataUnhandled
    )
@@ -194,7 +241,6 @@
          }
       }
    )
-   #ifdef HX_XBOX
    (poll
       {if_else {game is_missing_controller}
          {$this disable resume.btn}
@@ -204,14 +250,6 @@
          }
       }
    )
-   #else
-   (poll
-      {if_else {game is_missing_controller}
-         {resume.btn set_state kDisabled}
-         {resume.btn set_state kFocused}
-      }
-   )
-   #endif
 }
 {new GHScreen
    pause_controller_screen
@@ -255,7 +293,6 @@
          }
       }
    )
-   #ifdef HX_XBOX
    (poll
       {if_else {game is_multiple_controllers}
          {if {== {resume.btn get_state} kDisabled}
@@ -268,19 +305,6 @@
          }
       }
    )
-   #else
-   (poll
-      {if_else {game is_missing_multi_controller}
-         {do
-            {resume.btn set_state kDisabled}
-            {$this set_focus quit.btn}
-         }
-         {if {== {resume.btn get_state} kDisabled}
-            {$this set_focus resume.btn}
-         }
-      }
-   )
-   #endif
 }
 {new GHScreen
    multi_pause_controller_screen
@@ -326,7 +350,6 @@
    )
    #endif
 }
-#ifdef HX_XBOX
 {new GHPanel
    pause_confirm_quit_panel
    (file pause_quit.milo)
@@ -344,6 +367,7 @@
    (SELECT_START_MSG
       {switch $component
          (quit.btn
+            {set $cal_from_pause FALSE}
             {if {== career {gamecfg get mode}}
                {gamecfg set continue_screen sel_song_screen}
                {print "quit career\n"}
@@ -377,33 +401,44 @@
       }
    )
 }
-
-; dx - exit to practice confirm screen
 {new GHPanel
    pause_confirm_practice_panel
-   (file pause_quit.milo)
-   (focus quit.btn)
-   (enter {$this set_focus quit.btn})
+   (file pause_restart.milo)
+   (focus restart.btn)
+   (enter {$this set_focus restart.btn})
 }
 {new GHScreen
    pause_confirm_practice_screen
-   (panels GAME_PANELS pause_confirm_quit_panel)
-   (focus pause_confirm_quit_panel)
+   (panels GAME_PANELS pause_confirm_practice_panel)
+   (focus pause_confirm_practice_panel)
    (in_game TRUE)
    (allow_back FALSE)
    (animate_transition FALSE)
    (pause_screen pause_screen)
+   (enter
+      {{pause_confirm_practice_panel find pause_controller_msg.lbl} set_text
+         {localize pause_confirm_quit_message}
+      }
+      {{pause_confirm_practice_panel find restart.btn} set
+         text_token
+         lose_practice
+      }
+   )
+   (goto_practice_mode ;from gh2dx 360
+      {set $cal_from_pause FALSE}
+      {if_else {== {gamecfg get mode} career}
+         {practice_sel_section_screen set career_mode TRUE}
+         {practice_sel_section_screen set career_mode FALSE}
+      }
+      {gamecfg set mode practice}
+      {gamecfg set_track 0 0}
+      {meta_loading_goto practice_sel_section_screen}
+   )
    (SELECT_START_MSG
       {switch $component
-         (quit.btn
-            {gamecfg set mode practice}
-            {gamecfg set_track 0 0}
-            {practice_selpart_screen set career_mode FALSE}
-            {meta_loading_goto practice_selpart_screen}
-         )
+         (restart.btn {$this goto_practice_mode})
          (cancel.btn {ui goto_screen [pause_screen]})
          kDataUnhandled
       }
    )
 }
-#endif

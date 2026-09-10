@@ -1,4 +1,23 @@
-#include ../dx/ui/sel_song/dx_sel_song_funcs.dta
+{func dx_song_beater
+   ;don't do anything if in career
+   {if {! {{ui current_screen} sel_song_career}}
+      ;store original campaign slot
+      {set $return_slot {campaign profile_slot}}
+      ;flag to check against to restore non unlocked campaign
+      {set $unlocked_all TRUE}
+      ;force career
+      {gamecfg set mode career}
+      ;populate hidden slot for storing unlocked campaign
+      {if {campaign is_empty_profile 7}
+         {campaign set_profile_name {sprint "unlocked"} 7}
+      }
+      ;set to new campaign slot, wipe it, then unlock all
+      {campaign set_profile_slot 7}
+      {campaign new_campaign}
+      {campaign set_all_access TRUE}
+      {gamecfg set mode quickplay}
+   }
+}
 {new GHScreen
    qp_selsong_screen
    (animate_transition {! $dx_fast_menus})
@@ -15,14 +34,58 @@
       )
    )
    (sel_song_career FALSE)
-   (SELECT_START_MSG {ui goto_screen dx_sel_part_screen} kDataUnhandled)
+   (SELECT_START_MSG {ui goto_screen qp_selpart_screen} kDataUnhandled)
    (BUTTON_DOWN_MSG DX_OPEN_OVERSHELL kDataUnhandled)
+}
+{new UIPanel
+   qp_sel_difficulty_panel
+   (file sel_difficulty.milo)
+   (update_focus
+      {$this set_focus
+         {switch {$this last_difficulty}
+            (kDifficultyEasy sd_diff1.btn)
+            (kDifficultyMedium sd_diff2.btn)
+            (kDifficultyHard sd_diff3.btn)
+            (kDifficultyExpert sd_diff4.btn)
+         }
+      }
+   )
+   (set_difficulty
+      ($component $player_num)
+      {{game get_player_config $player_num} set_difficulty
+         {switch $component
+            (sd_diff1.btn kDifficultyEasy)
+            (sd_diff2.btn kDifficultyMedium)
+            (sd_diff3.btn kDifficultyHard)
+            (sd_diff4.btn kDifficultyExpert)
+         }
+      }
+      {$this update_difficulty}
+   )
+   (SELECT_START_MSG
+      {$this set_difficulty $component 0}
+      {if {> {game get_num_players} 1}
+         {$this set_difficulty $component 1}
+      }
+      kDataUnhandled
+   )
+   (enter {$this update_focus})
+   (last_difficulty
+      {if_else {! $qp_diff_done_once}
+         {do
+            {set $qp_diff_done_once TRUE}
+            kDifficultyExpert
+         }
+         {game get_difficulty 0}
+      }
+   )
+   (update_difficulty)
 }
 {new GHScreen
    qp_diff_screen
    (animate_transition {! $dx_fast_menus})
-   (panels meta sel_difficulty_panel helpbar)
-   (focus sel_difficulty_panel)
+   (panels meta qp_sel_difficulty_panel helpbar)
+   (focus qp_sel_difficulty_panel)
    (helpbar
       (default
          (
@@ -33,10 +96,128 @@
          )
       )
    )
+   (SELECT_START_MSG {ui goto_screen qp_selpart_screen} kDataUnhandled)
+}
+{new GHPanel
+   qp_selpart_panel
+   (file practice_selpart.milo)
+   (focus part0.btn)
+   (sel_buttons part0.btn part1.btn)
+   (set_button_text
+      {do
+         ($song {gamecfg get_song}) ;setup song variable for use in this block
+         {part0.btn set_text
+            {sprint
+               "sg_"
+               {song_provider get_instrument $song 0}
+            }
+         } ;for some reason hmx adds "sg_" to all their instrument localizations. set part 0 label to the 1st instrument track name
+         {if_else
+            {||
+               {song_provider has_instrument $song bass}
+               {song_provider has_instrument $song rhythm}
+            }
+            {part1.btn set_text
+               {sprint
+                  "sg_"
+                  {song_provider get_instrument $song 1}
+               }
+            } ;set part 1 label to the 2nd instrument track name in the song definition
+            {part0.btn set_text "sg_lead"}
+         }
+         {if
+            {||
+               {song_provider has_instrument $song bass}
+               {song_provider has_instrument $song rhythm}
+            }
+            {if
+               {==
+                  {song_provider get_instrument $song 1}
+                  "rhythm"
+               } ;if the second instrument track in the song definition is rhythm
+               {part0.btn set_text "sg_lead"} ;then set part 0 to be "lead" instead of "guitar"
+            }
+         }
+      }
+   )
+   (add_diff_button
+      {new BandButton diff.btn}
+      {diff.btn copy part1.btn kCopyShallow}
+      ;{buttons0.view add_object diff.btn}
+      {part1.btn set nav_down diff.btn}
+      {diff.btn set nav_down part0.btn}
+      {diff.btn set_local_pos 5 0 3}
+      {buttons0.view set_local_pos 0 0 5}
+      {qp_selpart_panel sync_objects}
+      {do
+         ($diff
+            {switch {game get_difficulty 0}
+               (kDifficultyEasy easy)
+               (kDifficultyMedium medium)
+               (kDifficultyHard hard)
+               (kDifficultyExpert expert)
+            }
+         )
+         {diff.btn set text_token {localize $diff}}
+      }
+   )
+   (bass_rhy_switch
+      {do
+         ($song {gamecfg get_song})
+         {game set_quickplay}
+         {if
+            {||
+               {song_provider has_instrument $song bass}
+               {song_provider has_instrument $song rhythm}
+            }
+            {switch {song_provider get_instrument $song 1}
+               (bass {gamecfg set_track_type bass})
+               (rhythm {gamecfg set_track_type rhythm})
+            }
+         }
+      }
+   )
+   (enter
+      {$this set_button_text}
+      {$this add_diff_button}
+      {$this bass_rhy_switch}
+   )
+   (exit
+      {part1.btn set nav_down part0.btn}
+      {$this set_focus part0.btn}
+      {qp_selpart_panel sync_objects}
+   )
    (SELECT_START_MSG
-      {game set_quickplay}
-      {ui goto_screen loading_screen}
-      kDataUnhandled
+      {switch $component
+         (part0.btn
+            {gamecfg set_track 0 0}
+            {ui goto_screen loading_screen}
+         )
+         (part1.btn
+            {gamecfg set_track 0 1}
+            {ui goto_screen loading_screen}
+         )
+         (diff.btn
+            {part1.btn set nav_down part0.btn}
+            {$this set_focus part0.btn}
+            {qp_selpart_panel sync_objects}
+            {ui goto_screen qp_diff_screen}
+         )
+      }
+   )
+}
+{new GHScreen
+   qp_selpart_screen
+   (panels meta qp_selpart_panel helpbar)
+   (focus qp_selpart_panel)
+   (helpbar
+      (default
+         (
+            (fret1 help_continue)
+            (fret2 help_back)
+            (strum help_updown)
+         )
+      )
    )
    (BUTTON_DOWN_MSG DX_OPEN_OVERSHELL kDataUnhandled)
 }

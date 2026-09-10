@@ -1,0 +1,161 @@
+(splash_legal
+   "Guitar Hero II TM & © 2006-2007 RedOctane, Inc.\nRedOctane® is a registered trademark of RedOctane, Inc. and Activision is a registered trademark of Activision Publishing, Inc.\nGame code © 2005-2007 Harmonix Music Systems, Inc. Developed by Harmonix Music Systems."
+)
+(fest "Vans Warped Tour")
+(win_easy
+   "Dear ______________________,\n\nCongrats on beating Guitar Hero II on Easy. Time to step it up a notch, Ace.\n\nYou want cash awards? Play on MEDIUM, HARD, or EXPERT. You'll be able to buy new guitars, new songs, new finishes... whatever your little rock star heart desires. Who knows, maybe we'll even throw a new mode atcha'!\n\nWelcome to the big time, kiddo.\n\nKisses,\nThe Management"
+)
+(win_medium
+   "Dear ______________________,\n\nCongrats, you beat Guitar Hero II on Medium. Nicely done.\n\nSo you probably know that you can score more cash and buy more stuff if you play HARD or EXPERT, right? Buying stuff is good. Buying stuff makes people like you.\n\nSo let's take it up a level, shall we? Just keep sellin' out gigs and we'll keep sucking up to you.\n\nSmooches,\nThe Management"
+)
+(win_hard
+   "Dear ______________________,\n\nCongrats, you beat Guitar Hero II on Hard. That's no small feat.\n\nThink you've got what it takes to really blow their minds? Try this bad boy out on EXPERT. They call it EXPERT for a reason. There may be a reward waiting for you if you succeed.\n\nSo stretch out them stubby little fingers, Tex, you've got truckload of pain awaiting you. The power of ROCK compels you.\n\nHugs,\nThe Management"
+)
+(win_expert
+   "Dear ______________________,\n\nWow... You just beat Guitar Hero II on EXPERT.\n\nYou've joined the ranks of... well... not very many people. You're kinda out there all alone, a legend among the common folk.\n\nHave you beaten every song with FIVE STARS? If not, get back to work, champ. You might just be rewarded for your efforts.\n\nAnd, uh, seriously? That was awesome. Congratulations.\n\nLove,\nThe Management"
+)
+(win_diff "You beat Guitar Hero II on the %s difficulty")
+(win_legendary "Your legendary show will be talked about for years.")
+(win_stardom "Rock Stardom beckons...")
+(sponsor_blurb1
+   "Ernie Ball thinks you might have something special, kiddo. They're gonna start you off right with a sponsorship deal and a premium pack of strings to get you started."
+)
+(sponsor_sub2 "(And your daddy said you'd never make money doing this.)")
+(sponsor_blurb2
+   "Line 6 Amps thought you slayed at that last show - so now it's time to turn it up! They're handing you a sponsorship deal, and a sweet Line 6 amp so you really can crank it."
+)
+(sponsor_sub3 "(Live the dream!)")
+(sponsor_blurb3
+   "That encore performance got people talking and Orange Amps heard all about it. They're handing you a sponsorship deal and a killer Orange amp to make your friends weep with envy."
+)
+(sponsor_sub4 "(Good thing you can afford to buy a bigger wallet.)")
+(sponsor_blurb4
+   "The crowd loves you, and VHT Amps has noticed. They're setting you up with a hot sponsorship deal, and a top-of-the-line VHT amp to help drive 'em wild!"
+)
+(sponsor_sub5 "(Have you considered getting your fretting hand insured?)")
+(sponsor_blurb5
+   "Krank Amps thinks you're about to ride the fame train, and they wanna be onboard. They're giving you a sponsorship deal and a stellar Krank amp as your ticket to ride."
+)
+(sponsor_sub6 "(Go roll around in your money!)")
+(sponsor_blurb6
+   "Well, look at you, gettin' all noticed by big wigs. Mesa Boogie was pretty impressed by that last show. They're handing you a major sponsorship deal and a Mesa Boogie amp to keep all eyes and ears focused on you."
+)
+(sponsor_sub7 "(Time to start hiding from the paparazzi.)")
+(sponsor_blurb7
+   "You're a household name, baby, and Randall Amps likes your style. They're providing a huge sponsorship deal and a Randall Amp to boost that famous sound of yours!"
+)
+(sponsor_sub8 "(Try not to forget about the little people.)")
+(sponsor_blurb8
+   "See, wasn't all that practice worth it? Boss Pedals thinks so, and they're handing you a monster sponsorship deal, not to mention enough Boss Pedals to perfectly customize your signature sound!"
+)
+(sponsor_sub9 "(Buy your mom a house. Or an island.)")
+(sponsor_blurb9
+   "Ernie Ball has been with you from the start, and they are so proud of your incredible success. They're giving you a record-breaking sponsorship deal and strings for life. Congratulations."
+)
+(unlock_profaceoff4
+   "You know how whenever you play FACE-OFF Mode, your buddy screams about how you got the easier track and less notes and blah blah, out comes the waaahmbulance? No more, my shredding friend.\n\nCheck out PRO FACE-OFF Mode in the Multiplayer menu and go note-for-note in the ultimate guitarmageddon.\n\nHave fun,\nThe Management"
+)
+(alterna_blurb
+   "A fan of distorted feedback and roller derby, Judy Nails has been a pioneer of alt-rock since her first tour at age 17. Known for her huge collection of vinyl, Judy brings a smile, and a lot of pedals, to the stage."
+)
+(classic_blurb
+   "Having abandoned his fascination with the sitar (an interest developed during a court-ordered \qmeditation retreat\q), Clive returns to the forefront of classic rock with his guitar wizardry and iconic status."
+)
+(deathmetal_blurb
+   "Lock the doors and board the windows, Lars Ümlaüt is coming for you! An intimidating presence, the Norwegian-born Ümlaüt describes himself as \qa force for you to be doing the reckoning with!\q"
+)
+(funk1_blurb
+   "Raised in suburban Connecticut, Xavier Stone broke from his pampered upbringing after realizing he preferred rock clubs to country clubs. Weaving slick '70s style with chunky grooves, Xavier does it right every time."
+)
+(goth_blurb
+   "Pandora's youth is shrouded in mystery.  Some say she was born in a dimension of pure darkness. Others say she was raised in a duplex near Boise. With her blazing solos and chaotic melodies, Pandora is the Dark Princess of Rock."
+)
+(glam_blurb
+   "A real crowd pleaser, Izzy thrills all with his energetic onstage showmanship while delighting the media with his offstage debauchery. Izzy's fan base is even bigger than his hair."
+)
+(grim_blurb
+   "This rock star is bad to the bone. Grim's riffs are so killer, fans are lucky just to leave the show with their souls intact. Grim's supernatural licks always knock 'em dead. 'Cause he's... you know... right."
+)
+(metal_blurb
+   "Famous for his driving riffs and up-front attitude, Axel Steel first picked up a guitar in an attempt to quell his boredom during suspension from elementary school. The rest is history. Metal history."
+)
+(punk_blurb
+   "Johnny embodies the true spirit of punk rock with his signature stomp and swagger. Released from lockup for \qalmost tolerable behavior,\q Johnny lurches back into the spotlight, rough and ready for action."
+)
+(rock_blurb
+   "A veteran of the tour circuit, Casey's dirty, low-end growl and ultra-heavy riffs have influenced budding shredders from Maine to Alaska. She's tough, she's brash, and she'll break your heart faster than an E string."
+)
+(rockabill_blurb
+   "When he's not cruisin' in his '55 Chevy, Eddie brings his hard-working rock to any stage he sets foot on. A real \qroad dog,\q Eddie Knox claims that as long as he's got his hollow body and his pomade, he \qain't too far from home.\q"
+)
+(grim_shop_desc
+   "This rock star is bad to the bone. Grim's riffs are so killer, fans are lucky just to leave the show with their souls intact. Grim's supernatural licks always knock 'em dead. 'Cause he's... you know... right."
+)
+(eyeball_reward_desc
+   "Once a guy said to me, \qThank goodness nobody's ever made a 'wacky' guitar designed to look like an eyeball.\q  Somewhere, that man is crying now."
+)
+(battleaxe_reward_desc
+   "It's likely a guy in Manowar actually plays a guitar like this, so I guess that's something."
+)
+(song_header_battle "1. Opening Licks")
+(song_header_small1 "2. Amp-Warmers")
+(song_header_small2 "3. String Snappers")
+(song_header_big "4. Thrash and Burn")
+(song_header_theatre "5. Return of the Shred")
+(song_header_fest "6. Relentless Riffs")
+(song_header_arena "7. Furious Fretwork")
+(song_header_stone "8. Face-Melters")
+(endgame_encore_letter3
+   "The crowd is goin' nuts, you'd better play an encore. Think you can buck up and give it all you've got with one more?"
+)
+(endgame_encore_letter4
+   "Man, they're lovin' you! Do your fans a favor and go back out there. You got enough energy for one more?"
+)
+(endgame_encore_letter5
+   "They're really chanting out there! They're demanding one more. Can you pull it together for a big finish?"
+)
+(comedy_tip1
+   "Life is hard for musicians, but for drummers it's nearly impossible."
+)
+(comedy_tip2 "If your singer ain't happy, ain't nobody happy.")
+(comedy_tip3
+   "You need a mini-fridge in your practice space. It's more important than a bassist."
+)
+(comedy_tip4 "You only need one person with a mohawk in your band.")
+(comedy_tip5 "Remember, NO STAIRWAY!")
+(comedy_tip6 "TURN IT UP!")
+(comedy_tip7
+   "It takes a REALLY long time to drive the van through Nebraska."
+)
+(comedy_tip8
+   "If you have a road crew, it's called \qhauling\q equipment. Otherwise it's called \qschlepping.\q"
+)
+(comedy_tip9 "It all comes out on the road.")
+(comedy_tip10 "A band is the dysfunctional family you choose.")
+(comedy_tip11
+   "If you call your new song a \qRock Anthem,\q you'd better be damn sure."
+)
+(comedy_tip12 "It's customary to try to be the loudest during practice.")
+(comedy_tip13 "Dropping your pants onstage does not deploy Star Power.")
+(comedy_tip14
+   "If your neighbors keep complaining about the noise, turn up the volume until they move away."
+)
+(comedy_tip15 "Your mom does not count as a fan.")
+(encore_tip1
+   "Don't write your encore on your set list - your fans will know you planned it."
+)
+(encore_tip2
+   "If the staff is already flipping the stools, you missed your chance for an encore."
+)
+(encore_tip3
+   "You better be sure they WANT you to come back out before you save your best song for the encore."
+)
+(encore_tip4
+   "If your drummer is too tired for an encore, then your drummer is too tired for the after-party."
+)
+(encore_tip5
+   "If they want an encore but you're out of songs, do NOT, under any circumstances, try to just JAM."
+)
+(encore_tip6
+   "If the crowd is screaming for more but the sound dude is shaking his head angrily, just ignore him and play anyway."
+)

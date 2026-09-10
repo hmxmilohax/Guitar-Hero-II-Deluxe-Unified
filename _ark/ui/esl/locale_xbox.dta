@@ -1,0 +1,117 @@
+(signin_changed_title "CAMBIO EN EL INICIO DE SESIÓN")
+(signin_changed_msg
+   "Se ha producido un cambio al iniciar sesión. No podrás guardar tus logros y tus progresos. Como resultado el juego se ha reiniciado."
+)
+(sigin_to_live_title "NO HAS INICIADO SESIÓN")
+(sigin_to_live_msg
+   "Para ver las Tablas de clasificación, tienes que iniciar sesión en Xbox Live. Inicia sesión e inténtalo de nuevo."
+)
+(help_tolisting "TABLA DE CLASIFICACIÓN")
+(help_gamercard "TARJETA DE JUGADOR")
+(song_header_download "Temas descargados ")
+(store_downloads "DESCARGAS")
+(downloads_shop_desc "¡Compra nuevos temas en el Bazar Xbox Live!")
+(store_downloads_costrange "$ DINERO DE VERDAD $ ")
+(mc_title_saving "Guardando")
+(mc_title_autosave "autoguardado")
+(mc_title_warning "ADVERTENCIA:")
+(mc_title_error "Error")
+(mc_enable_autosave
+   "Tienes que elegir un dispositivo de almacenamiento y guardar para que la acción de guardado automático se active."
+)
+(mc_autosave_device_changed
+   "La función de guardado automático ha detectado que el dispositivo de almacenamiento ha cambiado desde la última vez que se utilizó. Elige la ubicación de guardado automático o desactívalo."
+)
+(mc_checking "Comprobando dispositivos de almacenamiento...")
+(mc_multiple_saves
+   "Se encontraron varios dispositivos de almacenamiento con partidas guardadas. Elige el dispositivo de almacenamiento que desees o continúa sin cargar."
+)
+(mc_not_signed_in
+   "No has iniciado sesión. Si no inicias sesión, no puedes guardar el progreso."
+)
+(mc_confirm_not_signed_in
+   "Has elegido continuar sin iniciar sesión. Todo el progreso que hagas no se guardará."
+)
+(mc_load_file_corrupt
+   "No se pudo cargar la partida guardada porque el archivo está dañado."
+)
+(mc_load_failed
+   "Se produjo un error desconocido al cargar. El dispositivo de almacenamiento seleccionado ya no está disponible."
+)
+(mc_create_file
+   "No se encontraron datos guardados. ¿Crear un nuevo archivo para guardar datos?"
+)
+(mc_saving "Guardando...")
+(mc_save_complete "Guardado completo.")
+(mc_saving_long "Guardando contenido. No apagues tu consola.")
+(mc_save_confirm_overwrite
+   "El archivo guardado ya existe. ¿Sobrescribir?"
+)
+(mc_save_failed
+   "No se pudo guardar. La función de guardado automático está desactivada."
+)
+(mc_save_choose_device
+   "Elige el dispositivo donde vas a guardar la partida."
+)
+(mc_save_not_enough_space
+   "No hay espacio suficiente en el dispositivo de almacenamiento seleccionado."
+)
+(mc_unsaved_data
+   "Hay datos sin guardar. Si cargas sin guardar primero, se perderán los datos. ¿Seguro que quieres cargar?"
+)
+(mc_load_choose_device
+   "Elige el dispositivo desde donde vas a cargar la partida."
+)
+(mc_file_not_found
+   "No se encontraron datos en el dispositivo seleccionado."
+)
+(mc_delete_confirmation
+   "Estás a punto de borrar permanentemente el grupo seleccionado. Todo el progreso de este grupo se perderá. ¿Seguro que quieres continuar?"
+)
+(mc_storage_changed
+   "Se produjo un cambio en la unidad de memoria Xbox 360 . El juego volverá al menú principal."
+)
+(mc_storage_device_missing
+   "El dispositivo de almacenamiento seleccionado no se encuentra. Error al cargar."
+)
+(mc_save_storage_device_pulled
+   "El dispositivo de almacenamiento seleccionado no está disponible. Error al guardar."
+)
+(mc_load_storage_device_pulled
+   "El dispositivo de almacenamiento seleccionado no está disponible. Error al cargar."
+)
+(mc_continue "continuar")
+(mc_choose_device "Elegir dispositivo de almacenamiento")
+(mc_create_save "Crear nuevo archivo para guardar datos")
+(mc_disable_autosave "Desactivar guardado automático")
+(mc_signin "Iniciar sesión")
+(mc_no_save "Continuar sin guardar")
+(mc_overwrite "Sobrescribir")
+(leaderboards "Tablas de clasificación")
+(lb_career_leaderboard "Puntos modo carrera")
+(lb_campaign_leaderboard "Puntuación de carrera")
+(lb_option1 "tema:")
+(lb_option2 "tiempo:")
+(lb_option3 "actuación:")
+(lb_charts "Los mejores de esta semana")
+(lb_charts_alltime "Listas de siempre")
+(lb_charts_campaign "Canciones carrera")
+(lb_charts_all_songs "Todos los temas")
+(lb_yourname "Tu nombre:")
+(lb_top "%d de %d")
+(lb_unranked "Sin igualar")
+(lb_gotolist "IR A LA LISTA")
+(lb_all_time "CLÁSICOS")
+(lb_this_week "SOLO ESTA SEMANA")
+(lb_campaign_songs "SOLO CARRERA")
+(lb_friends_only "SOLO AMIGOS")
+(lb_select_song "ELIGE UNA TABLA DE CLASIFICACIÓN")
+(lb_diff "FMDE")
+(lb_placeholder_name "---")
+(lb_move_to_top "INICIO")
+(lb_my_position "MI PUNTUACIÓN")
+(sc_headline "Seleccionar mando")
+(sc_attached "(MANDOS INSERTADOS)")
+(sc_instructions
+   "Pulsa la barra de toque en tu mando de guitarra o utiliza el mando D de tu mando Xbox 360 para mover el dispositivo de entrada deseado al otro lado de la pantalla."
+)

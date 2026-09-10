@@ -1,17 +1,50 @@
-#include ../dx/ui/main/dx_main_handles.dta
-
-{new GHPanel
-   main_panel
-   #ifdef HX_XBOX
-   (file
-      {if_else {profilemgr is_active_pad_signed_in_live}
-         main_live.milo
-         main.milo
+#define DX_MAIN_HANDLES (
+   (dx_set_main_menu
+      {mainmenu.tex set_bitmap "dx/custom_textures/main/mainmenu_nohand.png"}
+      {main set
+         normal_color
+         {pack_color 0.16 0.30 0.38}
+      }
+      {main set
+         focus_color
+         {pack_color 1 1 1}
+      }
+      {main set
+         selecting_color
+         {pack_color 0.5 0.5 0.5}
+      }
+      {if $dx_new_save
+         {set $dx_new_save FALSE}
+         {ui goto_screen dx_welcome_screen}
       }
    )
-   #else
+   (dx_attract_poll
+      ;dx attract mode on main menu, copied from splash.dta
+      {if {&& {! $entering_attract_mode} {! {ui in_transition}}}
+         {do
+            ($now {- {taskmgr ui_seconds} $main_enter_time})
+            {if {> $now 40}
+               {if {! $disable_attract_mode}
+                  {$this enter_attract_mode}
+               }
+            }
+         }
+      }
+   )
+   ;dx, go to attract mode handle copied from splash.dta
+   (enter_attract_mode
+      {gamecfg set mode attract}
+      {set $entering_attract_mode TRUE}
+      {game set_song {campaign pick_attract_song}}
+      {{game get_player_config 0} set_difficulty kDifficultyExpert}
+      {game set_quickplay}
+      {game_screen set attract_mode TRUE}
+      {ui goto_screen loading_screen}
+   )
+)
+{new GHPanel
+   main_panel
    (file main.milo)
-   #endif
    DX_MAIN_HANDLES
    (focus main_quickspin.btn)
    (msg_last_frame 0)
@@ -29,9 +62,8 @@
       {set $main_enter_time {taskmgr ui_seconds}}
       ;vanilla flag
       {set $main_entered TRUE}
-      #ifdef HX_XBOX
       {set $leaderboards_mode FALSE}
-      #endif
+      {practice_sel_section_screen set career_mode FALSE}
       {$this reset_player_settings}
       {if {! [already_entered]}
          {synth play_sequence meta_lick}
@@ -52,31 +84,97 @@
       {set [msg_last_frame] 0}
       #ifdef HX_XBOX
       {gamecfg set_player 0 {profilemgr active_padnum}}
+      #endif
       {gamecfg set mode quickplay}
-      {content_mgr start_enumeration}
+      ;permadeath qol, sets first button to career
+      {if {! $set_to_career_once}
+         {set $set_to_career_once TRUE}
+         {$this set_focus main_career.btn}
+      }
+      ;permadeath disables quickplay
+      {if_else $permadeath
+         {$this disable main_quickspin.btn}
+         {$this enable main_quickspin.btn}
+      }
+      ;don't scan dlc
+      #ifdef HX_XBOX
+         ;#ifdef GAME_GH2
+         ;{if $scandlc
+            {content_mgr start_enumeration}
+         ;}
+         ;#endif
       #endif
       ;yeah this is bad, idk, but it reliably loads the settings
       ;without the delay, and loading 3 times, it doesnt load
       ;i dunno
-      {script_task
-         (units kTaskUISeconds)
-         (delay 1)
-         ;load dx settings (3 times lol)
-         (script {load_settings} {load_settings} {load_settings})
+      ;{script_task
+      ;   (units kTaskUISeconds)
+      ;   (delay 1)
+      ;   ;load dx settings (3 times lol)
+      ;   (script {load_settings} {load_settings} {load_settings})
+      ;}
+      ;enable hyperspeed
+      ;{if {|| $permadeath $randomizer}
+         {if {&& {! $cheat_enabled_hyper_speed_mode} {! $turned_off}}
+            {set $cheat_enabled_hyper_speed_mode TRUE}
+            {main_screen display_cheat_msg cheat_hyper_speed_mode TRUE}
+            {play_sfx cheat}
+         }
+      ;}
+   )
+   (skip_career_setup
+      {if {&& $permadeath $set_first_name_once}
+         {campaign set_profile_name $first_name 0}
+      }
+      {if $set_first_char_once
+         {game set_character $first_char TRUE}
+      }
+      {if $set_first_guitar_once
+         {game set_guitar $first_guitar_body $first_guitar_skin}
+      }
+      {if $set_first_diff_once
+         {{game get_player_config 0} set_difficulty $first_diff}
+      }
+      {do
+         ($new_campaign {campaign new_campaign})
+         {campaign set_character_info}
+         {if_else $new_campaign
+            {ui goto_screen tour_start_screen}
+            {ui goto_screen career_screen}
+         }
       }
    )
    (SELECT_START_MSG
       {switch $component
          (main_career.btn
             {gamecfg set mode career}
-            {if_else {> {campaign num_profiles} 0}
-               {ui goto_screen chooseprof_screen}
-               {do
-                  {nameprof_screen set back_screen main_screen}
-                  {nameprof_screen set is_editing FALSE}
-                  {nameprof_screen set profile_slot 0}
-                  {nameprof_screen set next_screen sel_difficulty_screen}
-                  {ui goto_screen nameprof_screen}
+            {if_else
+               {&&
+                  $permadeath
+                  $set_first_name_once
+                  $set_first_char_once
+                  $set_first_guitar_once
+                  $set_first_diff_once
+               }
+               {$this skip_career_setup}
+               {if_else {> {campaign num_profiles} 0}
+                  {ui goto_screen chooseprof_screen}
+                  {do
+                     {nameprof_screen set back_screen main_screen}
+                     {nameprof_screen set is_editing FALSE}
+                  ;   {if_else $permadeath
+                        {nameprof_screen set profile_slot 0}
+                  ;      {if_else $randomizer
+                  ;         {nameprof_screen set profile_slot 1}
+                  ;         {if_else $gym_unlock_all
+                  ;            {nameprof_screen set profile_slot 3}
+                  ;            {nameprof_screen set profile_slot 2}
+                  ;         }
+                  ;      }
+                  ;   }
+                     {nameprof_screen set next_screen sel_difficulty_screen}
+                     {ui goto_screen nameprof_screen}
+                  }
                }
             }
          )
@@ -92,7 +190,6 @@
             #endif
          )
          (main_tutorial.btn {ui goto_screen training_screen})
-         #ifdef HX_XBOX
          (main_leaderboards.btn
             {if_else {profilemgr is_active_pad_signed_in_live}
                {do
@@ -107,20 +204,19 @@
                }
             }
          )
-         #endif
          (main_options.btn {ui goto_screen options_screen})
       }
    )
    (poll
-      #ifdef HX_XBOX
-      {if_else {game is_multiple_controllers}
-         {$this enable main_multiplayer.btn}
-         {$this disable main_multiplayer.btn}
-      }
-      #else
+      #ifdef HX_EE
       {if_else {game is_missing_multi_controller}
          {$this disable main_multiplayer.btn}
          {$this enable main_multiplayer.btn}
+      }
+      #else
+      {if_else {game is_multiple_controllers}
+         {$this enable main_multiplayer.btn}
+         {$this disable main_multiplayer.btn}
       }
       #endif
       {main_msg.view set_showing

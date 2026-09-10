@@ -1,0 +1,170 @@
+(splash_legal
+   "Guitar Hero II TM & © 2006-2007 RedOctane, Inc.\n RedOctane® es una marca comercial registrada de RedOctane, Inc y Activision es una marca comercial registrada de Activision Publishing, Inc.Código del motor© 2005-2007 Harmonix Music Systems, Inc. Desarrollado por Harmonix Music Systems."
+)
+(fest "Vans Warped Tour")
+(win_easy
+   "Hola__________________\n\nEnhorabuena por arrasar en el nivel fácil de Guitar Hero II. Es hora de pasar a otro nivel, máquina.\n\n¿Quieres premios en metálico? Juega en los niveles MEDIO, DIFÍCIL o EXPERTO. Podrás comprar nuevas guitarras, temas, impresionantes acabados... Todo lo que tu corazoncito de roquero desee... Quién sabe, quizás incluso te encuentres con un nuevo modo...\n\nEs la hora de la verdad, colega.\n\nUn saludo,\nLa Directiva"
+)
+(win_medium
+   "Hola______________________\n\nEnhorabuena, has arrasado en el nivel medio de Guitar Hero II. Bien hecho.\n\nSeguro que sabes que puedes conseguir más dinero y comprar más artículos si juegas en los niveles DIFÍCIL o EXPERTO, ¿verdad? Comprar cosas mola. Si compras artículos le gustas a la gente.\n\nSube un nivel y lo comprobarás. Sigue vendiendo entradas como rosquillas y seremos buenos contigo.\n\nAbrazos,\nLa Directiva"
+)
+(win_hard
+   "Hola______________________\n\nEnhorabuena, has arrasado en el nivel difícil de Guitar Hero II. Es una gran hazaña.\n\n¿Crees que tienes lo que hay que tener para dejarlos alucinados? Ponte a prueba en el nivel EXPERTO. Se llama EXPERTO por algo. Quizá te esté esperando un premio si lo superas.\n\nAsí que estira tus deditos regordetes, vaquero, te espera una oleada de dolor. El poder del ROCK te obliga.\n\nUn abrazo,\nLa Directiva"
+)
+(win_expert
+   "Hola ______________________,\n\n¡Qué pasada! Acabas de arrasar en el nivel EXPERTO de Guitar Hero II.\n\nTienes el nivel de muy poca gente, la verdad. Eres una leyenda que está entre los mortales de a pie.\n\n¿¿¿Has superado todas las canciones con CINCO ESTRELLAS??? Si no, vuelve al trabajo, campeón. Todos tus esfuerzos serán recompensados.\n\nSí, en serio, ha sido alucinante. Enhorabuena.\n\nUn fuerte abrazo,\nLa Directiva"
+)
+(win_diff "Has derrotado a Guitar Hero II en el nivel %s")
+(win_legendary "Tu legendaria actuación será recordada durante años.")
+(win_stardom "El Olimpo del rock llama a...")
+(sponsor_blurb1
+   "Ernie Ball cree que tienes algo especial, chico. Te van a pagar con un patrocinio y unas cuerdas de calidad para empezar."
+)
+(sponsor_sub2 "(Y tu padre decía que no comerías de esto...)")
+(sponsor_blurb2
+   "Line 6 Amps piensa que te luciste en la última actuación, ¡es hora de darle caña! Te han ofrecido un patrocinio y un amplificador Line 6 para que arrases."
+)
+(sponsor_sub3 "(¡Vive el sueño!)")
+(sponsor_blurb3
+   "Esa aclamada actuación ha dado que hablar y Orange Amps se ha enterado de todo. Te ofrecen un patrocinio y un alucinante amplificador Orange para que tus amigos se mueran de envidia."
+)
+(sponsor_sub4
+   "(Es genial que te puedas permitir una cartera más grande.)"
+)
+(sponsor_blurb4
+   "La gente te quiere, y VHT Amps lo sabe. ¡Te has ganado un buen patrocinio y amplificador VHT de calidad superior para que los vuelvas locos!"
+)
+(sponsor_sub5 "(¿Te has planteado asegurarte tus virtuosos dedos?)")
+(sponsor_blurb5
+   "Krank Amps piensa que te vas a montar en el tren de la fama y quiere estar a bordo. Te ofrecen un patrocinio y un increíble amplificador Krank como billete de ida."
+)
+(sponsor_sub6 "(¡Rebózate en tu dinero!)")
+(sponsor_blurb6
+   "Vaya, mírate, los peces gordos se fijan en ti. Mesa Boogie se quedaron impresionados con tu última actuación. Te han ofrecido un considerable patrocinio y un amplificador Mesa Boogie para que nadie te quite los ojos de encima."
+)
+(sponsor_sub7 "(Hora de esconderse de los paparazzi.)")
+(sponsor_blurb7
+   "Partes la pana y a Randall Amps les gusta tu estilo. ¡Te ofrecen un patrocinio inmenso y un amplificador Randall para hacer resonar tu famoso sonido!"
+)
+(sponsor_sub8 "(No te olvides de la gente corriente.)")
+(sponsor_blurb8
+   "¿Ves como todos esos ensayos servían de algo? ¡Boss Pedals piensa que sí y te ofrecen un patrocinio bestial, sin olvidarte de los pedales Boss suficientes para personalizar tu sonido!"
+)
+(sponsor_sub9 "(Cómprale a tu madre una casa. O una isla.)")
+(sponsor_blurb9
+   "Ernie Ball ha estado contigo desde el principio y está orgulloso de tu gran éxito. Te ofrecen un patrocinio incomparable y cuerdas de por vida, Enhorabuena."
+)
+(unlock_profaceoff4
+   "Suponemos que ya sabes cómo es jugar con tu colega en el modo DUELO DE GUITARRAS: tu colega con el rollo de que te tocan los temas más fáciles, menos notas, bla, bla, bla y siempre la misma cantinela... Pues se acabó, mi virtuoso amigo.\n\nPrueba el modo DUELO DE GUITARRAS PRO en el menú Multijugador y machaca nota por nota la nueva modalidad.\n\nDiviértete,\nLa Directiva"
+)
+(alterna_blurb
+   "Fan de los acoples distorsionados y del patinaje, Judy Nails fue pionera del rock alternativo desde su primera gira con tan solo 17 años. Famosa por su gran colección de vinilos, Nails siempre aporta una sonrisa y muchos pedales al escenario."
+)
+(classic_blurb
+   "Después de abandonar su afición por la cítara, desarrollada durante un \qretiro espititual\q en prisión, Clive vuelve a pasearse por la cima del rock clásico con su mágica guitarra y su arrolladora personalidad."
+)
+(deathmetal_blurb
+   "Cierra la puerta y protege tus ventanas, ¡Lars Umlaut viene a por ti! Con un aspecto intimidatorio, el noruego Umlaut se describe a sí mismo como \q¡una fuerza a la que tendrás que enfrentarte!\q"
+)
+(funk1_blurb
+   "Proveniente de los aledaños de Connecticut, Xavier Stone renunció a ser un niño mimado al darse cuenta que le gustaban más los clubs de rock que los clubs de campo. Mezclando el estilo de los 70 con ritmos potentes, lo clava cada vez en el escenario."
+)
+(goth_blurb
+   "El pasado de Pandora está envuelto por un halo de misterio. Algunos dicen que nació en una dimensión de oscuridad absoluta. Otros dicen que se crió en un dúplex cerca de Boise. Con sus violentos solos y sus caóticas melodías, Pandora es la Princesa del rock."
+)
+(glam_blurb
+   "El público le adora. Izzy enloquece a todo el mundo con su espectáculo en el escenario lleno de energía mientras deleita a la prensa con su libertinaje entre bastidores. Los fans de Izzy abultan mucho más que su pelo."
+)
+(glam_blurb
+   "El público le adora. Izzy enloquece a todo el mundo con su espectáculo en el escenario lleno de energía mientras deleita a la prensa con su libertinaje entre bastidores. Los fans de Izzy abultan mucho más que su pelo."
+)
+(grim_blurb
+   "Esta estrella del rock es mala hasta la médula. Los riffs de Morticio son tan terroríficos que los fans son afortunados de salir del concierto con el alma intacta. La artillería sobrenatural de Morticio deja a la gente sin aliento. Porque él es... ya sabes... eso mismo."
+)
+(metal_blurb
+   "Famoso por sus generosos riffs y su carácter abierto, Axel Steel cogió una guitarra por primera vez en un intento de matar el aburrimiento provocado por una expulsión del colegio. El resto es historia, Historia del Heavy."
+)
+(punk_blurb
+   "Johnny encarna el verdadero espíritu de rock punk con melodías arrogantes y con sus habilidades con la guitarra. Puesto en libertad por \qcasi buena conducta\q, Johnny vuelve pisando fuerte en el escenario, listo para dar la nota."
+)
+(rock_blurb
+   "Una veterana del circuito de las giras, los rugidos demoledores y los maravillosos riffs de Gina han influenciado a todos los rockeros que están empezando, desde Maine hasta Alaska. Es dura, presuntuosa y te romperá el corazón más rápido que la nota MI."
+)
+(rockabill_blurb
+   "Cuando no conduce su Chevy del 55, Eddie da muestras de su impresionante trabajo de rock en cualquier escenario que pisa. Un auténtico \qperro callejero\q, Knox afirma que sin su caja hueca y su gomina \qnunca está lejos de casa\q."
+)
+(grim_shop_desc
+   "Esta estrella del rock es mala hasta la médula. Los riffs de Morticio son tan terroríficos que los fans son afortunados de salir del concierto con el alma intacta. La artillería sobrenatural de Morticio deja a la gente sin aliento. Porque él es... ya sabes... eso mismo."
+)
+(eyeball_reward_desc
+   "Alguien dijo una vez que \qmenos mal que a nadie se le ha ocurrido hacer una guitarra en forma de ojo\q. Esa persona se estará tirando de los pelos ahora mismo."
+)
+(battleaxe_reward_desc
+   "Posiblemente alguno de los de Manowar tiene una guitarra como ésta, así que ya es algo."
+)
+(song_header_battle "1. Para principiantes")
+(song_header_small1 "2. Calentando amplificadores")
+(song_header_small2 "3. Rompe las cuerdas")
+(song_header_big "4. Quema el escenario")
+(song_header_theatre "5. El retorno del monstruo")
+(song_header_fest "6. A todo riff")
+(song_header_arena "7. Trastes a saco")
+(song_header_stone "8. Desparrame total")
+(endgame_encore_letter3
+   "El público se está volviendo loco, tienes que tocar otra. ¿Crees que puedes ponerte las pilas y dar lo mejor de ti en un bis?"
+)
+(endgame_encore_letter4
+   "¡Tío, están flipándolo! Hazle un favor a tus fans y vuelve ahí fuera. ¿Te queda un poco de energía para una más?"
+)
+(endgame_encore_letter5
+   "¡Te están pidiendo a gritos una más! ¿Podrás lograrlo para salir por la puerta grande?"
+)
+(comedy_tip1
+   "La vida de los músicos es dura, pero la del batería es casi imposible."
+)
+(comedy_tip2 "Si tu cantante no está contento, nadie está contento.")
+(comedy_tip3
+   "Necesitarás una nevera portátil en tu local de ensayo. Es mucho más importante que un bajista."
+)
+(comedy_tip4 "Solo necesitas una persona con una cresta en tu grupo.")
+(comedy_tip5 "¡Recuerda, NO STAIRWAY!")
+(comedy_tip6 "¡DALE CAÑA!")
+(comedy_tip7
+   "Se tarda MUCHO en atravesar con la furgoneta el estado de Nebraska."
+)
+(comedy_tip8
+   "Si tienes un equipo de carretera, se llama equipo de \qtrayecto\q. Si no se llama \qincordio\q."
+)
+(comedy_tip9 "Todo sale a relucir en la carretera.")
+(comedy_tip10 "Un grupo es la familia disfuncional que eliges.")
+(comedy_tip11
+   "Si a tu nueva canción la llamas \qHimno del Rock\q, más te vale que lo sea."
+)
+(comedy_tip12
+   "Es habitual intentar ser el que más ruido hace durante los ensayos."
+)
+(comedy_tip13
+   "Bajarte los pantalones en el escenario no activará la energía Estrella."
+)
+(comedy_tip14
+   "Si los vecinos se quejan por el ruido, sube el volumen y acaba con ellos."
+)
+(comedy_tip15 "Tu madre no cuenta como una fan.")
+(encore_tip1
+   "Nunca pongas tu bis en tu lista de temas. Tus fans se darán cuenta de que lo planeaste."
+)
+(encore_tip2
+   "Si el personal está ya recogiendo, significa que te has quedado sin bis."
+)
+(encore_tip3
+   "Será mejor asegurarte de que PEDIRÁN un bis antes de guardar tu mejor canción para el final."
+)
+(encore_tip4
+   "Si tu batería está demasiado cansado para un bis, entonces también lo está para la fiesta después del concierto."
+)
+(encore_tip5
+   "Si el público quiere un bis, pero no te quedan canciones, NI SE TE OCURRA improvisar."
+)
+(encore_tip6
+   "Si el público te pide más a gritos y el tío de sonido te dice que no con la cabeza, pasa de él y toca de todas formas."
+)

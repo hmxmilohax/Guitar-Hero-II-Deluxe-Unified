@@ -1,4 +1,11 @@
-#include ../dx/ui/manage_band/dx_manage_band_handles.dta
+#define DX_MANAGE_BAND_HANDLES (
+   (dx_set_chooseprof
+      {pencil.tex set_bitmap "dx/custom_textures/chooseprof/pencil.png"}
+      {notebook_cover.tex set_bitmap
+         "dx/custom_textures/chooseprof/notebook_cover.png"
+      }
+   )
+)
 
 #define MAX_NUM_PROFILES (8)
 #define PROFILE_PANEL_COMMON (
@@ -41,13 +48,14 @@
       {$btn set_text new_band}
    )
    (enter
-      ;dx disable and hide slot 7, which we use to store unlock all campaign
-      {$this disable cp_band7.btn}
-      {cp_band7.btn set_showing FALSE}
-      ;dx disable and hide slot 6, which we use to store settings
-      {$this disable cp_band6.btn}
-      {cp_band6.btn set_showing FALSE}
       {$this set_up_bands}
+      ;dx disable and hide slot 7, which we use to store unlock all campaign
+      {cp_band7.btn set_showing FALSE}
+      {cp_band6.btn set_showing FALSE}
+      {$this disable cp_band7.btn}
+      {$this disable cp_band6.btn}
+      {$this disable cp_band5.btn}
+      {$this disable cp_band4.btn}
       {$this dx_set_chooseprof}
    )
 }
@@ -182,6 +190,7 @@
    (TEXT_ENTRY_MSG
       {do
          ($profile {[prof_ten] get_text})
+         ($length {[prof_ten] length})
          {cond
             ({==
                   $profile
@@ -194,9 +203,16 @@
                   [is_editing]}
                {ui push_screen error_duplicate_profile_screen}
             )
+            ({< $length 3}
+               {ui push_screen error_too_short_screen}
+            )
             (TRUE
                {campaign set_profile_name $profile [profile_slot]}
                {synth play_sequence button_select}
+               {if {! $set_first_name_once}
+                  {set $set_first_name_once TRUE}
+                  {set $first_name $profile}
+               }
                {autosave_goto {$this get next_screen}}
             )
          }
@@ -220,8 +236,6 @@
          {helpbar set_display {get_text_entry_help_text [prof_ten] TRUE}}
       }
    )
-   #endif
-   #ifdef HX_XBOX
    (BUTTON_DOWN_MSG
       {switch $button
          (kPad_Tri
@@ -234,6 +248,13 @@
          )
       }
       kDataUnhandled
+   )
+   (TRANSITION_COMPLETE_MSG
+      {do
+         ($ten {nameprof_panel find profile.ten})
+         {$ten resume_input}
+         {helpbar set_display {get_text_entry_help_text $ten TRUE}}
+      }
    )
    #else
    (BUTTON_DOWN_MSG
@@ -256,16 +277,6 @@
       }
       kDataUnhandled
    )
-   #endif
-   #ifdef HX_XBOX
-   (TRANSITION_COMPLETE_MSG
-      {do
-         ($ten {nameprof_panel find profile.ten})
-         {$ten resume_input}
-         {helpbar set_display {get_text_entry_help_text $ten TRUE}}
-      }
-   )
-   #else
    (TRANSITION_COMPLETE_MSG
       {{nameprof_panel find profile.ten} resume_input}
       {helpbar set_display {$this get_help_text ()}}
@@ -319,14 +330,14 @@
             {nameprof_screen set is_editing TRUE}
             {ui goto_screen nameprof_screen}
          )
+         #ifdef HX_XBOX
+         (delete_band.btn {ui goto_screen delete_band_confirmation_screen})
+         #else
          (delete_band.btn
-            #ifdef HX_XBOX
-            {ui goto_screen delete_band_confirmation_screen}
-            #else
             {delete_confirm set selected_slot [profile_slot]}
             {ui goto_screen delete_confirm}
-            #endif
          )
+         #endif
       }
       kDataUnhandled
    )

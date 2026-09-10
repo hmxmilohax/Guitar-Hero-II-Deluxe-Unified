@@ -1,0 +1,968 @@
+{new UIPanel
+   dialog_extended
+   (file dialog_extended.milo)
+   (force_exit TRUE)
+   (enter
+      {{ui current_screen} reset_ambient}
+      {dl_button6.btn set_local_pos 0 0 -197}
+      {dl_button5.btn set_local_pos 0 0 -175}
+      {dl_button4.btn set_local_pos 0 0 -153}
+      {dl_button3.btn set_local_pos 0 0 -131}
+      {dl_button2.btn set_local_pos 0 0 -109}
+      {dl_button1.btn set_local_pos 0 0 -87}
+   )
+}
+{new GHScreen
+   permadeath_options_screen
+   (panels meta dialog_extended helpbar)
+   (focus dialog_extended)
+   (allow_back FALSE)
+   (animate_transition FALSE)
+   (helpbar
+      (default
+         (
+            (fret1 help_onoff)
+            (strum help_updown)
+         )
+      )
+   )
+   (enter
+      {set $permadeath TRUE}
+      {set $randomizer TRUE}
+      {set $gym_unlock_all FALSE}
+      {set $permadeath_shown_won FALSE}
+      {set $scandlc FALSE}
+      {set $last_index 0}
+      {set $force_all_as_guitar FALSE}
+      {set $return_flow FALSE}
+      #ifdef HX_EE
+      {load_calibration}
+      {set_calibration}
+      {set $num_of_lives 1}
+      #endif
+      {{dialog_extended find dl_title.lbl} set_text {localize perma_welcome}}
+      ;btn1 perma
+      ;btn2 random
+      ;btn3 strum limit
+      ;btn4 force guitar
+      ;btn5 unlock all
+      ;btn6 dlc
+      {do
+         {set_this dialog_extended}
+         {dl_message.lbl set_text {localize perma_welcome_desc}}
+         {dl_button1.btn set_text {localize perma_option}}
+         {dl_button2.btn set_text {localize random_option}}
+         {dl_button3.btn set_text {localize strum_option}}
+         {dl_button4.btn set_text {localize force_option}}
+         {dl_button5.btn set_text {localize unlock_option}}
+
+         #ifdef HX_XBOX
+            ;#ifdef GAME_GH2
+            {dl_button6.btn set_text {localize dlc_option}}
+            {dl_buttons.view set_local_pos 0 0 40}
+            {dl_buttons.view set_local_scale 0.80 1 0.80}
+            ;#else
+            ;{dl_button6.btn set_text " "}
+            ;{dl_buttons.view set_local_pos 0 0 30}
+            ;{dl_buttons.view set_local_scale 0.85 1 0.85}
+            ;{$this disable dl_button6.btn}
+            ;{dl_button6.btn set_showing FALSE}
+            ;#endif
+         #endif
+         #ifndef HX_XBOX
+         {dl_button6.btn set_text " "}
+         {dl_buttons.view set_local_pos 0 0 30}
+         {dl_buttons.view set_local_scale 0.85 1 0.85}
+         {$this disable dl_button6.btn}
+         {dl_button6.btn set_showing FALSE}
+         #endif
+      }
+      {$this set_focus {dialog_extended find dl_button1.btn}}
+   )
+   (text_buttons
+      {{dialog_extended find dl_button1.btn} set_text {localize perma_option}}
+      {{dialog_extended find dl_button2.btn} set_text {localize random_option}}
+      {{dialog_extended find dl_button3.btn} set_text {localize strum_option}}
+      {{dialog_extended find dl_button4.btn} set_text {localize force_option}}
+      {{dialog_extended find dl_button5.btn} set_text {localize unlock_option}}
+      #ifdef HX_XBOX
+         ;#ifdef GAME_GH2
+         {{dialog_extended find dl_button6.btn} set_text {localize dlc_option}}
+         ;#endif
+      #endif
+   )
+   (SELECT_START_MSG
+      {switch $component
+         (dl_button1.btn
+            {set $permadeath {! $permadeath}}
+            {if $permadeath
+               {set $scandlc FALSE}
+               {set $gym_unlock_all FALSE}
+            }
+            {$this text_buttons}
+         )
+         (dl_button2.btn
+            {set $randomizer {! $randomizer}}
+            {if $randomizer
+               {set $scandlc FALSE}
+               {set $gym_unlock_all FALSE}
+            }
+            {$this text_buttons}
+         )
+         (dl_button3.btn
+            {set $strum_limit_disabled {! $strum_limit_disabled}}
+            {$this text_buttons}
+         )
+         (dl_button4.btn
+            {set $force_all_as_guitar {! $force_all_as_guitar}}
+            {force_all_as_guitar $force_all_as_guitar}
+            {$this text_buttons}
+         )
+         (dl_button5.btn
+            {set $gym_unlock_all {! $gym_unlock_all}}
+            {if $gym_unlock_all
+               {set $randomizer FALSE}
+               {set $permadeath FALSE}
+            }
+            {$this text_buttons}
+         )
+         (dl_button6.btn
+            {set $scandlc {! $scandlc}}
+            {if $scandlc
+               {set $randomizer FALSE}
+               {set $permadeath FALSE}
+            }
+            {$this text_buttons}
+         )
+      }
+   )
+   (BUTTON_DOWN_MSG
+      {switch $button
+         (kPad_Start
+            {randomize_career}
+            {set $career_diff_done_once FALSE}
+            {set $qp_diff_done_once FALSE}
+            {set $diff_done_once FALSE}
+            {set $set_to_career_once FALSE}
+            {set $beat_songs_array {array 0}}
+            {resize $beat_songs_array 0}
+            {if $randomizer
+               #ifdef HX_EE
+               ;cant restore saved random setlist, must destroy
+               {if {! {campaign is_empty_profile 1}}
+                  {campaign delete_slot 1}
+               }
+               {set $autosave FALSE}
+               {set $disable_save TRUE}
+               #endif
+            }
+            ;always delete permadeath career
+            {if {! {campaign is_empty_profile 0}}
+               {campaign delete_slot 0}
+            }
+
+            #ifdef HX_XBOX
+            ;save and try and load a milo to disk to check for xenia relative writes enabled
+            {new ObjectDir hw_check}
+            {hw_check set xenia_check (hello)}
+            {hw_check save_objects "GAME:/hw_check.milo"}
+            {set $loaded_xenia {load_objects "GAME:/hw_check.milo"}}
+            #else
+            {set $loaded_xenia TRUE}
+            #endif
+            {if_else $loaded_xenia ;check for game_relative_writes on xbox, skip on ps2
+               {if_else $gym_unlock_all
+                  {ui goto_screen unlock_all_cant_save_screen}
+                  {if_else $permadeath
+                     {ui goto_screen permadeath_threshold_screen}
+                     {if_else
+                        #ifdef HX_XBOX
+                        FALSE
+                        #else
+                        $randomizer
+                        #endif ;cant save random setlist on ps2, skip on xbox
+                        {ui goto_screen not_permadeath_cant_save_screen}
+                        {ui goto_screen not_permadeath_save_screen}
+                     }
+                  }
+               }
+               {ui goto_screen permadeath_xenia_screen}
+            }
+         )
+         kDataUnhandled
+      }
+   )
+}
+{new GHScreen
+   permadeath_xenia_screen
+   DIALOG_SCREEN
+   (enter
+      {$this set_focus {dialog find dl_button1.btn}}
+      {{dialog find dl_title.lbl} set_text {localize cant_xenia_title}}
+      {{dialog find dl_message.lbl} set_text {localize cant_xenia}}
+      {$this disable {dialog find dl_button2.btn}}
+      {$this disable {dialog find dl_button1.btn}}
+      {{dialog find dl_button1.btn} set_text " "}
+      {{dialog find dl_button2.btn} set_showing FALSE}
+   )
+}
+{new GHScreen
+   not_permadeath_cant_save_screen
+   DIALOG_SCREEN
+   (enter
+      {$this set_focus {dialog find dl_button1.btn}}
+      {{dialog find dl_title.lbl} set_text {localize perma_welcome}}
+      {{dialog find dl_message.lbl} set_text {localize cant_save}}
+      {$this disable {dialog find dl_button2.btn}}
+      {{dialog find dl_button1.btn} set_text {localize help_confirm}}
+      {{dialog find dl_button2.btn} set_showing FALSE}
+   )
+   (SELECT_START_MSG
+      {switch $component
+         (dl_button1.btn {ui goto_screen not_permadeath_save_screen})
+         (dl_button2.btn {ui goto_screen not_permadeath_save_screen})
+      }
+   )
+}
+{new GHScreen
+   unlock_all_cant_save_screen
+   DIALOG_SCREEN
+   (enter
+      {$this set_focus {dialog find dl_button1.btn}}
+      {{dialog find dl_title.lbl} set_text {localize perma_welcome}}
+      {{dialog find dl_message.lbl} set_text {localize cant_save_disabled}}
+      {$this disable {dialog find dl_button2.btn}}
+      {{dialog find dl_button1.btn} set_text {localize help_confirm}}
+      {{dialog find dl_button2.btn} set_showing FALSE}
+   )
+   (SELECT_START_MSG
+      {switch $component
+         (dl_button1.btn {ui goto_screen not_permadeath_save_screen})
+         (dl_button2.btn {ui goto_screen not_permadeath_save_screen})
+      }
+   )
+}
+{new GHScreen
+   not_permadeath_save_screen
+   DIALOG_SCREEN
+   (enter
+      #ifdef HX_XBOX
+      {gamecfg set_player 0 {profilemgr active_padnum}}
+      #endif
+      {if {! $gym_unlock_all}
+         {campaign set_all_access 0}
+      }
+      {campaign set_profile_slot
+         {if_else $randomizer
+            1
+            {if_else $gym_unlock_all
+               3
+               2
+            }
+         }
+      }
+      {gamecfg set mode career}
+      {if $gym_unlock_all
+         {campaign set_all_access 1}
+      }
+      #ifdef HX_EE
+      {if_else {campaign is_empty_profile 3}
+         ;if empty, store our initial attempt count
+         {set $lag_audio_int 500}
+         ;load attempt count if exists
+         {set $lag_audio_int {int {alph_to_num {symbol {campaign profile_name 3}}}}}
+      }
+      {set $lag_audio {+ {- $lag_audio_int 500} 0.0}}
+      #endif
+      {if_else {campaign is_empty_profile 4}
+         #ifdef HX_XBOX
+         ;if empty, store our initial live count
+         {set $num_of_lives 1}
+         ;load attempt count if exists
+         {set $num_of_lives {int {alph_to_num {symbol {campaign profile_name 4}}}}}
+         #else
+         ;if empty, store our initial note count
+         {set $lag_video_int 500}
+         ;load note count if exists
+         {set $lag_video_int {int {alph_to_num {symbol {campaign profile_name 4}}}}}
+         #endif
+      }
+      #ifdef HX_EE
+      {set $lag_video {+ {- $lag_video_int 500} 0.0}}
+      #endif
+      ;this doesnt change between xbox and ps2
+      {if_else {campaign is_empty_profile 5}
+         ;if empty, store our initial attempt count
+         {set $this_attempts 0}
+         ;load attempt count if exists
+         {set $this_attempts {int {alph_to_num {symbol {campaign profile_name 5}}}}}
+      }
+      {if_else {campaign is_empty_profile 6}
+         ;if empty, store our initial note count
+         {set $highest_note_streak 0}
+         ;load note count if exists
+         {set $highest_note_streak
+            {int {alph_to_num {symbol {campaign profile_name 6}}}}
+         }
+      }
+      {if_else {campaign is_empty_profile 7}
+         ;if empty, store our initial fc count
+         {set $highest_songs_completed 0}
+         ;load fc count if exists
+         {set $highest_songs_completed
+            {int {alph_to_num {symbol {campaign profile_name 7}}}}
+         }
+      }
+      #ifdef HX_XBOX
+      {campaign set_profile_name {sprint {num_to_alph {sprint $num_of_lives}}} 4}
+      #else
+      {campaign set_profile_name
+         {sprint {num_to_alph {sprint $lag_audio_int}}}
+         3
+      }
+      {campaign set_profile_name
+         {sprint {num_to_alph {sprint $lag_video_int}}}
+         4
+      }
+      #endif
+      {campaign set_profile_name
+         {sprint {num_to_alph {sprint $this_attempts}}}
+         5
+      }
+      {campaign set_profile_name
+         {sprint {num_to_alph {sprint $highest_note_streak}}}
+         6
+      }
+      {campaign set_profile_name
+         {sprint {num_to_alph {sprint $highest_songs_completed}}}
+         7
+      }
+      ;permadeath set initial values to int
+      {set $lives_lost {int 0}}
+      {set $temp_note_streak {int 0}}
+      {set $this_note_streak {int 0}}
+      {set $this_songs_completed {int 0}}
+      {{dialog find dl_button1.btn} set_showing FALSE}
+      {{dialog find dl_button2.btn} set_showing FALSE}
+      {{dialog find dl_message.lbl} set_text {localize mc_title_loading}}
+      {{dialog find dl_title.lbl} set_text {localize mc_loading}}
+      ;go to the game (you lost)
+      {autosave_goto main_screen}
+      #ifdef HX_XBOX
+      ;we arent in permadeath, we can save, this is handled by bootup on ps2
+      {set $autosave TRUE}
+      {set $disable_save FALSE}
+      #endif
+   )
+}
+{new GHScreen
+   permadeath_threshold_screen
+   DIALOG_SCREEN
+   (enter
+      ;panel handle btn1 btn2 default_sel bodymsg header
+      {dialog setup confirm none button1 none gh2_permadeath}
+      {{dialog find dl_title.lbl} set_text {localize gh2_permadeath}}
+      {if {! $accuracy_done_once}
+         {set $accuracy_threshold_arr
+            (full_combo
+               99.9
+               99.8
+               99.7
+               99.6
+               99.5
+               99.4
+               99.3
+               99.2
+               99.1
+               99
+               98
+               97
+               96
+               95
+               94
+               93
+               92
+               91
+               90
+               89
+               88
+               87
+               86
+               85
+               84
+               83
+               82
+               81
+               80
+            )
+         }
+         {set $accuracy_threshold_elem 0}
+      }
+      {set $lowest_acc 0}
+      {set $temp_lowest_acc 0}
+      {$this update_threshold_counter}
+      ;we take over select_start_msg so we dont have to disable the second button
+      {{dialog find dl_button1.btn} set_text {localize help_confirm}}
+      {{dialog find dl_button2.btn} set_showing FALSE}
+   )
+   (update_threshold_counter
+      {set $accuracy_threshold
+         {elem $accuracy_threshold_arr $accuracy_threshold_elem}
+      }
+      {if_else {== $accuracy_threshold_elem 0}
+         {{dialog find dl_message.lbl} set_localized_text
+            {sprintf {localize accuracy_threshold_fc} {localize $accuracy_threshold}}
+         }
+         {if_else
+            {||
+               {== $accuracy_threshold 99.9}
+               {== $accuracy_threshold 99.8}
+               {== $accuracy_threshold 99.7}
+               {== $accuracy_threshold 99.6}
+               {== $accuracy_threshold 99.5}
+               {== $accuracy_threshold 99.4}
+               {== $accuracy_threshold 99.3}
+               {== $accuracy_threshold 99.2}
+               {== $accuracy_threshold 99.1}
+            }
+            {{dialog find dl_message.lbl} set_localized_text
+               {sprintf {localize accuracy_threshold_float} $accuracy_threshold}
+            }
+            {{dialog find dl_message.lbl} set_localized_text
+               {sprintf {localize accuracy_threshold_int} $accuracy_threshold}
+            }
+         }
+      }
+   )
+   (BUTTON_DOWN_MSG
+      ;we removed select_start_msg so we have to replicate the sound effects that would otherwise happen
+      {switch $button
+         (kPad_DUp
+            {if {== $accuracy_threshold_elem 0}
+               {play_sfx button_error}
+            }
+            {if {>= $accuracy_threshold_elem 1}
+               {-- $accuracy_threshold_elem}
+               {synth play_sequence button_toggle}
+            }
+            {$this update_threshold_counter}
+         )
+         (kPad_DDown
+            {if {== $accuracy_threshold_elem {- {size $accuracy_threshold_arr} 1}}
+               {play_sfx button_error}
+            }
+            {if {< $accuracy_threshold_elem {- {size $accuracy_threshold_arr} 1}}
+               {++ $accuracy_threshold_elem}
+               {synth play_sequence button_toggle}
+            }
+            {$this update_threshold_counter}
+         )
+         (kPad_X
+            {ui goto_screen permadeath_lives_screen}
+            {synth play_sequence button_select}
+         )
+      }
+   )
+}
+{new GHScreen
+   permadeath_lives_screen
+   DIALOG_SCREEN
+   (enter
+      #ifdef HX_XBOX
+      {gamecfg set_player 0 {profilemgr active_padnum}}
+      #endif
+      {campaign set_profile_slot 0}
+      {gamecfg set mode career}
+      #ifdef HX_XBOX
+      {if_else {campaign is_empty_profile 4}
+         ;if empty, store our initial live count
+         {set $num_of_lives 1}
+         ;load attempt count if exists
+         {set $num_of_lives {int {alph_to_num {symbol {campaign profile_name 4}}}}}
+      }
+      #endif
+      ;panel handle btn1 btn2 default_sel bodymsg header
+      {dialog setup confirm none button1 none gh2_permadeath}
+      {{dialog find dl_title.lbl} set_text {localize gh2_permadeath}}
+      ;print live selection
+      {{dialog find dl_message.lbl} set_localized_text
+         {sprintf {localize num_lives} $num_of_lives}
+      }
+      ;we take over select_start_msg so we dont have to disable the second button
+      {{dialog find dl_button1.btn} set_text {localize help_confirm}}
+      {{dialog find dl_button2.btn} set_showing FALSE}
+   )
+   (BUTTON_DOWN_MSG
+      ;we removed select_start_msg so we have to replicate the sound effects that would otherwise happen
+      {switch $button
+         (kPad_DUp
+            {if {< $num_of_lives 10}
+               {++ $num_of_lives}
+               {synth play_sequence button_toggle}
+            }
+            {if {== $num_of_lives 10}
+               {play_sfx button_error}
+            }
+         )
+         (kPad_DDown
+            {if {> $num_of_lives 1}
+               {-- $num_of_lives}
+               {synth play_sequence button_toggle}
+            }
+            {if {== $num_of_lives 1}
+               {play_sfx button_error}
+            }
+         )
+         (kPad_X
+            #ifdef HX_XBOX
+            {campaign set_profile_name {sprint {num_to_alph {sprint $num_of_lives}}} 4}
+            #endif
+            {ui goto_screen permadeath_attempts_screen}
+            {synth play_sequence button_select}
+         )
+      }
+      ;update life counter
+      {{dialog find dl_message.lbl} set_localized_text
+         {sprintf {localize num_lives} $num_of_lives}
+      }
+   )
+}
+{new GHScreen
+   permadeath_attempts_screen
+   DIALOG_SCREEN
+   (enter
+      #ifdef HX_EE
+      {if_else {campaign is_empty_profile 3}
+         ;if empty, store our initial attempt count
+         {set $lag_audio_int 500}
+         ;load attempt count if exists
+         {set $lag_audio_int {int {alph_to_num {symbol {campaign profile_name 3}}}}}
+      }
+      {set $lag_audio {+ {- $lag_audio_int 500} 0.0}}
+      #endif
+      {if_else {campaign is_empty_profile 4}
+         #ifdef HX_XBOX
+         ;if empty, store our initial live count
+         {set $num_of_lives 1}
+         ;load attempt count if exists
+         {set $num_of_lives {int {alph_to_num {symbol {campaign profile_name 4}}}}}
+         #else
+         ;if empty, store our initial note count
+         {set $lag_video_int 500}
+         ;load note count if exists
+         {set $lag_video_int {int {alph_to_num {symbol {campaign profile_name 4}}}}}
+         #endif
+      }
+      #ifdef HX_EE
+      {set $lag_video {+ {- $lag_video_int 500} 0.0}}
+      #endif
+      ;this doesnt change between xbox and ps2
+      {if_else {campaign is_empty_profile 5}
+         ;if empty, store our initial attempt count
+         {set $this_attempts 0}
+         ;load attempt count if exists
+         {set $this_attempts {int {alph_to_num {symbol {campaign profile_name 5}}}}}
+      }
+      ;this one does change between xbox and ps2, on ps2 it will store video cal
+      {if_else {campaign is_empty_profile 6}
+         ;if empty, store our initial note count
+         {set $highest_note_streak 0}
+         ;load note count if exists
+         {set $highest_note_streak
+            {int {alph_to_num {symbol {campaign profile_name 6}}}}
+         }
+      }
+      {if_else {campaign is_empty_profile 7}
+         ;if empty, store our initial fc count
+         {set $highest_songs_completed 0}
+         ;load fc count if exists
+         {set $highest_songs_completed
+            {int {alph_to_num {symbol {campaign profile_name 7}}}}
+         }
+      }
+      ;permadeath set initial values to int
+      {set $lives_lost {int 0}}
+      {set $temp_note_streak {int 0}}
+      {set $this_note_streak {int 0}}
+      {set $this_songs_completed {int 0}}
+      ;panel handle btn1 btn2 default_sel bodymsg header
+      {dialog setup continue OPTIONS button1 none gh2_permadeath}
+      {{dialog find dl_title.lbl} set_text {localize gh2_permadeath}}
+      {{dialog find dl_button2.btn} set_showing TRUE}
+      ;print welcome and stats
+      {{dialog find dl_message.lbl} set_localized_text
+         {sprintf
+            {localize permadeath_welcome}
+            $this_attempts
+            $highest_note_streak
+            $highest_songs_completed
+         }
+      }
+   )
+   (SELECT_START_MSG
+      {switch $component
+         (dl_button1.btn
+            {++ $this_attempts}
+            {randomize_career}
+            {set $autosave TRUE}
+            {set $disable_save FALSE}
+            #ifdef HX_XBOX
+            {set $load {load_objects "GAME:/permadeath_settings.milo"}}
+            {if $load
+               {if {$load get career_name}
+                  {set $first_name {$load get career_name}}
+                  {set $set_first_name_once TRUE}
+                  ;all of are other checks are also all or nothing
+                  {set $first_guitar_body {$load get guitar_body}}
+                  {set $first_guitar_skin {$load get guitar_skin}}
+                  {set $set_first_guitar_once TRUE}
+               }
+               {if {$load get career_char}
+                  {set $first_char {$load get career_char}}
+                  {set $set_first_char_once TRUE}
+               }
+               {if {$load get career_diff}
+                  {switch {$load get career_diff}
+                     (0 {set $first_diff kDifficultyEasy})
+                     (1 {set $first_diff kDifficultyMedium})
+                     (2 {set $first_diff kDifficultyHard})
+                     (3 {set $first_diff kDifficultyExpert})
+                  }
+                  {set $set_first_diff_once TRUE}
+               }
+            }
+            {delete $load}
+            #endif
+            {ui goto_screen permadeath_save_screen}
+         )
+         (dl_button2.btn
+            ;go back and pick lives
+            {ui goto_screen permadeath_options_screen}
+         )
+      }
+   )
+}
+
+{new GHScreen
+   permadeath_save_screen
+   DIALOG_SCREEN
+   (enter
+      #ifdef HX_XBOX
+      {campaign set_profile_name {sprint {num_to_alph {sprint $num_of_lives}}} 4}
+      #else
+      {campaign set_profile_name
+         {sprint {num_to_alph {sprint $lag_audio_int}}}
+         3
+      }
+      {campaign set_profile_name
+         {sprint {num_to_alph {sprint $lag_video_int}}}
+         4
+      }
+      #endif
+      {campaign set_profile_name
+         {sprint {num_to_alph {sprint $this_attempts}}}
+         5
+      }
+      {campaign set_profile_name
+         {sprint {num_to_alph {sprint $highest_note_streak}}}
+         6
+      }
+      {campaign set_profile_name
+         {sprint {num_to_alph {sprint $highest_songs_completed}}}
+         7
+      }
+      {if $return_flow
+         {autosave_goto permadeath_options_screen}
+      }
+      {if {! $return_flow}
+         ;go to the game (you lost)
+         {autosave_goto main_screen}
+         ;disable save on new attempt
+         {set $autosave FALSE}
+         {set $disable_save TRUE}
+      }
+      ;always restore return flow after this screen
+      {set $return_flow FALSE}
+   )
+}
+{new GHScreen
+   permadeath_lost_screen
+   DIALOG_SCREEN
+   (enter
+      ;panel handle btn1 btn2 default_sel bodymsg header
+      {dialog setup song_list main_menu button1 none gh2_permadeath}
+      {{dialog find dl_title.lbl} set_text {localize gh2_permadeath}}
+      ;print loss
+      ;| || || |_
+      {if_else
+         {||
+            {== $lives_lost {- $num_of_lives 1}}
+            {<= {- $num_of_lives $lives_lost} 0}
+         }
+         {{dialog find dl_message.lbl} set_localized_text
+            {localize permadeath_lost_final}
+         }
+         {{dialog find dl_message.lbl} set_localized_text
+            {sprintf {localize permadeath_lost} {- $num_of_lives $lives_lost}}
+         }
+      }
+      ;if we completely ran out of lives
+      {if {|| {== $lives_lost $num_of_lives} {<= {- $num_of_lives $lives_lost} 0}}
+         ;reenable saving to store our stats
+         {set $autosave TRUE}
+         {set $disable_save FALSE}
+         ;save stats
+         ;submit note streak as we have lost
+         {if {== $accuracy_threshold_elem 0}
+            {set $this_note_streak {+ $this_note_streak $temp_note_streak}}
+            ;submit highest note streak
+            {if {> $this_note_streak $highest_note_streak}
+               {set $highest_note_streak $this_note_streak}
+            }
+         }
+         {set $this_note_streak {int 0}}
+         {{dialog find dl_message.lbl} set_localized_text
+            {localize permadeath_lost_restart}
+         }
+         ;hide buttons
+         {{dialog find dl_button1.btn} set_showing FALSE}
+         {{dialog find dl_button2.btn} set_showing FALSE}
+      }
+   )
+   (SELECT_START_MSG
+      {if_else {|| {== $lives_lost $num_of_lives} {<= {- $num_of_lives $lives_lost} 0}}
+         ;save stats to file and restart flow
+         {ui goto_screen permadeath_save_screen}
+         ;we arent dead yet
+         {switch $component
+            (dl_button1.btn {ui goto_screen sel_song_screen})
+            (dl_button2.btn {ui goto_screen main_screen})
+         }
+      }
+   )
+}
+{new GHScreen
+   permadeath_go_to_options_screen
+   DIALOG_SCREEN
+   (enter
+      ;panel handle btn1 btn2 default_sel bodymsg header
+      {dialog setup yes no button1 none perma_welcome}
+      {{dialog find dl_title.lbl} set_text {localize perma_welcome}}
+      {{dialog find dl_message.lbl} set_localized_text
+         {localize gym_options_confirm}
+      }
+   )
+   (SELECT_START_MSG
+      {switch $component
+         (dl_button1.btn
+            {reset_all_cheats}
+            {campaign set_profile_slot 1}
+            {ui goto_screen permadeath_options_screen}
+         )
+         (dl_button2.btn
+            {$this backwards_anim}
+            {ui goto_screen manage_band_mid_screen}
+         )
+      }
+   )
+}
+{new UIPanel
+   manage_band_mid_panel
+   (file manage_band.milo)
+   (focus
+      {if_else {|| $gym_unlock_all {&& {! $permadeath} $disable_save}}
+         delete_band.btn
+         rename_band.btn
+      }
+   )
+   (enter
+      {manage_band.lbl set_localized_text {localize perma_welcome}}
+      {rename_band.btn set text_token manage_band}
+      {delete_band.btn set text_token gym_options}
+      {if_else {|| $gym_unlock_all {&& {! $permadeath} $disable_save}}
+         {do
+            {$this set_focus delete_band.btn}
+            {$this disable rename_band.btn}
+         }
+         {do
+            {$this set_focus rename_band.btn}
+            {$this enable rename_band.btn}
+         }
+      }
+   )
+}
+{new GHScreen
+   manage_band_mid_screen
+   (panels meta manage_band_mid_panel helpbar)
+   (focus manage_band_mid_panel)
+   (helpbar
+      (default
+         (
+            (fret1 help_continue)
+            (fret2 help_back)
+            (strum help_updown)
+         )
+      )
+   )
+   (SELECT_START_MSG
+      {switch $component
+         (rename_band.btn
+            {if_else $permadeath
+               {do
+                  {set $set_first_name_once FALSE}
+                  {set $set_first_char_once FALSE}
+                  {set $set_first_guitar_once FALSE}
+                  {set $set_first_diff_once FALSE}
+                  #ifdef HX_XBOX
+                  {new ObjectDir permadeath_settings}
+                  {permadeath_settings set career_name 0}
+                  {permadeath_settings set guitar_body 0}
+                  {permadeath_settings set guitar_skin 0}
+                  {permadeath_settings set career_char 0}
+                  {permadeath_settings set career_diff 0}
+                  {permadeath_settings save_objects "GAME:/permadeath_settings.milo"}
+                  {delete permadeath_settings}
+                  #endif
+                  {ui goto_screen permadeath_go_to_options_screen}
+               }
+               {ui goto_screen options_chooseprof_screen}
+            }
+         )
+         (delete_band.btn {ui goto_screen permadeath_go_to_options_screen})
+      }
+      kDataUnhandled
+   )
+   (BUTTON_DOWN_MSG
+      {if {== $button kPad_Tri}
+         {$this backwards_anim}
+         {ui goto_screen options_screen}
+      }
+      kDataUnhandled
+   )
+}
+{new GHPanel
+   permadeath_overlay_panel
+   (file mtv_overlay.milo)
+   (enter
+      {if $permadeath
+         {$this setup_text}
+         {$this show_overlay TRUE}
+      }
+      {if {! $permadeath}
+         {$this show_overlay FALSE}
+      }
+      ;i love blocks of moving items :letsfuckinggo:
+      {if_else {== {ui current_screen} endgame_screen}
+         {mtv_campaign_song_id.view set_local_pos 275 -10 235}
+         {mtv_campaign_song_id.view set_local_pos 275 -10 200}
+      }
+      {mtv_campaign_song_id.view set_local_scale 0.75 1 0.75}
+      {mtv_campaign_line1.lbl set_local_pos 0 0 -30}
+      {mtv_campaign_line2.lbl set_local_pos 0 0 -55}
+      {mtv_campaign_line3.lbl set_local_pos 0 0 -80}
+      {mtv_campaign_line1_shadow.lbl set_local_pos 3 1 -33}
+      {mtv_campaign_line2_shadow.lbl set_local_pos 3 1 -58}
+      {mtv_campaign_line3_shadow.lbl set_local_pos 3 1 -83}
+   )
+   (setup_text
+      {do
+         ($line1
+            {if_else {== $accuracy_threshold_elem 0}
+               {sprintf {localize overlay_threshold_fc} {localize $accuracy_threshold}}
+               {if_else
+                  {||
+                     {== $accuracy_threshold 99.9}
+                     {== $accuracy_threshold 99.8}
+                     {== $accuracy_threshold 99.7}
+                     {== $accuracy_threshold 99.6}
+                     {== $accuracy_threshold 99.5}
+                     {== $accuracy_threshold 99.4}
+                     {== $accuracy_threshold 99.3}
+                     {== $accuracy_threshold 99.2}
+                     {== $accuracy_threshold 99.1}
+                  }
+                  {sprintf {localize overlay_threshold_float} $accuracy_threshold}
+                  {sprintf {localize overlay_threshold_int} $accuracy_threshold}
+               }
+            }
+         )
+         ($line2
+            {if_else {== $accuracy_threshold_elem 0}
+               {sprintf
+                  {localize overlay_num_lives_streak}
+                  $this_note_streak
+                  {- $num_of_lives 1}
+               }
+               {if_else $lowest_acc
+                  {if_else
+                     {||
+                        {== $accuracy_threshold 99.9}
+                        {== $accuracy_threshold 99.8}
+                        {== $accuracy_threshold 99.7}
+                        {== $accuracy_threshold 99.6}
+                        {== $accuracy_threshold 99.5}
+                        {== $accuracy_threshold 99.4}
+                        {== $accuracy_threshold 99.3}
+                        {== $accuracy_threshold 99.2}
+                        {== $accuracy_threshold 99.1}
+                     }
+                     {sprintf
+                        {localize overlay_num_lives_acc_float}
+                        $lowest_acc
+                        {- $num_of_lives 1}
+                     }
+                     {sprintf
+                        {localize overlay_num_lives_acc_int}
+                        $lowest_acc
+                        {- $num_of_lives 1}
+                     }
+                  }
+                  {sprintf {localize overlay_num_lives} {- $num_of_lives 1}}
+               }
+            }
+         )
+         ($line3
+            {sprintf
+               {localize overlay_songs_complete}
+               {size $beat_songs_array}
+               {- {size {find $syscfg mapped_songs}} 1}
+            }
+         )
+         {do
+            ($prefix "mtv_campaign_line")
+            {mtv_campaign_song_id.view set_showing TRUE}
+            {$this set_line $prefix 1 $line1}
+            {$this set_line $prefix 2 $line2}
+            {$this set_line $prefix 3 $line3}
+         }
+      }
+   )
+   (set_line
+      ($prefix $i $text)
+      {{sprint $prefix $i "_shadow.lbl"} set
+         alignment
+         kMiddleRight
+      }
+      {{sprint $prefix $i ".lbl"} set
+         alignment
+         kMiddleRight
+      }
+      {{sprint
+            $prefix
+            $i
+            ".lbl"} set_text
+         $text
+      }
+      {{sprint
+            $prefix
+            $i
+            "_shadow.lbl"} set_text
+         $text
+      }
+   )
+   (show_overlay
+      ($show)
+      {$this set_showing $show}
+      {$this set_paused {! $show}}
+   )
+}

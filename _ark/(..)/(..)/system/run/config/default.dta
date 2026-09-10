@@ -24,11 +24,7 @@
    )
    (keyboard (disable FALSE))
    (multitap (disable TRUE))
-   #ifdef HX_XBOX
    (language (default eng))
-   #else
-   (language)
-   #endif
    (fp_exceptions TRUE)
    (main_dir 19997 150000)
    (dir_sort
@@ -279,7 +275,7 @@
    (show_timers FALSE)
    (timer_maxms 50)
    #endif
-   (clear_color 0.3 0.3 0.3)
+   (clear_color 0.0 0.0 0.0)
    #ifdef HX_XBOX
    (overlays
       (rate (color 0 0.2 0 0.2))

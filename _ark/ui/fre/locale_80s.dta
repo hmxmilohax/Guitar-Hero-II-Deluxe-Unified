@@ -1,0 +1,138 @@
+(splash_legal
+   "Guitar Hero (TM) Encore: Rocks the 80s (TM) © 2006-2007 Activision Publishing, Inc. Game code © 2005-2007 Harmonix Music Systems, Inc. Developed by Harmonix Music Systems."
+)
+(fest "Rock for Safety Tour")
+(win_easy
+   "Dear ______________________,\n\nCongrats on beating Guitar Hero: Rocks the 80s on Easy. Now it's gonna get a little more gnarly.\n\n You want cash awards? Play on MEDIUM, HARD, or EXPERT. You'll be able to buy new guitars, new finishes... it's gonna be totally major. Oh, AND, maybe even a dope new mode! Bonus!\n\n So like, nice job.\n\nRock on to the max,\nThe Management"
+)
+(win_medium
+   "Dear ______________________,\n\nCongrats, you beat Guitar Hero: Rocks the 80s on Medium. You gotta be stoked!\n\nSo, like, you already know that you can score more cash and buy more stuff if you play HARD or EXPERT, right? Buying stuff is so righteous, and I know your cards are totally maxed out.\n\nSo, like, if you take it up a level, you can party hearty! Congrats on that rippin' performance.\n\nRight on,\nThe Management"
+)
+(win_hard
+   "Dear ______________________,\n\nCongrats, you beat Guitar Hero: Rocks the 80s on Hard. That was totally tubular!\n\nLike, oh my God, do you think you're ready to try this bad boy out on EXPERT? I mean, AS IF. They call it EXPERT for a reason. There might be a killer reward waiting if you can bang it out.\n\nSo, like, get on that already, duh!\n\nFer sure,\nThe Management"
+)
+(win_expert
+   "Dear ______________________,\n\nWow... You just beat Guitar Hero: Rocks the 80s on EXPERT.\n\nLike... NO... WAY! That was, like, unreal.\n\nHave you beaten every song with FIVE STARS? If not, you should, like, totally try. The rewards will seriously be stellar.\n\nAnd, uh, seriously? That was radical. You rock or whatever.\n\nLove,\nThe Management"
+)
+(win_diff "You beat Guitar Hero: Rocks the 80s on the %s difficulty")
+(win_legendary
+   "Your legendary show will be talked about well into the nineties."
+)
+(win_stardom "Ever so righteously done!")
+(sponsor_blurb1
+   "Ernie Ball thinks you might have something special, kiddo. They're gonna start you off right with a sponsorship deal and a premium pack of strings to get you started."
+)
+(sponsor_sub2 "(And your daddy said you'd never make money doing this.)")
+(sponsor_blurb2
+   "Line 6 Amps thought you slayed at that last show - so now it's time to turn it up! They're handing you a sponsorship deal, and a sweet Line 6 amp so you really can crank it."
+)
+(sponsor_sub3 "(Live the dream!)")
+(sponsor_blurb3
+   "That encore performance got people talking and Orange Amps heard all about it. They're handing you a sponsorship deal and a killer Orange amp to make your friends weep with envy."
+)
+(sponsor_sub4 "(Good thing you can afford to buy a bigger wallet.)")
+(sponsor_blurb4
+   "Krank Amps thinks you're about to ride the fame train, and they wanna be on board. They're giving you a sponsorship deal and a stellar Krank amp as your ticket to ride."
+)
+(sponsor_sub5 "(Go roll around in your money!)")
+(sponsor_blurb5
+   "Well, look at you, gettin' all noticed by big wigs. Mesa Boogie was pretty impressed by that last show. They're handing you a major sponsorship deal and a Mesa Boogie amp to keep all eyes and ears focused on you."
+)
+(sponsor_sub6 "(Time to start hiding from the paparazzi.)")
+(sponsor_blurb6
+   "See, wasn't all that practice worth it? Boss Pedals thinks so, and they're handing you a monster sponsorship deal, not to mention enough Boss Pedals to perfectly customize your signature sound!"
+)
+(sponsor_sub7 "(Try not to forget about the little people.)")
+(sponsor_blurb7
+   "Ernie Ball has been with you from the start, and they are so proud of your incredible success. They're giving you a record-breaking sponsorship deal and strings for life. Congratulations."
+)
+(unlock_profaceoff4
+   "So, FACE-OFF Mode is pretty cool, until your goober friend says something totally bogus about you playing the easier track and then calls you a dweeb, and you're like, \qAs IF!\q and it ends in a major spazzfest. Now you can chill because YOUR skill IS boss and you get to prove it in PRO FACE-OFF, a killer note-for-note showdown mode found in the Multiplayer menu. Heavy!\n\nHave fun,\nThe Management"
+)
+(alterna_blurb
+   "Judy Nails might look sweet onstage, but this alterna-girl is rumored to be a wild child in the wings. Having toured her teen years away, Judy is a rock and roll lifer and princess of the pedal board."
+)
+(goth_blurb
+   "Enigmatic and experimental, Pandora is a true trendsetter. Asked about her incomparable new-wave guitar style, Pandora explains that her solos are \qtributes to the radness of robots and plastic.\q"
+)
+(glam_blurb
+   "Media darling and pop culture icon, Izzy Sparks is living the rock and roll dream and every mother's nightmare. With his love of legato and leopard skin, Izzy brings metal to the mainstream masses."
+)
+(grim_blurb
+   "Dudes? It just doesn't get more gnarly than Grim. With his unholy skill and blood-curdling licks, it's no wonder 40,000 are coming to see him at every show. Grim, like, totally kills."
+)
+(metal_blurb
+   "Just a city boy, born and raised in South Peoria, Axel Steel is a fan of arena rock and partyin' in the parking lot. King of the stadium show and master of the tailgate, Axel Steel is a hard-riffin' powerhouse."
+)
+(punk_blurb
+   "A fiend for surf punk and rapid downstrokes, Johnny Napalm spends as much time thrashing onstage as he does gettin' hassled by the 5-0. Fully chaotic and hella toxic, Johnny's all-ages shows are totally legendary."
+)
+(grim_shop_desc
+   "Dudes? It just doesn't get more gnarly than Grim. With his unholy skill and blood-curdling licks, it's no wonder 40,000 are coming to see him at every show. Grim, like, totally kills."
+)
+(eyeball_reward_desc
+   "Once a guy said, \qThank goodness nobody's ever made a 'wacky' guitar designed to look like an eyeball.\q  Somewhere, that man is crying now."
+)
+(battleaxe_reward_desc
+   "It's likely a guy in Manowar actually plays a guitar like this... so that's something."
+)
+(song_header_battle "1. Opening Licks")
+(song_header_small1 "2. Amp-Warmers")
+(song_header_small2 "3. String Snappers")
+(song_header_theatre "4. Return of the Shred")
+(song_header_fest "5. Relentless Riffs")
+(song_header_arena "6. Furious Fretwork")
+(endgame_encore_letter3
+   "Oh my God, the crowd, like, totally worships you. You, like, HAVE to play an encore or they'll just DIE. You can play one more, right?"
+)
+(endgame_encore_letter4
+   "This is, like, the most righteous show EVER. You have the stamina to give 'em one more song, dontcha? Like, please?"
+)
+(endgame_encore_letter5
+   "Whoa, the crowd just will NOT stop chanting your name! Seriously, you gotta play another song! Can you pull it together for a big finish?"
+)
+(comedy_tip1 "It's not how WELL you sing, it's how HIGH you sing.")
+(comedy_tip2
+   "When you are famous, you will have assistants remove your leather pants for you.  Until then, use talcum powder."
+)
+(comedy_tip3
+   "Your singer is correct. \qNight\q is the word that best rhymes with \qnight.\q"
+)
+(comedy_tip4 "Don't stand too close to the flash pots.")
+(comedy_tip5
+   "Keep practicin' that \qAxl Dance.\q You'll get it one of these days."
+)
+(comedy_tip6 "TURN IT UP!")
+(comedy_tip7 "Live the life. Stonewash your underpants.")
+(comedy_tip8
+   "If your hair still moves while you're headbanging, you aren't using enough hairspray."
+)
+(comedy_tip9 "Smell the new cassette tape. This is the scent of rock.")
+(comedy_tip10 "Beware: country bands, too, wear fringed jackets.")
+(comedy_tip11
+   "Before the internet existed, people expressed their love for heavy metal in the bathroom stall."
+)
+(comedy_tip12
+   "It's okay for the drummer to buy, like, the hugest kit ever. No one wants to see his bad make-up anyway."
+)
+(comedy_tip13
+   "A proper modern hard rock solo requires 3 whammies per note. Minimum."
+)
+(comedy_tip14
+   "If your neighbors keep complaining about the noise, turn up the volume until they move away."
+)
+(comedy_tip15 "The crowd will never tire of the lyric \qOh yeah!\q")
+(encore_tip1 "Always re-tease your hair before the encore. ALWAYS.")
+(encore_tip2 "Encore? They needed to ask? Like, DUH!")
+(encore_tip3
+   "For your encore, remember: untested laser effects can look wicked bogus."
+)
+(encore_tip4
+   "Playing a long set can make you tired and mega-grody. Drench your drummer in soda before the encore."
+)
+(encore_tip5
+   "Give the encore all you've got. Do it for the bitchin' babe in the third row in the cut-offs."
+)
+(encore_tip6
+   "General rule of encores: first on the cassette, last in the set."
+)

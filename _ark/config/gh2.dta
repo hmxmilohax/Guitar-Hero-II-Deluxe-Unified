@@ -1,4 +1,5 @@
 #include macros.dta
+#define GAME_GH2 (TRUE)
 #include ../dx/macros/dx_macros.dta
 #include ../dx/overshell/dx_overshell_macros.dta
 (mem
@@ -11,9 +12,7 @@
    (init
       #include system_script.dta
    )
-   #ifdef HX_EE
-   (language (force eng))
-   #endif
+   (language (force ''))
    (iop_modules
       (iop/scrtchpd.irx)
       (iop/sio2man.irx)
@@ -49,16 +48,21 @@
 (joypad
    (ignore)
    (hold_ms 300) ; dx - default 1000
-   (repeat_ms 50)
-) ; dx - default 80
+   (repeat_ms 50) ; dx - default 80
+)
 (spew
    #include spew.dta
 )
-#ifdef HX_XBOX
-#define NON_GAME_TIMERS (world hud track file_read tasks)
-#else
-#define NON_GAME_TIMERS (world hud track file_read end_draw tasks)
-#endif
+#define NON_GAME_TIMERS (
+   world
+   hud
+   track
+   file_read
+   #ifdef HX_EE
+   end_draw
+   #endif
+   tasks
+)
 (timer NON_GAME_TIMERS game cpu gs)
 (rnd
    (title "Guitar Hero 2")
@@ -157,10 +161,26 @@
 )
 (locale
    ../ui/eng/locale_milo.dta
-   ../ui/eng/locale.dta
+   ../ui/eng/locale_shared.dta
+   ../ui/eng/locale_extra.dta
+   ../ui/eng/locale_random_vanilla.dta
+   #ifdef HX_XBOX
+   ../ui/eng/locale_xbox.dta
+   #else
+   ../ui/eng/locale_ps2.dta
+   #endif
+   #ifdef GAME_GH2
+   ../ui/eng/locale_gh2.dta
+   #else
+   ../ui/eng/locale_80s.dta
+   #endif
    ../dx/locale/dx_locale.dta
 )
+#ifdef GAME_GH2
 (venues battle small1 small2 big theatre fest arena stone)
+#else
+(venues battle small1 small2 theatre fest arena)
+#endif
 (default_band metal_singer metal_bass metal_drummer)
 (quick_cheats
    #include cheats.dta
@@ -189,10 +209,30 @@
 (track_graphics
    #include track_graphics.dta
 )
+(song_bank) ;clean storage of all songs in game, in order
+(mapped_songs) ;storage to hold randomized songs at runtime
 (songs
-   #include songs_merge.dta
-   ;store fake songs that hold settings
-   #include songs_settings.dta
+   #ifdef GAME_GH2
+      #ifdef HX_XBOX
+      #include songs_gh2.dta
+      #else
+      #include songs_gh2_ps2.dta
+      #endif
+   #else
+   #include songs_80s.dta
+   #endif
+   #include tutorial_data.dta
+)
+(songs_real
+   #ifdef GAME_GH2
+      #ifdef HX_XBOX
+      #include songs_gh2.dta
+      #else
+      #include songs_gh2_ps2.dta
+      #endif
+   #else
+   #include songs_80s.dta
+   #endif
 )
 (sound
    #include sound.dta
@@ -252,11 +292,13 @@
    #include store.dta
 )
 (campaign
-   #include campaign.dta
+   #ifdef GAME_GH2
+   #include campaign_gh2.dta
+   #else
+   #include campaign_80s.dta
+   #endif
 )
-#ifdef HX_XBOX
 (downloads)
-#endif
 (tips
    #include tips.dta
 )
