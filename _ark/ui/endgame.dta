@@ -5,6 +5,12 @@
    (animate_transition FALSE)
    (pfo_newly_unlocked 0)
    (enter
+      ;dx relock campaign items and set to original profile
+      {if $unlocked_all
+         {set $unlocked_all FALSE}
+         {campaign set_all_access FALSE}
+         {campaign set_profile_slot $return_slot}
+      }
       {crowd_audio turn_off}
       {set $new_venue ""}
       {set $good_to_go TRUE}

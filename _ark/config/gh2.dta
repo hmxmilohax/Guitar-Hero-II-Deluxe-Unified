@@ -182,6 +182,10 @@
 (venues battle small1 small2 theatre fest arena)
 #endif
 (default_band metal_singer metal_bass metal_drummer)
+(all_venues battle batt80 small1 sma801 small2 sma802 big theatre theat80 fest fe80 arena are80 stone)
+(all_guitars
+   #include guitar_skins.dta
+)
 (quick_cheats
    #include cheats.dta
 )
@@ -283,6 +287,54 @@
    (goog1 (goog1) (goog2))
    (glog (glog1) (glog2))
    (alterog1 (alterog1) (alterog2))
+   #endif
+)
+(all_outfits
+   punk1
+   punk2
+   alterna1
+   alterna2
+   glam1
+   glam2
+   goth2
+   goth1
+   metal1
+   metal2
+   rockabill1
+   rockabill2
+   rock2
+   rock1
+   deathmetal1
+   deathmetal2
+   classic
+   funk1
+   grim
+   gr80
+   glam3
+   alterna3
+   punk3
+   goth3
+   metal3
+   #ifdef HX_XBOX
+   fuog1
+   classog
+   puog1
+   puog2
+   grog
+   metog1
+   metog2
+   deathmetog1
+   deathmetog2
+   roog1
+   roog2
+   rockabiog1
+   rockabiog2
+   goog1
+   goog2
+   glog1
+   glog2
+   alterog1
+   alterog2
    #endif
 )
 (mc

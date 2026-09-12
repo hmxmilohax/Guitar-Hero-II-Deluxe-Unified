@@ -164,7 +164,31 @@
    (bass_rhy_switch
       {do
          ($song {gamecfg get_song})
-         {game set_quickplay}
+         {do
+            ($venues {array 0})
+            ($char {array 0})
+            ($guitar_skin {array 0})
+            ($guitar_picked FALSE)
+            {foreach $entry {find $syscfg all_venues}
+               {if {!= {sprint $entry} "all_venues"}
+                  {push_back $venues {eval $entry}}
+               }
+            }
+            {foreach $entry {find $syscfg all_outfits}
+               {if {!= {sprint $entry} "all_outfits"}
+                  {push_back $char {eval $entry}}
+               }
+            }
+            {foreach $entry {find $syscfg all_guitars}
+               {if {!= {sprint $entry} "all_guitars"}
+                  {push_back $guitar_skin {eval $entry}}
+               }
+            }
+            {set $guitar_picked {random_elem $guitar_skin}}
+            {game set_venue {random_elem $venues}}
+            {game set_character {random_elem $char} TRUE}
+            {game set_guitar {elem $guitar_picked 0} {elem $guitar_picked 1}}
+         }
          {if
             {||
                {song_provider has_instrument $song bass}

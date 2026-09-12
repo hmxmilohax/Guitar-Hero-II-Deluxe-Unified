@@ -1996,12 +1996,6 @@
       {$this update_pos}
    )
    (exit
-      ;dx relock campaign items and set to original profile
-      {if $unlocked_all
-         {set $unlocked_all FALSE}
-         {campaign set_all_access FALSE}
-         {campaign set_profile_slot $return_slot}
-      }
       {if {! $leaderboards_mode}
          {if {! $randomizer}
             {song_preview ''}
