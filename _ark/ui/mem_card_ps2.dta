@@ -316,7 +316,7 @@
          (dl_button1.btn {set $autosave FALSE})
          (dl_button2.btn {set $autosave TRUE})
       }
-      {ui goto_screen cut_scene_screen}
+      {ui goto_screen main_screen}
       {set_calibration}
    )
 }
