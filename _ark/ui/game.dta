@@ -113,7 +113,11 @@
       #endif
       {$this dx_on_game_enter} ; dx - Stuff to run on game enter, also runs on song restart
    )
-   ;(exit {$this dx_on_game_exit}) ; dx - Stuff to run on game exit
+   (exit
+      {if $sv_return_venue
+         {game set_venue $sv_return_venue}
+      }
+   )
    (intro_start_msg
       ($fast $encore)
       {track_panel intro_start_msg}

@@ -1671,7 +1671,7 @@
          (
             (fret1 help_continue)
             (fret2 help_back)
-            (start dx_os_helpbar)
+            ;(start dx_os_helpbar)
             (strum help_updown)
          )
       )
@@ -1685,6 +1685,16 @@
       {sel_venue_panel find {sprintf "sv_%s.btn" $venue}}
    )
    (enter
+      {set $sv_deeper FALSE}
+      {set $sv_int 0}
+      {set $sv_frame 1}
+      {set $sv_forced_venue FALSE}
+      {set $sv_return_venue FALSE}
+      #ifdef HX_EE
+      {{sel_venue_panel find banner_gh2.tex} set_bitmap "dx/custom_textures/sel_venue/banner_gh2_ps2.png"}
+      {{sel_venue_panel find banner_80s.tex} set_bitmap "dx/custom_textures/sel_venue/banner_80s_ps2.png"}
+      #endif
+      {{sel_venue_panel find venue_chooser_anims.grp} set_frame 0}
       {campaign foreach_venue $venue
          {do
             ($button {$this venue_button_name $venue})
@@ -1711,65 +1721,170 @@
          (units kTaskUISeconds)
       }
    )
+   (chooser_anim
+      ($venue_num)
+      {sel_venue_panel find
+         {switch $venue_num
+            (1 banner_chooser_battle.tnm)
+            (2 banner_chooser_small1.tnm)
+            (3 banner_chooser_small2.tnm)
+            (5 banner_chooser_theater.tnm)
+            (6 banner_chooser_fest.tnm)
+            (7 banner_chooser_arena.tnm)
+         }
+      }
+   )
+   (open_chooser
+      ($venue_num)
+      {set $sv_frame $venue_num}
+      {do
+         ($anim {$this chooser_anim $venue_num})
+         {$anim set_frame {- $sv_frame 1}}
+         {$anim animate
+            (dest $sv_frame)
+            (period VENUE_MAP_SCROLL_SEC)
+            (units kTaskUISeconds)
+         }
+      }
+   )
+   (close_chooser
+      {{$this chooser_anim $sv_frame} animate
+         (dest {- $sv_frame 1})
+         (period VENUE_MAP_SCROLL_SEC)
+         (units kTaskUISeconds)
+      }
+   )
+   (BUTTON_DOWN_MSG
+      {cond
+         ({&& $sv_deeper {|| {== $button kPad_DDown} {== $button kPad_DUp}}}
+            {set $sv_int {! $sv_int}}
+            {do
+               ($mats (arena battle theater small2 small1 fest))
+               ($tex {sel_venue_panel find {if_else $sv_int banner_80s.tex banner_gh2.tex}})
+               {foreach $entry $mats
+                  {{sel_venue_panel find {sprintf "banner_chooser_%s.mat" $entry}} set diffuse_tex $tex}
+               }
+               {synth play_sequence button_toggle}
+            }
+            TRUE
+         )
+         ({== $button kPad_Tri}
+            {if_else $sv_deeper
+               {do
+                  {set $sv_deeper FALSE}
+                  {$this close_chooser}
+                  {synth play_sequence button_toggle}
+               }
+               {do
+                  {$this backwards_anim}
+                  {synth play_sequence button_back.cue}
+                  {ui goto_screen career_screen}
+               }
+            }
+            kDataUnhandled
+         )
+         (TRUE kDataUnhandled)
+      }
+   )
    (FOCUS_MSG
-      {if {! {ui in_transition}}
-         {switch $new_focus
-            (sv_battle.btn
-               {$this set_venue_map_frame 1}
-               {game set_venue battle}
-            )
-            (sv_small1.btn
-               {$this set_venue_map_frame 2}
-               {game set_venue small1}
-            )
-            (sv_small2.btn
-               {$this set_venue_map_frame 3}
-               {game set_venue small2}
-            )
-            (sv_big.btn
-               {$this set_venue_map_frame 4}
-               {game set_venue big}
-            )
-            (sv_theatre.btn
-               {$this set_venue_map_frame
-                  #ifdef GAME_GH2
-                  5
-                  #else
-                  4
-                  #endif
-               }
-               {game set_venue theatre}
-            )
-            (sv_fest.btn
-               {$this set_venue_map_frame
-                  #ifdef GAME_GH2
-                  6
-                  #else
-                  5
-                  #endif
-               }
-               {game set_venue fest}
-            )
-            (sv_arena.btn
-               {$this set_venue_map_frame
-                  #ifdef GAME_GH2
-                  7
-                  #else
-                  6
-                  #endif
-               }
-               {game set_venue arena}
-            )
-            (sv_stone.btn
-               {$this set_venue_map_frame 8}
-               {game set_venue stone}
-            )
+      {if_else $sv_deeper
+         {$this set_focus $old_focus}
+         {if {! {ui in_transition}}
+            {switch $new_focus
+               (sv_battle.btn
+                  {$this set_venue_map_frame 1}
+                  {game set_venue battle}
+               )
+               (sv_small1.btn
+                  {$this set_venue_map_frame 2}
+                  {game set_venue small1}
+               )
+               (sv_small2.btn
+                  {$this set_venue_map_frame 3}
+                  {game set_venue small2}
+               )
+               (sv_big.btn
+                  {$this set_venue_map_frame 4}
+                  {game set_venue big}
+               )
+               (sv_theatre.btn
+                  {$this set_venue_map_frame 5}
+                  {game set_venue theatre}
+               )
+               (sv_fest.btn
+                  {$this set_venue_map_frame 6}
+                  {game set_venue fest}
+               )
+               (sv_arena.btn
+                  {$this set_venue_map_frame 7}
+                  {game set_venue arena}
+               )
+               (sv_stone.btn
+                  {$this set_venue_map_frame 8}
+                  {game set_venue stone}
+               )
+            }
          }
       }
    )
    (SELECT_START_MSG
-      {ui goto_screen [next_screen]}
       {set $last_index 0} ;reset last hovered song in career
+      {if_else
+         {&&
+            {! $sv_deeper}
+            {||
+               {== $component sv_stone.btn} {== $component sv_big.btn}
+            }
+         }
+         {do
+            {set $sv_forced_venue FALSE} ;big/stone have no 80s swap
+            {ui goto_screen [next_screen]} ;just continue if we dont have venue swaps
+         }
+         {do
+            {if
+               {&&
+                  {! $sv_deeper}
+                  {||
+                     {== $component sv_battle.btn} {== $component sv_small1.btn}
+                     {== $component sv_small2.btn} {== $component sv_theatre.btn}
+                     {== $component sv_fest.btn} {== $component sv_arena.btn}
+                  }
+               }
+               {do
+                  ($num
+                     {switch $component
+                        (sv_battle.btn 1)
+                        (sv_small1.btn 2)
+                        (sv_small2.btn 3)
+                        (sv_theatre.btn 5)
+                        (sv_fest.btn 6)
+                        (sv_arena.btn 7)
+                     }
+                  )
+                  {$this open_chooser $num}
+               }
+            }
+            {if_else $sv_deeper
+               {do
+                  {if_else {== $sv_int 1} ;if the player forced an 80s venue
+                     {set $sv_forced_venue
+                        {switch {game get_venue}
+                           (fest fe80)
+                           (arena are80)
+                           (battle batt80)
+                           (small1 sma801)
+                           (small2 sma802)
+                           (theatre theat80)
+                        }
+                     }
+                     {set $sv_forced_venue FALSE}
+                  }
+                  {ui goto_screen [next_screen]}
+               }
+               {set $sv_deeper TRUE}
+            }
+         }
+      }
       kDataUnhandled
    )
 )
@@ -1780,17 +1895,17 @@
    (allow_back FALSE)
    (next_screen sel_song_screen)
    SEL_VENUE_SCREEN_HANDLERS
-   (BUTTON_DOWN_MSG
-      {cond
-         ({== $button kPad_Tri}
-            {$this backwards_anim}
-            {synth play_sequence button_back.cue}
-            {ui goto_screen career_screen}
-         )
-      }
-      DX_OPEN_OVERSHELL
-      kDataUnhandled
-   )
+   ;(BUTTON_DOWN_MSG
+   ;   {cond
+   ;      ({== $button kPad_Tri}
+   ;         {$this backwards_anim}
+   ;         {synth play_sequence button_back.cue}
+   ;         {ui goto_screen career_screen}
+   ;      )
+   ;   }
+   ;   DX_OPEN_OVERSHELL
+   ;   kDataUnhandled
+   ;)
 }
 #ifdef HX_XBOX
 {new GHScreen
@@ -1837,6 +1952,9 @@
    )
    #endif
    (enter
+      {if $sv_return_venue
+         {game set_venue $sv_return_venue}
+      }
       {{ui current_screen} turn_off_ambient}
       ;dx store original profile and unlock all songs in quickplay
       {dx_song_beater}
@@ -1990,6 +2108,10 @@
    )
    (SELECT_START_MSG
       {sel_song_panel set metamusic_on_exit FALSE}
+      {if $sv_forced_venue
+         {set $sv_return_venue {game get_venue}}
+         {game set_venue $sv_forced_venue}
+      }
       {ui goto_screen loading_screen}
       kDataUnhandled
    )

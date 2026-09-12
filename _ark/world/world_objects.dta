@@ -516,10 +516,15 @@
    )
 )
 #merge arena/arena.dta
+#merge are80/are80.dta
 #merge battle/battle.dta
+#merge batt80/batt80.dta
 #merge big/big.dta
 #merge fest/fest.dta
+#merge fe80/fe80.dta
 #merge small1/small1.dta
+#merge sma801/sma801.dta
 #merge small2/small2.dta
+#merge sma802/sma802.dta
 #merge stone/stone.dta
 #merge theatre/theatre.dta
