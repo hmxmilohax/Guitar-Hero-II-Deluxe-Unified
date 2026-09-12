@@ -165,28 +165,15 @@
       {do
          ($song {gamecfg get_song})
          {do
-            ($venues {array 0})
-            ($char {array 0})
-            ($guitar_skin {array 0})
-            ($guitar_picked FALSE)
-            {foreach $entry {find $syscfg all_venues}
-               {if {!= {sprint $entry} "all_venues"}
-                  {push_back $venues {eval $entry}}
-               }
-            }
-            {foreach $entry {find $syscfg all_outfits}
-               {if {!= {sprint $entry} "all_outfits"}
-                  {push_back $char {eval $entry}}
-               }
-            }
-            {foreach $entry {find $syscfg all_guitars}
-               {if {!= {sprint $entry} "all_guitars"}
-                  {push_back $guitar_skin {eval $entry}}
-               }
-            }
-            {set $guitar_picked {random_elem $guitar_skin}}
-            {game set_venue {random_elem $venues}}
-            {game set_character {random_elem $char} TRUE}
+            ($all_venues {find $syscfg all_venues})
+            ($all_outfits {find $syscfg all_outfits})
+            ($all_guitars {find $syscfg all_guitars})
+            ($venue {random_int 1 {size $all_venues}})
+            ($char {random_int 1 {size $all_outfits}})
+            ($guitar {random_int 1 {size $all_guitars}})
+            ($guitar_picked {elem $all_guitars $guitar})
+            {game set_venue {elem $all_venues $venue}}
+            {game set_character {elem $all_outfits $char} TRUE}
             {game set_guitar {elem $guitar_picked 0} {elem $guitar_picked 1}}
          }
          {if
