@@ -35,7 +35,7 @@ custom_texture_paths = [
 ]
 
 #patchcreator options
-patchcreator = True
+patchcreator = False
 new_ark_part = "1"
 
 #end of options
@@ -62,6 +62,9 @@ if args.platform == "ps2":
         #remove these two if rock band 1
         ark_encrypt = " "
         dtb_encrypt = "-E"
+
+if args.platform == "xbox":
+    ark_encrypt = "-e"
 
 if args.game == "gh2":
     GH2 = True
@@ -429,13 +432,15 @@ for texture_list_path in [root_path.joinpath(path) for path in custom_texture_pa
 ark_part = "0"
 if patchcreator == True:
     ark_part = new_ark_part
-    match args.platform:
-        case "xbox":
-            hdr = str(Path("out", args.game, args.platform, hdr_name + ".hdr"))
-            ark = str(Path("out", args.game, args.platform, hdr_name + "_" + ark_part + ".ark"))
-        case "ps2":
-            hdr = str(Path("out", args.game, args.platform, hdr_name + ".HDR"))
-            ark = str(Path("out", args.game, args.platform, hdr_name + "_" + ark_part + ".ARK"))
+
+ark_out_dir = out_dir if patchcreator == False else out_dir.joinpath(gen_folder)
+if args.platform == "ps2":
+    hdr = str(ark_out_dir.joinpath(hdr_name.upper() + ".HDR"))
+    ark = str(ark_out_dir.joinpath(hdr_name.upper() + "_" + ark_part + ".ARK"))
+else:
+    hdr = str(ark_out_dir.joinpath(hdr_name + ".hdr"))
+    ark = str(ark_out_dir.joinpath(hdr_name + "_" + ark_part + ".ark"))
+
 ninja.build(
     ark,
     "ark",

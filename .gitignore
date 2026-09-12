@@ -49,3 +49,9 @@ platform/gh2/ps2/GEN/MAIN.HDR
 
  
 reference
+dependencies/platform_files/gh2/xbox/videos/wg.wmv
+dependencies/platform_files/gh2/xbox/videos/intro.wmv
+dependencies/platform_files/gh2/xbox/videos/hmx.wmv
+dependencies/platform_files/gh2/ps2/VIDEOS/WG.PSS
+dependencies/platform_files/gh2/ps2/VIDEOS/INTRO.PSS
+dependencies/platform_files/gh2/ps2/VIDEOS/HMX.PSS
