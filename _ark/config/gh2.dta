@@ -216,27 +216,27 @@
 (song_bank) ;clean storage of all songs in game, in order
 (mapped_songs) ;storage to hold randomized songs at runtime
 (songs
-   #ifdef GAME_GH2
+   ;#ifdef GAME_GH2
       #ifdef HX_XBOX
       #include songs_gh2.dta
       #else
       #include songs_gh2_ps2.dta
       #endif
-   #else
+   ;#else
    #include songs_80s.dta
-   #endif
+   ;#endif
    #include tutorial_data.dta
 )
 (songs_real
-   #ifdef GAME_GH2
+   ;#ifdef GAME_GH2
       #ifdef HX_XBOX
       #include songs_gh2.dta
       #else
       #include songs_gh2_ps2.dta
       #endif
-   #else
+   ;#else
    #include songs_80s.dta
-   #endif
+   ;#endif
 )
 (sound
    #include sound.dta
