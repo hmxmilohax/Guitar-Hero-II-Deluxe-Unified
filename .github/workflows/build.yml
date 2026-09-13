@@ -19,14 +19,14 @@ jobs:
           sudo apt-get install -y wine32 xvfb
 
       # 3) Clone the gh2_files repo
-      - name: Clone gh2_files repo
-        run: |
-          git clone https://github.com/Milohax-archive/gh2_files ./temp_gh2_files
+      #- name: Clone gh2_files repo
+      #  run: |
+      #    git clone https://github.com/Milohax-archive/gh2_files ./temp_gh2_files
 
       # 4) Build base ark for patchcreator (using native linux exe, if available)
-      - name: Build base ark
-        run: |
-          ./dependencies/linux/arkhelper dir2ark ./temp_gh2_files/ps2 platform/ps2/GEN -n "MAIN" -s 4073741823
+      #- name: Build base ark
+      #  run: |
+      #    ./dependencies/linux/arkhelper dir2ark ./temp_gh2_files/ps2 platform/ps2/GEN -n "MAIN" -s 4073741823
 
       # 5) Set up Python 3.11
       - name: Set up Python 3.11
@@ -45,13 +45,13 @@ jobs:
       - name: Move Files
         run: |
           mkdir -p ./GEN
-          mv ./platform/ps2/GEN/MAIN_0.ARK ./GEN/MAIN_0.ARK
-          mv ./out/ps2/GEN/MAIN_1.ARK ./GEN/MAIN_1.ARK
-          mv ./out/ps2/GEN/MAIN.HDR ./GEN/MAIN.HDR
-          mv ./out/ps2/GHDX_003.00 ./GHDX_003.00
-          mv ./out/ps2/GHDX_003.01 ./GHDX_003.01
-          mv ./out/ps2/SYSTEM.CNF ./SYSTEM.CNF
-          mv ./out/ps2/IOP ./IOP
+          #mv ./platform/ps2/gh2/GEN/MAIN_0.ARK ./GEN/MAIN_0.ARK
+          mv ./out/ps2/gh2/GEN/MAIN_0.ARK ./GEN/MAIN_0.ARK
+          mv ./out/ps2/gh2/GEN/MAIN.HDR ./GEN/MAIN.HDR
+          mv ./out/ps2/gh2/GHDX_003.00 ./GHDX_003.00
+          mv ./out/ps2/gh2/GHDX_003.01 ./GHDX_003.01
+          mv ./out/ps2/gh2/SYSTEM.CNF ./SYSTEM.CNF
+          mv ./out/ps2/gh2/IOP ./IOP
 
 
       # 8) Build ISO with ImgBurn (via Wine + Xvfb)
@@ -90,5 +90,30 @@ jobs:
       - name: Upload result
         uses: actions/upload-artifact@v4
         with:
-          name: GH2_UNIFIED
+          name: GH2_UNIFIED_PS2
           path: out/gh2_u.iso
+  build_xbox:
+    runs-on: ubuntu-latest
+    steps:
+      # 1) Check out this main repo
+      - uses: actions/checkout@v4
+
+      # 2) Set up Python 3.11
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # 3) Build ARK (native)
+      - name: Build ARK
+        run: |
+          pip install pillow
+          python dependencies/python/configure_build.py xbox
+          ./dependencies/linux/ninja
+
+      # 10) Upload the final ISO artifact
+      - name: Upload result
+        uses: actions/upload-artifact@v4
+        with:
+          name: gh2_unified_xbox
+          path: out/gh2/xbox
