@@ -367,6 +367,67 @@
    )
    (poll {scl_loading.lbl set_showing {! {char_single are_chars_loaded}}})
    (exit {set [skin_select] FALSE})
+   ;extended outfits are their own chars in gh2.dta, so map them here
+   (update_alt_outfits
+      {set $alt3outfit FALSE}
+      {set $alt4outfit FALSE}
+      {set $alt5outfit FALSE}
+      {switch [char_focus]
+         (punk
+            {set $alt3outfit punk3}
+            #ifdef HX_XBOX
+            {set $alt4outfit puog1}
+            {set $alt5outfit puog2}
+            #endif
+         )
+         (alterna
+            {set $alt3outfit alterna3}
+            #ifdef HX_XBOX
+            {set $alt4outfit alterog1}
+            {set $alt5outfit alterog2}
+            #endif
+         )
+         (glam
+            {set $alt3outfit glam3}
+            #ifdef HX_XBOX
+            {set $alt4outfit glog1}
+            {set $alt5outfit glog2}
+            #endif
+         )
+         (goth
+            {set $alt3outfit goth3}
+            #ifdef HX_XBOX
+            {set $alt4outfit goog1}
+            {set $alt5outfit goog2}
+            #endif
+         )
+         (metal
+            {set $alt3outfit metal3}
+            #ifdef HX_XBOX
+            {set $alt4outfit metog1}
+            {set $alt5outfit metog2}
+            #endif
+         )
+         #ifdef HX_XBOX
+         (rockabill
+            {set $alt3outfit rockabiog1}
+            {set $alt4outfit rockabiog2}
+         )
+         (deathmetal
+            {set $alt3outfit deathmetog1}
+            {set $alt4outfit deathmetog2}
+         )
+         (rock
+            {set $alt3outfit roog1}
+            {set $alt4outfit roog2}
+         )
+         (grim {set $alt3outfit grog})
+         #endif
+      }
+      {set $dx_third_outfit {&& $alt3outfit {campaign is_unlocked $alt3outfit}}}
+      {set $dx_fourth_outfit {&& $alt4outfit {campaign is_unlocked $alt4outfit}}}
+      {set $dx_fifth_outfit {&& $alt5outfit {campaign is_unlocked $alt5outfit}}}
+   )
    (choose_skins
       {set [skin_select] TRUE}
       {text_character.grp set_showing FALSE}
@@ -376,115 +437,89 @@
          (period SKIN_ANIM_TIME)
          (range 0 10)
       }
-      {if_else
-         {==
-            {character_provider get_outfit [char_focus] 1}
-            [char_outfit]
+      {do
+         ($has_alt2 {> {character_provider num_outfits [char_focus]} 1})
+         ($focus_btn outfit1.btn)
+         {outfit1.btn set_text
+            {sprint {character_provider get_outfit [char_focus] 0} _outfit}
          }
-         {$this set_focus outfit2.btn}
-         {$this set_focus outfit1.btn}
-      }
-      ;set up another static list to detirmine if a 3rd, 4th, and 5th alt outfit is available for the selected char
-      ;then also store that outfit name
-      {if $dx_third_outfit
-         {set $alt3outfit 0}
-         {switch [char_focus]
-            (alterna {set $alt3outfit alterna3})
-            (glam {set $alt3outfit glam3})
-            (punk {set $alt3outfit punk3})
-            (metal {set $alt3outfit metal3})
-            (goth {set $alt3outfit goth3})
-            (rockabill {set $alt3outfit rockabiog})
-            (deathmetal {set $alt3outfit deathmetog1})
-            (grim {set $alt3outfit grog})
-            (rock {set $alt3outfit roog1})
-         }
-      }
-      {if $dx_fourth_outfit
-         {set $alt4outfit 0}
-         {switch [char_focus]
-            (alterna {set $alt4outfit alterog1})
-            (glam {set $alt4outfit glog})
-            (punk {set $alt4outfit puog})
-            (metal {set $alt4outfit metog1})
-            (goth {set $alt4outfit goog1})
-            (rockabill {set $alt4outfit rockabiog})
-            (deathmetal {set $alt4outfit deathmetog1})
-            (rock {set $alt4outfit roog1})
-         }
-      }
-      {if $dx_fifth_outfit
-         {set $alt5outfit 0}
-         {switch [char_focus]
-            (alterna {set $alt5outfit alterog1})
-            (glam {set $alt5outfit glog})
-            (punk {set $alt5outfit puog})
-            (metal {set $alt5outfit metog1})
-            (goth {set $alt5outfit goog1})
-         }
-      }
-      ;if a third outfit is found, enable our third button, otherwise disable it
-      {if_else $dx_third_outfit
-         {do
-            {$this enable outfit0.btn}
-            {outfit0.btn set_showing TRUE}
-            {outfit0.btn set_text
-               {sprint
-                  {character_provider get_outfit $alt3outfit 0}
-                  _outfit
+         {if_else $has_alt2
+            {do
+               {$this enable outfit2.btn}
+               {outfit2.btn set_showing TRUE}
+               {outfit2.btn set_text
+                  {sprint {character_provider get_outfit [char_focus] 1} _outfit}
+               }
+               {if {== [char_outfit] {character_provider get_outfit [char_focus] 1}}
+                  {set $focus_btn outfit2.btn}
+               }
+            }
+            {do
+               {$this disable outfit2.btn}
+               {outfit2.btn set_showing TRUE}
+               {outfit2.btn set_text
+                  {sprint {character_provider get_outfit [char_focus] 1} _outfit}
                }
             }
          }
-         {do
-            {$this disable outfit0.btn}
-            {outfit0.btn set_showing FALSE}
-         }
-      }
-      ;if a fourth outfit is found, enable our fourth button, otherwise disable it
-      {if_else $dx_fourth_outfit
-         {do
-            {$this enable outfit3.btn}
-            {outfit3.btn set_showing TRUE}
-            {outfit3.btn set_text
-               {sprint
-                  {character_provider get_outfit $alt4outfit 0}
-                  _outfit
+         {if_else $alt3outfit
+            {do
+               {outfit0.btn set_showing TRUE}
+               {outfit0.btn set_text {sprint $alt3outfit _outfit}}
+               {if_else $dx_third_outfit
+                  {do
+                     {$this enable outfit0.btn}
+                     {if {== [char_outfit] $alt3outfit}
+                        {set $focus_btn outfit0.btn}
+                     }
+                  }
+                  {$this disable outfit0.btn}
                }
             }
-         }
-         {do
-            {$this disable outfit3.btn}
-            {outfit3.btn set_showing FALSE}
-         }
-      }
-      ;if a fifth outfit is found, enable our fifth button, otherwise disable it
-      {if_else $dx_fifth_outfit
-         {do
-            {$this enable outfit4.btn}
-            {outfit4.btn set_showing TRUE}
-            {outfit4.btn set_text
-               {sprint
-                  {character_provider get_outfit $alt5outfit 1}
-                  _outfit
-               }
+            {do
+               {$this disable outfit0.btn}
+               {outfit0.btn set_showing FALSE}
             }
          }
-         {do
-            {$this disable outfit4.btn}
-            {outfit4.btn set_showing FALSE}
+         {if_else $alt4outfit
+            {do
+               {outfit3.btn set_showing TRUE}
+               {outfit3.btn set_text {sprint $alt4outfit _outfit}}
+               {if_else $dx_fourth_outfit
+                  {do
+                     {$this enable outfit3.btn}
+                     {if {== [char_outfit] $alt4outfit}
+                        {set $focus_btn outfit3.btn}
+                     }
+                  }
+                  {$this disable outfit3.btn}
+               }
+            }
+            {do
+               {$this disable outfit3.btn}
+               {outfit3.btn set_showing FALSE}
+            }
          }
-      }
-      {outfit1.btn set_text
-         {sprint
-            {character_provider get_outfit [char_focus] 0}
-            _outfit
+         {if_else $alt5outfit
+            {do
+               {outfit4.btn set_showing TRUE}
+               {outfit4.btn set_text {sprint $alt5outfit _outfit}}
+               {if_else $dx_fifth_outfit
+                  {do
+                     {$this enable outfit4.btn}
+                     {if {== [char_outfit] $alt5outfit}
+                        {set $focus_btn outfit4.btn}
+                     }
+                  }
+                  {$this disable outfit4.btn}
+               }
+            }
+            {do
+               {$this disable outfit4.btn}
+               {outfit4.btn set_showing FALSE}
+            }
          }
-      }
-      {outfit2.btn set_text
-         {sprint
-            {character_provider get_outfit [char_focus] 1}
-            _outfit
-         }
+         {$this set_focus $focus_btn}
       }
    )
    (unchoose_skins
@@ -955,48 +990,15 @@
       }
       {do
          ($sel_char {sel_character_panel get char_focus})
-         ;that's right, we are hardcoding maps between characters for outfits
-         ;outfit 3 is 80s, or ps2 outfit 1 on xbox
-         ;outfit og1 is outfit 1 on xbox on chars from ps2
-         ;outfit og2 is the remaining outfit 2's from ps2 on xbox
-
-         ;we do the same for 4 and 5 outfit support
-         ;these flags enable and disable buttons dynamically in outfit select based on num of combined outfits across characters
-         {set $dx_third_outfit FALSE}
-         {switch {sel_character_panel get char_focus}
-            (
-               (punk
-                  alterna
-                  glam
-                  goth
-                  metal
-                  #ifdef HX_XBOX
-                  rockabill
-                  rock
-                  grim
-                  deathmetal
-                  #endif
-               )
-               {set $dx_third_outfit TRUE}
-            )
-         }
-         #ifdef HX_XBOX
-         {set $dx_fourth_outfit FALSE}
-         {switch {sel_character_panel get char_focus}
-            (
-               (punk alterna glam goth metal rockabill rock deathmetal) ;port these and add when done rockabill rock deathmetal
-               {set $dx_fourth_outfit TRUE}
-            )
-         }
-         {set $dx_fifth_outfit FALSE}
-         {switch {sel_character_panel get char_focus}
-            (
-               (punk alterna glam goth metal)
-               {set $dx_fifth_outfit TRUE} ;set to true when remaining outfits are ported
-            )
-         }
-         #endif
-         {if_else {> {character_provider num_outfits $sel_char} 1}
+         ;num_outfits doesnt know about the extended chars
+         {sel_character_panel update_alt_outfits}
+         {if_else
+            {||
+               {> {character_provider num_outfits $sel_char} 1}
+               $dx_third_outfit
+               $dx_fourth_outfit
+               $dx_fifth_outfit
+            }
             {sel_character_panel choose_skins}
             {do
                {game set_character {sel_character_panel get char_outfit} TRUE}
