@@ -38,7 +38,7 @@ jobs:
       - name: Build ARK
         run: |
           pip install pillow
-          python dependencies/python/configure_build.py ps2
+          python dependencies/python/configure_build.py ps2 gh2
           ./dependencies/linux/ninja
 
       # 7) Move ark to output
@@ -46,12 +46,12 @@ jobs:
         run: |
           mkdir -p ./GEN
           #mv ./platform/ps2/gh2/GEN/MAIN_0.ARK ./GEN/MAIN_0.ARK
-          mv ./out/ps2/gh2/GEN/MAIN_0.ARK ./GEN/MAIN_0.ARK
-          mv ./out/ps2/gh2/GEN/MAIN.HDR ./GEN/MAIN.HDR
-          mv ./out/ps2/gh2/GHDX_003.00 ./GHDX_003.00
-          mv ./out/ps2/gh2/GHDX_003.01 ./GHDX_003.01
-          mv ./out/ps2/gh2/SYSTEM.CNF ./SYSTEM.CNF
-          mv ./out/ps2/gh2/IOP ./IOP
+          mv ./out/gh2/ps2/GEN/MAIN_0.ARK ./GEN/MAIN_0.ARK
+          mv ./out/gh2/ps2/GEN/MAIN.HDR ./GEN/MAIN.HDR
+          mv ./out/gh2/ps2/GHDX_003.00 ./GHDX_003.00
+          mv ./out/gh2/ps2/GHDX_003.01 ./GHDX_003.01
+          mv ./out/gh2/ps2/SYSTEM.CNF ./SYSTEM.CNF
+          mv ./out/gh2/ps2/IOP ./IOP
 
 
       # 8) Build ISO with ImgBurn (via Wine + Xvfb)
@@ -108,10 +108,10 @@ jobs:
       - name: Build ARK
         run: |
           pip install pillow
-          python dependencies/python/configure_build.py xbox
+          python dependencies/python/configure_build.py xbox gh2
           ./dependencies/linux/ninja
 
-      # 10) Upload the final ISO artifact
+      # 4) Upload the final output
       - name: Upload result
         uses: actions/upload-artifact@v4
         with:
