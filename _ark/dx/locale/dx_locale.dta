@@ -79,6 +79,7 @@
 (grog "Grim Ripper")
 (rock3 "Casey Lynch")
 (roog1 "Casey Lynch")
+(roog2 "Casey Lynch")
 (fuog1 "Xavier Stone")
 (classog "Clive Winston")
 (deathmetog1 "Lars Ümlaüt")
@@ -291,6 +292,12 @@
 )
 (rockabiog2_blurb
    "When he's not cruisin' in his '55 Chevy, Eddie brings his hard-working rock to any stage he sets foot on. A real \qroad dog,\q Eddie Knox claims that as long as he's got his hollow body and his pomade, he \qain't too far from home.\q"
+)
+(puog2_shop_desc
+   "Johnny has a couple of different looks, but neither of them involves bathing. With liberty spikes and a bullet belt, Johnny makes sordid, degenerate behavior look pretty good."
+)
+(puog1_shop_desc
+   "Johnny has a couple of different looks, but neither of them involves bathing. With liberty spikes and a bullet belt, Johnny makes sordid, degenerate behavior look pretty good."
 )
 
 ; Welcome screen
