@@ -1,0 +1,4 @@
+(objects
+   #include objects.dta
+)
+#merge ../../../system/run/config/rndexp.dta
