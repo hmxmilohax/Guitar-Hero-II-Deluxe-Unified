@@ -18,10 +18,12 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y wine32 xvfb
 
-      # 3) Clone the gh2_files repo
-      #- name: Clone gh2_files repo
-      #  run: |
-      #    git clone https://github.com/Milohax-archive/gh2_files ./temp_gh2_files
+      # 3) Clone the gh2vids repo
+      - name: Clone gh2vids repo
+        run: |
+          git clone https://github.com/hmxmilohax/gh2vids ./temp_gh2vids
+          cd ./temp_gh2vids && git lfs pull -I "gh2/ps2/VIDEOS/*" && cd ..
+          cp -r ./temp_gh2vids/gh2/ps2/VIDEOS ./VIDEOS
 
       # 4) Build base ark for patchcreator (using native linux exe, if available)
       #- name: Build base ark
@@ -68,7 +70,7 @@ jobs:
             /OVERWRITE YES \
             /ROOTFOLDER TRUE \
             /NOIMAGEDETAILS \
-            /SRC "./SYSTEM.CNF|IOP|./GHDX_003.00|./GHDX_003.01|./README.MD|GEN" \
+            /SRC "./SYSTEM.CNF|IOP|./GHDX_003.00|./GHDX_003.01|VIDEOS|./README.MD|GEN" \
             /DEST ./out/gh2_u.iso \
             /START \
             /CLOSE
@@ -111,7 +113,14 @@ jobs:
           python dependencies/python/configure_build.py xbox gh2
           ./dependencies/linux/ninja
 
-      # 4) Upload the final output
+      # 4) Clone the gh2vids repo
+      - name: Clone gh2vids repo
+        run: |
+          git clone https://github.com/hmxmilohax/gh2vids ./temp_gh2vids
+          cd ./temp_gh2vids && git lfs pull -I "gh2/xbox/videos/*" && cd ..
+          cp -r ./temp_gh2vids/gh2/xbox/videos/. ./out/gh2/xbox/videos/
+
+      # 5) Upload the final output
       - name: Upload result
         uses: actions/upload-artifact@v4
         with:
